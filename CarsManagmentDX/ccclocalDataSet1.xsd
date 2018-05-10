@@ -1,0 +1,183 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ccclocalDataSet" targetNamespace="http://tempuri.org/ccclocalDataSet1.xsd" xmlns:mstns="http://tempuri.org/ccclocalDataSet1.xsd" xmlns="http://tempuri.org/ccclocalDataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="ccclocalConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="ccclocalConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.StoresManagmentDX.Properties.Settings.GlobalReference.Default.ccclocalConnectionString" Provider="MySql.Data.MySqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="colorTableAdapter" GeneratorDataComponentClassName="colorTableAdapter" Name="color" UserDataComponentName="colorTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ccclocalConnectionString (Settings)" DbObjectName="ccclocal.color" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Color_ID, Color_Name, Type_ID FROM color</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="dataTableAdapter" GeneratorDataComponentClassName="dataTableAdapter" Name="data" UserDataComponentName="dataTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ccclocalConnectionString (Settings)" DbObjectName="ccclocal.data" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Data_ID, Description, Carton, Code, Type_ID, Factory_ID, Group_ID, Product_ID, Classification, BarCode, Photo, Color_ID, Size_ID, Sort_ID FROM data</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="data_detailsTableAdapter" GeneratorDataComponentClassName="data_detailsTableAdapter" Name="data_details" UserDataComponentName="data_detailsTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ccclocalConnectionString (Settings)" DbObjectName="ccclocal.data_details" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT DataDetails_ID, Code, Photo, Type FROM data_details</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="factoryTableAdapter" GeneratorDataComponentClassName="factoryTableAdapter" Name="factory" UserDataComponentName="factoryTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ccclocalConnectionString (Settings)" DbObjectName="ccclocal.factory" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Factory_ID, Factory_Name, Type_ID FROM factory</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="groupoTableAdapter" GeneratorDataComponentClassName="groupoTableAdapter" Name="groupo" UserDataComponentName="groupoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ccclocalConnectionString (Settings)" DbObjectName="ccclocal.groupo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Group_ID, Group_Name, Factory_ID FROM groupo</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="productTableAdapter" GeneratorDataComponentClassName="productTableAdapter" Name="product" UserDataComponentName="productTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ccclocalConnectionString (Settings)" DbObjectName="ccclocal.product" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Product_ID, Product_Name, Group_ID FROM product</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sizeTableAdapter" GeneratorDataComponentClassName="sizeTableAdapter" Name="size" UserDataComponentName="sizeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ccclocalConnectionString (Settings)" DbObjectName="ccclocal.size" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Size_ID, Size_Value, Factory_ID FROM size</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sortTableAdapter" GeneratorDataComponentClassName="sortTableAdapter" Name="sort" UserDataComponentName="sortTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ccclocalConnectionString (Settings)" DbObjectName="ccclocal.sort" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Sort_ID, Sort_Value FROM sort</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="typeTableAdapter" GeneratorDataComponentClassName="typeTableAdapter" Name="type" UserDataComponentName="typeTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="ccclocalConnectionString (Settings)" DbObjectName="ccclocal.type" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT Type_ID, Type_Name FROM type</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings />
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ccclocalDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="ccclocalDataSet" msprop:Generator_UserDSName="ccclocalDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="color" msprop:Generator_TableClassName="colorDataTable" msprop:Generator_TableVarName="tablecolor" msprop:Generator_TablePropName="color" msprop:Generator_RowDeletingName="colorRowDeleting" msprop:Generator_RowChangingName="colorRowChanging" msprop:Generator_RowEvHandlerName="colorRowChangeEventHandler" msprop:Generator_RowDeletedName="colorRowDeleted" msprop:Generator_UserTableName="color" msprop:Generator_RowChangedName="colorRowChanged" msprop:Generator_RowEvArgName="colorRowChangeEvent" msprop:Generator_RowClassName="colorRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="data" msprop:Generator_TableClassName="dataDataTable" msprop:Generator_TableVarName="tabledata" msprop:Generator_TablePropName="data" msprop:Generator_RowDeletingName="dataRowDeleting" msprop:Generator_RowChangingName="dataRowChanging" msprop:Generator_RowEvHandlerName="dataRowChangeEventHandler" msprop:Generator_RowDeletedName="dataRowDeleted" msprop:Generator_UserTableName="data" msprop:Generator_RowChangedName="dataRowChanged" msprop:Generator_RowEvArgName="dataRowChangeEvent" msprop:Generator_RowClassName="dataRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="data_details" msprop:Generator_TableClassName="data_detailsDataTable" msprop:Generator_TableVarName="tabledata_details" msprop:Generator_TablePropName="data_details" msprop:Generator_RowDeletingName="data_detailsRowDeleting" msprop:Generator_RowChangingName="data_detailsRowChanging" msprop:Generator_RowEvHandlerName="data_detailsRowChangeEventHandler" msprop:Generator_RowDeletedName="data_detailsRowDeleted" msprop:Generator_UserTableName="data_details" msprop:Generator_RowChangedName="data_detailsRowChanged" msprop:Generator_RowEvArgName="data_detailsRowChangeEvent" msprop:Generator_RowClassName="data_detailsRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="factory" msprop:Generator_TableClassName="factoryDataTable" msprop:Generator_TableVarName="tablefactory" msprop:Generator_TablePropName="factory" msprop:Generator_RowDeletingName="factoryRowDeleting" msprop:Generator_RowChangingName="factoryRowChanging" msprop:Generator_RowEvHandlerName="factoryRowChangeEventHandler" msprop:Generator_RowDeletedName="factoryRowDeleted" msprop:Generator_UserTableName="factory" msprop:Generator_RowChangedName="factoryRowChanged" msprop:Generator_RowEvArgName="factoryRowChangeEvent" msprop:Generator_RowClassName="factoryRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="groupo" msprop:Generator_TableClassName="groupoDataTable" msprop:Generator_TableVarName="tablegroupo" msprop:Generator_TablePropName="groupo" msprop:Generator_RowDeletingName="groupoRowDeleting" msprop:Generator_RowChangingName="groupoRowChanging" msprop:Generator_RowEvHandlerName="groupoRowChangeEventHandler" msprop:Generator_RowDeletedName="groupoRowDeleted" msprop:Generator_UserTableName="groupo" msprop:Generator_RowChangedName="groupoRowChanged" msprop:Generator_RowEvArgName="groupoRowChangeEvent" msprop:Generator_RowClassName="groupoRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="product" msprop:Generator_TableClassName="productDataTable" msprop:Generator_TableVarName="tableproduct" msprop:Generator_TablePropName="product" msprop:Generator_RowDeletingName="productRowDeleting" msprop:Generator_RowChangingName="productRowChanging" msprop:Generator_RowEvHandlerName="productRowChangeEventHandler" msprop:Generator_RowDeletedName="productRowDeleted" msprop:Generator_UserTableName="product" msprop:Generator_RowChangedName="productRowChanged" msprop:Generator_RowEvArgName="productRowChangeEvent" msprop:Generator_RowClassName="productRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="size" msprop:Generator_TableClassName="sizeDataTable" msprop:Generator_TableVarName="tablesize" msprop:Generator_TablePropName="size" msprop:Generator_RowDeletingName="sizeRowDeleting" msprop:Generator_RowChangingName="sizeRowChanging" msprop:Generator_RowEvHandlerName="sizeRowChangeEventHandler" msprop:Generator_RowDeletedName="sizeRowDeleted" msprop:Generator_UserTableName="size" msprop:Generator_RowChangedName="sizeRowChanged" msprop:Generator_RowEvArgName="sizeRowChangeEvent" msprop:Generator_RowClassName="sizeRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="sort" msprop:Generator_TableClassName="sortDataTable" msprop:Generator_TableVarName="tablesort" msprop:Generator_TablePropName="sort" msprop:Generator_RowDeletingName="sortRowDeleting" msprop:Generator_RowChangingName="sortRowChanging" msprop:Generator_RowEvHandlerName="sortRowChangeEventHandler" msprop:Generator_RowDeletedName="sortRowDeleted" msprop:Generator_UserTableName="sort" msprop:Generator_RowChangedName="sortRowChanged" msprop:Generator_RowEvArgName="sortRowChangeEvent" msprop:Generator_RowClassName="sortRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="type" msprop:Generator_TableClassName="typeDataTable" msprop:Generator_TableVarName="tabletype" msprop:Generator_TablePropName="type" msprop:Generator_RowDeletingName="typeRowDeleting" msprop:Generator_RowChangingName="typeRowChanging" msprop:Generator_RowEvHandlerName="typeRowChangeEventHandler" msprop:Generator_RowDeletedName="typeRowDeleted" msprop:Generator_UserTableName="type" msprop:Generator_RowChangedName="typeRowChanged" msprop:Generator_RowEvArgName="typeRowChangeEvent" msprop:Generator_RowClassName="typeRow">
+          <xs:complexType>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
