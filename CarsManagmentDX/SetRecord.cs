@@ -19,7 +19,7 @@ namespace StoresManagmentDX
         XtraTabControl xtraTabControlStoresContent = null;
         DataGridViewRow row1 = null, row2 = null;
         bool loaded=false;
-        TipImage tipImage = null;
+        public static TipImage tipImage = null;
         Ataqm ataqm = null;
         public SetRecord(Ataqm ataqm, XtraTabControl xtraTabControlStoresContent)
         {
@@ -81,9 +81,7 @@ namespace StoresManagmentDX
                 comProduct.ValueMember = dt.Columns["Product_ID"].ToString();
                 comProduct.Text = "";
                 txtProduct.Text = "";
-
-
-
+                
                 loaded = true;
 
             }
@@ -317,22 +315,7 @@ namespace StoresManagmentDX
                 {
                     if (row1 != null)
                     {
-                        int n = dataGridView2.Rows.Add();
-                        dataGridView2.Rows[n].Cells[0].Value = row1.Cells[0].Value;
-                        dataGridView2.Rows[n].Cells[1].Value = row1.Cells[1].Value;
-                        dataGridView2.Rows[n].Cells[2].Value = txtQuantity.Text;
-                        dataGridView2.Rows[n].Cells[3].Value = row1.Cells[2].Value;
-                        dataGridView2.Rows[n].Cells[4].Value = row1.Cells[3].Value;
-                        dataGridView2.Rows[n].Cells[5].Value = row1.Cells[4].Value;
-                        dataGridView2.Rows[n].Cells[6].Value = row1.Cells[5].Value;
-                        dataGridView2.Rows[n].Cells[7].Value = row1.Cells[6].Value;
-                        dataGridView2.Rows[n].Cells[8].Value = row1.Cells[7].Value;
-                        dataGridView2.Rows[n].Cells[9].Value = row1.Cells[8].Value;
-                        dataGridView2.Rows[n].Cells[10].Value = row1.Cells[9].Value;
-                        dataGridView2.Rows[n].Cells[11].Value = row1.Cells[10].Value;
-                        dataGridView2.Rows[n].Cells[12].Value = row1.Cells[11].Value;
-                        dataGridView1.Rows.Remove(row1);
-                        row1 = null;
+                     
                         txtQuantity.Focus();
 
                     }
@@ -503,6 +486,35 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
+        private void txtQuantity_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    int n = dataGridView2.Rows.Add();
+                    dataGridView2.Rows[n].Cells[0].Value = row1.Cells[0].Value;
+                    dataGridView2.Rows[n].Cells[1].Value = row1.Cells[1].Value;
+                    dataGridView2.Rows[n].Cells[2].Value = txtQuantity.Text;
+                    dataGridView2.Rows[n].Cells[3].Value = row1.Cells[2].Value;
+                    dataGridView2.Rows[n].Cells[4].Value = row1.Cells[3].Value;
+                    dataGridView2.Rows[n].Cells[5].Value = row1.Cells[4].Value;
+                    dataGridView2.Rows[n].Cells[6].Value = row1.Cells[5].Value;
+                    dataGridView2.Rows[n].Cells[7].Value = row1.Cells[6].Value;
+                    dataGridView2.Rows[n].Cells[8].Value = row1.Cells[7].Value;
+                    dataGridView2.Rows[n].Cells[9].Value = row1.Cells[8].Value;
+                    dataGridView2.Rows[n].Cells[10].Value = row1.Cells[9].Value;
+                    dataGridView2.Rows[n].Cells[11].Value = row1.Cells[10].Value;
+                    dataGridView2.Rows[n].Cells[12].Value = row1.Cells[11].Value;
+                    dataGridView1.Rows.Remove(row1);
+                    row1 = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
         private void txtBox_TextChanged(object sender, EventArgs e)
         {
@@ -640,9 +652,7 @@ namespace StoresManagmentDX
                 }
             return null;
         }
-
-       
-
+        
         public bool IsClear()
         {
             bool flag = false;

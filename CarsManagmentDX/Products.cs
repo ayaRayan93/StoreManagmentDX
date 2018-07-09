@@ -87,9 +87,7 @@ namespace StoresManagmentDX
                 comProduct.ValueMember = dt.Columns["Product_ID"].ToString();
                 comProduct.Text = "";
                 txtProduct.Text = "";
-
-
-
+                
                 loaded = true;
 
             }

@@ -249,30 +249,24 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-        private void StoreMainForm_FormClosed(object sender, FormClosedEventArgs e)
+        private void StoreMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            try
-            {
-                if (!IsTabPageSave())
-                {
-                    DialogResult dialogResult = MessageBox.Show("There are unsave Pages To you wound close anyway?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        Environment.Exit(0);
-                    }
-                    else if (dialogResult == DialogResult.No)
-                    {
 
-                    }
-                }
-                else
+            if (!IsTabPageSave())
+            {
+                DialogResult dialogResult = MessageBox.Show("There are unsave Pages To you wound close anyway?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
                 {
                     Environment.Exit(0);
                 }
+                else if (dialogResult == DialogResult.No)
+                {
+                    e.Cancel = (dialogResult == DialogResult.No);
+                }
             }
-            catch (Exception)
+            else
             {
-                
+                Environment.Exit(0);
             }
         }
 
@@ -602,13 +596,33 @@ namespace StoresManagmentDX
             }
         }
 
-       
+        private void StoreMainForm_Resize(object sender, EventArgs e)
+        {
+            try
+            {
+                if (SetUpdate.tipImage != null)
+                {
+                    SetUpdate.tipImage.Close();
+                    SetUpdate.tipImage = null;
+                }
+                if (SetRecord.tipImage != null)
+                {
+                    SetRecord.tipImage.Close();
+                    SetRecord.tipImage = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+          
+        }
     }
 
     public static class connection
     {
-       public static string connectionString = "SERVER=192.168.1.200;DATABASE=cccserver;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
-     //  public static string connectionString = "SERVER=localhost;DATABASE=cccLocal;user=root;PASSWORD=root;CHARSET=utf8";
+      public static string connectionString = "SERVER=192.168.1.200;DATABASE=test;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
+      //public static string connectionString = "SERVER=localhost;DATABASE=cccLocal;user=root;PASSWORD=root;CHARSET=utf8";
 
     }
 }

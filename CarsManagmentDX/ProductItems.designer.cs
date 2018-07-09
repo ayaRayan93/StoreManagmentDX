@@ -46,8 +46,7 @@
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.txtSort = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridViewSort = new DevExpress.XtraGrid.GridControl();
-            this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dataGridViewSort = new System.Windows.Forms.DataGridView();
             this.mTPSize = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelSize = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel35 = new System.Windows.Forms.TableLayoutPanel();
@@ -60,8 +59,7 @@
             this.tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
             this.comFactory2 = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridViewSize = new DevExpress.XtraGrid.GridControl();
-            this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dataGridViewSize = new System.Windows.Forms.DataGridView();
             this.mTPColor = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelColor = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel36 = new System.Windows.Forms.TableLayoutPanel();
@@ -74,8 +72,7 @@
             this.tableLayoutPanel13 = new System.Windows.Forms.TableLayoutPanel();
             this.comType2 = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridViewColor = new DevExpress.XtraGrid.GridControl();
-            this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dataGridViewColor = new System.Windows.Forms.DataGridView();
             this.mTPProduct = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelProduct = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
@@ -88,8 +85,7 @@
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
             this.comGroup2 = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataGridViewProduct = new DevExpress.XtraGrid.GridControl();
-            this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.mTPGroup = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelGroup = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel37 = new System.Windows.Forms.TableLayoutPanel();
@@ -102,8 +98,7 @@
             this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
             this.comFactory = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridViewGroup = new DevExpress.XtraGrid.GridControl();
-            this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dataGridViewGroup = new System.Windows.Forms.DataGridView();
             this.mTPFactory = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelFactory = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
@@ -116,8 +111,7 @@
             this.tableLayoutPanel22 = new System.Windows.Forms.TableLayoutPanel();
             this.label7 = new System.Windows.Forms.Label();
             this.comType = new System.Windows.Forms.ComboBox();
-            this.dataGridViewFactory = new DevExpress.XtraGrid.GridControl();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dataGridViewFactory = new System.Windows.Forms.DataGridView();
             this.mTPType = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelType = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
@@ -126,8 +120,7 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.txtType = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new DevExpress.XtraGrid.GridControl();
-            this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tLPanProductsContainer.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.mTC_Content.SuspendLayout();
@@ -136,7 +129,6 @@
             this.tableLayoutPanel34.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSort)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView7)).BeginInit();
             this.mTPSize.SuspendLayout();
             this.tableLayoutPanelSize.SuspendLayout();
             this.tableLayoutPanel35.SuspendLayout();
@@ -144,7 +136,6 @@
             this.tableLayoutPanel33.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSize)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).BeginInit();
             this.mTPColor.SuspendLayout();
             this.tableLayoutPanelColor.SuspendLayout();
             this.tableLayoutPanel36.SuspendLayout();
@@ -152,7 +143,6 @@
             this.tableLayoutPanel31.SuspendLayout();
             this.tableLayoutPanel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewColor)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
             this.mTPProduct.SuspendLayout();
             this.tableLayoutPanelProduct.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
@@ -160,7 +150,6 @@
             this.tableLayoutPanel29.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
             this.mTPGroup.SuspendLayout();
             this.tableLayoutPanelGroup.SuspendLayout();
             this.tableLayoutPanel37.SuspendLayout();
@@ -168,7 +157,6 @@
             this.tableLayoutPanel27.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             this.mTPFactory.SuspendLayout();
             this.tableLayoutPanelFactory.SuspendLayout();
             this.tableLayoutPanel21.SuspendLayout();
@@ -176,13 +164,11 @@
             this.tableLayoutPanel25.SuspendLayout();
             this.tableLayoutPanel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactory)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.mTPType.SuspendLayout();
             this.tableLayoutPanelType.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tLPanProductsContainer
@@ -366,7 +352,7 @@
             this.mTC_Content.Location = new System.Drawing.Point(48, 104);
             this.mTC_Content.Name = "mTC_Content";
             this.mTC_Content.RightToLeftLayout = true;
-            this.mTC_Content.SelectedIndex = 0;
+            this.mTC_Content.SelectedIndex = 6;
             this.mTC_Content.Size = new System.Drawing.Size(808, 378);
             this.mTC_Content.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.mTC_Content.Style = MetroFramework.MetroColorStyle.Silver;
@@ -530,20 +516,13 @@
             // 
             // dataGridViewSort
             // 
+            this.dataGridViewSort.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSort.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSort.Location = new System.Drawing.Point(83, 21);
-            this.dataGridViewSort.MainView = this.gridView7;
             this.dataGridViewSort.Name = "dataGridViewSort";
             this.tableLayoutPanel5.SetRowSpan(this.dataGridViewSort, 2);
             this.dataGridViewSort.Size = new System.Drawing.Size(234, 288);
             this.dataGridViewSort.TabIndex = 30;
-            this.dataGridViewSort.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView7});
-            // 
-            // gridView7
-            // 
-            this.gridView7.GridControl = this.dataGridViewSort;
-            this.gridView7.Name = "gridView7";
             // 
             // mTPSize
             // 
@@ -763,20 +742,13 @@
             // 
             // dataGridViewSize
             // 
+            this.dataGridViewSize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSize.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSize.Location = new System.Drawing.Point(83, 21);
-            this.dataGridViewSize.MainView = this.gridView6;
             this.dataGridViewSize.Name = "dataGridViewSize";
             this.tableLayoutPanelSize.SetRowSpan(this.dataGridViewSize, 2);
             this.dataGridViewSize.Size = new System.Drawing.Size(234, 288);
             this.dataGridViewSize.TabIndex = 31;
-            this.dataGridViewSize.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView6});
-            // 
-            // gridView6
-            // 
-            this.gridView6.GridControl = this.dataGridViewSize;
-            this.gridView6.Name = "gridView6";
             // 
             // mTPColor
             // 
@@ -996,20 +968,13 @@
             // 
             // dataGridViewColor
             // 
+            this.dataGridViewColor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewColor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewColor.Location = new System.Drawing.Point(83, 21);
-            this.dataGridViewColor.MainView = this.gridView5;
             this.dataGridViewColor.Name = "dataGridViewColor";
             this.tableLayoutPanelColor.SetRowSpan(this.dataGridViewColor, 2);
             this.dataGridViewColor.Size = new System.Drawing.Size(234, 288);
             this.dataGridViewColor.TabIndex = 32;
-            this.dataGridViewColor.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView5});
-            // 
-            // gridView5
-            // 
-            this.gridView5.GridControl = this.dataGridViewColor;
-            this.gridView5.Name = "gridView5";
             // 
             // mTPProduct
             // 
@@ -1229,20 +1194,13 @@
             // 
             // dataGridViewProduct
             // 
+            this.dataGridViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewProduct.Location = new System.Drawing.Point(83, 21);
-            this.dataGridViewProduct.MainView = this.gridView4;
             this.dataGridViewProduct.Name = "dataGridViewProduct";
             this.tableLayoutPanelProduct.SetRowSpan(this.dataGridViewProduct, 2);
             this.dataGridViewProduct.Size = new System.Drawing.Size(234, 288);
             this.dataGridViewProduct.TabIndex = 33;
-            this.dataGridViewProduct.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView4});
-            // 
-            // gridView4
-            // 
-            this.gridView4.GridControl = this.dataGridViewProduct;
-            this.gridView4.Name = "gridView4";
             // 
             // mTPGroup
             // 
@@ -1281,7 +1239,6 @@
             this.tableLayoutPanelGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanelGroup.Size = new System.Drawing.Size(800, 369);
             this.tableLayoutPanelGroup.TabIndex = 5;
-            this.tableLayoutPanelGroup.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel18_Paint);
             // 
             // tableLayoutPanel37
             // 
@@ -1463,20 +1420,13 @@
             // 
             // dataGridViewGroup
             // 
+            this.dataGridViewGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewGroup.Location = new System.Drawing.Point(83, 21);
-            this.dataGridViewGroup.MainView = this.gridView3;
             this.dataGridViewGroup.Name = "dataGridViewGroup";
             this.tableLayoutPanelGroup.SetRowSpan(this.dataGridViewGroup, 2);
             this.dataGridViewGroup.Size = new System.Drawing.Size(234, 288);
             this.dataGridViewGroup.TabIndex = 32;
-            this.dataGridViewGroup.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3});
-            // 
-            // gridView3
-            // 
-            this.gridView3.GridControl = this.dataGridViewGroup;
-            this.gridView3.Name = "gridView3";
             // 
             // mTPFactory
             // 
@@ -1580,6 +1530,7 @@
             this.btnAddFactory.Name = "btnAddFactory";
             this.btnAddFactory.Size = new System.Drawing.Size(73, 43);
             this.btnAddFactory.TabIndex = 3;
+            this.btnAddFactory.Click += new System.EventHandler(this.btnFactory_Click);
             // 
             // tableLayoutPanel24
             // 
@@ -1696,20 +1647,13 @@
             // 
             // dataGridViewFactory
             // 
+            this.dataGridViewFactory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFactory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFactory.Location = new System.Drawing.Point(83, 21);
-            this.dataGridViewFactory.MainView = this.gridView2;
             this.dataGridViewFactory.Name = "dataGridViewFactory";
             this.tableLayoutPanelFactory.SetRowSpan(this.dataGridViewFactory, 2);
             this.dataGridViewFactory.Size = new System.Drawing.Size(234, 288);
             this.dataGridViewFactory.TabIndex = 32;
-            this.dataGridViewFactory.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
-            // 
-            // gridView2
-            // 
-            this.gridView2.GridControl = this.dataGridViewFactory;
-            this.gridView2.Name = "gridView2";
             // 
             // mTPType
             // 
@@ -1863,20 +1807,13 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(83, 21);
-            this.dataGridView1.MainView = this.gridView1;
             this.dataGridView1.Name = "dataGridView1";
             this.tableLayoutPanelType.SetRowSpan(this.dataGridView1, 2);
             this.dataGridView1.Size = new System.Drawing.Size(234, 288);
             this.dataGridView1.TabIndex = 31;
-            this.dataGridView1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
-            // 
-            // gridView1
-            // 
-            this.gridView1.GridControl = this.dataGridView1;
-            this.gridView1.Name = "gridView1";
             // 
             // ProductItems
             // 
@@ -1896,7 +1833,6 @@
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSort)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView7)).EndInit();
             this.mTPSize.ResumeLayout(false);
             this.tableLayoutPanelSize.ResumeLayout(false);
             this.tableLayoutPanel35.ResumeLayout(false);
@@ -1906,7 +1842,6 @@
             this.tableLayoutPanel9.ResumeLayout(false);
             this.tableLayoutPanel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSize)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView6)).EndInit();
             this.mTPColor.ResumeLayout(false);
             this.tableLayoutPanelColor.ResumeLayout(false);
             this.tableLayoutPanel36.ResumeLayout(false);
@@ -1916,7 +1851,6 @@
             this.tableLayoutPanel13.ResumeLayout(false);
             this.tableLayoutPanel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewColor)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
             this.mTPProduct.ResumeLayout(false);
             this.tableLayoutPanelProduct.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
@@ -1926,7 +1860,6 @@
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
             this.mTPGroup.ResumeLayout(false);
             this.tableLayoutPanelGroup.ResumeLayout(false);
             this.tableLayoutPanel37.ResumeLayout(false);
@@ -1936,7 +1869,6 @@
             this.tableLayoutPanel19.ResumeLayout(false);
             this.tableLayoutPanel19.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewGroup)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
             this.mTPFactory.ResumeLayout(false);
             this.tableLayoutPanelFactory.ResumeLayout(false);
             this.tableLayoutPanel21.ResumeLayout(false);
@@ -1946,14 +1878,12 @@
             this.tableLayoutPanel22.ResumeLayout(false);
             this.tableLayoutPanel22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFactory)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.mTPType.ResumeLayout(false);
             this.tableLayoutPanelType.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2046,19 +1976,12 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel15;
         private Bunifu.Framework.UI.BunifuTileButton btnDeleteProduct;
         private Bunifu.Framework.UI.BunifuTileButton btnAddProduct;
-        private DevExpress.XtraGrid.GridControl dataGridView1;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
-        private DevExpress.XtraGrid.GridControl dataGridViewSort;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView7;
-        private DevExpress.XtraGrid.GridControl dataGridViewSize;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView6;
-        private DevExpress.XtraGrid.GridControl dataGridViewColor;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
-        private DevExpress.XtraGrid.GridControl dataGridViewProduct;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
-        private DevExpress.XtraGrid.GridControl dataGridViewGroup;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
-        private DevExpress.XtraGrid.GridControl dataGridViewFactory;
-        private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private System.Windows.Forms.DataGridView dataGridViewFactory;
+        private System.Windows.Forms.DataGridView dataGridViewSort;
+        private System.Windows.Forms.DataGridView dataGridViewSize;
+        private System.Windows.Forms.DataGridView dataGridViewColor;
+        private System.Windows.Forms.DataGridView dataGridViewProduct;
+        private System.Windows.Forms.DataGridView dataGridViewGroup;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
