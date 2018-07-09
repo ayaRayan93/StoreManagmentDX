@@ -251,21 +251,28 @@ namespace StoresManagmentDX
         }
         private void StoreMainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!IsTabPageSave())
+            try
             {
-                DialogResult dialogResult = MessageBox.Show("There are unsave Pages To you wound close anyway?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
+                if (!IsTabPageSave())
+                {
+                    DialogResult dialogResult = MessageBox.Show("There are unsave Pages To you wound close anyway?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Environment.Exit(0);
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+
+                    }
+                }
+                else
                 {
                     Environment.Exit(0);
                 }
-                else if (dialogResult == DialogResult.No)
-                {
-
-                }
             }
-            else
+            catch (Exception)
             {
-                Environment.Exit(0);
+                
             }
         }
 

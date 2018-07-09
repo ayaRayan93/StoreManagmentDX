@@ -444,9 +444,7 @@ namespace StoresManagmentDX
                 DataSet dataSet = new DataSet();
                 adapter.Fill(dataSet);
                 LayoutView lView = new LayoutView(dataGridView1);
-              
                 dataGridView1.MainView = lView;
-
                 dataGridView1.DataSource = dataSet.Tables[0];
                 
                 loaded = true;
