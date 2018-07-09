@@ -83,7 +83,7 @@ namespace StoresManagmentDX
             PageImageBrick pageImageBrick;
 
             // Define the image to display.
-            Image pageImage = StoresManagmentDX.Properties.Resources.Logo;
+            Image pageImage = StoresManagmentDX.Properties.Resources.Logo3;
 
             // Display the PageImageBrick containing the DevExpress logo.
             pageImageBrick = brickGraphics.DrawPageImage(pageImage, new Rectangle(856, 0, 100, 80), BorderSide.None, Color.Transparent);

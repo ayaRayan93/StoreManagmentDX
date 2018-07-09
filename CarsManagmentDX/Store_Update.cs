@@ -74,6 +74,9 @@ namespace StoresManagmentDX
                     MessageBox.Show("udpate success :)");
                     txtName.Focus();
                     stores.DisplayStores();
+
+                    XtraTabPage xtraTabPage = getTabPage("تعديل مخزن");
+                    xtraTabPage.ImageOptions.Image = null;
                 }
                 else
                 {

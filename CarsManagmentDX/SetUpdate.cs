@@ -21,7 +21,7 @@ namespace StoresManagmentDX
         DataRowView updateRow=null;
         DataGridViewRow row1 = null, row2 = null;
         bool loaded=false;
-        TipImage tipImage = null;
+        public static TipImage tipImage = null;
         Ataqm ataqm = null;
         public SetUpdate(DataRowView setRow,Ataqm ataqm, XtraTabControl xtraTabControlStoresContent)
         {
@@ -229,7 +229,99 @@ namespace StoresManagmentDX
         {
             displayProducts();
 
-        }      
+        }
+
+        private void btnPut_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (row1 != null)
+                {
+                    int n = dataGridView2.Rows.Add();
+                    dataGridView2.Rows[n].Cells[0].Value = row1.Cells[0].Value;
+                    dataGridView2.Rows[n].Cells[1].Value = row1.Cells[1].Value;
+                    dataGridView2.Rows[n].Cells[2].Value = txtQuantity.Text;
+                    dataGridView2.Rows[n].Cells[3].Value = row1.Cells[2].Value;
+                    dataGridView2.Rows[n].Cells[4].Value = row1.Cells[3].Value;
+                    dataGridView2.Rows[n].Cells[5].Value = row1.Cells[4].Value;
+                    dataGridView2.Rows[n].Cells[6].Value = row1.Cells[5].Value;
+                    dataGridView2.Rows[n].Cells[7].Value = row1.Cells[6].Value;
+                    dataGridView2.Rows[n].Cells[8].Value = row1.Cells[7].Value;
+                    dataGridView2.Rows[n].Cells[9].Value = row1.Cells[8].Value;
+                    dataGridView2.Rows[n].Cells[10].Value = row1.Cells[9].Value;
+                    dataGridView2.Rows[n].Cells[11].Value = row1.Cells[10].Value;
+                    dataGridView2.Rows[n].Cells[12].Value = row1.Cells[11].Value;
+                    dataGridView1.Rows.Remove(row1);
+                    row1 = null;
+
+                }
+                else
+                {
+                    MessageBox.Show("select row");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void dataGridView1_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    if (row1 != null)
+                    {
+
+                        txtQuantity.Focus();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("select row");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (row2 != null)
+                {
+                    int n = dataGridView1.Rows.Add();
+                    dataGridView1.Rows[n].Cells[0].Value = row2.Cells[0].Value;
+                    dataGridView1.Rows[n].Cells[1].Value = row2.Cells[1].Value;
+                    dataGridView1.Rows[n].Cells[2].Value = row2.Cells[3].Value;
+                    dataGridView1.Rows[n].Cells[3].Value = row2.Cells[4].Value;
+                    dataGridView1.Rows[n].Cells[4].Value = row2.Cells[5].Value;
+                    dataGridView1.Rows[n].Cells[5].Value = row2.Cells[6].Value;
+                    dataGridView1.Rows[n].Cells[6].Value = row2.Cells[7].Value;
+                    dataGridView1.Rows[n].Cells[7].Value = row2.Cells[8].Value;
+                    dataGridView1.Rows[n].Cells[8].Value = row2.Cells[9].Value;
+                    dataGridView1.Rows[n].Cells[9].Value = row2.Cells[10].Value;
+                    dataGridView1.Rows[n].Cells[10].Value = row2.Cells[11].Value;
+                    dataGridView1.Rows[n].Cells[11].Value = row2.Cells[12].Value;
+                    dataGridView2.Rows.Remove(row2);
+                    row2 = null;
+
+                }
+                else
+                {
+                    MessageBox.Show("select row");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         private void btnUpdateSet_Click(object sender, EventArgs e)
         {
             try
@@ -238,32 +330,18 @@ namespace StoresManagmentDX
                 deleteSet(Convert.ToInt16(updateRow[0].ToString()));
                 if (dataGridView2.Rows.Count > 0)
                 {
-                    if (txtSetName.Text != "" && txtFactory.Text != "" && txtGroup.Text != "" && txtType.Text != "")
+                    if (txtSetName.Text != "" )
                     {
-                        string query = "select Set_Name from sets where Type_ID=" + txtType.Text + " and Group_ID=" + txtGroup.Text + " and Factory_ID=" + txtFactory.Text;
-                        MySqlCommand comand = new MySqlCommand(query, dbconnection);
-                       
-                        MySqlDataReader dr = comand.ExecuteReader();
-                        while (dr.Read())
-                        {
-                            if (dr["Set_Name"].ToString() == txtSetName.Text)
-                            {
-                                MessageBox.Show("this set already exist");
-                                dr.Close();
-                                dbconnection.Close();
-                                return;
-                            }
-                        }
-                        dr.Close();
-
+                      
+                        
                         //query = "INSERT INTO sets (Set_Name,Factory_ID,Type_ID,Group_ID) VALUES (@Set_Name,@Factory_ID,@Type_ID,@Group_ID)";
                         //comand = new MySqlCommand(query, dbconnection);
                         //comand.Parameters.AddWithValue("@Set_Name", txtSetName.Text);
                         //comand.Parameters.AddWithValue("@Factory_ID", txtFactory.Text);
                         //comand.Parameters.AddWithValue("@Type_ID", txtType.Text);
                         //comand.Parameters.AddWithValue("@Group_ID", txtGroup.Text);
-                        query = "update sets Set_Name=@Set_Name where Set_ID="+ updateRow[0].ToString();
-                        comand = new MySqlCommand(query, dbconnection);
+                        String query = "update sets set Set_Name=@Set_Name where Set_ID="+ updateRow[0].ToString();
+                        MySqlCommand comand = new MySqlCommand(query, dbconnection);
                         comand.Parameters.AddWithValue("@Set_Name", txtSetName.Text);
                         comand.ExecuteNonQuery();
 
@@ -336,12 +414,14 @@ namespace StoresManagmentDX
                     tipImage.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
                     tipImage.Show();
                 }
+           
             }
             catch (Exception ex)
             {
                 // MessageBox.Show(ex.Message);
             }
         }
+   
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -361,48 +441,14 @@ namespace StoresManagmentDX
                     tipImage.Location = new Point(Cursor.Position.X, Cursor.Position.Y);
                     tipImage.Show();
                 }
+             
             }
             catch (Exception ex)
             {
                 // MessageBox.Show(ex.Message);
             }
         }
-        private void btnPut_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void btnRemove_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                if (row2 != null)
-                {
-                    int n = dataGridView1.Rows.Add();
-                    dataGridView1.Rows[n].Cells[0].Value = row2.Cells[0].Value;
-                    dataGridView1.Rows[n].Cells[1].Value = row2.Cells[1].Value;
-                    dataGridView1.Rows[n].Cells[2].Value = row2.Cells[3].Value;
-                    dataGridView1.Rows[n].Cells[3].Value = row2.Cells[4].Value;
-                    dataGridView1.Rows[n].Cells[4].Value = row2.Cells[5].Value;
-                    dataGridView1.Rows[n].Cells[5].Value = row2.Cells[6].Value;
-                    dataGridView1.Rows[n].Cells[6].Value = row2.Cells[7].Value;
-                    dataGridView1.Rows[n].Cells[7].Value = row2.Cells[8].Value;
-                    dataGridView1.Rows[n].Cells[8].Value = row2.Cells[9].Value;
-                    dataGridView1.Rows[n].Cells[9].Value = row2.Cells[10].Value;
-                    dataGridView1.Rows[n].Cells[10].Value = row2.Cells[11].Value;
-                    dataGridView1.Rows[n].Cells[11].Value = row2.Cells[12].Value;
-                    dataGridView2.Rows.Remove(row2);
-
-                }
-                else
-                {
-                    MessageBox.Show("select row");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+      
         private void txtBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -525,27 +571,27 @@ namespace StoresManagmentDX
         public void setUpdateData()
         {
             txtSetName.Text = updateRow[1].ToString();
-            comType.Text = updateRow[2].ToString();
-            comGroup.Text = updateRow[3].ToString();
-            comFactory.Text = updateRow[4].ToString();
+            //comType.Text = updateRow[2].ToString();
+            //comGroup.Text = updateRow[3].ToString();
+            //comFactory.Text = updateRow[4].ToString();
           
-            string query = "select Type_ID,Factory_ID,Group_ID from sets where Set_ID=" + updateRow[0].ToString();
-            MySqlCommand com = new MySqlCommand(query, dbconnection);
-            MySqlDataReader dr = com.ExecuteReader();
-            while (dr.Read())
-            {
-                txtType.Text = dr["Type_ID"].ToString();
-                txtFactory.Text = dr["Factory_ID"].ToString();
-                txtGroup.Text = dr["Group_ID"].ToString();
-            }
-            dr.Close();
+            //string query = "select Type_ID,Factory_ID,Group_ID from sets where Set_ID=" + updateRow[0].ToString();
+            //MySqlCommand com = new MySqlCommand(query, dbconnection);
+            //MySqlDataReader dr = com.ExecuteReader();
+            //while (dr.Read())
+            //{
+            //    txtType.Text = dr["Type_ID"].ToString();
+            //    txtFactory.Text = dr["Factory_ID"].ToString();
+            //    txtGroup.Text = dr["Group_ID"].ToString();
+            //}
+            //dr.Close();
 
-            query = "SELECT data.Data_ID,data.Code,product.Product_Name,type.Type_Name,factory.Factory_Name,groupo.Group_Name,color.Color_Name,size.Size_Value,sort.Sort_Value,data.Classification,data.Description,data.Carton,set_details.Quantity from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID inner join set_Details on set_Details.Code=data.Code inner join sets on sets.Set_ID=set_details.Set_ID where set_details.Set_ID=" + updateRow[0].ToString();
+           String query = "SELECT data.Data_ID,data.Code,product.Product_Name,type.Type_Name,factory.Factory_Name,groupo.Group_Name,color.Color_Name,size.Size_Value,sort.Sort_Value,data.Classification,data.Description,data.Carton,set_details.Quantity from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID inner join set_Details on set_Details.Code=data.Code inner join sets on sets.Set_ID=set_details.Set_ID where set_details.Set_ID=" + updateRow[0].ToString();
 
 
             MySqlCommand comand = new MySqlCommand(query, dbconnection);
             dataGridView2.Rows.Clear();
-            dr = comand.ExecuteReader();
+            MySqlDataReader dr = comand.ExecuteReader();
             while (dr.Read())
             {
                 int n = dataGridView2.Rows.Add();
@@ -581,7 +627,7 @@ namespace StoresManagmentDX
 
         }
 
-     
+    
 
         public XtraTabPage getTabPage(string text)
         {

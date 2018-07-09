@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Grid;
+﻿using DevExpress.XtraGrid;
+using DevExpress.XtraGrid.Views.Grid;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -292,13 +293,15 @@ namespace StoresManagmentDX
             try
             {
                 dbconnection.Open();
-                DataRowView storeRow = (DataRowView)(((GridView)dataGridView1.MainView).GetRow(((GridView)dataGridView1.MainView).GetSelectedRows()[0]));
+                // DataRowView storeRow = (DataRowView)(((GridView)dataGridView1.MainView).GetRow(((GridView)dataGridView1.MainView).GetSelectedRows()[0]));
+                DataGridViewRow storeRow = dataGridView1.Rows[dataGridView1.SelectedCells[0].RowIndex];
+
                 if (storeRow != null)
                 {
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        int id = Convert.ToInt16(storeRow[0].ToString());
+                        int id = Convert.ToInt16(storeRow.Cells[0].Value.ToString());
                         string query = "delete from type where Type_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
@@ -315,7 +318,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("select row");
             }
             dbconnection.Close();
         }
@@ -453,13 +456,14 @@ namespace StoresManagmentDX
             try
             {
                 dbconnection.Open();
-                DataRowView row1 = (DataRowView)(((GridView)dataGridViewFactory.MainView).GetRow(((GridView)dataGridViewFactory.MainView).GetSelectedRows()[0]));
+                // DataRowView row1 = (DataRowView)(((GridView)dataGridViewFactory.MainView).GetRow(((GridView)dataGridViewFactory.MainView).GetSelectedRows()[0]));
+                DataGridViewRow row1 = dataGridViewFactory.Rows[dataGridViewFactory.SelectedCells[0].RowIndex];
                 if (row1 != null)
                 {
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        int id = Convert.ToInt16(row1[0].ToString());
+                        int id = Convert.ToInt16(row1.Cells[0].Value.ToString());
                         string query = "delete from factory where Factory_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
@@ -483,7 +487,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("select row");
             }
             dbconnection.Close();
         }
@@ -613,20 +617,21 @@ namespace StoresManagmentDX
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-     
+        }     
         private void btnDeleteGroup_Click(object sender, EventArgs e)
         {
             try
             {
                 dbconnection.Open();
-                DataRowView row1 = (DataRowView)(((GridView)dataGridViewGroup.MainView).GetRow(((GridView)dataGridViewGroup.MainView).GetSelectedRows()[0]));
+                // DataRowView row1 = (DataRowView)(((GridView)dataGridViewGroup.MainView).GetRow(((GridView)dataGridViewGroup.MainView).GetSelectedRows()[0]));
+                DataGridViewRow row1 = dataGridViewGroup.Rows[dataGridViewGroup.SelectedCells[0].RowIndex];
+
                 if (row1 != null)
                 {
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        int id = Convert.ToInt16(row1[0].ToString());
+                        int id = Convert.ToInt16(row1.Cells[0].Value.ToString());
                         string query = "delete from groupo where Group_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
@@ -650,7 +655,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("select row");
             }
             dbconnection.Close();
         }
@@ -780,27 +785,29 @@ namespace StoresManagmentDX
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-     
+        }   
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
             try
             {
                 dbconnection.Open();
-                DataRowView row1 = (DataRowView)(((GridView)dataGridViewGroup.MainView).GetRow(((GridView)dataGridViewGroup.MainView).GetSelectedRows()[0]));
+                // DataRowView row1 = (DataRowView)(((GridView)dataGridViewGroup.MainView).GetRow(((GridView)dataGridViewGroup.MainView).GetSelectedRows()[0]));
+                DataGridViewRow row1 = dataGridViewProduct.Rows[dataGridViewProduct.SelectedCells[0].RowIndex];
+
                 if (row1 != null)
                 {
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        int id = Convert.ToInt16(row1[0].ToString());
+                        int id = Convert.ToInt16(row1.Cells[0].Value.ToString());
                         string query = "delete from product where Product_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
                         updateTablesDB("product", "Product_ID", id);
                         if (comGroup2.Text != "")
                             displayProduct(Convert.ToInt16(comGroup2.SelectedValue));
-
+                        else
+                            displayProduct();
                         txtProduct.Focus();
                         txtProduct.SelectAll();
                     }
@@ -814,7 +821,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("select row");
             }
             dbconnection.Close();
         }
@@ -944,20 +951,21 @@ namespace StoresManagmentDX
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-      
+        }  
         private void btnDeleteColor_Click(object sender, EventArgs e)
         {
             try
             {
                 dbconnection.Open();
-                DataRowView row1 = (DataRowView)(((GridView)dataGridViewColor.MainView).GetRow(((GridView)dataGridViewColor.MainView).GetSelectedRows()[0]));
+                //   DataRowView row1 = (DataRowView)(((GridView)dataGridViewColor.MainView).GetRow(((GridView)dataGridViewColor.MainView).GetSelectedRows()[0]));
+                DataGridViewRow row1 = dataGridViewColor.Rows[dataGridViewColor.SelectedCells[0].RowIndex];
+
                 if (row1 != null)
                 {
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        int id = Convert.ToInt16(row1[0].ToString());
+                        int id = Convert.ToInt16(row1.Cells[0].Value.ToString());
                         string query = "delete from color where Color_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
@@ -982,7 +990,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("select row");
             }
             dbconnection.Close();
         }
@@ -1109,19 +1117,20 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-    
         private void btnDeleteSize_Click(object sender, EventArgs e)
         {
             try
             {
                 dbconnection.Open();
-                DataRowView row1 = (DataRowView)(((GridView)dataGridViewSize.MainView).GetRow(((GridView)dataGridViewSize.MainView).GetSelectedRows()[0]));
+                // DataRowView row1 = (DataRowView)(((GridView)dataGridViewSize.MainView).GetRow(((GridView)dataGridViewSize.MainView).GetSelectedRows()[0]));
+                DataGridViewRow row1 = dataGridViewSize.Rows[dataGridViewSize.SelectedCells[0].RowIndex];
+
                 if (row1 != null)
                 {
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        int id = Convert.ToInt16(row1[0].ToString());
+                        int id = Convert.ToInt16(row1.Cells[0].Value.ToString());
                         string query = "delete from size where Size_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
@@ -1145,7 +1154,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("select row");
             }
             dbconnection.Close();
         }
@@ -1229,20 +1238,21 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
-        }
-     
+        } 
         private void btnDeleteSort_Click(object sender, EventArgs e)
         {
             try
             {
                 dbconnection.Open();
-                DataRowView row1 = (DataRowView)(((GridView)dataGridViewSort.MainView).GetRow(((GridView)dataGridViewSort.MainView).GetSelectedRows()[0]));
+                //  DataRowView row1 = (DataRowView)(((GridView)dataGridViewSort.MainView).GetRow(((GridView)dataGridViewSort.MainView).GetSelectedRows()[0]));
+                DataGridViewRow row1 = dataGridViewSort.Rows[dataGridViewSort.SelectedCells[0].RowIndex];
+                row1.Selected = true;
                 if (row1 != null)
                 {
                     DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dialogResult == DialogResult.Yes)
                     {
-                        int id = Convert.ToInt16(row1[0].ToString());
+                        int id = Convert.ToInt16(row1.Cells[0].Value.ToString());
                         string query = "delete from sort where Sort_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
@@ -1262,7 +1272,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox.Show("select row");
             }
             dbconnection.Close();
         }
@@ -1382,14 +1392,19 @@ namespace StoresManagmentDX
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dataGridViewFactory.DataSource = dt;      
+            dataGridViewFactory.DataSource = null;
+            dataGridViewFactory.DataSource = dt;
+
+         
+           
         }
         public void displayFactory(int id)
         {
-            string query = "select distinct Factory_ID as 'كود',Factory_Name as 'الأسم' from factory where Type_ID=" + id;
+            string query = "select distinct Factory_ID as 'كود',Factory_Name as 'المصنع' from factory where Type_ID=" + id;
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
+            dataGridViewFactory.DataSource = null;
             dataGridViewFactory.DataSource = dt;
 
             query = "select distinct * from factory";
@@ -1529,9 +1544,6 @@ namespace StoresManagmentDX
             }
         }
 
-        private void tableLayoutPanel18_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
+       
     }
 }
