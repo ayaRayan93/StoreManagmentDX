@@ -1685,10 +1685,10 @@
             this.tableLayoutPanelType.Name = "tableLayoutPanelType";
             this.tableLayoutPanelType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanelType.RowCount = 4;
-            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5.882353F));
+            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
+            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.47059F));
+            this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanelType.Size = new System.Drawing.Size(800, 369);
             this.tableLayoutPanelType.TabIndex = 6;
             // 
@@ -1707,12 +1707,12 @@
             this.tableLayoutPanel3.Controls.Add(this.btnTypeDelete, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnAddType, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 315);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 320);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(794, 51);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(794, 46);
             this.tableLayoutPanel3.TabIndex = 30;
             // 
             // btnTypeDelete
@@ -1732,7 +1732,7 @@
             this.btnTypeDelete.Location = new System.Drawing.Point(322, 4);
             this.btnTypeDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTypeDelete.Name = "btnTypeDelete";
-            this.btnTypeDelete.Size = new System.Drawing.Size(73, 43);
+            this.btnTypeDelete.Size = new System.Drawing.Size(73, 38);
             this.btnTypeDelete.TabIndex = 2;
             this.btnTypeDelete.Click += new System.EventHandler(this.btnDeleteType_Click);
             // 
@@ -1753,7 +1753,7 @@
             this.btnAddType.Location = new System.Drawing.Point(401, 4);
             this.btnAddType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddType.Name = "btnAddType";
-            this.btnAddType.Size = new System.Drawing.Size(73, 43);
+            this.btnAddType.Size = new System.Drawing.Size(73, 38);
             this.btnAddType.TabIndex = 3;
             this.btnAddType.Click += new System.EventHandler(this.btnType_Click);
             // 
@@ -1774,7 +1774,7 @@
             this.tableLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(480, 55);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(480, 56);
             this.tableLayoutPanel4.TabIndex = 16;
             // 
             // txtType
@@ -1801,7 +1801,7 @@
             this.label8.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label8.Size = new System.Drawing.Size(120, 35);
+            this.label8.Size = new System.Drawing.Size(120, 36);
             this.label8.TabIndex = 9;
             this.label8.Text = "النوع";
             // 
@@ -1812,7 +1812,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(83, 21);
             this.dataGridView1.Name = "dataGridView1";
             this.tableLayoutPanelType.SetRowSpan(this.dataGridView1, 2);
-            this.dataGridView1.Size = new System.Drawing.Size(234, 288);
+            this.dataGridView1.Size = new System.Drawing.Size(234, 293);
             this.dataGridView1.TabIndex = 31;
             // 
             // ProductItems

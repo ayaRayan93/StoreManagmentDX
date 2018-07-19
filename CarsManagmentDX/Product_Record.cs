@@ -64,6 +64,18 @@ namespace StoresManagmentDX
                 comSort.ValueMember = dt.Columns["Sort_ID"].ToString();
                 comSort.Text = "";
 
+                VScrollBar myScrollBar = new VScrollBar();
+
+                myScrollBar.Height = panel1.Height;
+
+                myScrollBar.Left = panel1.Width - myScrollBar.Width;
+
+                myScrollBar.Top = 0;
+
+                myScrollBar.Enabled = false;
+
+                panel3.Controls.Add(myScrollBar);
+
                 loaded = true;
 
             }
@@ -444,20 +456,14 @@ namespace StoresManagmentDX
 
         private void txtClassification_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                txtDescription.Focus();
-            }
+
         }
 
         private void txtDescription_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                comSort.Focus();
-            }
+
         }
-        
+
         private void btnUploadPhoto_Click(object sender, EventArgs e)
         {
             try

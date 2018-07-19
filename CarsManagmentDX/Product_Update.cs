@@ -520,9 +520,7 @@ namespace StoresManagmentDX
             txtType.Text = arrCode[0].ToString() + arrCode[1].ToString() + arrCode[2].ToString() + arrCode[3].ToString() + "";
             txtFactory.Text = arrCode[4].ToString() + arrCode[5].ToString() + arrCode[6].ToString() + arrCode[7].ToString() + "";
             txtGroup.Text = arrCode[8].ToString() + arrCode[9].ToString() + arrCode[10].ToString() + arrCode[11].ToString() + "";
-            txtProduct.Text = arrCode[12].ToString() + arrCode[13].ToString() + arrCode[14].ToString() + arrCode[15].ToString() + "";
-        
-          
+            txtProduct.Text = arrCode[12].ToString() + arrCode[13].ToString() + arrCode[14].ToString() + arrCode[15].ToString() + "";               
         }
 
         private void TypeColor()
@@ -620,8 +618,6 @@ namespace StoresManagmentDX
                 }
             return null;
         }
-
-
 
     }
     

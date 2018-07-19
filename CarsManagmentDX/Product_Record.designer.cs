@@ -42,6 +42,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtType = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.ImageProduct = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtCarton = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -55,15 +59,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
-            this.ImageProduct = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -87,49 +89,49 @@
             // 
             // comFactory
             // 
+            resources.ApplyResources(this.comFactory, "comFactory");
             this.comFactory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comFactory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comFactory.FormattingEnabled = true;
-            resources.ApplyResources(this.comFactory, "comFactory");
             this.comFactory.Name = "comFactory";
             this.comFactory.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comFactory.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // comProduct
             // 
+            resources.ApplyResources(this.comProduct, "comProduct");
             this.comProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comProduct.BackColor = System.Drawing.Color.White;
             this.comProduct.FormattingEnabled = true;
-            resources.ApplyResources(this.comProduct, "comProduct");
             this.comProduct.Name = "comProduct";
             this.comProduct.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comProduct.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // comGroup
             // 
+            resources.ApplyResources(this.comGroup, "comGroup");
             this.comGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comGroup.FormattingEnabled = true;
-            resources.ApplyResources(this.comGroup, "comGroup");
             this.comGroup.Name = "comGroup";
             this.comGroup.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comGroup.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // comType
             // 
+            resources.ApplyResources(this.comType, "comType");
             this.comType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comType.FormattingEnabled = true;
-            resources.ApplyResources(this.comType, "comType");
             this.comType.Name = "comType";
             this.comType.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comType.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // txtProduct
             // 
-            this.txtProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtProduct, "txtProduct");
+            this.txtProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProduct.Name = "txtProduct";
             this.txtProduct.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             this.txtProduct.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -142,8 +144,8 @@
             // 
             // txtGroup
             // 
-            this.txtGroup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtGroup, "txtGroup");
+            this.txtGroup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGroup.Name = "txtGroup";
             this.txtGroup.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             this.txtGroup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -156,8 +158,8 @@
             // 
             // txtFactory
             // 
-            this.txtFactory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtFactory, "txtFactory");
+            this.txtFactory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFactory.Name = "txtFactory";
             this.txtFactory.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             this.txtFactory.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -170,8 +172,8 @@
             // 
             // txtType
             // 
-            this.txtType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             resources.ApplyResources(this.txtType, "txtType");
+            this.txtType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtType.Name = "txtType";
             this.txtType.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             this.txtType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
@@ -181,6 +183,47 @@
             resources.ApplyResources(this.label1, "label1");
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label1.Name = "label1";
+            // 
+            // panel3
+            // 
+            resources.ApplyResources(this.panel3, "panel3");
+            this.panel3.BackColor = System.Drawing.Color.White;
+            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.tableLayoutPanel2);
+            this.panel3.Controls.Add(this.panel1);
+            this.panel3.Name = "panel3";
+            // 
+            // ImageProduct
+            // 
+            this.ImageProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(122)))), ((int)(((byte)(190)))));
+            this.ImageProduct.BackgroundImage = global::StoresManagmentDX.Properties.Resources.camara1;
+            resources.ApplyResources(this.ImageProduct, "ImageProduct");
+            this.ImageProduct.Name = "ImageProduct";
+            this.ImageProduct.TabStop = false;
+            this.ImageProduct.Click += new System.EventHandler(this.ImageProduct_Click);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
+            this.tableLayoutPanel2.Controls.Add(this.btnAdd, 1, 0);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnAdd.color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnAdd.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            resources.ApplyResources(this.btnAdd, "btnAdd");
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = global::StoresManagmentDX.Properties.Resources.Save_321;
+            this.btnAdd.ImagePosition = 1;
+            this.btnAdd.ImageZoom = 25;
+            this.btnAdd.LabelPosition = 18;
+            this.btnAdd.LabelText = "حفظ";
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Click += new System.EventHandler(this.btnAddProduct_Click);
             // 
             // groupBox2
             // 
@@ -206,23 +249,18 @@
             resources.ApplyResources(this.txtCarton, "txtCarton");
             this.txtCarton.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtCarton.Name = "txtCarton";
-            this.txtCarton.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // txtDescription
             // 
             resources.ApplyResources(this.txtDescription, "txtDescription");
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescription.Name = "txtDescription";
-            this.txtDescription.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
-            this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtDescription_KeyDown);
             // 
             // txtClassification
             // 
             resources.ApplyResources(this.txtClassification, "txtClassification");
             this.txtClassification.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClassification.Name = "txtClassification";
-            this.txtClassification.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
-            this.txtClassification.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtClassification_KeyDown);
             // 
             // comSort
             // 
@@ -231,8 +269,6 @@
             this.comSort.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comSort.FormattingEnabled = true;
             this.comSort.Name = "comSort";
-            this.comSort.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
-            this.comSort.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // comSize
             // 
@@ -241,8 +277,6 @@
             this.comSize.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comSize.FormattingEnabled = true;
             this.comSize.Name = "comSize";
-            this.comSize.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
-            this.comSize.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // comColour
             // 
@@ -251,8 +285,6 @@
             this.comColour.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comColour.FormattingEnabled = true;
             this.comColour.Name = "comColour";
-            this.comColour.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
-            this.comColour.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // label10
             // 
@@ -290,48 +322,13 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label8.Name = "label8";
             // 
-            // panel3
+            // panel1
             // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel3.Controls.Add(this.tableLayoutPanel2);
-            this.panel3.Controls.Add(this.ImageProduct);
-            this.panel3.Controls.Add(this.groupBox1);
-            this.panel3.Controls.Add(this.groupBox2);
-            resources.ApplyResources(this.panel3, "panel3");
-            this.panel3.Name = "panel3";
-            // 
-            // tableLayoutPanel2
-            // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            resources.ApplyResources(this.tableLayoutPanel2, "tableLayoutPanel2");
-            this.tableLayoutPanel2.Controls.Add(this.btnAdd, 1, 0);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnAdd.color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnAdd.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            resources.ApplyResources(this.btnAdd, "btnAdd");
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = global::StoresManagmentDX.Properties.Resources.Save_321;
-            this.btnAdd.ImagePosition = 1;
-            this.btnAdd.ImageZoom = 25;
-            this.btnAdd.LabelPosition = 18;
-            this.btnAdd.LabelText = "حفظ";
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Click += new System.EventHandler(this.btnAddProduct_Click);
-            // 
-            // ImageProduct
-            // 
-            this.ImageProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.ImageProduct.BackgroundImage = global::StoresManagmentDX.Properties.Resources.camara1;
-            resources.ApplyResources(this.ImageProduct, "ImageProduct");
-            this.ImageProduct.Name = "ImageProduct";
-            this.ImageProduct.TabStop = false;
-            this.ImageProduct.Click += new System.EventHandler(this.ImageProduct_Click);
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.ImageProduct);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Name = "panel1";
             // 
             // Product_Record
             // 
@@ -346,11 +343,12 @@
             this.Load += new System.EventHandler(this.Product_Record_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -366,27 +364,28 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtProduct;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.PictureBox ImageProduct;
         private System.Windows.Forms.ComboBox comProduct;
         private System.Windows.Forms.ComboBox comGroup;
         private System.Windows.Forms.ComboBox comType;
+        private System.Windows.Forms.ComboBox comFactory;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private Bunifu.Framework.UI.BunifuTileButton btnAdd;
+        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox txtCarton;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.TextBox txtClassification;
         private System.Windows.Forms.ComboBox comSort;
         private System.Windows.Forms.ComboBox comSize;
         private System.Windows.Forms.ComboBox comColour;
-        private System.Windows.Forms.ComboBox comFactory;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private Bunifu.Framework.UI.BunifuTileButton btnAdd;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
