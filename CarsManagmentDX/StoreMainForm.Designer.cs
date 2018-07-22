@@ -65,13 +65,13 @@
             this.panStoreContent = new System.Windows.Forms.Panel();
             this.xtraTabControlStoresContent = new DevExpress.XtraTab.XtraTabControl();
             this.navBarControl1 = new DevExpress.XtraNavBar.NavBarControl();
+            this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
+            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup2 = new DevExpress.XtraNavBar.NavBarGroup();
             this.btnStoreRecord = new DevExpress.XtraNavBar.NavBarItem();
             this.btnProductItems = new DevExpress.XtraNavBar.NavBarItem();
             this.btnProducts = new DevExpress.XtraNavBar.NavBarItem();
             this.btnAtaqm = new DevExpress.XtraNavBar.NavBarItem();
-            this.navBarGroup1 = new DevExpress.XtraNavBar.NavBarGroup();
-            this.navBarItem1 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarGroup3 = new DevExpress.XtraNavBar.NavBarGroup();
             this.navBarItem2 = new DevExpress.XtraNavBar.NavBarItem();
             this.navBarItem7 = new DevExpress.XtraNavBar.NavBarItem();
@@ -563,6 +563,20 @@
             this.navBarControl1.TabIndex = 0;
             this.navBarControl1.Text = "navBarControl1";
             // 
+            // navBarGroup1
+            // 
+            this.navBarGroup1.Caption = "الرصيد الافتتاحي";
+            this.navBarGroup1.Expanded = true;
+            this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
+            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1)});
+            this.navBarGroup1.Name = "navBarGroup1";
+            // 
+            // navBarItem1
+            // 
+            this.navBarItem1.Caption = "تسجيل الكميات";
+            this.navBarItem1.Name = "navBarItem1";
+            this.navBarItem1.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.navBarItem1_LinkClicked);
+            // 
             // navBarGroup2
             // 
             this.navBarGroup2.Caption = "التكويد";
@@ -596,19 +610,6 @@
             this.btnAtaqm.Caption = "تسجيل الاطقم";
             this.btnAtaqm.Name = "btnAtaqm";
             this.btnAtaqm.LinkClicked += new DevExpress.XtraNavBar.NavBarLinkEventHandler(this.btnAtaqm_LinkClicked);
-            // 
-            // navBarGroup1
-            // 
-            this.navBarGroup1.Caption = "الرصيد الافتتاحي";
-            this.navBarGroup1.Expanded = true;
-            this.navBarGroup1.ItemLinks.AddRange(new DevExpress.XtraNavBar.NavBarItemLink[] {
-            new DevExpress.XtraNavBar.NavBarItemLink(this.navBarItem1)});
-            this.navBarGroup1.Name = "navBarGroup1";
-            // 
-            // navBarItem1
-            // 
-            this.navBarItem1.Caption = "تسجيل الكميات";
-            this.navBarItem1.Name = "navBarItem1";
             // 
             // navBarGroup3
             // 

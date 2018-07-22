@@ -124,6 +124,12 @@
     <Compile Include="CustomTextBox.designer.cs">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="initialCodeStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="initialCodeStorage.designer.cs">
+      <DependentUpon>initialCodeStorage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -228,6 +234,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CarsMainForm.resx">
       <DependentUpon>CarsMainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="initialCodeStorage.resx">
+      <DependentUpon>initialCodeStorage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

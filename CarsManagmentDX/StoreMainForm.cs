@@ -188,7 +188,47 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
+        //storage
+        private void navBarItem1_LinkClicked(object sender, NavBarLinkEventArgs e)
+        {
+            try
+            {
+                restForeColorOfNavBarItem();
+                NavBarItem navBarItem = (NavBarItem)sender;
+                navBarItem.Appearance.ForeColor = Color.Blue;
+                if (!xtraTabControlStoresContent.Visible)
+                    xtraTabControlStoresContent.Visible = true;
 
+                XtraTabPage xtraTabPage = getTabPage("تسجيل كميات البنود");
+                if (xtraTabPage == null)
+                {
+                    xtraTabControlStoresContent.TabPages.Add("تسجيل كميات البنود");
+                    xtraTabPage = getTabPage("تسجيل كميات البنود");
+                }
+
+                xtraTabPage.Controls.Clear();
+                xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+
+                initialCodeStorage objForm = new initialCodeStorage();
+
+                objForm.TopLevel = false;
+                xtraTabPage.Controls.Add(objForm);
+                objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                objForm.Dock = DockStyle.Fill;
+                //objForm.DisplayAtaqm();
+                objForm.Show();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// //////////
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void xtraTabControlStoresContent_CloseButtonClick(object sender, EventArgs e)
         {
             try
@@ -617,12 +657,14 @@ namespace StoresManagmentDX
             }
           
         }
+
+       
     }
 
     public static class connection
     {
-      public static string connectionString = "SERVER=192.168.1.200;DATABASE=test;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
-      //public static string connectionString = "SERVER=localhost;DATABASE=cccLocal;user=root;PASSWORD=root;CHARSET=utf8";
+      public static string connectionString = "SERVER=192.168.1.200;DATABASE=cccdb;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
+     // public static string connectionString = "SERVER=localhost;DATABASE=cccLocal;user=root;PASSWORD=root;CHARSET=utf8";
 
     }
 }
