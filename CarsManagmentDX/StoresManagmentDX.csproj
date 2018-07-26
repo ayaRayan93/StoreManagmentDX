@@ -124,6 +124,30 @@
     <Compile Include="CustomTextBox.designer.cs">
       <DependentUpon>CustomTextBox.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetTagame3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetTagame3.designer.cs">
+      <DependentUpon>SetTagame3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SetFak.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SetFak.designer.cs">
+      <DependentUpon>SetFak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateCodeStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpdateCodeStorage.designer.cs">
+      <DependentUpon>UpdateCodeStorage.cs</DependentUpon>
+    </Compile>
     <Compile Include="initialCodeStorage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -141,6 +165,12 @@
     </Compile>
     <Compile Include="ProductItems.designer.cs">
       <DependentUpon>ProductItems.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Storage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Storage.designer.cs">
+      <DependentUpon>Storage.cs</DependentUpon>
     </Compile>
     <Compile Include="Products.cs">
       <SubType>Form</SubType>
@@ -235,6 +265,18 @@
     <EmbeddedResource Include="CarsMainForm.resx">
       <DependentUpon>CarsMainForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetTagame3.resx">
+      <DependentUpon>SetTagame3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SetFak.resx">
+      <DependentUpon>SetFak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateCodeStorage.resx">
+      <DependentUpon>UpdateCodeStorage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="initialCodeStorage.resx">
       <DependentUpon>initialCodeStorage.cs</DependentUpon>
     </EmbeddedResource>
@@ -243,6 +285,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ProductItems.resx">
       <DependentUpon>ProductItems.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Storage.resx">
+      <DependentUpon>Storage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products.resx">
       <DependentUpon>Products.cs</DependentUpon>

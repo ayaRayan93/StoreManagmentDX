@@ -15,12 +15,14 @@ namespace StoresManagmentDX
     public partial class Product_Report : Form
     {
         public GridControl gridControl;
-        public Product_Report(GridControl gridControl)
+        string title = "";
+        public Product_Report(GridControl gridControl,string title)
         {
             try
             {
                 InitializeComponent();
                 this.gridControl = gridControl;
+                this.title = title;
             }
             catch (Exception ex)
             {
@@ -95,7 +97,7 @@ namespace StoresManagmentDX
 
 
             // Declare text strings.
-            string devexpress = "تقرير البنود";
+            string devexpress = title;
             // Specify required settings for the brick graphics.
             BrickGraphics brickGraphics2 = e.Graph;
             brickGraphics2.BackColor = Color.White;

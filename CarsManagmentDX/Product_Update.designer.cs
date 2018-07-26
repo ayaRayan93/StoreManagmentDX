@@ -59,16 +59,19 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
             this.ImageProduct = new System.Windows.Forms.PictureBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtCarton);
             this.groupBox2.Controls.Add(this.txtDescription);
@@ -84,7 +87,7 @@
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Font = new System.Drawing.Font("Neo Sans Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.groupBox2.Location = new System.Drawing.Point(87, 278);
+            this.groupBox2.Location = new System.Drawing.Point(22, 261);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox2.Size = new System.Drawing.Size(804, 179);
@@ -177,7 +180,7 @@
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label10.Location = new System.Drawing.Point(312, 108);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 17);
+            this.label10.Size = new System.Drawing.Size(46, 17);
             this.label10.TabIndex = 15;
             this.label10.Text = "الكرتنة";
             // 
@@ -189,7 +192,7 @@
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label9.Location = new System.Drawing.Point(312, 48);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 17);
+            this.label9.Size = new System.Drawing.Size(47, 17);
             this.label9.TabIndex = 12;
             this.label9.Text = "الوصف";
             // 
@@ -201,7 +204,7 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label5.Location = new System.Drawing.Point(646, 112);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 17);
+            this.label5.Size = new System.Drawing.Size(52, 17);
             this.label5.TabIndex = 9;
             this.label5.Text = "التصنيف";
             // 
@@ -213,7 +216,7 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label6.Location = new System.Drawing.Point(312, 78);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(32, 17);
+            this.label6.Size = new System.Drawing.Size(33, 17);
             this.label6.TabIndex = 6;
             this.label6.Text = "الفرز";
             // 
@@ -237,7 +240,7 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label8.Location = new System.Drawing.Point(646, 52);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(37, 17);
+            this.label8.Size = new System.Drawing.Size(36, 17);
             this.label8.TabIndex = 0;
             this.label8.Text = "اللون";
             // 
@@ -258,7 +261,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Neo Sans Arabic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.groupBox1.Location = new System.Drawing.Point(436, 77);
+            this.groupBox1.Location = new System.Drawing.Point(371, 42);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox1.Size = new System.Drawing.Size(443, 195);
@@ -336,7 +339,7 @@
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label4.Location = new System.Drawing.Point(330, 133);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(72, 17);
+            this.label4.Size = new System.Drawing.Size(70, 17);
             this.label4.TabIndex = 9;
             this.label4.Text = "اسم الصنف";
             // 
@@ -358,7 +361,7 @@
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label3.Location = new System.Drawing.Point(330, 107);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 17);
+            this.label3.Size = new System.Drawing.Size(61, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "المجموعة";
             // 
@@ -380,7 +383,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label2.Location = new System.Drawing.Point(330, 79);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 17);
+            this.label2.Size = new System.Drawing.Size(86, 17);
             this.label2.TabIndex = 3;
             this.label2.Text = "المصنع/المورد";
             // 
@@ -402,7 +405,7 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label1.Location = new System.Drawing.Point(330, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 17);
+            this.label1.Size = new System.Drawing.Size(35, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "النوع";
             // 
@@ -411,9 +414,7 @@
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.tableLayoutPanel2);
-            this.panel3.Controls.Add(this.ImageProduct);
-            this.panel3.Controls.Add(this.groupBox2);
-            this.panel3.Controls.Add(this.groupBox1);
+            this.panel3.Controls.Add(this.panel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -462,16 +463,27 @@
             // 
             // ImageProduct
             // 
-            this.ImageProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.ImageProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(122)))), ((int)(((byte)(190)))));
             this.ImageProduct.BackgroundImage = global::StoresManagmentDX.Properties.Resources.camara;
             this.ImageProduct.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ImageProduct.Location = new System.Drawing.Point(87, 77);
+            this.ImageProduct.Location = new System.Drawing.Point(22, 42);
             this.ImageProduct.Name = "ImageProduct";
             this.ImageProduct.Size = new System.Drawing.Size(325, 195);
             this.ImageProduct.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImageProduct.TabIndex = 19;
             this.ImageProduct.TabStop = false;
             this.ImageProduct.Click += new System.EventHandler(this.ImageProduct_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.ImageProduct);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Location = new System.Drawing.Point(39, 11);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(857, 466);
+            this.panel1.TabIndex = 21;
             // 
             // Product_Update
             // 
@@ -493,6 +505,7 @@
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -528,6 +541,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private Bunifu.Framework.UI.BunifuTileButton btnAdd;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

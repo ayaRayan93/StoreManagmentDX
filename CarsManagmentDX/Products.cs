@@ -467,5 +467,10 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnSearch_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

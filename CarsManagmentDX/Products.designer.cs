@@ -30,38 +30,38 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Products));
             this.tLPanProductsContainer = new System.Windows.Forms.TableLayoutPanel();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnUpdate = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnDelete = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnReport = new Bunifu.Framework.UI.BunifuTileButton();
-            this.btnDisplayWithImage = new DevExpress.XtraEditors.SimpleButton();
+            this.dataGridView1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.label3 = new System.Windows.Forms.Label();
-            this.comType = new System.Windows.Forms.ComboBox();
-            this.txtType = new System.Windows.Forms.TextBox();
-            this.comGroup = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtGroup = new System.Windows.Forms.TextBox();
+            this.btnSearch = new Bunifu.Framework.UI.BunifuFlatButton();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comFactory = new System.Windows.Forms.ComboBox();
             this.txtProduct = new System.Windows.Forms.TextBox();
             this.comProduct = new System.Windows.Forms.ComboBox();
             this.txtFactory = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnSearch = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.label6 = new System.Windows.Forms.Label();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
-            this.dataGridView1 = new DevExpress.XtraGrid.GridControl();
+            this.comGroup = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtGroup = new System.Windows.Forms.TextBox();
+            this.comType = new System.Windows.Forms.ComboBox();
+            this.txtType = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnDisplayWithImage = new DevExpress.XtraEditors.SimpleButton();
             this.tLPanProductsContainer.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tLPanProductsContainer
@@ -87,6 +87,14 @@
             this.tLPanProductsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tLPanProductsContainer.Size = new System.Drawing.Size(866, 552);
             this.tLPanProductsContainer.TabIndex = 1;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(50, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 13);
+            this.label6.TabIndex = 7;
             // 
             // tableLayoutPanel4
             // 
@@ -197,15 +205,26 @@
             this.btnReport.TabIndex = 3;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
-            // btnDisplayWithImage
+            // dataGridView1
             // 
-            this.btnDisplayWithImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnDisplayWithImage.Location = new System.Drawing.Point(651, 78);
-            this.btnDisplayWithImage.Name = "btnDisplayWithImage";
-            this.btnDisplayWithImage.Size = new System.Drawing.Size(113, 34);
-            this.btnDisplayWithImage.TabIndex = 12;
-            this.btnDisplayWithImage.Text = "عرض مع الصور";
-            this.btnDisplayWithImage.Click += new System.EventHandler(this.btnDisplayWithImage_Click);
+            this.tLPanProductsContainer.SetColumnSpan(this.dataGridView1, 3);
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.dataGridView1.Location = new System.Drawing.Point(0, 160);
+            this.dataGridView1.MainView = this.gridView2;
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.dataGridView1.Size = new System.Drawing.Size(866, 332);
+            this.dataGridView1.TabIndex = 8;
+            this.dataGridView1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView2});
+            // 
+            // gridView2
+            // 
+            this.gridView2.GridControl = this.dataGridView1;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.ViewCaption = "بند";
             // 
             // panelControl1
             // 
@@ -234,91 +253,86 @@
             this.panelControl1.Size = new System.Drawing.Size(769, 114);
             this.panelControl1.TabIndex = 13;
             // 
-            // label3
+            // btnSearch
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label3.Location = new System.Drawing.Point(688, 14);
-            this.label3.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 16);
-            this.label3.TabIndex = 13;
-            this.label3.Text = "النوع ";
+            this.btnSearch.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSearch.BorderRadius = 0;
+            this.btnSearch.ButtonText = "بحث";
+            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSearch.DisabledColor = System.Drawing.Color.Gray;
+            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.btnSearch.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnSearch.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnSearch.Iconimage")));
+            this.btnSearch.Iconimage_right = null;
+            this.btnSearch.Iconimage_right_Selected = null;
+            this.btnSearch.Iconimage_Selected = null;
+            this.btnSearch.IconMarginLeft = 0;
+            this.btnSearch.IconMarginRight = 0;
+            this.btnSearch.IconRightVisible = true;
+            this.btnSearch.IconRightZoom = 0D;
+            this.btnSearch.IconVisible = false;
+            this.btnSearch.IconZoom = 90D;
+            this.btnSearch.IsTab = false;
+            this.btnSearch.Location = new System.Drawing.Point(7, 30);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnSearch.OnHovercolor = System.Drawing.Color.DimGray;
+            this.btnSearch.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnSearch.selected = false;
+            this.btnSearch.Size = new System.Drawing.Size(95, 35);
+            this.btnSearch.TabIndex = 28;
+            this.btnSearch.Text = "بحث";
+            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSearch.Textcolor = System.Drawing.Color.White;
+            this.btnSearch.TextFont = new System.Drawing.Font("Neo Sans Arabic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click_1);
             // 
-            // comType
+            // textBox1
             // 
-            this.comType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.comType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comType.BackColor = System.Drawing.Color.White;
-            this.comType.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.comType.FormattingEnabled = true;
-            this.comType.Location = new System.Drawing.Point(497, 12);
-            this.comType.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.comType.Name = "comType";
-            this.comType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.comType.Size = new System.Drawing.Size(175, 24);
-            this.comType.TabIndex = 14;
-            this.comType.SelectedIndexChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.textBox1.BackColor = System.Drawing.Color.White;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.textBox1.Location = new System.Drawing.Point(129, 51);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(54, 24);
+            this.textBox1.TabIndex = 25;
+            this.textBox1.TabStop = false;
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
-            // txtType
+            // comboBox1
             // 
-            this.txtType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtType.BackColor = System.Drawing.Color.White;
-            this.txtType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtType.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtType.Location = new System.Drawing.Point(437, 12);
-            this.txtType.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.txtType.Name = "txtType";
-            this.txtType.Size = new System.Drawing.Size(54, 24);
-            this.txtType.TabIndex = 15;
-            this.txtType.TabStop = false;
-            this.txtType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comboBox1.BackColor = System.Drawing.Color.White;
+            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(189, 51);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.comboBox1.Size = new System.Drawing.Size(175, 24);
+            this.comboBox1.TabIndex = 26;
+            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
-            // comGroup
+            // label1
             // 
-            this.comGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.comGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comGroup.BackColor = System.Drawing.Color.White;
-            this.comGroup.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.comGroup.FormattingEnabled = true;
-            this.comGroup.Location = new System.Drawing.Point(497, 49);
-            this.comGroup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.comGroup.Name = "comGroup";
-            this.comGroup.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.comGroup.Size = new System.Drawing.Size(175, 24);
-            this.comGroup.TabIndex = 16;
-            this.comGroup.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
-            // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label5.Location = new System.Drawing.Point(675, 49);
-            this.label5.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 16);
-            this.label5.TabIndex = 18;
-            this.label5.Text = "المجوعة";
-            // 
-            // txtGroup
-            // 
-            this.txtGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.txtGroup.BackColor = System.Drawing.Color.White;
-            this.txtGroup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGroup.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtGroup.Location = new System.Drawing.Point(437, 49);
-            this.txtGroup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.txtGroup.Name = "txtGroup";
-            this.txtGroup.Size = new System.Drawing.Size(54, 24);
-            this.txtGroup.TabIndex = 17;
-            this.txtGroup.TabStop = false;
-            this.txtGroup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label1.Location = new System.Drawing.Point(367, 51);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 16);
+            this.label1.TabIndex = 27;
+            this.label1.Text = "الصنف";
             // 
             // label2
             // 
@@ -404,114 +418,101 @@
             this.txtFactory.TabIndex = 21;
             this.txtFactory.TabStop = false;
             // 
-            // textBox1
+            // comGroup
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.textBox1.BackColor = System.Drawing.Color.White;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.textBox1.Location = new System.Drawing.Point(129, 51);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(54, 24);
-            this.textBox1.TabIndex = 25;
-            this.textBox1.TabStop = false;
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            this.comGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comGroup.BackColor = System.Drawing.Color.White;
+            this.comGroup.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comGroup.FormattingEnabled = true;
+            this.comGroup.Location = new System.Drawing.Point(497, 49);
+            this.comGroup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.comGroup.Name = "comGroup";
+            this.comGroup.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.comGroup.Size = new System.Drawing.Size(175, 24);
+            this.comGroup.TabIndex = 16;
+            this.comGroup.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
-            // comboBox1
+            // label5
             // 
-            this.comboBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.comboBox1.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox1.BackColor = System.Drawing.Color.White;
-            this.comboBox1.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(189, 51);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.comboBox1.Size = new System.Drawing.Size(175, 24);
-            this.comboBox1.TabIndex = 26;
-            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label5.Location = new System.Drawing.Point(675, 49);
+            this.label5.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 16);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "المجوعة";
             // 
-            // label1
+            // txtGroup
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label1.Location = new System.Drawing.Point(367, 51);
-            this.label1.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 16);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "الصنف";
+            this.txtGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtGroup.BackColor = System.Drawing.Color.White;
+            this.txtGroup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGroup.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtGroup.Location = new System.Drawing.Point(437, 49);
+            this.txtGroup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.txtGroup.Name = "txtGroup";
+            this.txtGroup.Size = new System.Drawing.Size(54, 24);
+            this.txtGroup.TabIndex = 17;
+            this.txtGroup.TabStop = false;
+            this.txtGroup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
-            // btnSearch
+            // comType
             // 
-            this.btnSearch.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.BorderRadius = 0;
-            this.btnSearch.ButtonText = "بحث";
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.DisabledColor = System.Drawing.Color.Gray;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnSearch.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnSearch.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnSearch.Iconimage")));
-            this.btnSearch.Iconimage_right = null;
-            this.btnSearch.Iconimage_right_Selected = null;
-            this.btnSearch.Iconimage_Selected = null;
-            this.btnSearch.IconMarginLeft = 0;
-            this.btnSearch.IconMarginRight = 0;
-            this.btnSearch.IconRightVisible = true;
-            this.btnSearch.IconRightZoom = 0D;
-            this.btnSearch.IconVisible = false;
-            this.btnSearch.IconZoom = 90D;
-            this.btnSearch.IsTab = false;
-            this.btnSearch.Location = new System.Drawing.Point(7, 30);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(5);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnSearch.OnHovercolor = System.Drawing.Color.DimGray;
-            this.btnSearch.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnSearch.selected = false;
-            this.btnSearch.Size = new System.Drawing.Size(95, 35);
-            this.btnSearch.TabIndex = 28;
-            this.btnSearch.Text = "بحث";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSearch.Textcolor = System.Drawing.Color.White;
-            this.btnSearch.TextFont = new System.Drawing.Font("Neo Sans Arabic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comType.BackColor = System.Drawing.Color.White;
+            this.comType.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comType.FormattingEnabled = true;
+            this.comType.Location = new System.Drawing.Point(497, 12);
+            this.comType.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.comType.Name = "comType";
+            this.comType.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.comType.Size = new System.Drawing.Size(175, 24);
+            this.comType.TabIndex = 14;
+            this.comType.SelectedIndexChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
-            // label6
+            // txtType
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 13);
-            this.label6.TabIndex = 7;
+            this.txtType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtType.BackColor = System.Drawing.Color.White;
+            this.txtType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtType.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtType.Location = new System.Drawing.Point(437, 12);
+            this.txtType.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.txtType.Name = "txtType";
+            this.txtType.Size = new System.Drawing.Size(54, 24);
+            this.txtType.TabIndex = 15;
+            this.txtType.TabStop = false;
+            this.txtType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
-            // gridView2
+            // label3
             // 
-            this.gridView2.GridControl = this.dataGridView1;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.ViewCaption = "بند";
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label3.Location = new System.Drawing.Point(688, 14);
+            this.label3.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 16);
+            this.label3.TabIndex = 13;
+            this.label3.Text = "النوع ";
             // 
-            // dataGridView1
+            // btnDisplayWithImage
             // 
-            this.tLPanProductsContainer.SetColumnSpan(this.dataGridView1, 3);
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.dataGridView1.Location = new System.Drawing.Point(0, 160);
-            this.dataGridView1.MainView = this.gridView2;
-            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.dataGridView1.Size = new System.Drawing.Size(866, 332);
-            this.dataGridView1.TabIndex = 8;
-            this.dataGridView1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.btnDisplayWithImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnDisplayWithImage.Location = new System.Drawing.Point(651, 78);
+            this.btnDisplayWithImage.Name = "btnDisplayWithImage";
+            this.btnDisplayWithImage.Size = new System.Drawing.Size(113, 34);
+            this.btnDisplayWithImage.TabIndex = 12;
+            this.btnDisplayWithImage.Text = "عرض مع الصور";
+            this.btnDisplayWithImage.Click += new System.EventHandler(this.btnDisplayWithImage_Click);
             // 
             // Products
             // 
@@ -527,11 +528,11 @@
             this.tLPanProductsContainer.ResumeLayout(false);
             this.tLPanProductsContainer.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

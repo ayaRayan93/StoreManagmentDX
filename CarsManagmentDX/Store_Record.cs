@@ -63,7 +63,7 @@ namespace StoresManagmentDX
                         query = "select Type_ID from type order by Type_ID desc limit 1";
                         com = new MySqlCommand(query, conn);
 
-                        UserControl.UserRecord("store", "add", com.ExecuteScalar().ToString(), DateTime.Now, conn);
+                        UserControl.UserRecord("store", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, conn);
 
                         MessageBox.Show("add success");
                         clear();
