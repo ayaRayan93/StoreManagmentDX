@@ -424,13 +424,10 @@ namespace StoresManagmentDX
                             conn.Open();
                             command.ExecuteNonQuery();
                         }
-                        clear();
-
-
-
+                        
                         products.displayProducts();
-                        UserControl.UserRecord("data", "add", code, DateTime.Now, conn);
-
+                        UserControl.UserRecord("data", "اضافة", code, DateTime.Now, conn);
+                        clear();
                         MessageBox.Show("inserted");
 
                        
@@ -526,7 +523,7 @@ namespace StoresManagmentDX
         //clear function
         public void clear()
         {
-            foreach (Control co in this.panel3.Controls)
+            foreach (Control co in this.panel1.Controls)
             {
                 if (co is GroupBox)
                 {
@@ -559,7 +556,7 @@ namespace StoresManagmentDX
         public bool IsClear()
         {
             bool flag = false;
-            foreach (Control co in this.panel3.Controls)
+            foreach (Control co in this.panel1.Controls)
             {
                 if (co is GroupBox)
                 {

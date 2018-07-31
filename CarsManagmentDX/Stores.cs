@@ -17,6 +17,7 @@ namespace StoresManagmentDX
     {
         MySqlConnection dbconnection;
         StoreMainForm storeMainForm;
+
         public Stores(StoreMainForm storeMainForm)
         {
             try
@@ -30,7 +31,6 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void Stores_Load(object sender, EventArgs e)
         {
             try
@@ -80,7 +80,6 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void btnStorePlaces_Click(object sender, EventArgs e)
         {
             try
@@ -99,7 +98,6 @@ namespace StoresManagmentDX
             {
                 dbconnection.Open();
                 DataRowView setRow = (DataRowView)(((GridView)gridControlStores.MainView).GetRow(((GridView)gridControlStores.MainView).GetSelectedRows()[0]));
-
 
                 if (setRow != null)
                 {
@@ -133,8 +131,7 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
-
-      
+        
         //functions
         //display stores
         public void DisplayStores()

@@ -364,21 +364,28 @@ namespace StoresManagmentDX
         }
         private void StoreMainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!IsTabPageSave())
-            {
-                DialogResult dialogResult = MessageBox.Show("There are unsave Pages To you wound close anyway?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (dialogResult == DialogResult.Yes)
+            try
+            {        
+                if (!IsTabPageSave())
+                {
+                    DialogResult dialogResult = MessageBox.Show("There are unsave Pages To you wound close anyway?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dialogResult == DialogResult.Yes)
+                    {
+                        Environment.Exit(0);
+                    }
+                    else if (dialogResult == DialogResult.No)
+                    {
+                        e.Cancel = (dialogResult == DialogResult.No);
+                    }
+                }
+                else
                 {
                     Environment.Exit(0);
                 }
-                else if (dialogResult == DialogResult.No)
-                {
-                    e.Cancel = (dialogResult == DialogResult.No);
-                }
             }
-            else
+            catch (Exception ex)
             {
-                Environment.Exit(0);
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -680,7 +687,6 @@ namespace StoresManagmentDX
             objForm.Dock = DockStyle.Fill;
             objForm.Show();
         }
-
         //storag
         public void bindRecordStorageForm(Storage storage)
         {
@@ -816,8 +822,8 @@ namespace StoresManagmentDX
 
     public static class connection
     {
-      public static string connectionString = "SERVER=192.168.1.200;DATABASE=test;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
-     // public static string connectionString = "SERVER=localhost;DATABASE=cccLocal;user=root;PASSWORD=root;CHARSET=utf8";
+    //  public static string connectionString = "SERVER=192.168.1.200;DATABASE=test;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
+        public static string connectionString = "SERVER=localhost;DATABASE=testcoding;user=root;PASSWORD=root;CHARSET=utf8";
 
     }
 }

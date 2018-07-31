@@ -36,7 +36,7 @@ namespace StoresManagmentDX
                 this.xtraTabControlStoresContent = xtraTabControlStoresContent;
                 conn = new MySqlConnection(connection.connectionString);
                 conn1 = new MySqlConnection(connection.connectionString);
-                code = prodRow[0].ToString();
+                code = prodRow[1].ToString();
                 conn.Open();
                 loadData();
                 displayData(prodRow);

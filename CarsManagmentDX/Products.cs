@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraGrid;
 using DevExpress.XtraGrid.Columns;
 using DevExpress.XtraGrid.Views.Card;
 using DevExpress.XtraGrid.Views.Grid;
@@ -27,6 +28,7 @@ namespace StoresManagmentDX
         public  Product_Record product_Record = null;
         public Product_Update product_Update = null;
         TipImage tipImage=null;
+        char[] arrCode=null;
         public Products(StoreMainForm storeMainForm)
         {
             try
@@ -34,6 +36,8 @@ namespace StoresManagmentDX
                 InitializeComponent();
                 dbconnection = new MySqlConnection(connection.connectionString);
                 this.storeMainForm = storeMainForm;
+               
+               
             }
             catch (Exception ex)
             {
@@ -41,7 +45,6 @@ namespace StoresManagmentDX
             }
            
         }
-
         private void Products_Load(object sender, EventArgs e)
         {
             try
@@ -82,11 +85,11 @@ namespace StoresManagmentDX
                 da = new MySqlDataAdapter(query, dbconnection);
                 dt = new DataTable();
                 da.Fill(dt);
-                comProduct.DataSource = dt;
-                comProduct.DisplayMember = dt.Columns["Product_Name"].ToString();
-                comProduct.ValueMember = dt.Columns["Product_ID"].ToString();
-                comProduct.Text = "";
-                txtProduct.Text = "";
+                com.DataSource = dt;
+                com.DisplayMember = dt.Columns["Product_Name"].ToString();
+                com.ValueMember = dt.Columns["Product_ID"].ToString();
+                com.Text = "";
+                txtFactory.Text = "";
                 
                 loaded = true;
 
@@ -101,28 +104,122 @@ namespace StoresManagmentDX
         {
             if (loaded)
             {
+                dbconnection.Close();
+                dbconnection.Open();
                 ComboBox comBox = (ComboBox)sender;
-
+               
                 switch (comBox.Name)
                 {
                     case "comType":
                         txtType.Text = comType.SelectedValue.ToString();
+                        comFactory.Focus();
+                        filterFactory();
                         displayProducts();
                         break;
                     case "comFactory":
                         txtFactory.Text = comFactory.SelectedValue.ToString();
+                        comGroup.Focus();
+                        filterGroup();
                         displayProducts();
                         break;
                     case "comGroup":
                         txtGroup.Text = comGroup.SelectedValue.ToString();
+                        comProduct.Focus();
+                        filterProduct();
                         displayProducts();
                         break;
                     case "comProduct":
                         txtProduct.Text = comProduct.SelectedValue.ToString();
+                        comType.Focus();
                         displayProducts();
                         break;
                 }
             }
+            loaded = true;
+            dbconnection.Close();
+        }
+        private void comType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (loaded)
+                {
+                    loaded = false;
+                    dbconnection.Open();
+                    txtType.Text = comType.SelectedValue.ToString();
+                    comFactory.Focus();
+                    filterFactory();
+                    displayProducts();
+                    loaded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
+        }
+        private void comGroup_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (loaded)
+                {
+                    loaded = false;
+                    dbconnection.Open();
+                    txtGroup.Text = comGroup.SelectedValue.ToString();
+                    comProduct.Focus();
+                    filterProduct();
+                    displayProducts();
+                    loaded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
+        }
+        private void comFactory_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (loaded)
+                {
+                    loaded = false;
+                    dbconnection.Open();
+                    txtFactory.Text = comFactory.SelectedValue.ToString();
+                    comGroup.Focus();
+                    filterGroup();
+                    displayProducts();
+                    loaded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
+        }
+        private void comProduct_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (loaded)
+                {
+                    loaded = false;
+                    dbconnection.Open();
+                    txtProduct.Text = comProduct.SelectedValue.ToString();
+                    comType.Focus();
+                    displayProducts();
+                    loaded = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
         }
         private void txtBox_KeyDown(object sender, KeyEventArgs e)
         {
@@ -148,6 +245,7 @@ namespace StoresManagmentDX
                                     Name = (string)com.ExecuteScalar();
                                     comType.Text = Name;
                                     txtFactory.Focus();
+                                    filterFactory();
                                     dbconnection.Close();
                                     displayProducts();
                                 }
@@ -195,12 +293,12 @@ namespace StoresManagmentDX
                                 }
                                 break;
                             case "txtProduct":
-                                query = "select Product_Name from product where Product_ID='" + txtProduct.Text + "'";
+                                query = "select Product_Name from product where Product_ID='" + txtFactory.Text + "'";
                                 com = new MySqlCommand(query, dbconnection);
                                 if (com.ExecuteScalar() != null)
                                 {
                                     Name = (string)com.ExecuteScalar();
-                                    comProduct.Text = Name;
+                                    this.com.Text = Name;
                                     txtType.Focus();
                                     dbconnection.Close();
                                     displayProducts();
@@ -252,8 +350,12 @@ namespace StoresManagmentDX
                         MySqlCommand comand = new MySqlCommand(query, dbconnection);
                         dbconnection.Open();
                         comand.ExecuteNonQuery();
-                    
-                        UserControl.UserRecord("data", "delete", row1[0].ToString(), DateTime.Now, dbconnection);
+
+                        query = "ALTER TABLE data AUTO_INCREMENT = 1;";
+                        MySqlCommand com = new MySqlCommand(query, dbconnection);
+                        com.ExecuteNonQuery(); 
+
+                        UserControl.UserRecord("data", "حذف", row1[0].ToString(), DateTime.Now, dbconnection);
                      
                         displayProducts();
                     }
@@ -325,13 +427,117 @@ namespace StoresManagmentDX
         {
             try
             {
-
                 storeMainForm.bindReportProductForm(dataGridView1);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void btnDisplayWithImage_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                productsWithImage();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                clear();
+                displayProducts();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void dataGridView1_EditorKeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    txtEditCode.Visible = true;
+                    label7.Visible = true;
+                    DataRowView row = (DataRowView)(((GridView)dataGridView1.MainView).GetRow(((GridView)dataGridView1.MainView).GetSelectedRows()[0]));
+                    if (row != null)
+                    {
+                        arrCode = row[1].ToString().ToCharArray();
+                        string str = arrCode[16].ToString() + arrCode[17].ToString() + arrCode[18].ToString() + arrCode[19].ToString() + "";
+                        txtEditCode.Text = str;
+                        txtEditCode.Focus();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void txtEditCode_KeyDown(object sender, KeyEventArgs e)
+        {
+            try
+            {
+                if (e.KeyCode == Keys.Enter)
+                {
+                    dbconnection.Open();
+                    string partCode = txtEditCode.Text;
+                    int count = partCode.Length;
+                    while (count < 4)
+                    {
+                        partCode = "0" + partCode;
+                        count++;
+                    }
+
+                    char[] arrPart = partCode.ToCharArray();
+                    if (arrCode != null)
+                    {
+                        arrCode[16] = arrPart[0];
+                        arrCode[17] = arrPart[1];
+                        arrCode[18] = arrPart[2];
+                        arrCode[19] = arrPart[3];
+                    }
+
+                    string code = "";
+                    for (int i = 0; i < arrCode.Length; i++)
+                    {
+                        code += arrCode[i];
+                    }
+                    string query = "select Data_ID from data where Code='"+code+"'";
+                    MySqlCommand com = new MySqlCommand(query, dbconnection);
+                    if (com.ExecuteScalar()== null)
+                    {
+                        DataRowView row = (DataRowView)(((GridView)dataGridView1.MainView).GetRow(((GridView)dataGridView1.MainView).GetSelectedRows()[0]));
+                        if (row != null)
+                        {
+                            query = "update data set Code='" + code + "' where Data_ID=" + row[0].ToString();
+                            com = new MySqlCommand(query, dbconnection);
+                            com.ExecuteNonQuery();
+                            displayProducts();
+                            txtEditCode.Text = "";
+                            txtEditCode.Visible = false;
+                            label7.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("ادخل رقم كود صحيح");
+                    }
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
         }
         //function
         public void displayProducts()
@@ -374,7 +580,7 @@ namespace StoresManagmentDX
                     q4 = txtGroup.Text;
                 }
                 
-                string query = "SELECT data.Code as 'الكود',product.Product_Name as 'الصنف',type.Type_Name as 'النوع',factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',sort.Sort_Value as 'الفرز',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID where  data.Type_ID IN(" + q1 + ") and  data.Factory_ID  IN(" + q2 + ") and  data.Product_ID  IN(" + q3 + ") and data.Group_ID IN (" + q4 + ") ";
+                string query = "SELECT data.Data_ID, data.Code as 'الكود',type.Type_Name as 'النوع',factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',product.Product_Name as 'الصنف',sort.Sort_Value as 'الفرز',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID where  data.Type_ID IN(" + q1 + ") and  data.Factory_ID  IN(" + q2 + ") and  data.Product_ID  IN(" + q3 + ") and data.Group_ID IN (" + q4 + ") order by data.Code ";
                 MySqlDataAdapter adapter = new MySqlDataAdapter(query, dbconnection);
                 DataSet dataSet = new DataSet();
                 adapter.Fill(dataSet);
@@ -382,8 +588,14 @@ namespace StoresManagmentDX
                 GridView lView = new GridView(dataGridView1);
                
                 dataGridView1.MainView = lView;
-
+                lView.Appearance.Row.Font=gridView2.Appearance.Row.Font;
+                lView.Appearance.Row.TextOptions.HAlignment = gridView2.Appearance.Row.TextOptions.HAlignment;
+                lView.Appearance.HeaderPanel.Font= gridView2.Appearance.HeaderPanel.Font;
+                lView.Appearance.HeaderPanel.TextOptions.HAlignment = gridView2.Appearance.HeaderPanel.TextOptions.HAlignment;
                 dataGridView1.DataSource = dataSet.Tables[0];
+                lView.Columns[0].Visible = false;
+                lView.Columns[1].Width = 200;
+
                 load = true;
             }
             catch (Exception ex)
@@ -392,8 +604,6 @@ namespace StoresManagmentDX
             }
         
         }
-
-        
         private void productsWithImage()
         {
             try
@@ -417,13 +627,13 @@ namespace StoresManagmentDX
                 {
                     q2 = txtFactory.Text;
                 }
-                if (txtProduct.Text == "")
+                if (txtFactory.Text == "")
                 {
                     q3 = "select Product_ID from product";
                 }
                 else
                 {
-                    q3 = txtProduct.Text;
+                    q3 = txtFactory.Text;
                 }
                 if (txtGroup.Text == "")
                 {
@@ -455,22 +665,65 @@ namespace StoresManagmentDX
             dbconnection.Close();
 
         }
-
-        private void btnDisplayWithImage_Click(object sender, EventArgs e)
+        public void clear()
         {
-            try
+            foreach (Control item in panelControl1.Controls)
             {
-                productsWithImage();
+                if (item is TextBox)
+                    item.Text = "";
+                else if (item is ComboBox)
+                {
+                    item.Text = "";
+                }
+
             }
-            catch (Exception ex)
+        }
+        public void filterFactory()
+        {
+            if (comType.Text != "")
             {
-                MessageBox.Show(ex.Message);
+                string query = "select * from factory where Type_ID=" + comType.SelectedValue;
+                MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                comFactory.DataSource = dt;
+                comFactory.DisplayMember = dt.Columns["Factory_Name"].ToString();
+                comFactory.ValueMember = dt.Columns["Factory_ID"].ToString();
+                comFactory.Text = "";
+                txtFactory.Text = "";
+            }
+        }
+        public void filterGroup()
+        {
+            if (comFactory.Text != "")
+            {
+                string query = "select * from groupo where Factory_ID=" + comFactory.SelectedValue;
+                MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                comGroup.DataSource = dt;
+                comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
+                comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
+                comGroup.Text = "";
+                txtGroup.Text = "";
+            }
+        }
+        public void filterProduct()
+        {
+            if (comGroup.Text != "")
+            {
+                string query = "select * from product where Group_ID=" + comGroup.SelectedValue;
+                MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                comProduct.DataSource = dt;
+                comProduct.DisplayMember = dt.Columns["Product_Name"].ToString();
+                comProduct.ValueMember = dt.Columns["Product_ID"].ToString();
+                comProduct.Text = "";
+                txtProduct.Text = "";
             }
         }
 
-        private void btnSearch_Click_1(object sender, EventArgs e)
-        {
-
-        }
+   
     }
 }

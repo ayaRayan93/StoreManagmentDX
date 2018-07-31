@@ -79,11 +79,15 @@
             this.btnDeleteProduct = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnAddProduct = new Bunifu.Framework.UI.BunifuTileButton();
             this.tableLayoutPanel28 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.txtProduct = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel29 = new System.Windows.Forms.TableLayoutPanel();
+            this.comGroup = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.comGroup2 = new System.Windows.Forms.ComboBox();
+            this.comFactoryGroup = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridViewProduct = new System.Windows.Forms.DataGridView();
             this.mTPGroup = new MetroFramework.Controls.MetroTabPage();
@@ -147,6 +151,8 @@
             this.tableLayoutPanelProduct.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel28.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel29.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewProduct)).BeginInit();
@@ -348,11 +354,11 @@
             this.mTC_Content.Controls.Add(this.mTPFactory);
             this.mTC_Content.Controls.Add(this.mTPType);
             this.mTC_Content.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mTC_Content.ItemSize = new System.Drawing.Size(1, 1);
+            this.mTC_Content.ItemSize = new System.Drawing.Size(100, 50);
             this.mTC_Content.Location = new System.Drawing.Point(48, 104);
             this.mTC_Content.Name = "mTC_Content";
             this.mTC_Content.RightToLeftLayout = true;
-            this.mTC_Content.SelectedIndex = 6;
+            this.mTC_Content.SelectedIndex = 2;
             this.mTC_Content.Size = new System.Drawing.Size(808, 378);
             this.mTC_Content.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.mTC_Content.Style = MetroFramework.MetroColorStyle.Silver;
@@ -370,9 +376,9 @@
             this.mTPSort.HorizontalScrollbarBarColor = true;
             this.mTPSort.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPSort.HorizontalScrollbarSize = 0;
-            this.mTPSort.Location = new System.Drawing.Point(4, 5);
+            this.mTPSort.Location = new System.Drawing.Point(4, 54);
             this.mTPSort.Name = "mTPSort";
-            this.mTPSort.Size = new System.Drawing.Size(800, 369);
+            this.mTPSort.Size = new System.Drawing.Size(800, 320);
             this.mTPSort.TabIndex = 5;
             this.mTPSort.Text = "الفرز";
             this.mTPSort.VerticalScrollbarBarColor = true;
@@ -399,7 +405,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(800, 369);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(800, 320);
             this.tableLayoutPanel5.TabIndex = 6;
             // 
             // tableLayoutPanel34
@@ -417,12 +423,12 @@
             this.tableLayoutPanel34.Controls.Add(this.btnDelete, 3, 0);
             this.tableLayoutPanel34.Controls.Add(this.btnAddSort, 2, 0);
             this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 315);
+            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 275);
             this.tableLayoutPanel34.Name = "tableLayoutPanel34";
             this.tableLayoutPanel34.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel34.RowCount = 1;
             this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel34.Size = new System.Drawing.Size(794, 51);
+            this.tableLayoutPanel34.Size = new System.Drawing.Size(794, 42);
             this.tableLayoutPanel34.TabIndex = 29;
             // 
             // btnDelete
@@ -442,7 +448,7 @@
             this.btnDelete.Location = new System.Drawing.Point(322, 4);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(73, 43);
+            this.btnDelete.Size = new System.Drawing.Size(73, 34);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Click += new System.EventHandler(this.btnDeleteSort_Click);
             // 
@@ -463,7 +469,7 @@
             this.btnAddSort.Location = new System.Drawing.Point(401, 4);
             this.btnAddSort.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddSort.Name = "btnAddSort";
-            this.btnAddSort.Size = new System.Drawing.Size(73, 43);
+            this.btnAddSort.Size = new System.Drawing.Size(73, 34);
             this.btnAddSort.TabIndex = 3;
             this.btnAddSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
@@ -478,13 +484,13 @@
             this.tableLayoutPanel6.Controls.Add(this.label2, 0, 0);
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tableLayoutPanel6.Location = new System.Drawing.Point(320, 18);
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(320, 16);
             this.tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(480, 55);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(480, 48);
             this.tableLayoutPanel6.TabIndex = 16;
             // 
             // txtSort
@@ -510,7 +516,7 @@
             this.label2.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label2.Size = new System.Drawing.Size(120, 35);
+            this.label2.Size = new System.Drawing.Size(120, 28);
             this.label2.TabIndex = 9;
             this.label2.Text = "الفرز";
             // 
@@ -518,10 +524,10 @@
             // 
             this.dataGridViewSort.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSort.Location = new System.Drawing.Point(83, 21);
+            this.dataGridViewSort.Location = new System.Drawing.Point(83, 19);
             this.dataGridViewSort.Name = "dataGridViewSort";
             this.tableLayoutPanel5.SetRowSpan(this.dataGridViewSort, 2);
-            this.dataGridViewSort.Size = new System.Drawing.Size(234, 288);
+            this.dataGridViewSort.Size = new System.Drawing.Size(234, 250);
             this.dataGridViewSort.TabIndex = 30;
             // 
             // mTPSize
@@ -530,9 +536,9 @@
             this.mTPSize.HorizontalScrollbarBarColor = true;
             this.mTPSize.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPSize.HorizontalScrollbarSize = 0;
-            this.mTPSize.Location = new System.Drawing.Point(4, 5);
+            this.mTPSize.Location = new System.Drawing.Point(4, 54);
             this.mTPSize.Name = "mTPSize";
-            this.mTPSize.Size = new System.Drawing.Size(800, 369);
+            this.mTPSize.Size = new System.Drawing.Size(800, 320);
             this.mTPSize.TabIndex = 4;
             this.mTPSize.Text = "المقاس";
             this.mTPSize.VerticalScrollbarBarColor = true;
@@ -559,7 +565,7 @@
             this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanelSize.Size = new System.Drawing.Size(800, 369);
+            this.tableLayoutPanelSize.Size = new System.Drawing.Size(800, 320);
             this.tableLayoutPanelSize.TabIndex = 6;
             // 
             // tableLayoutPanel35
@@ -577,12 +583,12 @@
             this.tableLayoutPanel35.Controls.Add(this.btnDeleteSize, 3, 0);
             this.tableLayoutPanel35.Controls.Add(this.btnAddSize, 2, 0);
             this.tableLayoutPanel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel35.Location = new System.Drawing.Point(3, 315);
+            this.tableLayoutPanel35.Location = new System.Drawing.Point(3, 275);
             this.tableLayoutPanel35.Name = "tableLayoutPanel35";
             this.tableLayoutPanel35.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel35.RowCount = 1;
             this.tableLayoutPanel35.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel35.Size = new System.Drawing.Size(794, 51);
+            this.tableLayoutPanel35.Size = new System.Drawing.Size(794, 42);
             this.tableLayoutPanel35.TabIndex = 30;
             // 
             // btnDeleteSize
@@ -602,7 +608,7 @@
             this.btnDeleteSize.Location = new System.Drawing.Point(322, 4);
             this.btnDeleteSize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeleteSize.Name = "btnDeleteSize";
-            this.btnDeleteSize.Size = new System.Drawing.Size(73, 43);
+            this.btnDeleteSize.Size = new System.Drawing.Size(73, 34);
             this.btnDeleteSize.TabIndex = 2;
             this.btnDeleteSize.Click += new System.EventHandler(this.btnDeleteSize_Click);
             // 
@@ -623,7 +629,7 @@
             this.btnAddSize.Location = new System.Drawing.Point(401, 4);
             this.btnAddSize.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddSize.Name = "btnAddSize";
-            this.btnAddSize.Size = new System.Drawing.Size(73, 43);
+            this.btnAddSize.Size = new System.Drawing.Size(73, 34);
             this.btnAddSize.TabIndex = 3;
             this.btnAddSize.Click += new System.EventHandler(this.btnSize_Click);
             // 
@@ -633,13 +639,13 @@
             this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel32.Controls.Add(this.tableLayoutPanel33, 0, 0);
             this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel32.Location = new System.Drawing.Point(320, 73);
+            this.tableLayoutPanel32.Location = new System.Drawing.Point(320, 64);
             this.tableLayoutPanel32.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel32.Name = "tableLayoutPanel32";
             this.tableLayoutPanel32.RowCount = 2;
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(480, 239);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(480, 208);
             this.tableLayoutPanel32.TabIndex = 23;
             // 
             // tableLayoutPanel33
@@ -659,7 +665,7 @@
             this.tableLayoutPanel33.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel33.RowCount = 1;
             this.tableLayoutPanel33.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel33.Size = new System.Drawing.Size(480, 47);
+            this.tableLayoutPanel33.Size = new System.Drawing.Size(480, 41);
             this.tableLayoutPanel33.TabIndex = 16;
             // 
             // txtSize
@@ -686,7 +692,7 @@
             this.label13.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label13.Size = new System.Drawing.Size(120, 27);
+            this.label13.Size = new System.Drawing.Size(120, 21);
             this.label13.TabIndex = 9;
             this.label13.Text = "المقاس";
             // 
@@ -701,13 +707,13 @@
             this.tableLayoutPanel9.Controls.Add(this.label3, 0, 0);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel9.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(320, 18);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(320, 16);
             this.tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(480, 55);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(480, 48);
             this.tableLayoutPanel9.TabIndex = 16;
             // 
             // comFactory2
@@ -736,7 +742,7 @@
             this.label3.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label3.Size = new System.Drawing.Size(120, 35);
+            this.label3.Size = new System.Drawing.Size(120, 28);
             this.label3.TabIndex = 9;
             this.label3.Text = "المصنع";
             // 
@@ -744,10 +750,10 @@
             // 
             this.dataGridViewSize.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewSize.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSize.Location = new System.Drawing.Point(83, 21);
+            this.dataGridViewSize.Location = new System.Drawing.Point(83, 19);
             this.dataGridViewSize.Name = "dataGridViewSize";
             this.tableLayoutPanelSize.SetRowSpan(this.dataGridViewSize, 2);
-            this.dataGridViewSize.Size = new System.Drawing.Size(234, 288);
+            this.dataGridViewSize.Size = new System.Drawing.Size(234, 250);
             this.dataGridViewSize.TabIndex = 31;
             // 
             // mTPColor
@@ -756,9 +762,9 @@
             this.mTPColor.HorizontalScrollbarBarColor = true;
             this.mTPColor.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPColor.HorizontalScrollbarSize = 0;
-            this.mTPColor.Location = new System.Drawing.Point(4, 5);
+            this.mTPColor.Location = new System.Drawing.Point(4, 54);
             this.mTPColor.Name = "mTPColor";
-            this.mTPColor.Size = new System.Drawing.Size(800, 369);
+            this.mTPColor.Size = new System.Drawing.Size(800, 320);
             this.mTPColor.TabIndex = 3;
             this.mTPColor.Text = "اللون";
             this.mTPColor.VerticalScrollbarBarColor = true;
@@ -785,7 +791,7 @@
             this.tableLayoutPanelColor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanelColor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanelColor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanelColor.Size = new System.Drawing.Size(800, 369);
+            this.tableLayoutPanelColor.Size = new System.Drawing.Size(800, 320);
             this.tableLayoutPanelColor.TabIndex = 6;
             // 
             // tableLayoutPanel36
@@ -803,12 +809,12 @@
             this.tableLayoutPanel36.Controls.Add(this.bunifuTileButton1, 3, 0);
             this.tableLayoutPanel36.Controls.Add(this.bunifuTileButton2, 2, 0);
             this.tableLayoutPanel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel36.Location = new System.Drawing.Point(3, 315);
+            this.tableLayoutPanel36.Location = new System.Drawing.Point(3, 275);
             this.tableLayoutPanel36.Name = "tableLayoutPanel36";
             this.tableLayoutPanel36.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel36.RowCount = 1;
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel36.Size = new System.Drawing.Size(794, 51);
+            this.tableLayoutPanel36.Size = new System.Drawing.Size(794, 42);
             this.tableLayoutPanel36.TabIndex = 31;
             // 
             // bunifuTileButton1
@@ -828,7 +834,7 @@
             this.bunifuTileButton1.Location = new System.Drawing.Point(322, 4);
             this.bunifuTileButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bunifuTileButton1.Name = "bunifuTileButton1";
-            this.bunifuTileButton1.Size = new System.Drawing.Size(73, 43);
+            this.bunifuTileButton1.Size = new System.Drawing.Size(73, 34);
             this.bunifuTileButton1.TabIndex = 2;
             this.bunifuTileButton1.Click += new System.EventHandler(this.btnDeleteColor_Click);
             // 
@@ -849,7 +855,7 @@
             this.bunifuTileButton2.Location = new System.Drawing.Point(401, 4);
             this.bunifuTileButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bunifuTileButton2.Name = "bunifuTileButton2";
-            this.bunifuTileButton2.Size = new System.Drawing.Size(73, 43);
+            this.bunifuTileButton2.Size = new System.Drawing.Size(73, 34);
             this.bunifuTileButton2.TabIndex = 3;
             this.bunifuTileButton2.Click += new System.EventHandler(this.btnColor_Click);
             // 
@@ -859,13 +865,13 @@
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel30.Controls.Add(this.tableLayoutPanel31, 0, 0);
             this.tableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel30.Location = new System.Drawing.Point(320, 73);
+            this.tableLayoutPanel30.Location = new System.Drawing.Point(320, 64);
             this.tableLayoutPanel30.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel30.Name = "tableLayoutPanel30";
             this.tableLayoutPanel30.RowCount = 2;
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(480, 239);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(480, 208);
             this.tableLayoutPanel30.TabIndex = 22;
             // 
             // tableLayoutPanel31
@@ -885,7 +891,7 @@
             this.tableLayoutPanel31.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel31.RowCount = 1;
             this.tableLayoutPanel31.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel31.Size = new System.Drawing.Size(480, 47);
+            this.tableLayoutPanel31.Size = new System.Drawing.Size(480, 41);
             this.tableLayoutPanel31.TabIndex = 16;
             // 
             // txtColor
@@ -912,7 +918,7 @@
             this.label12.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label12.Name = "label12";
             this.label12.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label12.Size = new System.Drawing.Size(120, 27);
+            this.label12.Size = new System.Drawing.Size(120, 21);
             this.label12.TabIndex = 9;
             this.label12.Text = "اللون";
             // 
@@ -927,13 +933,13 @@
             this.tableLayoutPanel13.Controls.Add(this.label4, 0, 0);
             this.tableLayoutPanel13.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel13.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tableLayoutPanel13.Location = new System.Drawing.Point(320, 18);
+            this.tableLayoutPanel13.Location = new System.Drawing.Point(320, 16);
             this.tableLayoutPanel13.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel13.Name = "tableLayoutPanel13";
             this.tableLayoutPanel13.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel13.RowCount = 1;
             this.tableLayoutPanel13.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel13.Size = new System.Drawing.Size(480, 55);
+            this.tableLayoutPanel13.Size = new System.Drawing.Size(480, 48);
             this.tableLayoutPanel13.TabIndex = 16;
             // 
             // comType2
@@ -962,7 +968,7 @@
             this.label4.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label4.Size = new System.Drawing.Size(120, 35);
+            this.label4.Size = new System.Drawing.Size(120, 28);
             this.label4.TabIndex = 9;
             this.label4.Text = "النوع";
             // 
@@ -970,10 +976,10 @@
             // 
             this.dataGridViewColor.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewColor.Location = new System.Drawing.Point(83, 21);
+            this.dataGridViewColor.Location = new System.Drawing.Point(83, 19);
             this.dataGridViewColor.Name = "dataGridViewColor";
             this.tableLayoutPanelColor.SetRowSpan(this.dataGridViewColor, 2);
-            this.dataGridViewColor.Size = new System.Drawing.Size(234, 288);
+            this.dataGridViewColor.Size = new System.Drawing.Size(234, 250);
             this.dataGridViewColor.TabIndex = 32;
             // 
             // mTPProduct
@@ -982,9 +988,9 @@
             this.mTPProduct.HorizontalScrollbarBarColor = true;
             this.mTPProduct.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPProduct.HorizontalScrollbarSize = 0;
-            this.mTPProduct.Location = new System.Drawing.Point(4, 5);
+            this.mTPProduct.Location = new System.Drawing.Point(4, 54);
             this.mTPProduct.Name = "mTPProduct";
-            this.mTPProduct.Size = new System.Drawing.Size(800, 369);
+            this.mTPProduct.Size = new System.Drawing.Size(800, 320);
             this.mTPProduct.TabIndex = 2;
             this.mTPProduct.Text = "الصنف";
             this.mTPProduct.VerticalScrollbarBarColor = true;
@@ -1011,7 +1017,7 @@
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanelProduct.Size = new System.Drawing.Size(800, 369);
+            this.tableLayoutPanelProduct.Size = new System.Drawing.Size(800, 320);
             this.tableLayoutPanelProduct.TabIndex = 6;
             // 
             // tableLayoutPanel15
@@ -1029,12 +1035,12 @@
             this.tableLayoutPanel15.Controls.Add(this.btnDeleteProduct, 3, 0);
             this.tableLayoutPanel15.Controls.Add(this.btnAddProduct, 2, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 315);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 275);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel15.Size = new System.Drawing.Size(794, 51);
+            this.tableLayoutPanel15.Size = new System.Drawing.Size(794, 42);
             this.tableLayoutPanel15.TabIndex = 32;
             // 
             // btnDeleteProduct
@@ -1054,7 +1060,7 @@
             this.btnDeleteProduct.Location = new System.Drawing.Point(322, 4);
             this.btnDeleteProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(73, 43);
+            this.btnDeleteProduct.Size = new System.Drawing.Size(73, 34);
             this.btnDeleteProduct.TabIndex = 2;
             this.btnDeleteProduct.Click += new System.EventHandler(this.btnDeleteProduct_Click);
             // 
@@ -1075,7 +1081,7 @@
             this.btnAddProduct.Location = new System.Drawing.Point(401, 4);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(73, 43);
+            this.btnAddProduct.Size = new System.Drawing.Size(73, 34);
             this.btnAddProduct.TabIndex = 3;
             this.btnAddProduct.Click += new System.EventHandler(this.btnProduct_Click);
             // 
@@ -1083,36 +1089,52 @@
             // 
             this.tableLayoutPanel28.ColumnCount = 1;
             this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel28.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tableLayoutPanel28.Controls.Add(this.tableLayoutPanel29, 0, 0);
             this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel28.Location = new System.Drawing.Point(320, 73);
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(320, 64);
             this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 2;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(480, 239);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(480, 208);
             this.tableLayoutPanel28.TabIndex = 21;
             // 
-            // tableLayoutPanel29
+            // tableLayoutPanel1
             // 
-            this.tableLayoutPanel29.ColumnCount = 4;
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel29.Controls.Add(this.txtProduct, 0, 0);
-            this.tableLayoutPanel29.Controls.Add(this.label11, 0, 0);
-            this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel29.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tableLayoutPanel29.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel29.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel29.Name = "tableLayoutPanel29";
-            this.tableLayoutPanel29.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel29.RowCount = 1;
-            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel29.Size = new System.Drawing.Size(480, 47);
-            this.tableLayoutPanel29.TabIndex = 16;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel7, 0, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 41);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.1497F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.8503F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(480, 167);
+            this.tableLayoutPanel1.TabIndex = 22;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.ColumnCount = 4;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel7.Controls.Add(this.txtProduct, 0, 0);
+            this.tableLayoutPanel7.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(480, 41);
+            this.tableLayoutPanel7.TabIndex = 16;
             // 
             // txtProduct
             // 
@@ -1125,8 +1147,55 @@
             this.txtProduct.Name = "txtProduct";
             this.txtProduct.Size = new System.Drawing.Size(136, 30);
             this.txtProduct.TabIndex = 15;
-            this.txtProduct.TextChanged += new System.EventHandler(this.txt_TextChanged);
-            this.txtProduct.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtProduct_KeyDown);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.label1.Location = new System.Drawing.Point(360, 10);
+            this.label1.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.label1.Name = "label1";
+            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label1.Size = new System.Drawing.Size(120, 21);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "الصنف";
+            // 
+            // tableLayoutPanel29
+            // 
+            this.tableLayoutPanel29.ColumnCount = 4;
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel29.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel29.Controls.Add(this.comGroup, 0, 0);
+            this.tableLayoutPanel29.Controls.Add(this.label11, 0, 0);
+            this.tableLayoutPanel29.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel29.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.tableLayoutPanel29.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel29.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel29.Name = "tableLayoutPanel29";
+            this.tableLayoutPanel29.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tableLayoutPanel29.RowCount = 1;
+            this.tableLayoutPanel29.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel29.Size = new System.Drawing.Size(480, 41);
+            this.tableLayoutPanel29.TabIndex = 16;
+            // 
+            // comGroup
+            // 
+            this.comGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comGroup.BackColor = System.Drawing.Color.White;
+            this.comGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comGroup.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.comGroup.FormattingEnabled = true;
+            this.comGroup.Location = new System.Drawing.Point(219, 10);
+            this.comGroup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.comGroup.Name = "comGroup";
+            this.comGroup.Size = new System.Drawing.Size(138, 27);
+            this.comGroup.TabIndex = 13;
+            this.comGroup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comGroup2_KeyDown);
             // 
             // label11
             // 
@@ -1138,9 +1207,9 @@
             this.label11.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label11.Size = new System.Drawing.Size(120, 27);
+            this.label11.Size = new System.Drawing.Size(120, 21);
             this.label11.TabIndex = 9;
-            this.label11.Text = "الصنف";
+            this.label11.Text = "المجموعة";
             // 
             // tableLayoutPanel16
             // 
@@ -1149,34 +1218,34 @@
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel16.Controls.Add(this.comGroup2, 0, 0);
+            this.tableLayoutPanel16.Controls.Add(this.comFactoryGroup, 0, 0);
             this.tableLayoutPanel16.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel16.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tableLayoutPanel16.Location = new System.Drawing.Point(320, 18);
+            this.tableLayoutPanel16.Location = new System.Drawing.Point(320, 16);
             this.tableLayoutPanel16.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel16.Name = "tableLayoutPanel16";
             this.tableLayoutPanel16.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel16.RowCount = 1;
             this.tableLayoutPanel16.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Size = new System.Drawing.Size(480, 55);
+            this.tableLayoutPanel16.Size = new System.Drawing.Size(480, 48);
             this.tableLayoutPanel16.TabIndex = 16;
             // 
-            // comGroup2
+            // comFactoryGroup
             // 
-            this.comGroup2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comGroup2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comGroup2.BackColor = System.Drawing.Color.White;
-            this.comGroup2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comGroup2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.comGroup2.FormattingEnabled = true;
-            this.comGroup2.Location = new System.Drawing.Point(219, 10);
-            this.comGroup2.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.comGroup2.Name = "comGroup2";
-            this.comGroup2.Size = new System.Drawing.Size(138, 27);
-            this.comGroup2.TabIndex = 12;
-            this.comGroup2.SelectedValueChanged += new System.EventHandler(this.comGroup2_SelectedValueChanged);
-            this.comGroup2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comGroup2_KeyDown);
+            this.comFactoryGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comFactoryGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comFactoryGroup.BackColor = System.Drawing.Color.White;
+            this.comFactoryGroup.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comFactoryGroup.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.comFactoryGroup.FormattingEnabled = true;
+            this.comFactoryGroup.Location = new System.Drawing.Point(219, 10);
+            this.comFactoryGroup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.comFactoryGroup.Name = "comFactoryGroup";
+            this.comFactoryGroup.Size = new System.Drawing.Size(138, 27);
+            this.comFactoryGroup.TabIndex = 12;
+            this.comFactoryGroup.SelectedValueChanged += new System.EventHandler(this.comFactoryGroup_SelectedValueChanged);
+            this.comFactoryGroup.KeyDown += new System.Windows.Forms.KeyEventHandler(this.comGroup2_KeyDown);
             // 
             // label5
             // 
@@ -1188,18 +1257,18 @@
             this.label5.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label5.Size = new System.Drawing.Size(120, 35);
+            this.label5.Size = new System.Drawing.Size(120, 28);
             this.label5.TabIndex = 9;
-            this.label5.Text = "المجموعة";
+            this.label5.Text = "المصنع";
             // 
             // dataGridViewProduct
             // 
             this.dataGridViewProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewProduct.Location = new System.Drawing.Point(83, 21);
+            this.dataGridViewProduct.Location = new System.Drawing.Point(83, 19);
             this.dataGridViewProduct.Name = "dataGridViewProduct";
             this.tableLayoutPanelProduct.SetRowSpan(this.dataGridViewProduct, 2);
-            this.dataGridViewProduct.Size = new System.Drawing.Size(234, 288);
+            this.dataGridViewProduct.Size = new System.Drawing.Size(234, 250);
             this.dataGridViewProduct.TabIndex = 33;
             // 
             // mTPGroup
@@ -1208,9 +1277,9 @@
             this.mTPGroup.HorizontalScrollbarBarColor = true;
             this.mTPGroup.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPGroup.HorizontalScrollbarSize = 0;
-            this.mTPGroup.Location = new System.Drawing.Point(4, 5);
+            this.mTPGroup.Location = new System.Drawing.Point(4, 54);
             this.mTPGroup.Name = "mTPGroup";
-            this.mTPGroup.Size = new System.Drawing.Size(800, 369);
+            this.mTPGroup.Size = new System.Drawing.Size(800, 320);
             this.mTPGroup.TabIndex = 1;
             this.mTPGroup.Text = "المجموعة";
             this.mTPGroup.VerticalScrollbarBarColor = true;
@@ -1237,7 +1306,7 @@
             this.tableLayoutPanelGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanelGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanelGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanelGroup.Size = new System.Drawing.Size(800, 369);
+            this.tableLayoutPanelGroup.Size = new System.Drawing.Size(800, 320);
             this.tableLayoutPanelGroup.TabIndex = 5;
             // 
             // tableLayoutPanel37
@@ -1255,12 +1324,12 @@
             this.tableLayoutPanel37.Controls.Add(this.btnDeleteGroup, 3, 0);
             this.tableLayoutPanel37.Controls.Add(this.btnAddGroup, 2, 0);
             this.tableLayoutPanel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel37.Location = new System.Drawing.Point(3, 315);
+            this.tableLayoutPanel37.Location = new System.Drawing.Point(3, 275);
             this.tableLayoutPanel37.Name = "tableLayoutPanel37";
             this.tableLayoutPanel37.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel37.RowCount = 1;
             this.tableLayoutPanel37.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel37.Size = new System.Drawing.Size(794, 51);
+            this.tableLayoutPanel37.Size = new System.Drawing.Size(794, 42);
             this.tableLayoutPanel37.TabIndex = 31;
             // 
             // btnDeleteGroup
@@ -1280,7 +1349,7 @@
             this.btnDeleteGroup.Location = new System.Drawing.Point(322, 4);
             this.btnDeleteGroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDeleteGroup.Name = "btnDeleteGroup";
-            this.btnDeleteGroup.Size = new System.Drawing.Size(73, 43);
+            this.btnDeleteGroup.Size = new System.Drawing.Size(73, 34);
             this.btnDeleteGroup.TabIndex = 2;
             this.btnDeleteGroup.Click += new System.EventHandler(this.btnDeleteGroup_Click);
             // 
@@ -1301,7 +1370,7 @@
             this.btnAddGroup.Location = new System.Drawing.Point(401, 4);
             this.btnAddGroup.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddGroup.Name = "btnAddGroup";
-            this.btnAddGroup.Size = new System.Drawing.Size(73, 43);
+            this.btnAddGroup.Size = new System.Drawing.Size(73, 34);
             this.btnAddGroup.TabIndex = 3;
             this.btnAddGroup.Click += new System.EventHandler(this.btnGroup_Click);
             // 
@@ -1311,13 +1380,13 @@
             this.tableLayoutPanel26.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel26.Controls.Add(this.tableLayoutPanel27, 0, 0);
             this.tableLayoutPanel26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel26.Location = new System.Drawing.Point(320, 73);
+            this.tableLayoutPanel26.Location = new System.Drawing.Point(320, 64);
             this.tableLayoutPanel26.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel26.Name = "tableLayoutPanel26";
             this.tableLayoutPanel26.RowCount = 2;
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel26.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel26.Size = new System.Drawing.Size(480, 239);
+            this.tableLayoutPanel26.Size = new System.Drawing.Size(480, 208);
             this.tableLayoutPanel26.TabIndex = 20;
             // 
             // tableLayoutPanel27
@@ -1337,7 +1406,7 @@
             this.tableLayoutPanel27.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel27.RowCount = 1;
             this.tableLayoutPanel27.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel27.Size = new System.Drawing.Size(480, 47);
+            this.tableLayoutPanel27.Size = new System.Drawing.Size(480, 41);
             this.tableLayoutPanel27.TabIndex = 16;
             // 
             // txtGroup
@@ -1364,7 +1433,7 @@
             this.label10.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label10.Size = new System.Drawing.Size(120, 27);
+            this.label10.Size = new System.Drawing.Size(120, 21);
             this.label10.TabIndex = 9;
             this.label10.Text = "المجموعة";
             // 
@@ -1379,13 +1448,13 @@
             this.tableLayoutPanel19.Controls.Add(this.label6, 0, 0);
             this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel19.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(320, 18);
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(320, 16);
             this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel19.Name = "tableLayoutPanel19";
             this.tableLayoutPanel19.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel19.RowCount = 1;
             this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(480, 55);
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(480, 48);
             this.tableLayoutPanel19.TabIndex = 16;
             // 
             // comFactory
@@ -1414,7 +1483,7 @@
             this.label6.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label6.Size = new System.Drawing.Size(120, 35);
+            this.label6.Size = new System.Drawing.Size(120, 28);
             this.label6.TabIndex = 9;
             this.label6.Text = "المصنع";
             // 
@@ -1422,10 +1491,10 @@
             // 
             this.dataGridViewGroup.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewGroup.Location = new System.Drawing.Point(83, 21);
+            this.dataGridViewGroup.Location = new System.Drawing.Point(83, 19);
             this.dataGridViewGroup.Name = "dataGridViewGroup";
             this.tableLayoutPanelGroup.SetRowSpan(this.dataGridViewGroup, 2);
-            this.dataGridViewGroup.Size = new System.Drawing.Size(234, 288);
+            this.dataGridViewGroup.Size = new System.Drawing.Size(234, 250);
             this.dataGridViewGroup.TabIndex = 32;
             // 
             // mTPFactory
@@ -1434,9 +1503,9 @@
             this.mTPFactory.HorizontalScrollbarBarColor = true;
             this.mTPFactory.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPFactory.HorizontalScrollbarSize = 0;
-            this.mTPFactory.Location = new System.Drawing.Point(4, 5);
+            this.mTPFactory.Location = new System.Drawing.Point(4, 54);
             this.mTPFactory.Name = "mTPFactory";
-            this.mTPFactory.Size = new System.Drawing.Size(800, 369);
+            this.mTPFactory.Size = new System.Drawing.Size(800, 320);
             this.mTPFactory.TabIndex = 0;
             this.mTPFactory.Text = "المصنع";
             this.mTPFactory.VerticalScrollbarBarColor = true;
@@ -1463,7 +1532,7 @@
             this.tableLayoutPanelFactory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanelFactory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
             this.tableLayoutPanelFactory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanelFactory.Size = new System.Drawing.Size(800, 369);
+            this.tableLayoutPanelFactory.Size = new System.Drawing.Size(800, 320);
             this.tableLayoutPanelFactory.TabIndex = 6;
             // 
             // tableLayoutPanel21
@@ -1481,12 +1550,12 @@
             this.tableLayoutPanel21.Controls.Add(this.btnFactoryDelete, 3, 0);
             this.tableLayoutPanel21.Controls.Add(this.btnAddFactory, 2, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 315);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 275);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel21.RowCount = 1;
             this.tableLayoutPanel21.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel21.Size = new System.Drawing.Size(794, 51);
+            this.tableLayoutPanel21.Size = new System.Drawing.Size(794, 42);
             this.tableLayoutPanel21.TabIndex = 31;
             this.tableLayoutPanel21.Click += new System.EventHandler(this.btnFactory_Click);
             // 
@@ -1507,7 +1576,7 @@
             this.btnFactoryDelete.Location = new System.Drawing.Point(322, 4);
             this.btnFactoryDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnFactoryDelete.Name = "btnFactoryDelete";
-            this.btnFactoryDelete.Size = new System.Drawing.Size(73, 43);
+            this.btnFactoryDelete.Size = new System.Drawing.Size(73, 34);
             this.btnFactoryDelete.TabIndex = 2;
             this.btnFactoryDelete.Click += new System.EventHandler(this.btnDeleteFactory_Click);
             // 
@@ -1528,7 +1597,7 @@
             this.btnAddFactory.Location = new System.Drawing.Point(401, 4);
             this.btnAddFactory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddFactory.Name = "btnAddFactory";
-            this.btnAddFactory.Size = new System.Drawing.Size(73, 43);
+            this.btnAddFactory.Size = new System.Drawing.Size(73, 34);
             this.btnAddFactory.TabIndex = 3;
             this.btnAddFactory.Click += new System.EventHandler(this.btnFactory_Click);
             // 
@@ -1538,13 +1607,13 @@
             this.tableLayoutPanel24.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel24.Controls.Add(this.tableLayoutPanel25, 0, 0);
             this.tableLayoutPanel24.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel24.Location = new System.Drawing.Point(320, 73);
+            this.tableLayoutPanel24.Location = new System.Drawing.Point(320, 64);
             this.tableLayoutPanel24.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel24.Name = "tableLayoutPanel24";
             this.tableLayoutPanel24.RowCount = 2;
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel24.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel24.Size = new System.Drawing.Size(480, 239);
+            this.tableLayoutPanel24.Size = new System.Drawing.Size(480, 208);
             this.tableLayoutPanel24.TabIndex = 19;
             // 
             // tableLayoutPanel25
@@ -1564,7 +1633,7 @@
             this.tableLayoutPanel25.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel25.RowCount = 1;
             this.tableLayoutPanel25.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel25.Size = new System.Drawing.Size(480, 47);
+            this.tableLayoutPanel25.Size = new System.Drawing.Size(480, 41);
             this.tableLayoutPanel25.TabIndex = 16;
             // 
             // txtFactory
@@ -1591,7 +1660,7 @@
             this.label9.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label9.Name = "label9";
             this.label9.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label9.Size = new System.Drawing.Size(120, 27);
+            this.label9.Size = new System.Drawing.Size(120, 21);
             this.label9.TabIndex = 9;
             this.label9.Text = "المصنع";
             // 
@@ -1606,13 +1675,13 @@
             this.tableLayoutPanel22.Controls.Add(this.comType, 1, 0);
             this.tableLayoutPanel22.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel22.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tableLayoutPanel22.Location = new System.Drawing.Point(320, 18);
+            this.tableLayoutPanel22.Location = new System.Drawing.Point(320, 16);
             this.tableLayoutPanel22.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel22.Name = "tableLayoutPanel22";
             this.tableLayoutPanel22.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel22.RowCount = 1;
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel22.Size = new System.Drawing.Size(480, 55);
+            this.tableLayoutPanel22.Size = new System.Drawing.Size(480, 48);
             this.tableLayoutPanel22.TabIndex = 16;
             // 
             // label7
@@ -1625,7 +1694,7 @@
             this.label7.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label7.Size = new System.Drawing.Size(120, 35);
+            this.label7.Size = new System.Drawing.Size(120, 28);
             this.label7.TabIndex = 9;
             this.label7.Text = "النوع";
             // 
@@ -1649,10 +1718,10 @@
             // 
             this.dataGridViewFactory.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewFactory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewFactory.Location = new System.Drawing.Point(83, 21);
+            this.dataGridViewFactory.Location = new System.Drawing.Point(83, 19);
             this.dataGridViewFactory.Name = "dataGridViewFactory";
             this.tableLayoutPanelFactory.SetRowSpan(this.dataGridViewFactory, 2);
-            this.dataGridViewFactory.Size = new System.Drawing.Size(234, 288);
+            this.dataGridViewFactory.Size = new System.Drawing.Size(234, 250);
             this.dataGridViewFactory.TabIndex = 32;
             // 
             // mTPType
@@ -1661,9 +1730,9 @@
             this.mTPType.HorizontalScrollbarBarColor = true;
             this.mTPType.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPType.HorizontalScrollbarSize = 0;
-            this.mTPType.Location = new System.Drawing.Point(4, 5);
+            this.mTPType.Location = new System.Drawing.Point(4, 54);
             this.mTPType.Name = "mTPType";
-            this.mTPType.Size = new System.Drawing.Size(800, 369);
+            this.mTPType.Size = new System.Drawing.Size(800, 320);
             this.mTPType.TabIndex = 6;
             this.mTPType.Text = "النوع";
             this.mTPType.VerticalScrollbarBarColor = true;
@@ -1689,7 +1758,7 @@
             this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.47059F));
             this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanelType.Size = new System.Drawing.Size(800, 369);
+            this.tableLayoutPanelType.Size = new System.Drawing.Size(800, 320);
             this.tableLayoutPanelType.TabIndex = 6;
             // 
             // tableLayoutPanel3
@@ -1707,7 +1776,7 @@
             this.tableLayoutPanel3.Controls.Add(this.btnTypeDelete, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnAddType, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 320);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 271);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel3.RowCount = 1;
@@ -1768,13 +1837,13 @@
             this.tableLayoutPanel4.Controls.Add(this.label8, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(320, 18);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(320, 15);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(480, 56);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(480, 47);
             this.tableLayoutPanel4.TabIndex = 16;
             // 
             // txtType
@@ -1801,7 +1870,7 @@
             this.label8.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label8.Name = "label8";
             this.label8.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label8.Size = new System.Drawing.Size(120, 36);
+            this.label8.Size = new System.Drawing.Size(120, 27);
             this.label8.TabIndex = 9;
             this.label8.Text = "النوع";
             // 
@@ -1809,10 +1878,10 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(83, 21);
+            this.dataGridView1.Location = new System.Drawing.Point(83, 18);
             this.dataGridView1.Name = "dataGridView1";
             this.tableLayoutPanelType.SetRowSpan(this.dataGridView1, 2);
-            this.dataGridView1.Size = new System.Drawing.Size(234, 293);
+            this.dataGridView1.Size = new System.Drawing.Size(234, 247);
             this.dataGridView1.TabIndex = 31;
             // 
             // ProductItems
@@ -1855,6 +1924,9 @@
             this.tableLayoutPanelProduct.ResumeLayout(false);
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel28.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.tableLayoutPanel29.ResumeLayout(false);
             this.tableLayoutPanel29.PerformLayout();
             this.tableLayoutPanel16.ResumeLayout(false);
@@ -1931,7 +2003,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel28;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox comGroup2;
+        private System.Windows.Forms.ComboBox comFactoryGroup;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel30;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel31;
         private System.Windows.Forms.Label label12;
@@ -1943,7 +2015,6 @@
         private System.Windows.Forms.TextBox txtSort;
         private System.Windows.Forms.TextBox txtSize;
         private System.Windows.Forms.TextBox txtColor;
-        private System.Windows.Forms.TextBox txtProduct;
         private System.Windows.Forms.TextBox txtGroup;
         private System.Windows.Forms.TextBox txtFactory;
         private System.Windows.Forms.TextBox txtType;
@@ -1983,5 +2054,10 @@
         private System.Windows.Forms.DataGridView dataGridViewProduct;
         private System.Windows.Forms.DataGridView dataGridViewGroup;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.TextBox txtProduct;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comGroup;
     }
 }

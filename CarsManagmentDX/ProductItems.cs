@@ -61,7 +61,7 @@ namespace StoresManagmentDX
                     case "btnProduct":
                         mTC_Content.SelectedIndex = 3;
                         displayProduct();
-                        comGroup2.Focus();
+                        comFactoryGroup.Focus();
                         break;
                     case "btnColor":
                         mTC_Content.SelectedIndex = 2;
@@ -129,14 +129,21 @@ namespace StoresManagmentDX
                 comFactory2.ValueMember = dt.Columns["Factory_ID"].ToString();
                 comFactory2.Text = "";
 
+                da = new MySqlDataAdapter(query, dbconnection);
+                dt = new DataTable();
+                da.Fill(dt);
+                comFactoryGroup.DataSource = dt;
+                comFactoryGroup.DisplayMember = dt.Columns["Factory_Name"].ToString();
+                comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
+                comFactoryGroup.Text = "";
                 query = "select distinct * from groupo";
                 da = new MySqlDataAdapter(query, dbconnection);
                 dt = new DataTable();
                 da.Fill(dt);
-                comGroup2.DataSource = dt;
-                comGroup2.DisplayMember = dt.Columns["Group_Name"].ToString();
-                comGroup2.ValueMember = dt.Columns["Group_ID"].ToString();
-                comGroup2.Text = "";
+                comGroup.DataSource = dt;
+                comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
+                comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
+                comGroup.Text = "";
 
                 load = true;
             }
@@ -172,7 +179,7 @@ namespace StoresManagmentDX
                     case 3:
                         ClearButtonsColor();
                         btnProduct.BackColor = Color.FromArgb(194, 192, 192);
-                        comGroup2.Focus();
+                        comFactoryGroup.Focus();
                         break;
                     case 2:
                         ClearButtonsColor();
@@ -665,10 +672,10 @@ namespace StoresManagmentDX
         {
             try
             {
-                if (comGroup2.Text != "")
+                if (comFactoryGroup.Text != "")
                 {
                     dbconnection.Open();
-                    string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "' and Group_ID=" + comGroup2.SelectedValue;
+                    string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "' and Group_ID=" + comFactoryGroup.SelectedValue;
                     MySqlCommand com = new MySqlCommand(query, dbconnection);
                     if (com.ExecuteScalar() == null)
                     {
@@ -677,10 +684,10 @@ namespace StoresManagmentDX
                             query = "insert into product (Product_Name,Group_ID) values (@name,@Group_ID)";
                             com = new MySqlCommand(query, dbconnection);
                             com.Parameters.AddWithValue("@name", txtProduct.Text);
-                            com.Parameters.AddWithValue("@Group_ID", Convert.ToInt16(comGroup2.SelectedValue));
+                            com.Parameters.AddWithValue("@Group_ID", Convert.ToInt16(comFactoryGroup.SelectedValue));
                             com.ExecuteNonQuery();
                            
-                            displayProduct(Convert.ToInt16(comGroup2.SelectedValue));
+                            displayProduct(Convert.ToInt16(comFactoryGroup.SelectedValue));
                             txtProduct.Focus();
                             txtProduct.SelectAll();
                         }
@@ -712,10 +719,10 @@ namespace StoresManagmentDX
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    if (comGroup2.Text != "")
+                    if (comFactoryGroup.Text != "")
                     {
                         dbconnection.Open();
-                        string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "' and Group_ID=" + comGroup2.SelectedValue;
+                        string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "' and Group_ID=" + comFactoryGroup.SelectedValue;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         if (com.ExecuteScalar() == null)
                         {
@@ -724,10 +731,10 @@ namespace StoresManagmentDX
                                 query = "insert into product (Product_Name,Group_ID) values (@name,@Group_ID)";
                                 com = new MySqlCommand(query, dbconnection);
                                 com.Parameters.AddWithValue("@name", txtProduct.Text);
-                                com.Parameters.AddWithValue("@Group_ID", Convert.ToInt16(comGroup2.SelectedValue));
+                                com.Parameters.AddWithValue("@Group_ID", Convert.ToInt16(comFactoryGroup.SelectedValue));
                                 com.ExecuteNonQuery();
                                 
-                                displayProduct(Convert.ToInt16(comGroup2.SelectedValue));
+                                displayProduct(Convert.ToInt16(comFactoryGroup.SelectedValue));
                                 txtProduct.Focus();
                                 txtProduct.SelectAll();
                             }
@@ -760,7 +767,7 @@ namespace StoresManagmentDX
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    displayProduct((int)comGroup2.SelectedValue);
+                    displayProduct((int)comGroup.SelectedValue);
                     txtProduct.Focus();
                     txtProduct.SelectAll();
                 }
@@ -770,22 +777,28 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-        private void comGroup2_SelectedValueChanged(object sender, EventArgs e)
+        private void comFactoryGroup_SelectedValueChanged(object sender, EventArgs e)
         {
             try
             {
                 if (load)
                 {
-                    displayProduct((int)comGroup2.SelectedValue);
-                    txtProduct.Focus();
-                    txtProduct.SelectAll();
+                    string query = "select * from groupo where Factory_ID=" + comFactoryGroup.SelectedValue;
+                    MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+                    comGroup.DataSource = dt;
+                    comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
+                    comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
+                    comGroup.Text = "";
+                    txtGroup.Text = "";
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }   
+        }
         private void btnDeleteProduct_Click(object sender, EventArgs e)
         {
             try
@@ -804,8 +817,8 @@ namespace StoresManagmentDX
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
                         updateTablesDB("product", "Product_ID", id);
-                        if (comGroup2.Text != "")
-                            displayProduct(Convert.ToInt16(comGroup2.SelectedValue));
+                        if (comFactoryGroup.Text != "")
+                            displayProduct(Convert.ToInt16(comFactoryGroup.SelectedValue));
                         else
                             displayProduct();
                         txtProduct.Focus();
@@ -1317,9 +1330,9 @@ namespace StoresManagmentDX
                         }
                         break;
                     case "txtProduct":
-                        if (comGroup2.Text != "")
+                        if (comFactoryGroup.Text != "")
                         {
-                            query = "select Product_ID as 'كود',Product_Name as 'الأسم' from Product where Product_Name like'" + txtProduct.Text + "%' and Group_ID=" + comGroup2.SelectedValue;
+                            query = "select Product_ID as 'كود',Product_Name as 'الأسم' from Product where Product_Name like'" + txtProduct.Text + "%' and Group_ID=" + comFactoryGroup.SelectedValue;
                             adapter = new MySqlDataAdapter(query, dbconnection);
                             dtaple = new DataTable();
                             adapter.Fill(dtaple);
@@ -1393,10 +1406,7 @@ namespace StoresManagmentDX
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewFactory.DataSource = null;
-            dataGridViewFactory.DataSource = dt;
-
-         
-           
+            dataGridViewFactory.DataSource = dt;         
         }
         public void displayFactory(int id)
         {
@@ -1435,10 +1445,10 @@ namespace StoresManagmentDX
             da = new MySqlDataAdapter(query, dbconnection);
             dt = new DataTable();
             da.Fill(dt);
-            comGroup2.DataSource = dt;
-            comGroup2.DisplayMember = dt.Columns["Group_Name"].ToString();
-            comGroup2.ValueMember = dt.Columns["Group_ID"].ToString();
-            comGroup2.Text = "";
+            comGroup.DataSource = dt;
+            comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
+            comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
+            comGroup.Text = "";
         }
         public void displayGroup()
         {
@@ -1512,7 +1522,7 @@ namespace StoresManagmentDX
             comType.Text = "";
             comFactory2.Text = "";
             comType2.Text = "";
-            comGroup2.Text = "";
+            comFactoryGroup.Text = "";
             txtType.Text = "";
             txtSort.Text = "";
             txtProduct.Text = "";
