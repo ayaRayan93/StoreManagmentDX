@@ -37,6 +37,7 @@
             this.btnDelete = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnReport = new Bunifu.Framework.UI.BunifuTileButton();
             this.dataGridView1 = new DevExpress.XtraGrid.GridControl();
+            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.label7 = new System.Windows.Forms.Label();
             this.txtEditCode = new System.Windows.Forms.TextBox();
@@ -58,13 +59,12 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDisplayWithImage = new DevExpress.XtraEditors.SimpleButton();
-            this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.tLPanProductsContainer.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // tLPanProductsContainer
@@ -225,6 +225,30 @@
             this.dataGridView1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
             this.dataGridView1.EditorKeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView1_EditorKeyDown);
+            // 
+            // gridView2
+            // 
+            this.gridView2.Appearance.FocusedRow.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView2.Appearance.FocusedRow.Options.UseFont = true;
+            this.gridView2.Appearance.FocusedRow.Options.UseTextOptions = true;
+            this.gridView2.Appearance.FocusedRow.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Bold);
+            this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
+            this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
+            this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gridView2.Appearance.Row.Options.UseFont = true;
+            this.gridView2.Appearance.Row.Options.UseTextOptions = true;
+            this.gridView2.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+            this.gridView2.GridControl = this.dataGridView1;
+            this.gridView2.Name = "gridView2";
+            this.gridView2.OptionsBehavior.AutoSelectAllInEditor = false;
+            this.gridView2.OptionsBehavior.Editable = false;
+            this.gridView2.OptionsCustomization.AllowSort = false;
+            this.gridView2.OptionsFilter.AllowColumnMRUFilterList = false;
+            this.gridView2.OptionsFilter.AllowFilterEditor = false;
+            this.gridView2.OptionsFilter.AllowMRUFilterList = false;
+            this.gridView2.ViewCaption = "بند";
             // 
             // panelControl1
             // 
@@ -584,22 +608,6 @@
             this.btnDisplayWithImage.Text = "عرض مع الصور";
             this.btnDisplayWithImage.Click += new System.EventHandler(this.btnDisplayWithImage_Click);
             // 
-            // gridView2
-            // 
-            this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Bold);
-            this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
-            this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
-            this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-            this.gridView2.GridControl = this.dataGridView1;
-            this.gridView2.Name = "gridView2";
-            this.gridView2.OptionsBehavior.AutoSelectAllInEditor = false;
-            this.gridView2.OptionsBehavior.Editable = false;
-            this.gridView2.OptionsCustomization.AllowSort = false;
-            this.gridView2.OptionsFilter.AllowColumnMRUFilterList = false;
-            this.gridView2.OptionsFilter.AllowFilterEditor = false;
-            this.gridView2.OptionsFilter.AllowMRUFilterList = false;
-            this.gridView2.ViewCaption = "بند";
-            // 
             // Products
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -615,10 +623,10 @@
             this.tLPanProductsContainer.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
             this.ResumeLayout(false);
 
         }

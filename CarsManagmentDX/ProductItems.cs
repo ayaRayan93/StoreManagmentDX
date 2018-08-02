@@ -225,7 +225,7 @@ namespace StoresManagmentDX
                         query = "select Type_ID from type order by Type_ID desc limit 1";
                         com = new MySqlCommand(query, dbconnection);
                         
-                        UserControl.UserRecord("type","add", com.ExecuteScalar().ToString(), DateTime.Now,dbconnection);
+                        UserControl.UserRecord("type","اضافة", com.ExecuteScalar().ToString(), DateTime.Now,dbconnection);
                       
                         displayType();
                     }
@@ -293,8 +293,7 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
-        }
-    
+        }   
         private void btnDeleteType_Click(object sender, EventArgs e)
         {
             try
@@ -456,8 +455,7 @@ namespace StoresManagmentDX
             {
                 MessageBox.Show(ex.Message);
             }
-        }
-     
+        }   
         private void btnDeleteFactory_Click(object sender, EventArgs e)
         {
             try
@@ -1383,7 +1381,6 @@ namespace StoresManagmentDX
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
-
             query = "select distinct * from type";
             da = new MySqlDataAdapter(query, dbconnection);
             dt = new DataTable();
@@ -1401,7 +1398,7 @@ namespace StoresManagmentDX
         }
         public void displayFactory()
         {
-            string query = "select distinct Factory_ID as 'كود',Type_Name as 'النوع',Factory_Name as 'المصنع' from factory inner join type on factory.Type_ID=type.Type_ID";
+            string query = "select distinct Factory_ID as 'كود',Type_Name as 'النوع',Factory_Name as 'المصنع' from factory inner join type on factory.Type_ID=type.Type_ID order by Type_Name";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1432,6 +1429,14 @@ namespace StoresManagmentDX
             comFactory2.DisplayMember = dt.Columns["Factory_Name"].ToString();
             comFactory2.ValueMember = dt.Columns["Factory_ID"].ToString();
             comFactory2.Text = "";
+
+            da = new MySqlDataAdapter(query, dbconnection);
+            dt = new DataTable();
+            da.Fill(dt);
+            comFactoryGroup.DataSource = dt;
+            comFactoryGroup.DisplayMember = dt.Columns["Factory_Name"].ToString();
+            comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
+            comFactoryGroup.Text = "";
         }
         public void displayGroup(int id)
         {
@@ -1452,7 +1457,7 @@ namespace StoresManagmentDX
         }
         public void displayGroup()
         {
-            string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع' ,Group_Name as 'المجموعة' from groupo inner join factory on factory.Factory_ID=groupo.Factory_ID";
+            string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع' ,Group_Name as 'المجموعة' from groupo inner join factory on factory.Factory_ID=groupo.Factory_ID order by Factory_Name";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1468,7 +1473,7 @@ namespace StoresManagmentDX
         }
         public void displayProduct()
         {
-            string query = "select distinct Product_ID as 'كود',Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID";
+            string query = "select distinct Product_ID as 'كود',Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID order by Group_Name";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1484,7 +1489,7 @@ namespace StoresManagmentDX
         }
         public void displayColor()
         {
-            string query = "select distinct Color_ID as 'كود',Type_Name as 'النوع',Color_Name as 'اللون' from color inner join type on color.Type_ID=type.Type_ID";
+            string query = "select distinct Color_ID as 'كود',Type_Name as 'النوع',Color_Name as 'اللون' from color inner join type on color.Type_ID=type.Type_ID order by Type_Name";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1500,7 +1505,7 @@ namespace StoresManagmentDX
         }
         public void displaySize()
         {
-            string query = "select distinct Size_ID as 'كود',Factory_Name as 'المصنع',Size_Value as 'المقاس' from size inner join factory on factory.Factory_ID=size.Factory_ID";
+            string query = "select distinct Size_ID as 'كود',Factory_Name as 'المصنع',Size_Value as 'المقاس' from size inner join factory on factory.Factory_ID=size.Factory_ID order by Factory_Name";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1554,6 +1559,6 @@ namespace StoresManagmentDX
             }
         }
 
-       
+     
     }
 }

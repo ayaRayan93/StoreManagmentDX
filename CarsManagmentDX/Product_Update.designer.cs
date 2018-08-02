@@ -58,14 +58,14 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
-            this.ImageProduct = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ImageProduct = new System.Windows.Forms.PictureBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -164,6 +164,8 @@
             this.comColour.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comColour.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comColour.FormattingEnabled = true;
+            this.comColour.Items.AddRange(new object[] {
+            " "});
             this.comColour.Location = new System.Drawing.Point(442, 49);
             this.comColour.Name = "comColour";
             this.comColour.Size = new System.Drawing.Size(198, 24);
@@ -461,6 +463,17 @@
             this.btnAdd.TabIndex = 0;
             this.btnAdd.Click += new System.EventHandler(this.btnUpdateProduct_Click);
             // 
+            // panel1
+            // 
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Controls.Add(this.ImageProduct);
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Location = new System.Drawing.Point(39, 11);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(857, 466);
+            this.panel1.TabIndex = 21;
+            // 
             // ImageProduct
             // 
             this.ImageProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(122)))), ((int)(((byte)(190)))));
@@ -473,17 +486,6 @@
             this.ImageProduct.TabIndex = 19;
             this.ImageProduct.TabStop = false;
             this.ImageProduct.Click += new System.EventHandler(this.ImageProduct_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Controls.Add(this.ImageProduct);
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Location = new System.Drawing.Point(39, 11);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(857, 466);
-            this.panel1.TabIndex = 21;
             // 
             // Product_Update
             // 
@@ -504,8 +506,8 @@
             this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).EndInit();
             this.ResumeLayout(false);
 
         }

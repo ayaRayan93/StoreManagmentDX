@@ -51,7 +51,6 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-
         //stores
         private void btnStoreRecord_LinkClicked(object sender, DevExpress.XtraNavBar.NavBarLinkEventArgs e)
         {
@@ -299,10 +298,6 @@ namespace StoresManagmentDX
         }
 
         /// <summary>
-        /// //////////
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void xtraTabControlStoresContent_CloseButtonClick(object sender, EventArgs e)
         {
             try
@@ -817,13 +812,12 @@ namespace StoresManagmentDX
           
         }
 
-       
     }
 
     public static class connection
     {
-    //  public static string connectionString = "SERVER=192.168.1.200;DATABASE=test;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
-        public static string connectionString = "SERVER=localhost;DATABASE=testcoding;user=root;PASSWORD=root;CHARSET=utf8";
+       //  public static string connectionString = "SERVER=192.168.1.200;DATABASE=test;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
+       public static string connectionString = "SERVER=localhost;DATABASE=testcoding;user=root;PASSWORD=root;CHARSET=utf8";
 
     }
 }
