@@ -16,18 +16,16 @@ namespace StoresManagmentDX
     public partial class initialCodeStorage : Form
     {
         MySqlConnection dbconnection;
-        int[] courrentIDs;//store ids of products which added to gridview2
-        int count = 0;//store count of products in grid view
         bool loaded = false;
-        int startNewRecord;
+        double noMeter = 0;
         Storage storage;
         XtraTabControl xtraTabControlStoresContent;
+        int Data_ID;
         public initialCodeStorage(Storage storage, XtraTabControl xtraTabControlStoresContent)
         {
             try
             {
                 InitializeComponent();
-                courrentIDs = new int[100];
                 dbconnection = new MySqlConnection(connection.connectionString);
                 this.storage = storage;
                 this.xtraTabControlStoresContent = xtraTabControlStoresContent;
@@ -92,7 +90,7 @@ namespace StoresManagmentDX
                 comStore.DisplayMember = dt.Columns["Store_Name"].ToString();
                 comStore.ValueMember = dt.Columns["Store_ID"].ToString();
                 comStore.Text = "";
-
+               
                 displayData();
 
                 loaded = true;
@@ -103,6 +101,7 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
+
         private void comBox_SelectedValueChanged(object sender, EventArgs e)
         {
             if (loaded)
@@ -273,8 +272,9 @@ namespace StoresManagmentDX
                 DataRowView row = (DataRowView)(((GridView)gridControl1.MainView).GetRow(((GridView)gridControl1.MainView).GetSelectedRows()[0]));
                 if (row != null)
                 {
-                    txtCode.Text = row[0].ToString();
-                    txtCode.Focus();
+                    txtCode.Text = row[1].ToString();
+                    noMeter = Convert.ToDouble(row[11].ToString());
+                    Data_ID = Convert.ToInt16(row[0].ToString());
                 }
             }
             catch (Exception ex)
@@ -290,7 +290,7 @@ namespace StoresManagmentDX
 
                 if (txtNoCarton.Text != "" && txtNoPalatat.Text != "" && comStorePlace.Text != "" && txtCode.Text != "")
                 {
-                    if (validation(txtCode.Text,(int)comStore.SelectedValue,(int)comStorePlace.SelectedValue))
+                    if (validation((int)comStore.SelectedValue,(int)comStorePlace.SelectedValue))
                     {
                         string code = txtCode.Text;
                         int StoreID = int.Parse(comStore.SelectedValue.ToString());
@@ -304,9 +304,7 @@ namespace StoresManagmentDX
                         double total = carton * NoBalatat * NoCartons;
                         labTotalMeter.Text = (total).ToString();
 
-
-
-                        string query = "insert into Storage (Store_ID,Store_Name,Storage_Date,Balatat,Carton_Balata,Code,Store_Place_ID,Total_Meters,Note) values (@Store_ID,@Store_Name,@Date,@NoBalatat,@NoCartonInBalata,@CodeOfProduct,@PlaceOfStore,@TotalOfMeters,@Note)";
+                        string query = "insert into Storage (Store_ID,Store_Name,Storage_Date,Balatat,Carton_Balata,Data_ID,Store_Place_ID,Total_Meters,Note) values (@Store_ID,@Store_Name,@Date,@NoBalatat,@NoCartonInBalata,@Data_ID,@PlaceOfStore,@TotalOfMeters,@Note)";
                         com = new MySqlCommand(query, dbconnection);
                         com.Parameters.Add("@Store_ID", MySqlDbType.Int16);
                         com.Parameters["@Store_ID"].Value = StoreID;
@@ -318,8 +316,8 @@ namespace StoresManagmentDX
                         com.Parameters["@NoBalatat"].Value = NoBalatat;
                         com.Parameters.Add("@NoCartonInBalata", MySqlDbType.Int16);
                         com.Parameters["@NoCartonInBalata"].Value = NoCartons;
-                        com.Parameters.Add("@CodeOfProduct", MySqlDbType.VarChar);
-                        com.Parameters["@CodeOfProduct"].Value = txtCode.Text;
+                        com.Parameters.Add("@Data_ID", MySqlDbType.Int16);
+                        com.Parameters["@Data_ID"].Value =Data_ID;
                         com.Parameters.Add("@PlaceOfStore", MySqlDbType.Int16);
                         com.Parameters["@PlaceOfStore"].Value = comStorePlace.SelectedValue;
                         com.Parameters.Add("@TotalOfMeters", MySqlDbType.Decimal);
@@ -378,13 +376,40 @@ namespace StoresManagmentDX
         {
             try
             {
+                XtraTabPage xtraTabPage;
+                TextBox txtBox;
+                double noCarton = 0, noPalatat = 0;
                 if (loaded)
                 {
-                    XtraTabPage xtraTabPage = getTabPage("تسجيل كميات البنود");
+                    xtraTabPage = getTabPage("تسجيل كميات البنود");
                     if (!IsClear())
                         xtraTabPage.ImageOptions.Image = Properties.Resources.unsave;
                     else
                         xtraTabPage.ImageOptions.Image = null;
+
+                    Control c= (Control)sender;
+                    if (c is TextBox)
+                    {
+                        txtBox = (TextBox)sender;
+                        if (txtBox.Name == "txtNoCarton")
+                        {
+                            if (txtBox.Text != "")
+                                noCarton = Convert.ToDouble(txtBox.Text);
+                            if (txtNoPalatat.Text != "")
+                                noPalatat = Convert.ToDouble(txtNoPalatat.Text);
+                        }
+                        else if (txtBox.Name == "txtNoPalatat")
+                        {
+                            if (txtBox.Text != "")
+                                noPalatat = Convert.ToDouble(txtBox.Text);
+                            if (txtNoCarton.Text != "")
+                                noCarton = Convert.ToDouble(txtNoCarton.Text);
+                        }
+
+                        double result = noCarton * noPalatat * noMeter;
+                        labTotalMeter.Text = result + "";
+                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -392,13 +417,13 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
+     
         //functions
         public void clear()
         {
             txtCode.Text = txtNoCarton.Text = txtNoPalatat.Text = txtNote.Text = comStorePlace.Text = labTotalMeter.Text = "";
             comStorePlace.Visible = false;
         }
-
         public XtraTabPage getTabPage(string text)
         {
             for (int i = 0; i < xtraTabControlStoresContent.TabPages.Count; i++)
@@ -408,10 +433,9 @@ namespace StoresManagmentDX
                 }
             return null;
         }
-
         public bool IsClear()
         {
-            foreach (Control item in this.Controls["panContainer"].Controls)
+            foreach (Control item in this.Controls["tableLayoutPanel1"].Controls)
             {
                 if (item is TextBox)
                 {
@@ -468,16 +492,18 @@ namespace StoresManagmentDX
                 q4 = txtGroup.Text;
             }
 
-            string query = "SELECT data.Code as 'الكود',product.Product_Name as 'الصنف',type.Type_Name as 'النوع',factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',sort.Sort_Value as 'الفرز',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID where  data.Type_ID IN(" + q1 + ") and  data.Factory_ID  IN(" + q2 + ") and  data.Product_ID  IN(" + q3 + ") and data.Group_ID IN (" + q4 + ") ";
+            string query = "SELECT data.Data_ID, data.Code as 'الكود',product.Product_Name as 'الصنف',type.Type_Name as 'النوع',factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',sort.Sort_Value as 'الفرز',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID where  data.Type_ID IN(" + q1 + ") and  data.Factory_ID  IN(" + q2 + ") and  data.Product_ID  IN(" + q3 + ") and data.Group_ID IN (" + q4 + ") ";
 
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             gridControl1.DataSource = dt;
+            gridView1.Columns[0].Visible = false;
+            gridView1.Columns[1].Width = 200;
         }
-        public bool validation(string code,int storeID,int StorePlaceID)
+        public bool validation(int storeID,int StorePlaceID)
         {
-            string query = "select Storage_ID from storage where Code="+code+" and Store_ID="+ storeID + " and Store_Place_ID="+ StorePlaceID;
+            string query = "select Storage_ID from storage where Data_ID="+Data_ID+" and Store_ID="+ storeID + " and Store_Place_ID="+ StorePlaceID;
             MySqlCommand com = new MySqlCommand(query, dbconnection);
             if (com.ExecuteScalar() != null)
             {
@@ -489,8 +515,7 @@ namespace StoresManagmentDX
             }
 
         }
-
-      
+     
     }
 
 

@@ -70,8 +70,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.Controls.Add(this.txtCarton);
             this.groupBox2.Controls.Add(this.txtDescription);
@@ -139,7 +138,6 @@
             this.comSort.Location = new System.Drawing.Point(108, 75);
             this.comSort.Name = "comSort";
             this.comSort.Size = new System.Drawing.Size(198, 24);
-            this.comSort.Sorted = true;
             this.comSort.TabIndex = 15;
             this.comSort.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comSort.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
@@ -153,7 +151,6 @@
             this.comSize.Location = new System.Drawing.Point(442, 79);
             this.comSize.Name = "comSize";
             this.comSize.Size = new System.Drawing.Size(198, 24);
-            this.comSize.Sorted = true;
             this.comSize.TabIndex = 11;
             this.comSize.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comSize.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
@@ -169,7 +166,6 @@
             this.comColour.Location = new System.Drawing.Point(442, 49);
             this.comColour.Name = "comColour";
             this.comColour.Size = new System.Drawing.Size(198, 24);
-            this.comColour.Sorted = true;
             this.comColour.TabIndex = 9;
             this.comColour.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comColour.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
@@ -279,7 +275,6 @@
             this.comFactory.Location = new System.Drawing.Point(126, 79);
             this.comFactory.Name = "comFactory";
             this.comFactory.Size = new System.Drawing.Size(198, 24);
-            this.comFactory.Sorted = true;
             this.comFactory.TabIndex = 10;
             this.comFactory.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comFactory.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
@@ -292,7 +287,6 @@
             this.comProduct.Location = new System.Drawing.Point(126, 133);
             this.comProduct.Name = "comProduct";
             this.comProduct.Size = new System.Drawing.Size(198, 24);
-            this.comProduct.Sorted = true;
             this.comProduct.TabIndex = 7;
             this.comProduct.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comProduct.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
@@ -305,7 +299,6 @@
             this.comGroup.Location = new System.Drawing.Point(126, 106);
             this.comGroup.Name = "comGroup";
             this.comGroup.Size = new System.Drawing.Size(198, 24);
-            this.comGroup.Sorted = true;
             this.comGroup.TabIndex = 5;
             this.comGroup.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comGroup.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
@@ -318,7 +311,6 @@
             this.comType.Location = new System.Drawing.Point(126, 52);
             this.comType.Name = "comType";
             this.comType.Size = new System.Drawing.Size(198, 24);
-            this.comType.Sorted = true;
             this.comType.TabIndex = 1;
             this.comType.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             this.comType.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
@@ -413,6 +405,7 @@
             // 
             // panel3
             // 
+            this.panel3.AutoScroll = true;
             this.panel3.BackColor = System.Drawing.Color.White;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel3.Controls.Add(this.tableLayoutPanel2);
@@ -466,6 +459,7 @@
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.panel1.AutoScroll = true;
             this.panel1.Controls.Add(this.groupBox1);
             this.panel1.Controls.Add(this.ImageProduct);
             this.panel1.Controls.Add(this.groupBox2);

@@ -38,7 +38,7 @@ namespace StoresManagmentDX
                 comStore.Text = "";
                 txtStoreID.Text = "";
 
-                query = "select Factory_Name,Factory_ID from sets";
+                query = "select * from sets inner join factory on sets.Factory_ID=factory.Factory_ID inner join type on sets.Type_ID=type.Type_ID inner join groupo on groupo.Group_ID=sets.Group_ID";
                 da = new MySqlDataAdapter(query, dbconnection);
                 dt = new DataTable();
                 da.Fill(dt);
@@ -48,20 +48,14 @@ namespace StoresManagmentDX
                 comFactory.Text = "";
                 txtFactory.Text = "";
 
-                query = "select Type_Name,Type_ID from sets";
-                da = new MySqlDataAdapter(query, dbconnection);
-                dt = new DataTable();
-                da.Fill(dt);
+
                 comType.DataSource = dt;
                 comType.DisplayMember = dt.Columns["Type_Name"].ToString();
                 comType.ValueMember = dt.Columns["Type_ID"].ToString();
                 comType.Text = "";
                 txtType.Text = "";
 
-                query = "select Group_Name,Group_ID from sets";
-                da = new MySqlDataAdapter(query, dbconnection);
-                dt = new DataTable();
-                da.Fill(dt);
+
                 comGroup.DataSource = dt;
                 comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
                 comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
@@ -289,7 +283,7 @@ namespace StoresManagmentDX
             int SetID, StoreID;
             if (int.TryParse(txtSetsID.Text, out SetID) && int.TryParse(txtStoreID.Text, out StoreID))
                 {
-                string query = "select Total_Meters from storage  where Code='" + SetID + "' and Store_ID=" + StoreID;
+                string query = "select Total_Meters from storage  where Data_ID='" + SetID + "' and Store_ID=" + StoreID;
                 MySqlCommand com = new MySqlCommand(query, dbconnection);
                 if (com.ExecuteScalar() != null)
                 {
@@ -311,7 +305,7 @@ namespace StoresManagmentDX
         public double fakSet(double quantitySetFak, int SetID)
         {
            
-            string query = "select Total_Meters from storage  where Code='" + SetID+ "' and Store_ID=" + txtStoreID.Text;
+            string query = "select Total_Meters from storage  where Data_ID='" + SetID+ "' and Store_ID=" + txtStoreID.Text;
             MySqlCommand com = new MySqlCommand(query,dbconnection);
             if (com.ExecuteScalar() != null)
             {
@@ -334,12 +328,12 @@ namespace StoresManagmentDX
         //record to database
         public void RecordSetQuantityInStorage(double newQuantitySet, int SetID)
         {
-            string query = "select Total_Meters from storage  where Code='" + SetID + "' and Store_ID=" + txtStoreID.Text;
+            string query = "select Total_Meters from storage  where Data_ID='" + SetID + "' and Store_ID=" + txtStoreID.Text;
             MySqlCommand com = new MySqlCommand(query, dbconnection);
             if (com.ExecuteScalar() != null)
             {
                 double storeQuantity = Convert.ToDouble(com.ExecuteScalar());
-                query = "update storage set Total_Meters =" + (storeQuantity - newQuantitySet) + "  where Code=" + SetID + " and Store_ID=" + txtStoreID.Text;
+                query = "update storage set Total_Meters =" + (storeQuantity - newQuantitySet) + "  where Data_ID=" + SetID + " and Store_ID=" + txtStoreID.Text;
                 com = new MySqlCommand(query, dbconnection);
                 com.ExecuteNonQuery();
             }
@@ -355,17 +349,17 @@ namespace StoresManagmentDX
             {
                 dbconnection1.Open();
                 dbconnection2.Open();
-                string query = "select Code,Quantity from set_details  where Set_ID=" + setID;
+                string query = "select Data_ID,Quantity from set_details  where Set_ID=" + setID;
                 MySqlCommand com = new MySqlCommand(query,dbconnection);
                 MySqlDataReader dr = com.ExecuteReader();
                 while(dr.Read())
                 {
-                    query = "select sum(Total_Meters) from storage where Code='"+dr["Code"].ToString()+ "' group by Store_ID having Store_ID=" + txtStoreID.Text ;
+                    query = "select sum(Total_Meters) from storage where Data_ID='" + dr["Data_ID"].ToString()+ "' group by Store_ID having Store_ID=" + txtStoreID.Text ;
                     MySqlCommand com1 = new MySqlCommand(query, dbconnection1);
                     double QuantityInStore = Convert.ToDouble(com1.ExecuteScalar());
                     double QuantityInSet= Convert.ToDouble(dr["Quantity"].ToString());
                     double newQuantity = QuantityInStore+(QuantityInSet * TaqmQuantity);
-                    query = "select distinct data.Code as 'الكود' , type.Type_Name as 'النوع', factory.Factory_Name as 'المصنع' ,groupo.Group_Name as 'المجموعة', product.Product_Name as 'المنتج' ,data.Colour as 'لون', data.Size as 'المقاس', data.Sort as 'الفرز' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID  where Code='" + dr["Code"].ToString() + "'";
+                    query = "select distinct data.Code as 'الكود' , type.Type_Name as 'النوع', factory.Factory_Name as 'المصنع' ,groupo.Group_Name as 'المجموعة', product.Product_Name as 'المنتج' ,data.Colour as 'لون', data.Size as 'المقاس', data.Sort as 'الفرز' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID  where Data_ID=" + dr["Data_ID"].ToString() + "";
 
                     com = new MySqlCommand(query, dbconnection1);
                     MySqlDataReader dataReader1 = com.ExecuteReader();
@@ -397,18 +391,18 @@ namespace StoresManagmentDX
             {
                 dbconnection1.Open();
                 dbconnection2.Open();
-                string query = "select Code,Quantity from set_details  where Set_ID=" + setID;
+                string query = "select Data_ID,Quantity from set_details  where Set_ID=" + setID;
                 MySqlCommand com = new MySqlCommand(query, dbconnection);
                 MySqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    query = "select sum(Total_Meters) from storage where Code='" + dr["Code"].ToString() + "' group by Store_ID having Store_ID=" + txtStoreID.Text;
+                    query = "select sum(Total_Meters) from storage where Data_ID='" + dr["Data_ID"].ToString() + "' group by Store_ID having Store_ID=" + txtStoreID.Text;
                     MySqlCommand com1 = new MySqlCommand(query, dbconnection1);
                     double QuantityInStore = Convert.ToDouble(com1.ExecuteScalar());
                     double QuantityInSet = Convert.ToDouble(dr["Quantity"].ToString());
                     double newQuantity = QuantityInSet * TaqmQuantity;
 
-                    query = "select Storage_ID,Total_Meters from storage where Code='" + dr["Code"].ToString() + "' and Store_ID=" + txtStoreID.Text;
+                    query = "select Storage_ID,Total_Meters from storage where Data_ID='" + dr["Data_ID"].ToString() + "' and Store_ID=" + txtStoreID.Text;
                     com1 = new MySqlCommand(query, dbconnection1);
                     MySqlDataReader dr2 = com1.ExecuteReader();
                     int id = 0;
@@ -463,11 +457,7 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
-        public static class connection
-        {
-            public static string connectionString = "SERVER=192.168.1.200;DATABASE=ccc;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
-            //public static string connectionString = "SERVER=localhost;DATABASE=ccc;user=root;PASSWORD=root;CHARSET=utf8";
-        }
+  
 
      
     }

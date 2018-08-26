@@ -97,6 +97,7 @@ namespace StoresManagmentDX
                         case "comSets":
                             if (flag)
                             {
+                                dbconnection.Close();
                                 dbconnection.Open();
                                 dataGridView1.Rows.Clear();
                                 txtSetsID.Text = comSets.SelectedValue.ToString();
@@ -104,11 +105,12 @@ namespace StoresManagmentDX
                                 if (int.TryParse(txtSetsID.Text, out id))
                                 {
                                     double q= Tagme3Set(id);
+                                    txtSetQuantity.Text = q.ToString();
                                     decreaseItemsQuantity(q, id);
                                 }
                                 else
                                 {
-                                    MessageBox.Show("enter correct value");
+                                    MessageBox.Show("ادخل قيمة صحيحة");
                                 }
                             }
                             dbconnection.Close();
@@ -216,6 +218,7 @@ namespace StoresManagmentDX
                                         if (int.TryParse(txtSetsID.Text, out id))
                                         {
                                             double q=  Tagme3Set(id);
+                                            txtSetQuantity.Text = q.ToString();
                                             decreaseItemsQuantity(q, id);
                                         }
                                         else
@@ -244,9 +247,34 @@ namespace StoresManagmentDX
                 dbconnection.Close();
             }
         }
+        private void btnDone_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dbconnection.Open();
+                double q = Tagme3Set(Convert.ToInt16(txtSetsID.Text));
+                double quntityRequest = Convert.ToDouble(txtSetQuantity.Text);
+                if (q <= quntityRequest)
+                {
+                    RecordSetQuantityInStorage(Convert.ToDouble(txtSetQuantity.Text), Convert.ToInt16(txtSetsID.Text));
+                    decreaseItemsQuantityInDB(Convert.ToDouble(txtSetQuantity.Text), Convert.ToInt16(txtSetsID.Text));
+                    MessageBox.Show("تم");
+                    dataGridView1.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("الكمية المطلوبة غير متاحة");
+                }
+               
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
+        }
 
-        //functions 
-       
+        //functions       
         //تجميع الطقم 
         public double Tagme3Set(int SetID)
         {
@@ -254,7 +282,7 @@ namespace StoresManagmentDX
             MySqlCommand com = new MySqlCommand(query,dbconnection);
             int setItemsNumber = Convert.ToInt16(com.ExecuteScalar());
             int count = 0;
-            query = "select sum(storage.Total_Meters)/set_details.Quantity as q from sets inner join set_details on sets.Set_ID=set_details.Set_ID inner join storage on set_details.Code = storage.Code where sets.Set_ID=" + SetID+ " group by storage.Code,Store_ID having Store_ID=" + txtStoreID.Text;
+            query = "select sum(storage.Total_Meters)/set_details.Quantity as q from sets inner join set_details on sets.Set_ID=set_details.Set_ID inner join storage on set_details.Data_ID = storage.Data_ID where sets.Set_ID="+SetID+ " group by storage.Data_ID,Store_ID having Store_ID=" + txtStoreID.Text;
             com = new MySqlCommand(query,dbconnection);
             MySqlDataReader dr = com.ExecuteReader();
           
@@ -280,7 +308,7 @@ namespace StoresManagmentDX
             {
                 minQuantity = 0;
             }
-            txtSetQuantity.Text= minQuantity.ToString();
+           
       
             return minQuantity;
         }
@@ -288,17 +316,17 @@ namespace StoresManagmentDX
         public void RecordSetQuantityInStorage(double minQuantity,int SetID)
         {
 
-           string query = "select Total_Meters from storage where Code=" + SetID + " and Store_ID=" + txtStoreID.Text;
+           string query = "select Total_Meters from storage where Data_ID=" + SetID + " and Store_ID=" + txtStoreID.Text;
             MySqlCommand com = new MySqlCommand(query, dbconnection);
             if (com.ExecuteScalar() != null)
             {
-                query = "update storage set Total_Meters=" + minQuantity + " where Code=" + SetID + " and Store_ID=" + txtStoreID.Text;
+                query = "update storage set Total_Meters=" + minQuantity + " where Data_ID=" + SetID + " and Store_ID=" + txtStoreID.Text;
                 com = new MySqlCommand(query, dbconnection);
                 com.ExecuteNonQuery();
             }
             else
             {
-                query = "insert into storage (Store_ID,Store_Name,Storage_Date,Total_Meters,Supplier_Name,Code) values (@Store_ID,@Store_Name,@Storage_Date,@Total_Meters,@Supplier_Name,@Code)";
+                query = "insert into storage (Store_ID,Store_Name,Storage_Date,Total_Meters,Supplier_Name,Data_ID) values (@Store_ID,@Store_Name,@Storage_Date,@Total_Meters,@Supplier_Name,@Data_ID)";
                 com = new MySqlCommand(query, dbconnection);
                 com.Parameters.Add("@Store_ID", MySqlDbType.Int16);
                 com.Parameters["@Store_ID"].Value = Convert.ToInt16(txtStoreID.Text);
@@ -310,8 +338,8 @@ namespace StoresManagmentDX
                 com.Parameters["@Total_Meters"].Value = minQuantity;
                 com.Parameters.Add("@Supplier_Name", MySqlDbType.VarChar);
                 com.Parameters["@Supplier_Name"].Value = comFactory.Text;
-                com.Parameters.Add("@Code", MySqlDbType.VarChar);
-                com.Parameters["@Code"].Value = SetID.ToString();
+                com.Parameters.Add("@Data_ID", MySqlDbType.VarChar);
+                com.Parameters["@Data_ID"].Value = SetID.ToString();
                 com.ExecuteNonQuery();
             }
         }
@@ -322,17 +350,17 @@ namespace StoresManagmentDX
             {
                 dbconnection1.Open();
                 dbconnection2.Open();
-                string query = "select Code,Quantity from set_details  where Set_ID=" + setID;
+                string query = "select Data_ID,Quantity from set_details  where Set_ID=" + setID;
                 MySqlCommand com = new MySqlCommand(query,dbconnection);
                 MySqlDataReader dr = com.ExecuteReader();
                 while(dr.Read())
                 {
-                    query = "select sum(Total_Meters) from storage where Code='"+dr["Code"].ToString()+ "' group by Store_ID having Store_ID=" + txtStoreID.Text ;
+                    query = "select sum(Total_Meters) from storage where Data_ID='" + dr["Data_ID"].ToString()+ "' group by Store_ID having Store_ID=" + txtStoreID.Text ;
                     MySqlCommand com1 = new MySqlCommand(query, dbconnection1);
                     double QuantityInStore = Convert.ToDouble(com1.ExecuteScalar());
                     double QuantityInSet= Convert.ToDouble(dr["Quantity"].ToString());
                     double newQuantity = QuantityInStore-(QuantityInSet * TaqmQuantity);
-                    query = "select distinct data.Code as 'الكود' , type.Type_Name as 'النوع', factory.Factory_Name as 'المصنع' ,groupo.Group_Name as 'المجموعة', product.Product_Name as 'المنتج' ,data.Colour as 'لون', data.Size as 'المقاس', data.Sort as 'الفرز' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID  where Code='" + dr["Code"].ToString() + "'";
+                    query = "SELECT data.Data_ID, data.Code as 'الكود',type.Type_Name as 'النوع',factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',product.Product_Name as 'الصنف',sort.Sort_Value as 'الفرز',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID  where Data_ID='" + dr["Data_ID"].ToString() + "'";
 
                     com = new MySqlCommand(query, dbconnection1);
                     MySqlDataReader dataReader1 = com.ExecuteReader();
@@ -343,8 +371,8 @@ namespace StoresManagmentDX
                         dataGridView1.Rows[n].Cells["Type_Name"].Value = dataReader1["النوع"].ToString();
                         dataGridView1.Rows[n].Cells["Factory_Name"].Value = dataReader1["المصنع"].ToString();
                         dataGridView1.Rows[n].Cells["Group_Name"].Value = dataReader1["المجموعة"].ToString();
-                        dataGridView1.Rows[n].Cells["ProductName"].Value = dataReader1["المنتج"].ToString();
-                        dataGridView1.Rows[n].Cells["ProductColor"].Value = dataReader1["لون"].ToString();
+                        dataGridView1.Rows[n].Cells["ProductName"].Value = dataReader1["الصنف"].ToString();
+                        dataGridView1.Rows[n].Cells["ProductColor"].Value = dataReader1["اللون"].ToString();
                         dataGridView1.Rows[n].Cells["productSize"].Value = dataReader1["المقاس"].ToString();
                         dataGridView1.Rows[n].Cells["ProductSort"].Value = dataReader1["الفرز"].ToString();
                         dataGridView1.Rows[n].Cells["ProductQuantity"].Value = newQuantity.ToString();
@@ -357,16 +385,34 @@ namespace StoresManagmentDX
             dbconnection1.Close();
             dbconnection2.Close();
         }
-        //
-        private void btnDone_Click(object sender, EventArgs e)
+
+        private void txtSetQuantity_KeyDown(object sender, KeyEventArgs e)
         {
             try
             {
-                dbconnection.Open();
-                RecordSetQuantityInStorage(Convert.ToDouble(txtSetQuantity.Text), Convert.ToInt16(txtSetsID.Text));
-                decreaseItemsQuantityInDB(Convert.ToDouble(txtSetQuantity.Text), Convert.ToInt16(txtSetsID.Text));
-                MessageBox.Show("Done");
-                dataGridView1.Rows.Clear();
+                if (e.KeyCode == Keys.Enter)
+                {
+                    dbconnection.Open();
+                    double q = Tagme3Set(Convert.ToInt16(txtSetsID.Text));
+                    double quntityRequest = Convert.ToDouble(txtSetQuantity.Text);
+                    if (q >= quntityRequest)
+                    {
+                        dataGridView1.Rows.Clear();
+                        int id;
+                        if (int.TryParse(txtSetsID.Text, out id))
+                        {
+                            decreaseItemsQuantity(quntityRequest, id);
+                        }
+                        else
+                        {
+                            MessageBox.Show("ادخل قيمة صحيحة");
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("الكمية المطلوبة غير متاحة");
+                    }
+                }
             }
             catch (Exception ex)
             {
@@ -374,25 +420,25 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
-        //
+
         public void decreaseItemsQuantityInDB(double TaqmQuantity, int setID)
         {
             if (TaqmQuantity > 0)
             {
                 dbconnection1.Open();
                 dbconnection2.Open();
-                string query = "select Code,Quantity from set_details  where Set_ID=" + setID;
+                string query = "select Data_ID,Quantity from set_details  where Set_ID=" + setID;
                 MySqlCommand com = new MySqlCommand(query, dbconnection);
                 MySqlDataReader dr = com.ExecuteReader();
                 while (dr.Read())
                 {
-                    query = "select sum(Total_Meters) from storage where Code='" + dr["Code"].ToString() + "' group by Store_ID having Store_ID=" + txtStoreID.Text;
+                    query = "select sum(Total_Meters) from storage where Data_ID='" + dr["Data_ID"].ToString() + "' group by Store_ID having Store_ID=" + txtStoreID.Text;
                     MySqlCommand com1 = new MySqlCommand(query, dbconnection1);
                     double QuantityInStore = Convert.ToDouble(com1.ExecuteScalar());
                     double QuantityInSet = Convert.ToDouble(dr["Quantity"].ToString());
                     double newQuantity = QuantityInSet * TaqmQuantity;
 
-                    query = "select Storage_ID,Total_Meters from storage where Code='" + dr["Code"].ToString() + "' and Store_ID=" + txtStoreID.Text;
+                    query = "select Storage_ID,Total_Meters from storage where Data_ID='" + dr["Data_ID"].ToString() + "' and Store_ID=" + txtStoreID.Text;
                     com1 = new MySqlCommand(query, dbconnection1);
                     MySqlDataReader dr2 = com1.ExecuteReader();
                     int id = 0;
@@ -421,7 +467,7 @@ namespace StoresManagmentDX
                     dr2.Close();
                 }
                 dr.Close();
-                query = "select sum(Total_Meters),storage.Code from storage inner join set_details on storage.Code=set_details.Code where Set_ID=" + setID + " group by storage.Code,Store_ID having Store_ID=" + txtStoreID.Text;
+                query = "select sum(Total_Meters),storage.Data_ID from storage inner join set_details on storage.Data_ID=set_details.Data_ID where Set_ID=" + setID + " group by storage.Data_ID,Store_ID having Store_ID=" + txtStoreID.Text;
                 MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -460,11 +506,7 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
-        public static class connection
-        {
-            public static string connectionString = "SERVER=192.168.1.200;DATABASE=ccc;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
-            //public static string connectionString = "SERVER=localhost;DATABASE=ccc;user=root;PASSWORD=root;CHARSET=utf8";
-        }
+      
 
      
     }

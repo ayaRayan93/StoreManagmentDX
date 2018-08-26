@@ -537,9 +537,9 @@
             this.label5.Location = new System.Drawing.Point(675, 57);
             this.label5.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 16);
+            this.label5.Size = new System.Drawing.Size(59, 16);
             this.label5.TabIndex = 18;
-            this.label5.Text = "المجوعة";
+            this.label5.Text = "المجموعة";
             // 
             // txtGroup
             // 

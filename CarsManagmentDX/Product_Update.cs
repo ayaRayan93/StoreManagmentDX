@@ -20,7 +20,8 @@ namespace StoresManagmentDX
         byte[] selectedImage;
         bool loaded = false,flag=false, factoryFlage=false, groupFlage=false;
         MySqlConnection dbconnection, dbconnection1;
-        string code = "";
+        string code = "",lastPartCode="";
+        int Data_ID;
         int color_id = -1;
         int size_id = -1;
         int sort_id = -1;
@@ -372,27 +373,34 @@ namespace StoresManagmentDX
                         }
 
                         code = code + code4;
+                        string code5 = "";
 
-                        string query2 = "SELECT count(Code) FROM data where Type_ID=" + txtType.Text + " and Factory_ID=" + txtFactory.Text + " and Group_ID=" + txtGroup.Text + " and Product_ID=" + txtProduct.Text;
-                        dbconnection.Open();
-                        MySqlCommand adpt = new MySqlCommand(query2, dbconnection);
-                        int result = Convert.ToInt16(adpt.ExecuteScalar().ToString());
-                        result = result + 1;
-                        dbconnection.Close();
-
-                        int resultcount = result.ToString().Length;
-
-                        string code5 = result.ToString();
-
-                        while (resultcount < 4)
+                        if (!IsMainChang())
                         {
-                            code5 = "0" + code5;
-                            resultcount++;
-                        }
+                            string query2 = "SELECT count(Code) FROM data where Type_ID=" + txtType.Text + " and Factory_ID=" + txtFactory.Text + " and Group_ID=" + txtGroup.Text + " and Product_ID=" + txtProduct.Text;
+                            dbconnection.Open();
+                            MySqlCommand adpt = new MySqlCommand(query2, dbconnection);
+                            int result = Convert.ToInt16(adpt.ExecuteScalar().ToString());
+                            result = result + 1;
+                            dbconnection.Close();
 
+                            int resultcount = result.ToString().Length;
+
+                            code5 = result.ToString();
+
+                            while (resultcount < 4)
+                            {
+                                code5 = "0" + code5;
+                                resultcount++;
+                            }
+                        }
+                        else
+                        {
+                            code5 = lastPartCode;
+                        }
                         code = code + code5;
 
-                        command.CommandText = "INSERT INTO data (Color_ID,Size_ID,Sort_ID,Description,Carton,Code,Type_ID,Factory_ID,Group_ID,Product_ID,Classification) VALUES (?Color_ID,?Size_ID,?Sort_ID,?Description,?Carton,?Code,?Type_ID,?Factory_ID,?Group_ID,?Product_ID,?Classification)";
+                        command.CommandText = "update  data set Color_ID=?Color_ID,Size_ID=?Size_ID,Sort_ID=?Sort_ID,Description=?Description,Carton=?Carton,Code=?Code,Type_ID=?Type_ID,Factory_ID=?Factory_ID,Group_ID=?Group_ID,Product_ID=?Product_ID,Classification=?Classification where Data_ID="+ Data_ID;
 
                         command.Parameters.AddWithValue("?Color_ID", color_id);
                         command.Parameters.AddWithValue("?Size_ID", size_id);
@@ -587,9 +595,8 @@ namespace StoresManagmentDX
 
             txtDescription.Text = row1["التصنيف"].ToString();
             txtClassification.Text = row1["الوصف"].ToString();
-        
-       
 
+            Data_ID =Convert.ToInt16(row1[0]);
         }
 
         public void displayImage()
@@ -608,7 +615,7 @@ namespace StoresManagmentDX
                 }
                 else
                 {
-                    ImageProduct.Image = Properties.Resources.notFound;
+                    ImageProduct.Image = null;// Properties.Resources.notFound;
                 }
             }
             catch
@@ -625,7 +632,8 @@ namespace StoresManagmentDX
             txtType.Text = arrCode[0].ToString() + arrCode[1].ToString() + arrCode[2].ToString() + arrCode[3].ToString() + "";
             txtFactory.Text = arrCode[4].ToString() + arrCode[5].ToString() + arrCode[6].ToString() + arrCode[7].ToString() + "";
             txtGroup.Text = arrCode[8].ToString() + arrCode[9].ToString() + arrCode[10].ToString() + arrCode[11].ToString() + "";
-            txtProduct.Text = arrCode[12].ToString() + arrCode[13].ToString() + arrCode[14].ToString() + arrCode[15].ToString() + "";               
+            txtProduct.Text = arrCode[12].ToString() + arrCode[13].ToString() + arrCode[14].ToString() + arrCode[15].ToString() + "";
+            lastPartCode = "" + arrCode[16] + arrCode[17] + arrCode[18] + arrCode[19];
         }
 
         private void TypeColor()
@@ -657,12 +665,16 @@ namespace StoresManagmentDX
         
         public void deletePoduct()
         {
-            dbconnection.Open();
-            string query = "delete from data where Code='" + code + "'";
-            MySqlCommand comand = new MySqlCommand(query, dbconnection);
+            //dbconnection.Open();
+            //string query = "delete from data where Code='" + code + "'";
+            //MySqlCommand comand = new MySqlCommand(query, dbconnection);
+            //comand.ExecuteNonQuery();
 
-            comand.ExecuteNonQuery();
-            dbconnection.Close();
+            //query = "ALTER TABLE data AUTO_INCREMENT = 1;";
+            //MySqlCommand com = new MySqlCommand(query, dbconnection);
+            //com.ExecuteNonQuery();
+
+            //dbconnection.Close();
         }
 
         public bool IsClear()
@@ -681,7 +693,16 @@ namespace StoresManagmentDX
 
             return false;
         }
+        public bool IsMainChang()
+        {
+            if (comType.Text == prodRow["النوع"].ToString() &&
+            comFactory.Text == prodRow["المصنع"].ToString() &&
+            comGroup.Text == prodRow["المجموعة"].ToString() &&
+            comProduct.Text == prodRow["الصنف"].ToString() )
+                return true;
 
+            return false;
+        }
         public XtraTabPage getTabPage(string text)
         {
             for (int i = 0; i < xtraTabControlStoresContent.TabPages.Count; i++)
@@ -691,6 +712,8 @@ namespace StoresManagmentDX
                 }
             return null;
         }
+
+      
 
     }
     

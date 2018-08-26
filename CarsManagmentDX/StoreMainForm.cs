@@ -385,7 +385,7 @@ namespace StoresManagmentDX
         }
 
         //functions
-        //stores
+        //Stores
         public void bindDisplayStoresForm(XtraTabPage xtraTabPage)
         {
             Stores objForm = new Stores(this);
@@ -816,8 +816,7 @@ namespace StoresManagmentDX
 
     public static class connection
     {
-       //  public static string connectionString = "SERVER=192.168.1.200;DATABASE=test;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
-       public static string connectionString = "SERVER=localhost;DATABASE=testcoding;user=root;PASSWORD=root;CHARSET=utf8";
-
-    }
+       public static string connectionString = "SERVER=192.168.1.200;DATABASE=test;user=Devccc;PASSWORD=rootroot;CHARSET=utf8";
+      // public static string connectionString = "SERVER=localhost;DATABASE=testcoding;user=root;PASSWORD=root;CHARSET=utf8";
+   }
 }

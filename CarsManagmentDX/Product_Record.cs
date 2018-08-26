@@ -451,16 +451,6 @@ namespace StoresManagmentDX
             conn.Close();
         }
 
-        private void txtClassification_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
-        private void txtDescription_KeyDown(object sender, KeyEventArgs e)
-        {
-
-        }
-
         private void btnUploadPhoto_Click(object sender, EventArgs e)
         {
             try

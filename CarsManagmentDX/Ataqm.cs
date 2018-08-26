@@ -43,7 +43,7 @@ namespace StoresManagmentDX
             try
             {
                 loadDataToBox();
-
+                DisplayAtaqm();
                 loaded = true;
             }
             catch (Exception ex)
@@ -184,7 +184,6 @@ namespace StoresManagmentDX
                 dbconnection.Close();
             }
         }
-
         private void btnSearch_Click(object sender, EventArgs e)
         {
             try
@@ -343,61 +342,25 @@ namespace StoresManagmentDX
                     q4 = txtGroup.Text;
                 }
 
-                // string query = "SELECT Set_ID as 'كود الطقم',Set_Name as 'اسم الطقم',Type_Name as 'النوع',Factory_Name as 'المصنع',Group_Name as 'المجموعة' from sets INNER JOIN type ON type.Type_ID = sets.Type_ID  INNER JOIN factory ON sets.Factory_ID = factory.Factory_ID INNER JOIN groupo ON sets.Group_ID = groupo.Group_ID  where  sets.Type_ID IN(" + q1 + ") and  sets.Factory_ID  IN(" + q2 + ") and sets.Group_ID IN (" + q4 + ") ";
-                string query = "SELECT Set_ID as 'كود الطقم',Set_Name as 'اسم الطقم' from sets  ";
-
-                MySqlDataAdapter adapterSets = new MySqlDataAdapter(query, dbconnection);
-             
-                query = "SELECT sets.Set_ID as 'كود الطقم',data.Code as 'الكود',product.Product_Name as 'الصنف',type.Type_Name as 'النوع',factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',sort.Sort_Value as 'الفرز',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID INNER JOIN set_details on data.`Code`=set_details.Code INNER JOIN sets on sets.Set_ID=set_details.Set_ID ";
+                string query = "SELECT Set_ID as 'كود الطقم',Set_Name as 'اسم الطقم',Type_Name as 'النوع',Factory_Name as 'المصنع',Group_Name as 'المجموعة',Set_Photo as 'صورة' from sets INNER JOIN type ON type.Type_ID = sets.Type_ID  INNER JOIN factory ON sets.Factory_ID = factory.Factory_ID INNER JOIN groupo ON sets.Group_ID = groupo.Group_ID  where  sets.Type_ID IN(" + q1 + ") and  sets.Factory_ID  IN(" + q2 + ") and sets.Group_ID IN (" + q4 + ") order by Set_ID";
+              
+                MySqlDataAdapter adapterSets = new MySqlDataAdapter(query, dbconnection);             
+                query = "SELECT sets.Set_ID as 'كود الطقم',data.Code as 'الكود',set_details.Quantity as 'الكمية',product.Product_Name as 'الصنف',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',sort.Sort_Value as 'الفرز',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة',data_details.Photo as 'صورة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID INNER JOIN set_details on data.Data_ID=set_details.Data_ID INNER JOIN sets on sets.Set_ID=set_details.Set_ID left join data_details on data_details.Code=data.Code order by data.Code";
                 MySqlDataAdapter AdapterProducts = new MySqlDataAdapter(query, dbconnection);
-               
-                
-
-
                 DataSet dataSet11 = new DataSet();
+
                 //Create DataTable objects for representing database's tables 
                 adapterSets.Fill(dataSet11, "Sets");
                 AdapterProducts.Fill(dataSet11, "Products");
-
+           
                 //Set up a master-detail relationship between the DataTables 
                 DataColumn keyColumn = dataSet11.Tables["Sets"].Columns["كود الطقم"];
                 DataColumn foreignKeyColumn = dataSet11.Tables["Products"].Columns["كود الطقم"];
                 dataSet11.Relations.Add("بنود الطقم", keyColumn, foreignKeyColumn);
-
+           
                 //Bind the grid control to the data source 
                 dataGridView1.DataSource = dataSet11.Tables["Sets"];
-                //dataGridView1.ForceInitialize();
-
-                //Assign a CardView to the relationship 
-                //GridView cardView1 = new GridView(dataGridView1);
-                //dataGridView1.LevelTree.Nodes.Add("setsProducts", cardView1);
-                ////Specify text to be displayed within detail tabs. 
-                //cardView1.ViewCaption = "Set Products";
-
-                //Hide the CategoryID column for the master View 
-                // gridView1.Columns["كود الطقم"].VisibleIndex = -1;
-                
-                  ////Present data in the Picture column as Images 
-                  //RepositoryItemPictureEdit riPictureEdit = dataGridView1.RepositoryItems.Add("PictureEdit") as RepositoryItemPictureEdit;
-                  //gridView1.Columns["Picture"].ColumnEdit = riPictureEdit;
-                  ////Stretch images within cells. 
-                  //riPictureEdit.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-                  //gridView1.Columns["Picture"].OptionsColumn.FixedWidth = true;
-                  ////Change Picture column's width 
-                  //gridView1.Columns["Picture"].Width = 180;
-
-                  ////Change row height in the master View 
-                  //gridView1.RowHeight = 50;
-
-                  ////Create columns for the detail pattern View 
-                  //cardView1.PopulateColumns(dataSet11.Tables["Products"]);
-                  ////Hide the CategoryID column for the detail View 
-                  //cardView1.Columns["CategoryID"].VisibleIndex = -1;
-                  ////Format UnitPrice column values as currency 
-                  //cardView1.Columns["UnitPrice"].DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-                  //cardView1.Columns["UnitPrice"].DisplayFormat.FormatString = "c2";
-                  loaded = true;
-                
+                loaded = true;               
             }
             catch (Exception ex)
             {
@@ -405,18 +368,16 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         
-    } 
+    }
+
         public void deleteSet(int id)
         {
-          
-
             String query = "delete from sets where Set_ID="+id;
             MySqlCommand com = new MySqlCommand(query,dbconnection);
             com.ExecuteNonQuery();
             query = "delete from set_details where Set_ID=" + id;
             com = new MySqlCommand(query, dbconnection);
             com.ExecuteNonQuery();
-
         }
         public void loadDataToBox()
         {

@@ -27,7 +27,6 @@ namespace StoresManagmentDX
                 mTC_Content.SelectedIndex = 6;
                 displayType();
                 txtType.Focus();
-                
             }
             catch (Exception e)
             {
@@ -83,6 +82,7 @@ namespace StoresManagmentDX
                 }
                 ClearButtonsColor();
                 btn.BackColor = Color.FromArgb(194,192,192);
+         
             }
             catch (Exception ex)
             {
@@ -146,6 +146,8 @@ namespace StoresManagmentDX
                 comGroup.Text = "";
 
                 load = true;
+
+                dataGridViewStyle();
             }
             catch (Exception ex)
             {
@@ -197,7 +199,6 @@ namespace StoresManagmentDX
                         txtSort.Focus();
                         break;
                 }
-
             }
             catch (Exception ex)
             {
@@ -228,6 +229,7 @@ namespace StoresManagmentDX
                         UserControl.UserRecord("type","اضافة", com.ExecuteScalar().ToString(), DateTime.Now,dbconnection);
                       
                         displayType();
+                        txtType.Text = "";
                     }
                     else
                     {
@@ -270,8 +272,7 @@ namespace StoresManagmentDX
                             UserControl.UserRecord("type", "add", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
 
                             displayType();
-                            txtType.Focus();
-                            txtType.SelectAll();
+                            txtType.Text="";
                         }
                         else
                         {
@@ -312,7 +313,11 @@ namespace StoresManagmentDX
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
                         updateTablesDB("type", "Type_ID", id);
+                 
+                        UserControl.UserRecord("type", "حذف", storeRow.Cells[0].Value.ToString(), DateTime.Now, dbconnection);
+
                         displayType();
+                        txtType.Focus();
                     }
                     else if (dialogResult == DialogResult.No)
                     { }
@@ -324,7 +329,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show("select row");
+                MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
         }
@@ -348,15 +353,17 @@ namespace StoresManagmentDX
                             com.Parameters.AddWithValue("@name", txtFactory.Text);
                             com.Parameters.AddWithValue("@Type_ID", Convert.ToInt16(comType.SelectedValue));
                             com.ExecuteNonQuery();
-                            
+
+                            query = "select Factory_ID from factory order by Factory_ID desc limit 1";
+                            com = new MySqlCommand(query, dbconnection);
+                            UserControl.UserRecord("factory", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
                             displayFactory(Convert.ToInt16(comType.SelectedValue));
-                            txtFactory.Focus();
-                            txtFactory.SelectAll();
+                            txtFactory.Text = "";
                         }
                         else
                         {
-                            txtFactory.Focus();
-                           
+                            txtFactory.Focus();                          
                         }
                     }
                     else
@@ -395,16 +402,16 @@ namespace StoresManagmentDX
                                 com.Parameters.AddWithValue("@name", txtFactory.Text);
                                 com.Parameters.AddWithValue("@Type_ID", Convert.ToInt16(comType.SelectedValue));
                                 com.ExecuteNonQuery();
-                                
+                                query = "select Factory_ID from factory order by Factory_ID desc limit 1";
+                                com = new MySqlCommand(query, dbconnection);
+                                UserControl.UserRecord("factory", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
                                 displayFactory(Convert.ToInt16(comType.SelectedValue));
-                                txtFactory.Focus();
-                                txtFactory.SelectAll();
+                                txtFactory.Text = "";
                             }
                             else
                             {
-                                txtFactory.Focus();
-                             
-
+                                txtFactory.Focus();                           
                             }
                         }
                         else
@@ -472,15 +479,21 @@ namespace StoresManagmentDX
                         string query = "delete from factory where Factory_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
+
                         updateTablesDB("factory", "Factory_ID", id);
-                        if (comType2.Text != "")
+
+                        UserControl.UserRecord("factory", "حذف", row1.Cells[0].Value.ToString(), DateTime.Now, dbconnection);
+
+                        if (comType.Text != "")
                         {
-                            displayFactory(Convert.ToInt16(comType2.SelectedValue));
+                            displayFactory(Convert.ToInt16(comType.SelectedValue));
                         }
                         else
                         {
                             displayFactory();
                         }
+                      
+                        txtFactory.Text="";
                     }
                     else if (dialogResult == DialogResult.No)
                     { }
@@ -516,10 +529,12 @@ namespace StoresManagmentDX
                             com.Parameters.AddWithValue("@name", txtGroup.Text);
                             com.Parameters.AddWithValue("@Factory_ID", Convert.ToInt16(comFactory.SelectedValue));
                             com.ExecuteNonQuery();
-                            
+                            query = "select Group_ID from groupo order by Group_ID desc limit 1";
+                            com = new MySqlCommand(query, dbconnection);
+                            UserControl.UserRecord("groupo", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
                             displayGroup(Convert.ToInt16(comFactory.SelectedValue));
-                            txtGroup.Focus();
-                            txtGroup.SelectAll();
+                            txtGroup.Text = "";
                         }
                         else
                         {
@@ -563,10 +578,12 @@ namespace StoresManagmentDX
                                 com.Parameters.AddWithValue("@name", txtGroup.Text);
                                 com.Parameters.AddWithValue("@Factory_ID", Convert.ToInt16(comFactory.SelectedValue));
                                 com.ExecuteNonQuery();
-                                
+                                query = "select Group_ID from groupo order by Group_ID desc limit 1";
+                                com = new MySqlCommand(query, dbconnection);
+                                UserControl.UserRecord("groupo", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
                                 displayGroup(Convert.ToInt16(comFactory.SelectedValue));
-                                txtGroup.Focus();
-                                txtGroup.SelectAll();
+                                txtGroup.Text = "";
                             }
                             else
                             {
@@ -640,15 +657,20 @@ namespace StoresManagmentDX
                         string query = "delete from groupo where Group_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
+                        
                         updateTablesDB("groupo", "Group_ID", id);
-                        if (comFactory2.Text != "")
+
+                        UserControl.UserRecord("groupo", "حذف", row1.Cells[0].Value.ToString(), DateTime.Now, dbconnection);
+                        if (comFactory.Text != "")
                         {
-                            displayGroup(Convert.ToInt16(comFactory2.SelectedValue));
+                            displayGroup(Convert.ToInt16(comFactory.SelectedValue));
                         }
                         else
                         {
                             displayGroup();
                         }
+
+                      txtGroup.Text="";
                     }
                     else if (dialogResult == DialogResult.No)
                     { }
@@ -660,7 +682,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show("select row");
+                MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
         }
@@ -670,10 +692,10 @@ namespace StoresManagmentDX
         {
             try
             {
-                if (comFactoryGroup.Text != "")
+                if (comGroup.Text != "")
                 {
                     dbconnection.Open();
-                    string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "' and Group_ID=" + comFactoryGroup.SelectedValue;
+                    string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "' and Group_ID=" + comGroup.SelectedValue;
                     MySqlCommand com = new MySqlCommand(query, dbconnection);
                     if (com.ExecuteScalar() == null)
                     {
@@ -682,17 +704,19 @@ namespace StoresManagmentDX
                             query = "insert into product (Product_Name,Group_ID) values (@name,@Group_ID)";
                             com = new MySqlCommand(query, dbconnection);
                             com.Parameters.AddWithValue("@name", txtProduct.Text);
-                            com.Parameters.AddWithValue("@Group_ID", Convert.ToInt16(comFactoryGroup.SelectedValue));
+                            com.Parameters.AddWithValue("@Group_ID", Convert.ToInt16(comGroup.SelectedValue));
                             com.ExecuteNonQuery();
-                           
-                            displayProduct(Convert.ToInt16(comFactoryGroup.SelectedValue));
+                            query = "select Product_ID from product order by Product_ID desc limit 1";
+                            com = new MySqlCommand(query, dbconnection);
+                            UserControl.UserRecord("product", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
+                            displayProduct(Convert.ToInt16(comGroup.SelectedValue));
+                            txtProduct.Text = "";
                             txtProduct.Focus();
-                            txtProduct.SelectAll();
                         }
                         else
                         {
-                            txtProduct.Focus();
-                           
+                            txtProduct.Focus();                        
                         }
                     }
                     else
@@ -717,10 +741,10 @@ namespace StoresManagmentDX
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    if (comFactoryGroup.Text != "")
+                    if (comGroup.Text != "")
                     {
                         dbconnection.Open();
-                        string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "' and Group_ID=" + comFactoryGroup.SelectedValue;
+                        string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "' and Group_ID=" + comGroup.SelectedValue;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         if (com.ExecuteScalar() == null)
                         {
@@ -729,12 +753,15 @@ namespace StoresManagmentDX
                                 query = "insert into product (Product_Name,Group_ID) values (@name,@Group_ID)";
                                 com = new MySqlCommand(query, dbconnection);
                                 com.Parameters.AddWithValue("@name", txtProduct.Text);
-                                com.Parameters.AddWithValue("@Group_ID", Convert.ToInt16(comFactoryGroup.SelectedValue));
+                                com.Parameters.AddWithValue("@Group_ID", Convert.ToInt16(comGroup.SelectedValue));
                                 com.ExecuteNonQuery();
-                                
-                                displayProduct(Convert.ToInt16(comFactoryGroup.SelectedValue));
+                                query = "select Product_ID from product order by Product_ID desc limit 1";
+                                com = new MySqlCommand(query, dbconnection);
+                                UserControl.UserRecord("product", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
+                                displayProduct(Convert.ToInt16(comGroup.SelectedValue));
+                                txtProduct.Text = "";
                                 txtProduct.Focus();
-                                txtProduct.SelectAll();
                             }
                             else
                             {
@@ -789,8 +816,25 @@ namespace StoresManagmentDX
                     comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
                     comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
                     comGroup.Text = "";
-                    txtGroup.Text = "";
+                    comGroup.Focus();
+                    dataGridViewProduct.DataSource = null;
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void comGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (load)
+                {
+                    displayProduct((int)comGroup.SelectedValue);
+                    txtProduct.Focus();
+                    txtProduct.SelectAll();
+                }         
             }
             catch (Exception ex)
             {
@@ -814,13 +858,17 @@ namespace StoresManagmentDX
                         string query = "delete from product where Product_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
+
+                      
                         updateTablesDB("product", "Product_ID", id);
-                        if (comFactoryGroup.Text != "")
-                            displayProduct(Convert.ToInt16(comFactoryGroup.SelectedValue));
+
+                        UserControl.UserRecord("product", "حذف", row1.Cells[0].Value.ToString(), DateTime.Now, dbconnection);
+                        if (comGroup.Text != "")
+                            displayProduct(Convert.ToInt16(comGroup.SelectedValue));
                         else
-                            displayProduct();
-                        txtProduct.Focus();
-                        txtProduct.SelectAll();
+                            displayProduct();                      
+
+                       txtProduct.Focus();
                     }
                     else if (dialogResult == DialogResult.No)
                     { }
@@ -832,7 +880,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show("select row");
+                MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
         }
@@ -856,10 +904,12 @@ namespace StoresManagmentDX
                             com.Parameters.AddWithValue("@name", txtColor.Text);
                             com.Parameters.AddWithValue("@id", Convert.ToInt16(comType2.SelectedValue));
                             com.ExecuteNonQuery();
-                            
+                            query = "select Color_ID from color order by Color_ID desc limit 1";
+                            com = new MySqlCommand(query, dbconnection);
+                            UserControl.UserRecord("color", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
                             displayColor(Convert.ToInt16(comType2.SelectedValue));
-                            txtColor.Focus();
-                            txtColor.SelectAll();
+                            txtColor.Text = "";
                         }
                         else
                         {
@@ -903,15 +953,17 @@ namespace StoresManagmentDX
                                 com.Parameters.AddWithValue("@name", txtColor.Text);
                                 com.Parameters.AddWithValue("@id", Convert.ToInt16(comType2.SelectedValue));
                                 com.ExecuteNonQuery();
-                                
+                                query = "select Color_ID from color order by Color_ID desc limit 1";
+                                com = new MySqlCommand(query, dbconnection);
+                                UserControl.UserRecord("color", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
                                 displayColor(Convert.ToInt16(comType2.SelectedValue));
-                                txtColor.Focus();
-                                txtColor.SelectAll();
+                                txtColor.Text = "";
+                                txtColor.Focus();                              
                             }
                             else
                             {
-                                txtColor.Focus();
-                               
+                                txtColor.Focus();                           
                             }
                         }
                         else
@@ -980,16 +1032,21 @@ namespace StoresManagmentDX
                         string query = "delete from color where Color_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
+
                         updateTablesDB("color", "Color_ID", id);
-                        if (comType.Text != "")
+
+                        UserControl.UserRecord("color", "حذف", row1.Cells[0].Value.ToString(), DateTime.Now, dbconnection);
+
+                        if (comType2.Text != "")
                         {
-                            displayColor(Convert.ToInt16(comType.SelectedValue));
+                            displayColor(Convert.ToInt16(comType2.SelectedValue));
                         }
                         else
                         {
                             displayColor();
                         }
-                      
+
+                        txtColor.Focus();
                     }
                     else if (dialogResult == DialogResult.No)
                     { }
@@ -1025,13 +1082,17 @@ namespace StoresManagmentDX
                             com.Parameters.AddWithValue("@name", txtSize.Text);
                             com.Parameters.AddWithValue("@id", Convert.ToInt16(comFactory2.SelectedValue));
                             com.ExecuteNonQuery();
-                            
+                            query = "select Product_ID from product order by Product_ID desc limit 1";
+                            com = new MySqlCommand(query, dbconnection);
+                            UserControl.UserRecord("product", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
                             displaySize(Convert.ToInt16(comFactory2.SelectedValue));
+                            txtSize.Text = "";
+                            txtSize.Focus();
                         }
                         else
                         {
-                            txtSize.Focus();
-                           
+                            txtSize.Focus();                          
                         }
                     }
                     else
@@ -1070,8 +1131,13 @@ namespace StoresManagmentDX
                                 com.Parameters.AddWithValue("@name", txtSize.Text);
                                 com.Parameters.AddWithValue("@id", Convert.ToInt16(comFactory2.SelectedValue));
                                 com.ExecuteNonQuery();
-                                
+                                query = "select Product_ID from product order by Product_ID desc limit 1";
+                                com = new MySqlCommand(query, dbconnection);
+                                UserControl.UserRecord("product", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
                                 displaySize(Convert.ToInt16(comFactory2.SelectedValue));
+                                txtSize.Text = "";
+                                txtSize.Focus();
                             }
                             else
                             {
@@ -1145,18 +1211,27 @@ namespace StoresManagmentDX
                         string query = "delete from size where Size_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
+
                         updateTablesDB("size", "Size_ID", id);
-                        if (comFactory.Text != "")
+
+                        UserControl.UserRecord("size", "حذف", row1.Cells[0].Value.ToString(), DateTime.Now, dbconnection);
+
+                        if (comFactory2.Text != "")
                         {
-                            displaySize(Convert.ToInt16(comFactory.SelectedValue));
+                            displaySize(Convert.ToInt16(comFactory2.SelectedValue));
                         }
                         else
                         {
                             displaySize();
                         }
+
+                        txtSize.Focus();
+                        
                     }
                     else if (dialogResult == DialogResult.No)
-                    { }
+                    {
+
+                    }
                 }
                 else
                 {
@@ -1165,7 +1240,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show("select row");
+                MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
         }
@@ -1188,8 +1263,8 @@ namespace StoresManagmentDX
                         com.Parameters.AddWithValue("@name", txtSort.Text);
                         com.ExecuteNonQuery();
                         displaySort();
+                        txtSort.Text = "";
                         txtSort.Focus();
-                        txtSort.SelectAll();
                     }
                     else
                     {
@@ -1228,8 +1303,8 @@ namespace StoresManagmentDX
                             com.ExecuteNonQuery();
                            
                             displaySort();
+                            txtSort.Text = "";
                             txtSort.Focus();
-                            txtSort.SelectAll();
                         }
                         else
                         {
@@ -1267,11 +1342,13 @@ namespace StoresManagmentDX
                         string query = "delete from sort where Sort_ID=" + id;
                         MySqlCommand com = new MySqlCommand(query, dbconnection);
                         com.ExecuteNonQuery();
-
+                       
                         updateTablesDB("sort","Sort_ID",id);
                         
-                        displaySort();
+                        UserControl.UserRecord("sort", "حذف", row1.Cells[0].Value.ToString(), DateTime.Now, dbconnection);
 
+                        displaySort();
+                        txtSort.Focus();
                     }
                     else if (dialogResult == DialogResult.No)
                     { }
@@ -1283,7 +1360,7 @@ namespace StoresManagmentDX
             }
             catch (Exception ex)
             {
-                MessageBox.Show("select row");
+                MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
         }
@@ -1381,6 +1458,9 @@ namespace StoresManagmentDX
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridView1.DataSource = dt;
+            dataGridView1.Columns[0].Width = 50;
+            dataGridView1.Columns[1].Width = dataGridView1.Width - 50;
+
             query = "select distinct * from type";
             da = new MySqlDataAdapter(query, dbconnection);
             dt = new DataTable();
@@ -1388,31 +1468,37 @@ namespace StoresManagmentDX
             comType.DataSource = dt;
             comType.DisplayMember = dt.Columns["Type_Name"].ToString();
             comType.ValueMember = dt.Columns["Type_ID"].ToString();
-
+            
             da = new MySqlDataAdapter(query, dbconnection);
             dt = new DataTable();
             da.Fill(dt);
             comType2.DataSource = dt;
             comType2.DisplayMember = dt.Columns["Type_Name"].ToString();
             comType2.ValueMember = dt.Columns["Type_ID"].ToString();
+
         }
         public void displayFactory()
         {
-            string query = "select distinct Factory_ID as 'كود',Type_Name as 'النوع',Factory_Name as 'المصنع' from factory inner join type on factory.Type_ID=type.Type_ID order by Type_Name";
-            MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
-            DataTable dt = new DataTable();
-            da.Fill(dt);
-            dataGridViewFactory.DataSource = null;
-            dataGridViewFactory.DataSource = dt;         
-        }
-        public void displayFactory(int id)
-        {
-            string query = "select distinct Factory_ID as 'كود',Factory_Name as 'المصنع' from factory where Type_ID=" + id;
+            string query = "select distinct Factory_ID as 'كود',Type_Name as 'النوع',Factory_Name as 'المصنع' from factory inner join type on factory.Type_ID=type.Type_ID order by Factory_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewFactory.DataSource = null;
             dataGridViewFactory.DataSource = dt;
+            dataGridViewFactory.Columns[0].Width = 50;
+            dataGridViewFactory.Columns[1].Width = 120;
+            dataGridViewFactory.Columns[2].Width = dataGridViewFactory.Width - 170;
+        }
+        public void displayFactory(int id)
+        {
+            string query = "select distinct Factory_ID as 'كود',Factory_Name as 'المصنع' from factory where Type_ID=" + id+ " order by Factory_ID ";
+            MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridViewFactory.DataSource = null;
+            dataGridViewFactory.DataSource = dt;
+            dataGridViewFactory.Columns[0].Width = 50;
+            dataGridViewFactory.Columns[1].Width = dataGridViewFactory.Width - 50;
 
             query = "select distinct * from factory";
             da = new MySqlDataAdapter(query, dbconnection);
@@ -1440,11 +1526,13 @@ namespace StoresManagmentDX
         }
         public void displayGroup(int id)
         {
-            string query = "select distinct Group_ID as 'كود',Group_Name as 'الأسم' from groupo where Factory_ID=" + id;
+            string query = "select distinct Group_ID as 'كود',Group_Name as 'الأسم' from groupo where Factory_ID=" + id+ " order by Group_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewGroup.DataSource = dt;
+            dataGridViewGroup.Columns[0].Width = 50;
+            dataGridViewGroup.Columns[1].Width = dataGridViewGroup.Width - 50;
 
             query = "select distinct * from groupo";
             da = new MySqlDataAdapter(query, dbconnection);
@@ -1457,59 +1545,77 @@ namespace StoresManagmentDX
         }
         public void displayGroup()
         {
-            string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع' ,Group_Name as 'المجموعة' from groupo inner join factory on factory.Factory_ID=groupo.Factory_ID order by Factory_Name";
+            string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع' ,Group_Name as 'المجموعة' from groupo inner join factory on factory.Factory_ID=groupo.Factory_ID order by Group_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewGroup.DataSource = dt;
+            dataGridViewGroup.Columns[0].Width = 50;
+            dataGridViewGroup.Columns[1].Width = 120;
+            dataGridViewGroup.Columns[2].Width = dataGridViewGroup.Width - 170;
         }
         public void displayProduct(int id)
         {
-            string query = "select distinct Product_ID as 'كود',Product_Name as 'الأسم' from product where Group_ID=" + id;
+            string query = "select distinct Product_ID as 'كود',Product_Name as 'الأسم' from product where Group_ID=" + id+ " order by Product_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewProduct.DataSource = dt;
+            dataGridViewProduct.Columns[0].Width = 50;
+            dataGridViewProduct.Columns[1].Width = dataGridViewProduct.Width - 50;
         }
         public void displayProduct()
         {
-            string query = "select distinct Product_ID as 'كود',Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID order by Group_Name";
+            string query = "select distinct Product_ID as 'كود',Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID  order by Product_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewProduct.DataSource = dt;
+            dataGridViewProduct.Columns[0].Width = 50;
+            dataGridViewProduct.Columns[1].Width = 120;
+            dataGridViewProduct.Columns[2].Width = dataGridViewProduct.Width - 170;
         }
         public void displayColor(int id)
         {
-            string query = "select distinct Color_ID as 'كود',Color_Name as 'الأسم' from color where Type_ID=" + id;
+            string query = "select distinct Color_ID as 'كود',Color_Name as 'الأسم' from color where Type_ID=" + id+ " order by Color_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewColor.DataSource = dt;
+            dataGridViewColor.Columns[0].Width = 50;
+            dataGridViewColor.Columns[1].Width = dataGridViewColor.Width - 50;
         }
         public void displayColor()
         {
-            string query = "select distinct Color_ID as 'كود',Type_Name as 'النوع',Color_Name as 'اللون' from color inner join type on color.Type_ID=type.Type_ID order by Type_Name";
+            string query = "select distinct Color_ID as 'كود',Type_Name as 'النوع',Color_Name as 'اللون' from color inner join type on color.Type_ID=type.Type_ID  order by Color_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewColor.DataSource = dt;
+            dataGridViewColor.Columns[0].Width = 50;
+            dataGridViewColor.Columns[1].Width = 120;
+            dataGridViewColor.Columns[2].Width = dataGridViewColor.Width - 170;
         }
         public void displaySize(int id)
         {
-            string query = "select distinct Size_ID as 'كود',Size_Value as 'المقاس' from size where Factory_ID=" + id;
+            string query = "select distinct Size_ID as 'كود',Size_Value as 'المقاس' from size where Factory_ID=" + id+ " order by Size_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewSize.DataSource = dt;
+            dataGridViewSize.Columns[0].Width = 50;
+            dataGridViewSize.Columns[1].Width = dataGridViewSize.Width - 50;
         }
         public void displaySize()
         {
-            string query = "select distinct Size_ID as 'كود',Factory_Name as 'المصنع',Size_Value as 'المقاس' from size inner join factory on factory.Factory_ID=size.Factory_ID order by Factory_Name";
+            string query = "select distinct Size_ID as 'كود',Factory_Name as 'المصنع',Size_Value as 'المقاس' from size inner join factory on factory.Factory_ID=size.Factory_ID  order by Size_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewSize.DataSource = dt;
+            dataGridViewSize.Columns[0].Width = 50;
+            dataGridViewSize.Columns[1].Width = 120;
+            dataGridViewSize.Columns[2].Width = dataGridViewSize.Width - 170;
         }
         public void displaySort()
         {
@@ -1518,8 +1624,9 @@ namespace StoresManagmentDX
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewSort.DataSource = dt;
+            dataGridViewSort.Columns[0].Width = 50;
+            dataGridViewSort.Columns[1].Width = dataGridViewSort.Width - 50 ;
         }
-
         public void RestControls()
         {
             displayType();
@@ -1549,7 +1656,6 @@ namespace StoresManagmentDX
             MySqlCommand com = new MySqlCommand(query, dbconnection);
             com.ExecuteNonQuery();        
         }
-
         public void ClearButtonsColor()
         {
             foreach (Control control in this.tableLayoutPanel2.Controls)
@@ -1558,7 +1664,17 @@ namespace StoresManagmentDX
                     control.BackColor = Color.FromArgb(229,229,229);
             }
         }
+        public void dataGridViewStyle()
+        {
+            foreach (DataGridView item in this.DataGridViewList)
+            {
+                DataGridViewCellStyle style = new DataGridViewCellStyle(dataGridView1.ColumnHeadersDefaultCellStyle);
+                style.ForeColor = Color.AliceBlue;
+                item.ColumnHeadersDefaultCellStyle = style;
+                item.RowHeadersDefaultCellStyle = style;
+            }
+        }
 
-     
+       
     }
 }

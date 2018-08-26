@@ -126,7 +126,7 @@ namespace StoresManagmentDX
                     double total = carton * NoBalatat * NoCartons;
                     labTotalMeter.Text = (total).ToString();
 
-                    string query = "update Storage set Store_ID=@Store_ID,Store_Name=@Store_Name,Storage_Date=@Storage_Date,Balatat=@Balatat,Carton_Balata=@Carton_Balata,Code=@Code,Store_Place_ID=@Store_Place_ID,Total_Meters=@Total_Meters,Note=@Note where Storage_ID="+rows[0][0].ToString();
+                    string query = "update Storage set Store_ID=@Store_ID,Store_Name=@Store_Name,Storage_Date=@Storage_Date,Balatat=@Balatat,Carton_Balata=@Carton_Balata,Data_ID=@Data_ID,Store_Place_ID=@Store_Place_ID,Total_Meters=@Total_Meters,Note=@Note where Storage_ID=" + rows[0][0].ToString();
                     com = new MySqlCommand(query, dbconnection);
                     com.Parameters.Add("@Store_ID", MySqlDbType.Int16);
                     com.Parameters["@Store_ID"].Value = StoreID;
@@ -138,8 +138,8 @@ namespace StoresManagmentDX
                     com.Parameters["@Balatat"].Value = NoBalatat;
                     com.Parameters.Add("@Carton_Balata", MySqlDbType.Int16);
                     com.Parameters["@Carton_Balata"].Value = NoCartons;
-                    com.Parameters.Add("@Code", MySqlDbType.VarChar);
-                    com.Parameters["@Code"].Value = txtCode.Text;
+                    com.Parameters.Add("@Data_ID", MySqlDbType.Int16);
+                    com.Parameters["@Data_ID"].Value = Convert.ToInt16(row[0].ToString());
                     com.Parameters.Add("@Store_Place_ID", MySqlDbType.Int16);
                     com.Parameters["@Store_Place_ID"].Value = comStorePlace.SelectedValue;
                     com.Parameters.Add("@Total_Meters", MySqlDbType.Decimal);
@@ -150,6 +150,8 @@ namespace StoresManagmentDX
                     MessageBox.Show("Add success");
                     storage.displayProducts();
                     displayProducts();
+                    XtraTabPage xtraTabPage = getTabPage("تعديل  كمية بند");
+                    xtraTabPage.ImageOptions.Image = null;
                 }
                 else
                 {
@@ -248,7 +250,7 @@ namespace StoresManagmentDX
                     ids += rows[i][0] + ",";
                 }
                 ids += rows[rows.Count - 1][0];
-                string qq = "select Storage_ID, storage.Code as 'كود',type.Type_Name as 'النوع', factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',product.Product_Name as 'المنتج', store.Store_Name as 'المخزن', storage.Supplier_Name as 'المورد',storage.Balatat as 'بلتات', storage.Carton_Balata as 'عدد الكراتين',storage.Total_Meters as 'اجمالي عدد الامتار', storage.Storage_Date as 'تاريخ التخزين' , Store_Place_Code as 'مكان التخزين'  , storage.Note as 'ملاحظة' from storage INNER JOIN store on storage.Store_ID=store.Store_ID INNER JOIN store_places on storage.Store_Place_ID=store_places.Store_Place_ID  INNER JOIN data  ON storage.Code = data.Code INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID  where Storage_ID IN(" + ids + ")";
+                string qq = "select Storage_ID, data.Code as 'كود',type.Type_Name as 'النوع', factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',product.Product_Name as 'المنتج', store.Store_Name as 'المخزن', storage.Supplier_Name as 'المورد',storage.Balatat as 'بلتات', storage.Carton_Balata as 'عدد الكراتين',storage.Total_Meters as 'اجمالي عدد الامتار', storage.Storage_Date as 'تاريخ التخزين' , Store_Place_Code as 'مكان التخزين'  , storage.Note as 'ملاحظة' from storage INNER JOIN store on storage.Store_ID=store.Store_ID INNER JOIN store_places on storage.Store_Place_ID=store_places.Store_Place_ID  INNER JOIN data  ON storage.Data_ID = data.Data_ID INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID  where Storage_ID IN(" + ids + ")";
                 MySqlDataAdapter da = new MySqlDataAdapter(qq, dbconnection);
                 DataTable dt = new DataTable();
                 da.Fill(dt);

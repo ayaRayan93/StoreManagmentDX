@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comStore = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtStoreID = new System.Windows.Forms.TextBox();
@@ -50,6 +51,10 @@
             this.txtGroup = new System.Windows.Forms.TextBox();
             this.comGroup = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panTopPart = new System.Windows.Forms.Panel();
             this.ProductCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Group_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,12 +64,13 @@
             this.ProductColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.productSize = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductSort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
+            this.bunifuTileButton1 = new Bunifu.Framework.UI.BunifuTileButton();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.panTopPart.SuspendLayout();
             this.SuspendLayout();
             // 
             // comStore
@@ -72,7 +78,7 @@
             this.comStore.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comStore.Font = new System.Drawing.Font("Neo Sans Arabic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.comStore.FormattingEnabled = true;
-            this.comStore.Location = new System.Drawing.Point(347, 28);
+            this.comStore.Location = new System.Drawing.Point(389, 20);
             this.comStore.Name = "comStore";
             this.comStore.Size = new System.Drawing.Size(142, 26);
             this.comStore.TabIndex = 127;
@@ -83,7 +89,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Neo Sans Arabic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(495, 31);
+            this.label1.Location = new System.Drawing.Point(537, 20);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 18);
             this.label1.TabIndex = 128;
@@ -93,7 +99,7 @@
             // 
             this.txtStoreID.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtStoreID.Font = new System.Drawing.Font("Neo Sans Arabic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtStoreID.Location = new System.Drawing.Point(286, 28);
+            this.txtStoreID.Location = new System.Drawing.Point(328, 20);
             this.txtStoreID.Name = "txtStoreID";
             this.txtStoreID.Size = new System.Drawing.Size(55, 25);
             this.txtStoreID.TabIndex = 129;
@@ -132,7 +138,7 @@
             // txtSetsID
             // 
             this.txtSetsID.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.txtSetsID.Location = new System.Drawing.Point(13, 14);
+            this.txtSetsID.Location = new System.Drawing.Point(34, 18);
             this.txtSetsID.Name = "txtSetsID";
             this.txtSetsID.Size = new System.Drawing.Size(55, 24);
             this.txtSetsID.TabIndex = 134;
@@ -142,9 +148,9 @@
             // 
             this.comSets.Font = new System.Drawing.Font("Tahoma", 10F);
             this.comSets.FormattingEnabled = true;
-            this.comSets.Location = new System.Drawing.Point(74, 14);
+            this.comSets.Location = new System.Drawing.Point(101, 18);
             this.comSets.Name = "comSets";
-            this.comSets.Size = new System.Drawing.Size(142, 24);
+            this.comSets.Size = new System.Drawing.Size(216, 24);
             this.comSets.TabIndex = 133;
             this.comSets.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
@@ -152,7 +158,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(222, 17);
+            this.label2.Location = new System.Drawing.Point(323, 21);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(40, 16);
@@ -167,9 +173,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.groupBox1.Font = new System.Drawing.Font("Neo Sans Arabic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(296, 203);
+            this.groupBox1.Location = new System.Drawing.Point(166, 184);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(275, 48);
+            this.groupBox1.Size = new System.Drawing.Size(389, 48);
             this.groupBox1.TabIndex = 136;
             this.groupBox1.TabStop = false;
             this.groupBox1.Visible = false;
@@ -179,7 +185,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Neo Sans Arabic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(668, 285);
+            this.label3.Location = new System.Drawing.Point(652, 247);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 18);
             this.label3.TabIndex = 137;
@@ -189,10 +195,11 @@
             // 
             this.txtSetQuantity.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtSetQuantity.Font = new System.Drawing.Font("Neo Sans Arabic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSetQuantity.Location = new System.Drawing.Point(509, 282);
+            this.txtSetQuantity.Location = new System.Drawing.Point(493, 244);
             this.txtSetQuantity.Name = "txtSetQuantity";
             this.txtSetQuantity.Size = new System.Drawing.Size(130, 25);
             this.txtSetQuantity.TabIndex = 138;
+            this.txtSetQuantity.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSetQuantity_KeyDown);
             // 
             // groupBox2
             // 
@@ -207,7 +214,7 @@
             this.groupBox2.Controls.Add(this.txtGroup);
             this.groupBox2.Controls.Add(this.comGroup);
             this.groupBox2.Font = new System.Drawing.Font("Neo Sans Arabic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(43, 71);
+            this.groupBox2.Location = new System.Drawing.Point(27, 52);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.groupBox2.Size = new System.Drawing.Size(784, 126);
@@ -277,15 +284,15 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridView1.ColumnHeadersHeight = 35;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ProductCode,
@@ -297,23 +304,108 @@
             this.ProductColor,
             this.productSize,
             this.ProductSort});
-            this.dataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            this.dataGridView1.Location = new System.Drawing.Point(26, 328);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.GridColor = System.Drawing.Color.Silver;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 304);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridView1.Size = new System.Drawing.Size(812, 287);
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(204)))), ((int)(((byte)(206)))), ((int)(((byte)(219)))));
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView1.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(244)))), ((int)(((byte)(246)))));
+            this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.Size = new System.Drawing.Size(883, 318);
             this.dataGridView1.TabIndex = 141;
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.75F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.btnAdd, 0, 0);
+            this.tableLayoutPanel2.Controls.Add(this.bunifuTileButton1, 1, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 625);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(877, 54);
+            this.tableLayoutPanel2.TabIndex = 149;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnAdd.color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnAdd.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F);
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.Image = global::StoresManagmentDX.Properties.Resources.Save_321;
+            this.btnAdd.ImagePosition = 5;
+            this.btnAdd.ImageZoom = 25;
+            this.btnAdd.LabelPosition = 20;
+            this.btnAdd.LabelText = "حفظ";
+            this.btnAdd.Location = new System.Drawing.Point(843, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(31, 6);
+            this.btnAdd.TabIndex = 0;
+            this.btnAdd.Click += new System.EventHandler(this.btnDone_Click);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panTopPart, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.dataGridView1, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 2);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 304F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(883, 682);
+            this.tableLayoutPanel1.TabIndex = 150;
+            // 
+            // panTopPart
+            // 
+            this.panTopPart.Controls.Add(this.groupBox2);
+            this.panTopPart.Controls.Add(this.comStore);
+            this.panTopPart.Controls.Add(this.label1);
+            this.panTopPart.Controls.Add(this.txtStoreID);
+            this.panTopPart.Controls.Add(this.txtSetQuantity);
+            this.panTopPart.Controls.Add(this.groupBox1);
+            this.panTopPart.Controls.Add(this.label3);
+            this.panTopPart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panTopPart.Location = new System.Drawing.Point(3, 3);
+            this.panTopPart.Name = "panTopPart";
+            this.panTopPart.Size = new System.Drawing.Size(877, 298);
+            this.panTopPart.TabIndex = 0;
             // 
             // ProductCode
             // 
+            this.ProductCode.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ProductCode.HeaderText = "الكود";
             this.ProductCode.Name = "ProductCode";
             // 
@@ -354,62 +446,37 @@
             // 
             // ProductSort
             // 
+            this.ProductSort.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ProductSort.HeaderText = "الفرز";
             this.ProductSort.Name = "ProductSort";
             // 
-            // tableLayoutPanel2
+            // bunifuTileButton1
             // 
-            this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.75F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.5F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 43.75F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.btnAdd, 1, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 621);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.tableLayoutPanel2.RowCount = 1;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(860, 61);
-            this.tableLayoutPanel2.TabIndex = 149;
-            // 
-            // btnAdd
-            // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnAdd.color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnAdd.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F);
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = global::StoresManagmentDX.Properties.Resources.Save_321;
-            this.btnAdd.ImagePosition = 5;
-            this.btnAdd.ImageZoom = 25;
-            this.btnAdd.LabelPosition = 20;
-            this.btnAdd.LabelText = "حفظ";
-            this.btnAdd.Location = new System.Drawing.Point(380, 4);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(101, 53);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Click += new System.EventHandler(this.btnDone_Click);
+            this.bunifuTileButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.bunifuTileButton1.color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.bunifuTileButton1.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.bunifuTileButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuTileButton1.Font = new System.Drawing.Font("Neo Sans Arabic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuTileButton1.ForeColor = System.Drawing.Color.White;
+            this.bunifuTileButton1.Image = global::StoresManagmentDX.Properties.Resources.Save_321;
+            this.bunifuTileButton1.ImagePosition = 1;
+            this.bunifuTileButton1.ImageZoom = 25;
+            this.bunifuTileButton1.LabelPosition = 18;
+            this.bunifuTileButton1.LabelText = "حفظ";
+            this.bunifuTileButton1.Location = new System.Drawing.Point(400, 4);
+            this.bunifuTileButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bunifuTileButton1.Name = "bunifuTileButton1";
+            this.bunifuTileButton1.Size = new System.Drawing.Size(91, 45);
+            this.bunifuTileButton1.TabIndex = 1;
+            this.bunifuTileButton1.Click += new System.EventHandler(this.btnDone_Click);
             // 
             // SetTagame3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(860, 682);
-            this.Controls.Add(this.tableLayoutPanel2);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.txtSetQuantity);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.txtStoreID);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comStore);
+            this.ClientSize = new System.Drawing.Size(883, 682);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "SetTagame3";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -419,8 +486,10 @@
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.panTopPart.ResumeLayout(false);
+            this.panTopPart.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -446,6 +515,10 @@
         private System.Windows.Forms.TextBox txtGroup;
         private System.Windows.Forms.ComboBox comGroup;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private Bunifu.Framework.UI.BunifuTileButton btnAdd;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panTopPart;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductCode;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Group_Name;
@@ -455,8 +528,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductColor;
         private System.Windows.Forms.DataGridViewTextBoxColumn productSize;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductSort;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private Bunifu.Framework.UI.BunifuTileButton btnAdd;
+        private Bunifu.Framework.UI.BunifuTileButton bunifuTileButton1;
     }
 }
 

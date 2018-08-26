@@ -40,7 +40,7 @@ namespace StoresManagmentDX
                 printableComponentLink.Landscape = true;
                 printableComponentLink.Margins = new System.Drawing.Printing.Margins(50, 50, 50, 50);
                 printingSystem1.Links.Add(printableComponentLink);
-              //  printableComponentLink.CreateReportHeaderArea += PrintableComponentLink_CreateReportHeaderArea;
+                printableComponentLink.CreateReportHeaderArea += PrintableComponentLink_CreateReportHeaderArea;
                 printableComponentLink.CreateMarginalFooterArea += PrintableComponentLink_CreateMarginalFooterArea;
                 printableComponentLink.CreateDocument();
             }
@@ -97,7 +97,7 @@ namespace StoresManagmentDX
 
 
             // Declare text strings.
-            string devexpress = "تقرير البنود";
+            string devexpress = "تقرير الاطقم";
             // Specify required settings for the brick graphics.
             BrickGraphics brickGraphics2 = e.Graph;
             brickGraphics2.BackColor = Color.White;

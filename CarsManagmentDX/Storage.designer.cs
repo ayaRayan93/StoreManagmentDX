@@ -245,6 +245,7 @@
             this.gridView2.OptionsBehavior.EditorShowMode = DevExpress.Utils.EditorShowMode.Click;
             this.gridView2.OptionsCustomization.AllowSort = false;
             this.gridView2.OptionsSelection.MultiSelect = true;
+            this.gridView2.OptionsView.ColumnAutoWidth = false;
             this.gridView2.OptionsView.EnableAppearanceEvenRow = true;
             this.gridView2.ViewCaption = "بند";
             // 

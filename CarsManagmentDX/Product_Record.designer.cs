@@ -43,9 +43,9 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.ImageProduct = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtCarton = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -59,13 +59,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.ImageProduct = new System.Windows.Forms.PictureBox();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -193,15 +193,6 @@
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Name = "panel3";
             // 
-            // ImageProduct
-            // 
-            this.ImageProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(122)))), ((int)(((byte)(190)))));
-            this.ImageProduct.BackgroundImage = global::StoresManagmentDX.Properties.Resources.camara1;
-            resources.ApplyResources(this.ImageProduct, "ImageProduct");
-            this.ImageProduct.Name = "ImageProduct";
-            this.ImageProduct.TabStop = false;
-            this.ImageProduct.Click += new System.EventHandler(this.ImageProduct_Click);
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
@@ -224,6 +215,14 @@
             this.btnAdd.LabelText = "حفظ";
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Click += new System.EventHandler(this.btnAddProduct_Click);
+            // 
+            // panel1
+            // 
+            resources.ApplyResources(this.panel1, "panel1");
+            this.panel1.Controls.Add(this.groupBox2);
+            this.panel1.Controls.Add(this.ImageProduct);
+            this.panel1.Controls.Add(this.groupBox1);
+            this.panel1.Name = "panel1";
             // 
             // groupBox2
             // 
@@ -322,13 +321,14 @@
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(68)))), ((int)(((byte)(53)))));
             this.label8.Name = "label8";
             // 
-            // panel1
+            // ImageProduct
             // 
-            resources.ApplyResources(this.panel1, "panel1");
-            this.panel1.Controls.Add(this.groupBox2);
-            this.panel1.Controls.Add(this.ImageProduct);
-            this.panel1.Controls.Add(this.groupBox1);
-            this.panel1.Name = "panel1";
+            this.ImageProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(122)))), ((int)(((byte)(190)))));
+            this.ImageProduct.BackgroundImage = global::StoresManagmentDX.Properties.Resources.camara1;
+            resources.ApplyResources(this.ImageProduct, "ImageProduct");
+            this.ImageProduct.Name = "ImageProduct";
+            this.ImageProduct.TabStop = false;
+            this.ImageProduct.Click += new System.EventHandler(this.ImageProduct_Click);
             // 
             // Product_Record
             // 
@@ -344,11 +344,11 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ImageProduct)).EndInit();
             this.ResumeLayout(false);
 
         }
