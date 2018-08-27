@@ -283,7 +283,7 @@ namespace StoresManagmentDX
             int SetID, StoreID;
             if (int.TryParse(txtSetsID.Text, out SetID) && int.TryParse(txtStoreID.Text, out StoreID))
                 {
-                string query = "select Total_Meters from storage  where Data_ID='" + SetID + "' and Store_ID=" + StoreID;
+                string query = "select Total_Meters from storage  where Set_ID='" + SetID + "' and Store_ID=" + StoreID;
                 MySqlCommand com = new MySqlCommand(query, dbconnection);
                 if (com.ExecuteScalar() != null)
                 {
@@ -292,20 +292,21 @@ namespace StoresManagmentDX
                 }
                 else
                 {
-                    MessageBox.Show("we don't have this set in  store");
+                    MessageBox.Show("هذا الطقم لايوجد في المخزن");
                 }
             }
             else
             {
-                MessageBox.Show("enter correct value");
+                MessageBox.Show("ادخل كمية صحيحة");
             }
             dbconnection.Close();
         }
+
         // الطقم تفكيك
         public double fakSet(double quantitySetFak, int SetID)
         {
            
-            string query = "select Total_Meters from storage  where Data_ID='" + SetID+ "' and Store_ID=" + txtStoreID.Text;
+            string query = "select Total_Meters from storage  where Set_ID='" + SetID+ "' and Store_ID=" + txtStoreID.Text;
             MySqlCommand com = new MySqlCommand(query,dbconnection);
             if (com.ExecuteScalar() != null)
             {
@@ -316,32 +317,34 @@ namespace StoresManagmentDX
                 }
                 else
                 {
-                    MessageBox.Show("this quantity is bigegr than which in store");
+                    MessageBox.Show("الكمية غير متوفرة");
                 }
             }
             else
             {
-                MessageBox.Show("we don't have this set in  store");
+                MessageBox.Show("هذا الطقم لايوجد في المخزن");
             }
             return -1;
         }
+
         //record to database
         public void RecordSetQuantityInStorage(double newQuantitySet, int SetID)
         {
-            string query = "select Total_Meters from storage  where Data_ID='" + SetID + "' and Store_ID=" + txtStoreID.Text;
+            string query = "select Total_Meters from storage  where Set_ID='" + SetID + "' and Store_ID=" + txtStoreID.Text;
             MySqlCommand com = new MySqlCommand(query, dbconnection);
             if (com.ExecuteScalar() != null)
             {
                 double storeQuantity = Convert.ToDouble(com.ExecuteScalar());
-                query = "update storage set Total_Meters =" + (storeQuantity - newQuantitySet) + "  where Data_ID=" + SetID + " and Store_ID=" + txtStoreID.Text;
+                query = "update storage set Total_Meters =" + (storeQuantity - newQuantitySet) + "  where Set_ID=" + SetID + " and Store_ID=" + txtStoreID.Text;
                 com = new MySqlCommand(query, dbconnection);
                 com.ExecuteNonQuery();
             }
             else
             {
-                MessageBox.Show("we don't have this set in  store");
+                MessageBox.Show("هذا الطقم لايوجد في المخزن");
             }
         }
+
         //increase the quantity of taqm items
         public void increaseItemsQuantity(double TaqmQuantity,int setID)
         {
@@ -359,7 +362,7 @@ namespace StoresManagmentDX
                     double QuantityInStore = Convert.ToDouble(com1.ExecuteScalar());
                     double QuantityInSet= Convert.ToDouble(dr["Quantity"].ToString());
                     double newQuantity = QuantityInStore+(QuantityInSet * TaqmQuantity);
-                    query = "select distinct data.Code as 'الكود' , type.Type_Name as 'النوع', factory.Factory_Name as 'المصنع' ,groupo.Group_Name as 'المجموعة', product.Product_Name as 'المنتج' ,data.Colour as 'لون', data.Size as 'المقاس', data.Sort as 'الفرز' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID  where Data_ID=" + dr["Data_ID"].ToString() + "";
+                    query = "SELECT data.Data_ID, data.Code as 'الكود',type.Type_Name as 'النوع',factory.Factory_Name as 'المصنع',groupo.Group_Name as 'المجموعة',product.Product_Name as 'الصنف',sort.Sort_Value as 'الفرز',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID  where Data_ID=" + dr["Data_ID"].ToString() + "";
 
                     com = new MySqlCommand(query, dbconnection1);
                     MySqlDataReader dataReader1 = com.ExecuteReader();
@@ -370,8 +373,8 @@ namespace StoresManagmentDX
                         dataGridView1.Rows[n].Cells["Type_Name"].Value = dataReader1["النوع"].ToString();
                         dataGridView1.Rows[n].Cells["Factory_Name"].Value = dataReader1["المصنع"].ToString();
                         dataGridView1.Rows[n].Cells["Group_Name"].Value = dataReader1["المجموعة"].ToString();
-                        dataGridView1.Rows[n].Cells["ProductName"].Value = dataReader1["المنتج"].ToString();
-                        dataGridView1.Rows[n].Cells["ProductColor"].Value = dataReader1["لون"].ToString();
+                        dataGridView1.Rows[n].Cells["ProductName"].Value = dataReader1["الصنف"].ToString();
+                        dataGridView1.Rows[n].Cells["ProductColor"].Value = dataReader1["اللون"].ToString();
                         dataGridView1.Rows[n].Cells["productSize"].Value = dataReader1["المقاس"].ToString();
                         dataGridView1.Rows[n].Cells["ProductSort"].Value = dataReader1["الفرز"].ToString();
                         dataGridView1.Rows[n].Cells["ProductQuantity"].Value = newQuantity.ToString();
@@ -409,14 +412,14 @@ namespace StoresManagmentDX
                     while (dr2.Read())
                     {
                         double storageQ = Convert.ToDouble(dr2["Total_Meters"]);
-                        if (storageQ > newQuantity)
-                        {
+                        //if (storageQ > newQuantity)
+                        //{
                             id = Convert.ToInt16(dr2["Storage_ID"]);
                             query = "update storage set Total_Meters=" + (storageQ + newQuantity) + " where Storage_ID=" + id;
                             MySqlCommand comm = new MySqlCommand(query, dbconnection2);
                             comm.ExecuteNonQuery();
                             break;
-                        }
+                        //}
                     
                     }
                     dr2.Close();
@@ -457,8 +460,6 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
-  
-
-     
+ 
     }
 }

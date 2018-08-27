@@ -316,17 +316,17 @@ namespace StoresManagmentDX
         public void RecordSetQuantityInStorage(double minQuantity,int SetID)
         {
 
-           string query = "select Total_Meters from storage where Data_ID=" + SetID + " and Store_ID=" + txtStoreID.Text;
+           string query = "select Total_Meters from storage where Set_ID=" + SetID + " and Store_ID=" + txtStoreID.Text;
             MySqlCommand com = new MySqlCommand(query, dbconnection);
             if (com.ExecuteScalar() != null)
             {
-                query = "update storage set Total_Meters=" + minQuantity + " where Data_ID=" + SetID + " and Store_ID=" + txtStoreID.Text;
+                query = "update storage set Total_Meters=" + minQuantity + " where Set_ID=" + SetID + " and Store_ID=" + txtStoreID.Text;
                 com = new MySqlCommand(query, dbconnection);
                 com.ExecuteNonQuery();
             }
             else
             {
-                query = "insert into storage (Store_ID,Store_Name,Storage_Date,Total_Meters,Supplier_Name,Data_ID) values (@Store_ID,@Store_Name,@Storage_Date,@Total_Meters,@Supplier_Name,@Data_ID)";
+                query = "insert into storage (Store_ID,Store_Name,Storage_Date,Total_Meters,Supplier_Name,Set_ID,Type) values (@Store_ID,@Store_Name,@Storage_Date,@Total_Meters,@Supplier_Name,@Set_ID,@Type)";
                 com = new MySqlCommand(query, dbconnection);
                 com.Parameters.Add("@Store_ID", MySqlDbType.Int16);
                 com.Parameters["@Store_ID"].Value = Convert.ToInt16(txtStoreID.Text);
@@ -338,8 +338,10 @@ namespace StoresManagmentDX
                 com.Parameters["@Total_Meters"].Value = minQuantity;
                 com.Parameters.Add("@Supplier_Name", MySqlDbType.VarChar);
                 com.Parameters["@Supplier_Name"].Value = comFactory.Text;
-                com.Parameters.Add("@Data_ID", MySqlDbType.VarChar);
-                com.Parameters["@Data_ID"].Value = SetID.ToString();
+                com.Parameters.Add("@Set_ID", MySqlDbType.Int16);
+                com.Parameters["@Set_ID"].Value = SetID.ToString();
+                com.Parameters.Add("@Type", MySqlDbType.VarChar);
+                com.Parameters["@Type"].Value = "طقم";
                 com.ExecuteNonQuery();
             }
         }
@@ -467,7 +469,7 @@ namespace StoresManagmentDX
                     dr2.Close();
                 }
                 dr.Close();
-                query = "select sum(Total_Meters),storage.Data_ID from storage inner join set_details on storage.Data_ID=set_details.Data_ID where Set_ID=" + setID + " group by storage.Data_ID,Store_ID having Store_ID=" + txtStoreID.Text;
+                query = "select sum(Total_Meters),storage.Data_ID from storage inner join set_details on storage.Data_ID=set_details.Data_ID where storage.Set_ID=" + setID + " group by storage.Data_ID,Store_ID having Store_ID=" + txtStoreID.Text;
                 MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
