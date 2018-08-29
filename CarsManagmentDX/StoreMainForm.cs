@@ -200,17 +200,17 @@ namespace StoresManagmentDX
                     if (!xtraTabControlStoresContent.Visible)
                         xtraTabControlStoresContent.Visible = true;
 
-                    XtraTabPage xtraTabPage = getTabPage("تجميع الأطقم");
+                    XtraTabPage xtraTabPage = getTabPage("تسجيل كميات الاطقم");
                     if (xtraTabPage == null)
                     {
-                        xtraTabControlStoresContent.TabPages.Add("تجميع الأطقم");
-                        xtraTabPage = getTabPage("تجميع الأطقم");
+                        xtraTabControlStoresContent.TabPages.Add("تسجيل كميات الاطقم");
+                        xtraTabPage = getTabPage("تسجيل كميات الاطقم");
                     }
 
                     xtraTabPage.Controls.Clear();
                     xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
 
-                    SetTagame3 objForm = new SetTagame3();
+                    AtaqmStorage objForm = new AtaqmStorage(this);
 
                     objForm.TopLevel = false;
                     xtraTabPage.Controls.Add(objForm);
@@ -224,41 +224,8 @@ namespace StoresManagmentDX
                     MessageBox.Show(ex.Message);
                 }
         }
-            //Ataqm Fak
-            private void navBarItem4_LinkClicked(object sender, NavBarLinkEventArgs e)
-            {
-                try
-                {
-                    restForeColorOfNavBarItem();
-                    NavBarItem navBarItem = (NavBarItem)sender;
-                    navBarItem.Appearance.ForeColor = Color.Blue;
-                    if (!xtraTabControlStoresContent.Visible)
-                        xtraTabControlStoresContent.Visible = true;
 
-                    XtraTabPage xtraTabPage = getTabPage("فك الأطقم");
-                    if (xtraTabPage == null)
-                    {
-                        xtraTabControlStoresContent.TabPages.Add("فك الأطقم");
-                        xtraTabPage = getTabPage("فك الأطقم");
-                    }
-
-                    xtraTabPage.Controls.Clear();
-                    xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
-
-                    SetFak objForm = new SetFak();
-
-                    objForm.TopLevel = false;
-                    xtraTabPage.Controls.Add(objForm);
-                    objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-                    objForm.Dock = DockStyle.Fill;
-                    //objForm.DisplayAtaqm();
-                    objForm.Show();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show(ex.Message);
-                }
-        } 
+      
         #endregion
 
         //storage
@@ -682,6 +649,123 @@ namespace StoresManagmentDX
             objForm.Dock = DockStyle.Fill;
             objForm.Show();
         }
+        //sets Storage
+        public void bindDisplaySetsStorageForm(XtraTabPage xtraTabPage)
+        {
+            AtaqmStorage objForm = new AtaqmStorage(this);
+            objForm.TopLevel = false;
+
+            xtraTabPage.Controls.Add(objForm);
+            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
+        }
+        public void bindTagame3SetForm(DataRowView prodRow, AtaqmStorage ataqm)
+        {
+            SetTagame3 objForm = new SetTagame3(ataqm);
+            objForm.TopLevel = false;
+            XtraTabPage xtraTabPage = getTabPage("تجميع طقم");
+            if (xtraTabPage == null)
+            {
+                xtraTabControlStoresContent.TabPages.Add("تجميع طقم");
+                xtraTabPage = getTabPage("تجميع طقم");
+                xtraTabPage.Controls.Clear();
+                xtraTabPage.Controls.Add(objForm);
+                xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+                objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                objForm.Dock = DockStyle.Fill;
+                objForm.Show();
+            }
+            else if (xtraTabPage.ImageOptions.Image != null)
+            {
+                DialogResult dialogResult = MessageBox.Show("There is unsave data To you wound override it?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    xtraTabPage.Controls.Clear();
+                    xtraTabPage.Controls.Add(objForm);
+                    xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+                    objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                    objForm.Dock = DockStyle.Fill;
+                    objForm.Show();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+                }
+            }
+            else
+            {
+                xtraTabPage.Controls.Clear();
+                xtraTabPage.Controls.Add(objForm);
+                xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+                objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                objForm.Dock = DockStyle.Fill;
+                objForm.Show();
+            }
+
+        }
+        public void bindFakSetForm( AtaqmStorage ataqm)
+        {
+            SetFak objForm = new SetFak(ataqm);
+            objForm.TopLevel = false;
+            XtraTabPage xtraTabPage = getTabPage("فك طقم");
+            if (xtraTabPage == null)
+            {
+                xtraTabControlStoresContent.TabPages.Add("فك طقم");
+                xtraTabPage = getTabPage("فك طقم");
+                xtraTabPage.Controls.Clear();
+                xtraTabPage.Controls.Add(objForm);
+                xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+                objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                objForm.Dock = DockStyle.Fill;
+                objForm.Show();
+            }
+            else if (xtraTabPage.ImageOptions.Image != null)
+            {
+                DialogResult dialogResult = MessageBox.Show("There is unsave data To you wound override it?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    xtraTabPage.Controls.Clear();
+                    xtraTabPage.Controls.Add(objForm);
+                    xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+                    objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                    objForm.Dock = DockStyle.Fill;
+                    objForm.Show();
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+                }
+            }
+            else
+            {
+                xtraTabPage.Controls.Clear();
+                xtraTabPage.Controls.Add(objForm);
+                xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+                objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+                objForm.Dock = DockStyle.Fill;
+                objForm.Show();
+            }
+
+        }
+        public void bindReportStorageSetForm(GridControl gridControl)
+        {
+            SetReport objForm = new SetReport(gridControl);
+            objForm.TopLevel = false;
+            XtraTabPage xtraTabPage = getTabPage("تقرير كميات الأطقم");
+            if (xtraTabPage == null)
+            {
+                xtraTabControlStoresContent.TabPages.Add("تقرير كميات الأطقم");
+                xtraTabPage = getTabPage("تقرير كميات الأطقم");
+            }
+            xtraTabPage.Controls.Clear();
+            xtraTabPage.Controls.Add(objForm);
+            xtraTabControlStoresContent.SelectedTabPage = xtraTabPage;
+            objForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            objForm.Dock = DockStyle.Fill;
+            objForm.Show();
+        }
+
         //storag
         public void bindRecordStorageForm(Storage storage)
         {

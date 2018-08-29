@@ -417,7 +417,28 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-     
+
+        private void btnNewChooes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                comStore.Text = "";
+                comType.Text = "";
+                comFactory.Text = "";
+                comGroup.Text = "";
+
+                txtType.Text = "";
+                txtFactory.Text = "";
+                txtGroup.Text = "";
+
+                displayData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         //functions
         public void clear()
         {
@@ -515,7 +536,8 @@ namespace StoresManagmentDX
             }
 
         }
-     
+
+    
     }
 
 

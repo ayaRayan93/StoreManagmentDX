@@ -59,6 +59,7 @@
             this.comType = new System.Windows.Forms.ComboBox();
             this.txtType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnNewChooes = new System.Windows.Forms.Button();
             this.tLPanProductsContainer.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -253,6 +254,7 @@
             // 
             this.panelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.btnNewChooes);
             this.panelControl1.Controls.Add(this.comStorePlace);
             this.panelControl1.Controls.Add(this.label8);
             this.panelControl1.Controls.Add(this.comStore);
@@ -363,14 +365,14 @@
             this.btnSearch.IconVisible = false;
             this.btnSearch.IconZoom = 90D;
             this.btnSearch.IsTab = false;
-            this.btnSearch.Location = new System.Drawing.Point(5, 42);
+            this.btnSearch.Location = new System.Drawing.Point(5, 66);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(5);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
             this.btnSearch.OnHovercolor = System.Drawing.Color.DimGray;
             this.btnSearch.OnHoverTextColor = System.Drawing.Color.White;
             this.btnSearch.selected = false;
-            this.btnSearch.Size = new System.Drawing.Size(95, 39);
+            this.btnSearch.Size = new System.Drawing.Size(103, 36);
             this.btnSearch.TabIndex = 28;
             this.btnSearch.Text = "بحث";
             this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -591,6 +593,20 @@
             this.label3.TabIndex = 13;
             this.label3.Text = "النوع ";
             // 
+            // btnNewChooes
+            // 
+            this.btnNewChooes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnNewChooes.FlatAppearance.BorderSize = 0;
+            this.btnNewChooes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewChooes.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnNewChooes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNewChooes.Location = new System.Drawing.Point(5, 22);
+            this.btnNewChooes.Name = "btnNewChooes";
+            this.btnNewChooes.Size = new System.Drawing.Size(103, 36);
+            this.btnNewChooes.TabIndex = 134;
+            this.btnNewChooes.Text = "اختيار اخر";
+            this.btnNewChooes.UseVisualStyleBackColor = false;
+            // 
             // Storage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,5 +662,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comStore;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnNewChooes;
     }
 }

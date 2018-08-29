@@ -16,12 +16,22 @@ namespace StoresManagmentDX
         MySqlConnection dbconnection, dbconnection1, dbconnection2;
         bool loaded = false;
         bool flag = false;
-        public SetTagame3()
+        AtaqmStorage AtaqmStorage;
+        public SetTagame3(AtaqmStorage AtaqmStorage)
         {
-            InitializeComponent();
-            dbconnection = new MySqlConnection(connection.connectionString);
-            dbconnection1 = new MySqlConnection(connection.connectionString);
-            dbconnection2 = new MySqlConnection(connection.connectionString);
+            try
+            {
+                InitializeComponent();
+                dbconnection = new MySqlConnection(connection.connectionString);
+                dbconnection1 = new MySqlConnection(connection.connectionString);
+                dbconnection2 = new MySqlConnection(connection.connectionString);
+                this.AtaqmStorage = AtaqmStorage;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -38,7 +48,7 @@ namespace StoresManagmentDX
                 comStore.Text = "";
                 txtStoreID.Text = "";
 
-                query = "select * from sets inner join factory on sets.Factory_ID=factory.Factory_ID inner join type on sets.Type_ID=type.Type_ID inner join groupo on groupo.Group_ID=sets.Group_ID";
+                query = "select distinct Factory_Name,sets.Factory_ID from sets inner join Factory on sets.Factory_ID=Factory.Factory_ID";
                 da = new MySqlDataAdapter(query, dbconnection);
                 dt = new DataTable();
                 da.Fill(dt);
@@ -48,14 +58,20 @@ namespace StoresManagmentDX
                 comFactory.Text = "";
                 txtFactory.Text = "";
 
-              
+                query = "select distinct Type_Name,type.Type_ID from sets inner join type on sets.Type_ID=type.Type_ID";
+                da = new MySqlDataAdapter(query, dbconnection);
+                dt = new DataTable();
+                da.Fill(dt);
                 comType.DataSource = dt;
                 comType.DisplayMember = dt.Columns["Type_Name"].ToString();
                 comType.ValueMember = dt.Columns["Type_ID"].ToString();
                 comType.Text = "";
                 txtType.Text = "";
 
-             
+                query = "select distinct Group_Name,sets.Group_ID from sets inner join groupo on sets.Group_ID=groupo.Group_ID";
+                da = new MySqlDataAdapter(query, dbconnection);
+                dt = new DataTable();
+                da.Fill(dt);
                 comGroup.DataSource = dt;
                 comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
                 comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
@@ -139,7 +155,7 @@ namespace StoresManagmentDX
                         switch (txtBox.Name)
                         {
                             case "txtFactory":
-                                query = "select Factory_Name from factory where Factory_ID='" + txtFactory.Text + "'";
+                                query = "select DISTINCT Factory_Name from sets inner join factory on sets.Factory_ID=factory.Factory_ID where sets.Factory_ID=" + txtFactory.Text + "";
                                 com = new MySqlCommand(query, dbconnection);
                                 if (com.ExecuteScalar() != null)
                                 {
@@ -156,7 +172,7 @@ namespace StoresManagmentDX
                                 }
                                 break;
                             case "txtType":
-                                query = "select Type_Name from sets where Type_ID='" + txtType.Text + "'";
+                                query = "select DISTINCT Type_Name from sets  inner join type on sets.Type_ID=type.Type_ID  where sets.Type_ID=" + txtType.Text + "";
                                 com = new MySqlCommand(query, dbconnection);
                                 if (com.ExecuteScalar() != null)
                                 {
@@ -173,7 +189,7 @@ namespace StoresManagmentDX
                                 }
                                 break;
                             case "txtGroup":
-                                query = "select Group_Name from sets where Group_ID='" + txtGroup.Text + "'";
+                                query = "select DISTINCT Group_Name from sets inner join groupo on sets.Group_ID=groupo.Group_ID  where sets.Group_ID=" + txtGroup.Text + "";
                                 com = new MySqlCommand(query, dbconnection);
                                 if (com.ExecuteScalar() != null)
                                 {
@@ -190,7 +206,7 @@ namespace StoresManagmentDX
                                 }
                                 break;
                             case "txtStoreID":
-                                query = "select Store_Name from store where Store_ID='" + txtStoreID.Text + "'";
+                                query = "select Store_Name from store where Store_ID=" + txtStoreID.Text + "";
                                 com = new MySqlCommand(query, dbconnection);
                                 if (com.ExecuteScalar() != null)
                                 {
@@ -208,7 +224,7 @@ namespace StoresManagmentDX
                             case "txtSetsID":
                                 if (flag)
                                 {
-                                    query = "select Set_Name from sets where Set_ID='" + txtSetsID.Text + "'";
+                                    query = "select Set_Name from sets where Set_ID=" + txtSetsID.Text + "";
                                     com = new MySqlCommand(query, dbconnection);
                                     if (com.ExecuteScalar() != null)
                                     {
@@ -254,12 +270,13 @@ namespace StoresManagmentDX
                 dbconnection.Open();
                 double q = Tagme3Set(Convert.ToInt16(txtSetsID.Text));
                 double quntityRequest = Convert.ToDouble(txtSetQuantity.Text);
-                if (q <= quntityRequest)
+                if (quntityRequest<=q)
                 {
                     RecordSetQuantityInStorage(Convert.ToDouble(txtSetQuantity.Text), Convert.ToInt16(txtSetsID.Text));
                     decreaseItemsQuantityInDB(Convert.ToDouble(txtSetQuantity.Text), Convert.ToInt16(txtSetsID.Text));
                     MessageBox.Show("تم");
-                    dataGridView1.Rows.Clear();
+                   // dataGridView1.Rows.Clear();
+                    AtaqmStorage.DisplayAtaqm();
                 }
                 else
                 {
@@ -397,7 +414,7 @@ namespace StoresManagmentDX
                     dbconnection.Open();
                     double q = Tagme3Set(Convert.ToInt16(txtSetsID.Text));
                     double quntityRequest = Convert.ToDouble(txtSetQuantity.Text);
-                    if (q >= quntityRequest)
+                    if (quntityRequest<=q)
                     {
                         dataGridView1.Rows.Clear();
                         int id;
@@ -423,6 +440,31 @@ namespace StoresManagmentDX
             dbconnection.Close();
         }
 
+        private void btnNewChooes_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                comStore.Text = "";
+                comType.Text = "";
+                comFactory.Text = "";
+                comGroup.Text = "";
+                comSets.Text = "";
+
+                txtStoreID.Text = "";
+                txtType.Text = "";
+                txtFactory.Text = "";
+                txtGroup.Text = "";
+                txtSetsID.Text = "";
+                txtSetQuantity.Text = "";
+
+                Search();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        //function
         public void decreaseItemsQuantityInDB(double TaqmQuantity, int setID)
         {
             if (TaqmQuantity > 0)
@@ -508,8 +550,6 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
-      
-
-     
+   
     }
 }

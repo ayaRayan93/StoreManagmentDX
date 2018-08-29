@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace StoresManagmentDX
 {
-    public partial class Ataqm : Form
+    public partial class AtaqmStorage : Form
     {
         MySqlConnection dbconnection;
         StoreMainForm storeMainForm=null;
@@ -23,7 +23,7 @@ namespace StoresManagmentDX
         DataGridViewRow row1;
         public static SetRecord setRecord = null;
         public static SetUpdate setUpdate = null;
-        public Ataqm(StoreMainForm StoreMainForm)
+        public AtaqmStorage(StoreMainForm StoreMainForm)
         {
             try
             {
@@ -73,11 +73,13 @@ namespace StoresManagmentDX
                             txtGroup.Text = comGroup.SelectedValue.ToString();
                             DisplayAtaqm();
                             break;
+                        case "comStore":
+                            txtStoreID.Text = comStore.SelectedValue.ToString();
+                            DisplayAtaqm();
+                            break;
                         case "comSets":
-                            if (flag)
-                            {
-                              txtSetsID.Text = comSets.SelectedValue.ToString();
-                            }
+                            txtSetsID.Text = comSets.SelectedValue.ToString();
+                            DisplayAtaqm();
                             break;
                     }
                 }
@@ -153,6 +155,22 @@ namespace StoresManagmentDX
                                     return;
                                 }
                                 break;
+                            case "txtStoreID":
+                                query = "select Store_Name from store where Store_ID='" + txtStoreID.Text + "'";
+                                com = new MySqlCommand(query, dbconnection);
+                                if (com.ExecuteScalar() != null)
+                                {
+                                    Name = (string)com.ExecuteScalar();
+                                    comStore.Text = Name;
+                                    txtFactory.Focus();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("there is no item with this id");
+                                    dbconnection.Close();
+                                    return;
+                                }
+                                break;
                             case "txtSetsID":
                                 if (flag)
                                 {
@@ -195,16 +213,35 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-        private void btnAddNew_Click(object sender, EventArgs e)
+        private void btnNewChooes_Click(object sender, EventArgs e)
         {
+            try
+            {
+                comStore.Text = "";
+                comType.Text = "";
+                comFactory.Text = "";
+                comGroup.Text = "";
+                comSets.Text = "";
 
+                txtStoreID.Text = "";
+                txtType.Text = "";
+                txtFactory.Text = "";
+                txtGroup.Text = "";
+                txtSetsID.Text = "";
+
+                DisplayAtaqm();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnTagame3_Click(object sender, EventArgs e)
         {
             try
             {
                 DataRowView setRow = (DataRowView)(((GridView)dataGridView1.MainView).GetRow(((GridView)dataGridView1.MainView).GetSelectedRows()[0]));
-                storeMainForm.bindUpdateSetForm(setRow,this);
+                storeMainForm.bindTagame3SetForm(setRow,this);
             }
             catch (Exception ex)
             {
@@ -212,37 +249,12 @@ namespace StoresManagmentDX
             }
            
         }
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnFak_Click(object sender, EventArgs e)
         {
             try
             {
                 dbconnection.Open();
-                DataRowView setRow = (DataRowView)(((GridView)dataGridView1.MainView).GetRow(((GridView)dataGridView1.MainView).GetSelectedRows()[0]));
-
-
-                if (setRow != null)
-                {
-                    DialogResult dialogResult = MessageBox.Show("Are you sure you want to delete the item?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                        if (dialogResult == DialogResult.Yes)
-                        {
-
-                        deleteSet(Convert.ToInt16(setRow[0].ToString()));
-                        
-                        string query = "ALTER TABLE sets AUTO_INCREMENT = 1;";
-                        MySqlCommand com = new MySqlCommand(query, dbconnection);
-                        com.ExecuteNonQuery();
-
-                        UserControl.UserRecord("sets", "delete", setRow[0].ToString(), DateTime.Now, dbconnection);
-                        DisplayAtaqm();
-                        }
-                        else if (dialogResult == DialogResult.No)
-                        { }
-              
-                }
-                else
-                {
-                    MessageBox.Show("select row");
-                }
+                storeMainForm.bindFakSetForm(this);
             }
             catch (Exception ex)
             {
@@ -301,7 +313,7 @@ namespace StoresManagmentDX
             {
                 dbconnection.Open();
                 loaded = false;
-                string q1, q2, q3, q4;
+                string q1, q2, q3, q4,q5;
                 if (txtType.Text == "")
                 {
                     q1 = "select Type_ID from sets";
@@ -334,25 +346,44 @@ namespace StoresManagmentDX
                 {
                     q4 = txtGroup.Text;
                 }
+                if (txtStoreID.Text == "")
+                {
+                    q5 = "select Store_ID from store";
+                }
+                else
+                {
+                    q5 = txtStoreID.Text;
+                }
+                string query = "SELECT storage.Set_ID as 'كود الطقم',Set_Name as 'اسم الطقم',Type_Name as 'النوع',Factory_Name as 'المصنع',Group_Name as 'المجموعة',store.Store_Name as 'المخزن',storage.Total_Meters as 'الكمية',Set_Photo as 'صورة' from sets INNER JOIN type ON type.Type_ID = sets.Type_ID  INNER JOIN factory ON sets.Factory_ID = factory.Factory_ID INNER JOIN groupo ON sets.Group_ID = groupo.Group_ID  inner join storage on storage.Set_ID=sets.Set_ID inner join store on storage.Store_ID=store.Store_ID where  sets.Type_ID IN(" + q1 + ") and  sets.Factory_ID  IN(" + q2 + ") and storage.Set_ID IN("+q3+") and sets.Group_ID IN (" + q4 + ") and storage.Store_ID IN ("+q5+ ") order by storage.Set_ID";
 
-                string query = "SELECT Set_ID as 'كود الطقم',Set_Name as 'اسم الطقم',Type_Name as 'النوع',Factory_Name as 'المصنع',Group_Name as 'المجموعة',Set_Photo as 'صورة' from sets INNER JOIN type ON type.Type_ID = sets.Type_ID  INNER JOIN factory ON sets.Factory_ID = factory.Factory_ID INNER JOIN groupo ON sets.Group_ID = groupo.Group_ID  where  sets.Type_ID IN(" + q1 + ") and  sets.Factory_ID  IN(" + q2 + ") and sets.Group_ID IN (" + q4 + ") order by Set_ID";
-              
-                MySqlDataAdapter adapterSets = new MySqlDataAdapter(query, dbconnection);             
-                query = "SELECT sets.Set_ID as 'كود الطقم',data.Code as 'الكود',set_details.Quantity as 'الكمية',product.Product_Name as 'الصنف',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',sort.Sort_Value as 'الفرز',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة',data_details.Photo as 'صورة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID INNER JOIN set_details on data.Data_ID=set_details.Data_ID INNER JOIN sets on sets.Set_ID=set_details.Set_ID left join data_details on data_details.Code=data.Code order by data.Code";
-                MySqlDataAdapter AdapterProducts = new MySqlDataAdapter(query, dbconnection);
-                DataSet dataSet11 = new DataSet();
+                MySqlCommand com = new MySqlCommand(query, dbconnection);
+                MySqlDataReader dr = com.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    dr.Close();
+                    dbconnection.Close();
+                    dbconnection.Open();
+                    MySqlDataAdapter adapterSets = new MySqlDataAdapter(query, dbconnection);
+                    query = "SELECT storage.Set_ID as 'كود الطقم',data.Code as 'الكود',set_details.Quantity as 'الكمية',product.Product_Name as 'الصنف',color.Color_Name as 'اللون',size.Size_Value as 'المقاس',sort.Sort_Value as 'الفرز',data.Classification as 'التصنيف',data.Description as 'الوصف',data.Carton as 'الكرتنة',data_details.Photo as 'صورة' from data INNER JOIN type ON type.Type_ID = data.Type_ID INNER JOIN product ON product.Product_ID = data.Product_ID INNER JOIN factory ON data.Factory_ID = factory.Factory_ID INNER JOIN groupo ON data.Group_ID = groupo.Group_ID LEFT outer JOIN color ON data.Color_ID = color.Color_ID LEFT outer  JOIN size ON data.Size_ID = size.Size_ID LEFT outer  JOIN sort ON data.Sort_ID = sort.Sort_ID INNER JOIN set_details on data.Data_ID=set_details.Data_ID INNER JOIN sets on sets.Set_ID=set_details.Set_ID inner join storage on storage.Set_ID=sets.Set_ID inner join data_details on data_details.Code=data.Code order by data.Code";
+                    MySqlDataAdapter AdapterProducts = new MySqlDataAdapter(query, dbconnection);
+                    DataSet dataSet11 = new DataSet();
 
-                //Create DataTable objects for representing database's tables 
-                adapterSets.Fill(dataSet11, "Sets");
-                AdapterProducts.Fill(dataSet11, "Products");
-           
-                //Set up a master-detail relationship between the DataTables 
-                DataColumn keyColumn = dataSet11.Tables["Sets"].Columns["كود الطقم"];
-                DataColumn foreignKeyColumn = dataSet11.Tables["Products"].Columns["كود الطقم"];
-                dataSet11.Relations.Add("بنود الطقم", keyColumn, foreignKeyColumn);
-           
-                //Bind the grid control to the data source 
-                dataGridView1.DataSource = dataSet11.Tables["Sets"];
+                    //Create DataTable objects for representing database's tables 
+                    adapterSets.Fill(dataSet11, "Sets");
+                    AdapterProducts.Fill(dataSet11, "Products");
+
+                    //Set up a master-detail relationship between the DataTables 
+                    DataColumn keyColumn = dataSet11.Tables["Sets"].Columns["كود الطقم"];
+                    DataColumn foreignKeyColumn = dataSet11.Tables["Products"].Columns["كود الطقم"];
+                    dataSet11.Relations.Add("بنود الطقم", keyColumn, foreignKeyColumn);
+
+                    //Bind the grid control to the data source 
+                    dataGridView1.DataSource = dataSet11.Tables["Sets"];
+                }
+                else
+                {
+                    dataGridView1.DataSource = null;
+                }
                 loaded = true;               
             }
             catch (Exception ex)
@@ -413,28 +444,18 @@ namespace StoresManagmentDX
             comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
             comGroup.Text = "";
             txtGroup.Text = "";
+
+            query = "select * from store ";
+            da = new MySqlDataAdapter(query, dbconnection);
+            dt = new DataTable();
+            da.Fill(dt);
+            comStore.DataSource = dt;
+            comStore.DisplayMember = dt.Columns["Store_Name"].ToString();
+            comStore.ValueMember = dt.Columns["Store_ID"].ToString();
+            comStore.Text = "";
+            txtStoreID.Text = "";
         }
 
-        private void btnNewChooes_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                comType.Text = "";
-                comFactory.Text = "";
-                comGroup.Text = "";
-                comSets.Text = "";
-                
-                txtType.Text = "";
-                txtFactory.Text = "";
-                txtGroup.Text = "";
-                txtSetsID.Text = "";
-
-                DisplayAtaqm();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        
     }
 }

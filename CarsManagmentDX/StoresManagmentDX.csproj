@@ -106,6 +106,12 @@
     <Reference Include="VIBlend.WinForms.Utilities, Version=10.1.0.0, Culture=neutral, PublicKeyToken=970a5af59bc48043" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AtaqmStorage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AtaqmStorage.designer.cs">
+      <DependentUpon>AtaqmStorage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ataqm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +265,9 @@
       <DependentUpon>TipImage.cs</DependentUpon>
     </Compile>
     <Compile Include="UserControl.cs" />
+    <EmbeddedResource Include="AtaqmStorage.resx">
+      <DependentUpon>AtaqmStorage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ataqm.resx">
       <DependentUpon>Ataqm.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,6 +1,6 @@
 ﻿namespace StoresManagmentDX
 {
-    partial class Ataqm
+    partial class AtaqmStorage
     {
         /// <summary>
         /// Required designer variable.
@@ -51,9 +51,11 @@
             this.btnUpdate = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnDelete = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnReport = new Bunifu.Framework.UI.BunifuTileButton();
-            this.btnAdd = new Bunifu.Framework.UI.BunifuTileButton();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.behaviorManager1 = new DevExpress.Utils.Behaviors.BehaviorManager(this.components);
+            this.comStore = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtStoreID = new System.Windows.Forms.TextBox();
             this.btnNewChooes = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -90,7 +92,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel7.SetRowSpan(this.dataGridView1, 2);
-            this.dataGridView1.Size = new System.Drawing.Size(911, 517);
+            this.dataGridView1.Size = new System.Drawing.Size(911, 475);
             this.dataGridView1.TabIndex = 6;
             this.dataGridView1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1,
@@ -134,16 +136,16 @@
             this.tLPanProductsContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tLPanProductsContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tLPanProductsContainer.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tLPanProductsContainer.Controls.Add(this.groupBox1, 1, 1);
             this.tLPanProductsContainer.Controls.Add(this.tableLayoutPanel4, 0, 3);
             this.tLPanProductsContainer.Controls.Add(this.tableLayoutPanel7, 0, 2);
+            this.tLPanProductsContainer.Controls.Add(this.groupBox1, 1, 1);
             this.tLPanProductsContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tLPanProductsContainer.Location = new System.Drawing.Point(0, 0);
             this.tLPanProductsContainer.Name = "tLPanProductsContainer";
             this.tLPanProductsContainer.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tLPanProductsContainer.RowCount = 4;
             this.tLPanProductsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tLPanProductsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 120F));
+            this.tLPanProductsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 162F));
             this.tLPanProductsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tLPanProductsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
             this.tLPanProductsContainer.Size = new System.Drawing.Size(917, 723);
@@ -153,6 +155,9 @@
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.groupBox1.Controls.Add(this.btnNewChooes);
+            this.groupBox1.Controls.Add(this.comStore);
+            this.groupBox1.Controls.Add(this.label5);
+            this.groupBox1.Controls.Add(this.txtStoreID);
             this.groupBox1.Controls.Add(this.btnSearch);
             this.groupBox1.Controls.Add(this.txtFactory);
             this.groupBox1.Controls.Add(this.comType);
@@ -170,7 +175,7 @@
             this.groupBox1.Location = new System.Drawing.Point(91, 23);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.groupBox1.Size = new System.Drawing.Size(732, 102);
+            this.groupBox1.Size = new System.Drawing.Size(732, 146);
             this.groupBox1.TabIndex = 17;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "الفلاتر";
@@ -182,7 +187,7 @@
             this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSearch.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
             this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSearch.Location = new System.Drawing.Point(6, 60);
+            this.btnSearch.Location = new System.Drawing.Point(14, 74);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(103, 36);
             this.btnSearch.TabIndex = 13;
@@ -192,7 +197,7 @@
             // 
             // txtFactory
             // 
-            this.txtFactory.Location = new System.Drawing.Point(431, 61);
+            this.txtFactory.Location = new System.Drawing.Point(431, 95);
             this.txtFactory.Name = "txtFactory";
             this.txtFactory.Size = new System.Drawing.Size(55, 24);
             this.txtFactory.TabIndex = 4;
@@ -201,7 +206,7 @@
             // comType
             // 
             this.comType.FormattingEnabled = true;
-            this.comType.Location = new System.Drawing.Point(492, 34);
+            this.comType.Location = new System.Drawing.Point(492, 68);
             this.comType.Name = "comType";
             this.comType.Size = new System.Drawing.Size(120, 24);
             this.comType.TabIndex = 0;
@@ -211,7 +216,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
-            this.label3.Location = new System.Drawing.Point(342, 63);
+            this.label3.Location = new System.Drawing.Point(342, 97);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label3.Size = new System.Drawing.Size(44, 18);
@@ -220,7 +225,7 @@
             // 
             // txtType
             // 
-            this.txtType.Location = new System.Drawing.Point(431, 34);
+            this.txtType.Location = new System.Drawing.Point(431, 68);
             this.txtType.Name = "txtType";
             this.txtType.Size = new System.Drawing.Size(55, 24);
             this.txtType.TabIndex = 1;
@@ -228,7 +233,7 @@
             // 
             // txtSetsID
             // 
-            this.txtSetsID.Location = new System.Drawing.Point(152, 61);
+            this.txtSetsID.Location = new System.Drawing.Point(152, 95);
             this.txtSetsID.Name = "txtSetsID";
             this.txtSetsID.Size = new System.Drawing.Size(55, 24);
             this.txtSetsID.TabIndex = 10;
@@ -238,7 +243,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
-            this.label1.Location = new System.Drawing.Point(619, 36);
+            this.label1.Location = new System.Drawing.Point(619, 70);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label1.Size = new System.Drawing.Size(28, 18);
@@ -248,7 +253,7 @@
             // comSets
             // 
             this.comSets.FormattingEnabled = true;
-            this.comSets.Location = new System.Drawing.Point(213, 61);
+            this.comSets.Location = new System.Drawing.Point(213, 95);
             this.comSets.Name = "comSets";
             this.comSets.Size = new System.Drawing.Size(120, 24);
             this.comSets.TabIndex = 9;
@@ -257,7 +262,7 @@
             // comFactory
             // 
             this.comFactory.FormattingEnabled = true;
-            this.comFactory.Location = new System.Drawing.Point(492, 61);
+            this.comFactory.Location = new System.Drawing.Point(492, 95);
             this.comFactory.Name = "comFactory";
             this.comFactory.Size = new System.Drawing.Size(120, 24);
             this.comFactory.TabIndex = 3;
@@ -267,7 +272,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
-            this.label4.Location = new System.Drawing.Point(342, 36);
+            this.label4.Location = new System.Drawing.Point(342, 70);
             this.label4.Name = "label4";
             this.label4.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label4.Size = new System.Drawing.Size(67, 18);
@@ -278,7 +283,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
-            this.label2.Location = new System.Drawing.Point(619, 63);
+            this.label2.Location = new System.Drawing.Point(619, 97);
             this.label2.Name = "label2";
             this.label2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.label2.Size = new System.Drawing.Size(90, 18);
@@ -287,7 +292,7 @@
             // 
             // txtGroup
             // 
-            this.txtGroup.Location = new System.Drawing.Point(152, 34);
+            this.txtGroup.Location = new System.Drawing.Point(152, 68);
             this.txtGroup.Name = "txtGroup";
             this.txtGroup.Size = new System.Drawing.Size(55, 24);
             this.txtGroup.TabIndex = 7;
@@ -296,7 +301,7 @@
             // comGroup
             // 
             this.comGroup.FormattingEnabled = true;
-            this.comGroup.Location = new System.Drawing.Point(213, 34);
+            this.comGroup.Location = new System.Drawing.Point(213, 68);
             this.comGroup.Name = "comGroup";
             this.comGroup.Size = new System.Drawing.Size(120, 24);
             this.comGroup.TabIndex = 6;
@@ -317,7 +322,6 @@
             this.tableLayoutPanel4.Controls.Add(this.btnUpdate, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnDelete, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnReport, 4, 0);
-            this.tableLayoutPanel4.Controls.Add(this.btnAdd, 1, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 663);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
@@ -341,13 +345,13 @@
             this.btnUpdate.ImagePosition = 1;
             this.btnUpdate.ImageZoom = 25;
             this.btnUpdate.LabelPosition = 15;
-            this.btnUpdate.LabelText = "تعديل";
+            this.btnUpdate.LabelText = "تجميع";
             this.btnUpdate.Location = new System.Drawing.Point(509, 4);
             this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(85, 43);
             this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnUpdate.Click += new System.EventHandler(this.btnTagame3_Click);
             // 
             // btnDelete
             // 
@@ -362,13 +366,13 @@
             this.btnDelete.ImagePosition = 1;
             this.btnDelete.ImageZoom = 25;
             this.btnDelete.LabelPosition = 15;
-            this.btnDelete.LabelText = "حذف";
+            this.btnDelete.LabelText = "فك";
             this.btnDelete.Location = new System.Drawing.Point(418, 4);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(85, 43);
             this.btnDelete.TabIndex = 2;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            this.btnDelete.Click += new System.EventHandler(this.btnFak_Click);
             // 
             // btnReport
             // 
@@ -391,27 +395,6 @@
             this.btnReport.TabIndex = 3;
             this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnAdd.color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnAdd.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Image = global::StoresManagmentDX.Properties.Resources.File_321;
-            this.btnAdd.ImagePosition = 1;
-            this.btnAdd.ImageZoom = 25;
-            this.btnAdd.LabelPosition = 15;
-            this.btnAdd.LabelText = "اضافة";
-            this.btnAdd.Location = new System.Drawing.Point(600, 4);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(85, 43);
-            this.btnAdd.TabIndex = 4;
-            this.btnAdd.Click += new System.EventHandler(this.btnAddNew_Click);
-            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
@@ -419,14 +402,46 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.Controls.Add(this.dataGridView1, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 143);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(3, 185);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(911, 517);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(911, 475);
             this.tableLayoutPanel7.TabIndex = 2;
+            // 
+            // comStore
+            // 
+            this.comStore.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comStore.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.comStore.FormattingEnabled = true;
+            this.comStore.Location = new System.Drawing.Point(301, 23);
+            this.comStore.Name = "comStore";
+            this.comStore.Size = new System.Drawing.Size(142, 24);
+            this.comStore.TabIndex = 130;
+            this.comStore.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Neo Sans Arabic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(449, 26);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(76, 18);
+            this.label5.TabIndex = 131;
+            this.label5.Text = "اسم المخزن";
+            // 
+            // txtStoreID
+            // 
+            this.txtStoreID.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtStoreID.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtStoreID.Location = new System.Drawing.Point(240, 23);
+            this.txtStoreID.Name = "txtStoreID";
+            this.txtStoreID.Size = new System.Drawing.Size(55, 24);
+            this.txtStoreID.TabIndex = 132;
+            this.txtStoreID.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
             // btnNewChooes
             // 
@@ -435,22 +450,22 @@
             this.btnNewChooes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNewChooes.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
             this.btnNewChooes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNewChooes.Location = new System.Drawing.Point(6, 17);
+            this.btnNewChooes.Location = new System.Drawing.Point(14, 23);
             this.btnNewChooes.Name = "btnNewChooes";
             this.btnNewChooes.Size = new System.Drawing.Size(103, 36);
-            this.btnNewChooes.TabIndex = 134;
+            this.btnNewChooes.TabIndex = 133;
             this.btnNewChooes.Text = "اختيار اخر";
             this.btnNewChooes.UseVisualStyleBackColor = false;
             this.btnNewChooes.Click += new System.EventHandler(this.btnNewChooes_Click);
             // 
-            // Ataqm
+            // AtaqmStorage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(917, 723);
             this.Controls.Add(this.tLPanProductsContainer);
-            this.Name = "Ataqm";
+            this.Name = "AtaqmStorage";
             this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.RightToLeftLayout = true;
             this.Text = "Ataqm";
@@ -494,7 +509,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtGroup;
         private System.Windows.Forms.ComboBox comGroup;
-        private Bunifu.Framework.UI.BunifuTileButton btnAdd;
+        private System.Windows.Forms.ComboBox comStore;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtStoreID;
         private System.Windows.Forms.Button btnNewChooes;
     }
 }
