@@ -98,7 +98,7 @@ namespace StoresManagmentDX
                 comStore.ValueMember = dt.Columns["Store_ID"].ToString();
                 comStore.Text = "";
 
-                displayProducts();
+           
                 loaded = true;
 
             }

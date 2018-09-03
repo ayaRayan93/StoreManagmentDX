@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Products));
             this.tLPanProductsContainer = new System.Windows.Forms.TableLayoutPanel();
             this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
@@ -41,8 +40,6 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.label7 = new System.Windows.Forms.Label();
             this.txtEditCode = new System.Windows.Forms.TextBox();
-            this.btnClear = new Bunifu.Framework.UI.BunifuFlatButton();
-            this.btnSearch = new Bunifu.Framework.UI.BunifuFlatButton();
             this.txtProduct = new System.Windows.Forms.TextBox();
             this.comProduct = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -255,8 +252,6 @@
             this.panelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.panelControl1.Controls.Add(this.label7);
             this.panelControl1.Controls.Add(this.txtEditCode);
-            this.panelControl1.Controls.Add(this.btnClear);
-            this.panelControl1.Controls.Add(this.btnSearch);
             this.panelControl1.Controls.Add(this.txtProduct);
             this.panelControl1.Controls.Add(this.comProduct);
             this.panelControl1.Controls.Add(this.label1);
@@ -308,82 +303,6 @@
             this.txtEditCode.TabStop = false;
             this.txtEditCode.Visible = false;
             this.txtEditCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtEditCode_KeyDown);
-            // 
-            // btnClear
-            // 
-            this.btnClear.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnClear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnClear.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnClear.BorderRadius = 0;
-            this.btnClear.ButtonText = "اختار اخر";
-            this.btnClear.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClear.DisabledColor = System.Drawing.Color.Gray;
-            this.btnClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnClear.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnClear.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnClear.Iconimage")));
-            this.btnClear.Iconimage_right = null;
-            this.btnClear.Iconimage_right_Selected = null;
-            this.btnClear.Iconimage_Selected = null;
-            this.btnClear.IconMarginLeft = 0;
-            this.btnClear.IconMarginRight = 0;
-            this.btnClear.IconRightVisible = true;
-            this.btnClear.IconRightZoom = 0D;
-            this.btnClear.IconVisible = false;
-            this.btnClear.IconZoom = 90D;
-            this.btnClear.IsTab = false;
-            this.btnClear.Location = new System.Drawing.Point(7, 61);
-            this.btnClear.Margin = new System.Windows.Forms.Padding(5);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnClear.OnHovercolor = System.Drawing.Color.DimGray;
-            this.btnClear.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnClear.selected = false;
-            this.btnClear.Size = new System.Drawing.Size(95, 38);
-            this.btnClear.TabIndex = 29;
-            this.btnClear.Text = "اختار اخر";
-            this.btnClear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnClear.Textcolor = System.Drawing.Color.White;
-            this.btnClear.TextFont = new System.Drawing.Font("Neo Sans Arabic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.btnSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnSearch.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSearch.BorderRadius = 0;
-            this.btnSearch.ButtonText = "بحث";
-            this.btnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSearch.DisabledColor = System.Drawing.Color.Gray;
-            this.btnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnSearch.Iconcolor = System.Drawing.Color.Transparent;
-            this.btnSearch.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnSearch.Iconimage")));
-            this.btnSearch.Iconimage_right = null;
-            this.btnSearch.Iconimage_right_Selected = null;
-            this.btnSearch.Iconimage_Selected = null;
-            this.btnSearch.IconMarginLeft = 0;
-            this.btnSearch.IconMarginRight = 0;
-            this.btnSearch.IconRightVisible = true;
-            this.btnSearch.IconRightZoom = 0D;
-            this.btnSearch.IconVisible = false;
-            this.btnSearch.IconZoom = 90D;
-            this.btnSearch.IsTab = false;
-            this.btnSearch.Location = new System.Drawing.Point(7, 14);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(5);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnSearch.OnHovercolor = System.Drawing.Color.DimGray;
-            this.btnSearch.OnHoverTextColor = System.Drawing.Color.White;
-            this.btnSearch.selected = false;
-            this.btnSearch.Size = new System.Drawing.Size(95, 37);
-            this.btnSearch.TabIndex = 28;
-            this.btnSearch.Text = "بحث";
-            this.btnSearch.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSearch.Textcolor = System.Drawing.Color.White;
-            this.btnSearch.TextFont = new System.Drawing.Font("Neo Sans Arabic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // txtProduct
             // 
@@ -641,7 +560,6 @@
         private Bunifu.Framework.UI.BunifuTileButton btnDelete;
         private DevExpress.XtraEditors.SimpleButton btnDisplayWithImage;
         private DevExpress.XtraEditors.PanelControl panelControl1;
-        private Bunifu.Framework.UI.BunifuFlatButton btnSearch;
         private System.Windows.Forms.TextBox txtProduct;
         private System.Windows.Forms.ComboBox comProduct;
         private System.Windows.Forms.Label label1;
@@ -659,7 +577,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         private DevExpress.XtraGrid.GridControl dataGridView1;
-        private Bunifu.Framework.UI.BunifuFlatButton btnClear;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEditCode;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;

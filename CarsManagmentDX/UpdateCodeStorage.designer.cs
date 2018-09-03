@@ -49,6 +49,7 @@
             this.comStore = new System.Windows.Forms.ComboBox();
             this.gridControl1 = new DevExpress.XtraGrid.GridControl();
             this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+            this.txtTotalMeter = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
@@ -63,6 +64,7 @@
             this.txtNoCarton.Name = "txtNoCarton";
             this.txtNoCarton.Size = new System.Drawing.Size(171, 24);
             this.txtNoCarton.TabIndex = 1;
+            this.txtNoCarton.Visible = false;
             this.txtNoCarton.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // label8
@@ -76,6 +78,7 @@
             this.label8.Size = new System.Drawing.Size(84, 18);
             this.label8.TabIndex = 27;
             this.label8.Text = "عدد الكراتين ";
+            this.label8.Visible = false;
             // 
             // label7
             // 
@@ -100,6 +103,7 @@
             this.label10.Size = new System.Drawing.Size(71, 18);
             this.label10.TabIndex = 25;
             this.label10.Text = "عدد البلتات";
+            this.label10.Visible = false;
             // 
             // txtNoPalatat
             // 
@@ -109,6 +113,7 @@
             this.txtNoPalatat.Name = "txtNoPalatat";
             this.txtNoPalatat.Size = new System.Drawing.Size(171, 24);
             this.txtNoPalatat.TabIndex = 2;
+            this.txtNoPalatat.Visible = false;
             this.txtNoPalatat.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
             // 
             // label5
@@ -184,11 +189,12 @@
             this.labTotalMeter.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.labTotalMeter.AutoSize = true;
             this.labTotalMeter.Font = new System.Drawing.Font("Tahoma", 10F);
-            this.labTotalMeter.Location = new System.Drawing.Point(61, 67);
+            this.labTotalMeter.Location = new System.Drawing.Point(52, 108);
             this.labTotalMeter.Name = "labTotalMeter";
             this.labTotalMeter.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.labTotalMeter.Size = new System.Drawing.Size(0, 17);
             this.labTotalMeter.TabIndex = 33;
+            this.labTotalMeter.Visible = false;
             // 
             // label6
             // 
@@ -206,6 +212,7 @@
             // 
             this.panel3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.panel3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel3.Controls.Add(this.txtTotalMeter);
             this.panel3.Controls.Add(this.comStorePlace);
             this.panel3.Controls.Add(this.tableLayoutPanel2);
             this.panel3.Controls.Add(this.dateTimePicker1);
@@ -320,6 +327,15 @@
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             // 
+            // txtTotalMeter
+            // 
+            this.txtTotalMeter.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtTotalMeter.Font = new System.Drawing.Font("Tahoma", 10F);
+            this.txtTotalMeter.Location = new System.Drawing.Point(52, 68);
+            this.txtTotalMeter.Name = "txtTotalMeter";
+            this.txtTotalMeter.Size = new System.Drawing.Size(143, 24);
+            this.txtTotalMeter.TabIndex = 39;
+            // 
             // UpdateCodeStorage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -364,6 +380,7 @@
         private DevExpress.XtraGrid.GridControl gridControl1;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
         private System.Windows.Forms.ComboBox comStorePlace;
+        private System.Windows.Forms.TextBox txtTotalMeter;
     }
 }
 

@@ -91,7 +91,7 @@ namespace StoresManagmentDX
                 comStore.ValueMember = dt.Columns["Store_ID"].ToString();
                 comStore.Text = "";
                
-                displayData();
+                
 
                 loaded = true;
             }
@@ -217,6 +217,83 @@ namespace StoresManagmentDX
                                     return;
                                 }
                                 break;
+                            case "txtCodePart1":
+                                query = "select Type_Name from type where Type_ID='" + txtCodePart1.Text + "'";
+                                com = new MySqlCommand(query, dbconnection);
+                                if (com.ExecuteScalar() != null)
+                                {
+                                    Name = (string)com.ExecuteScalar();
+                                    comProduct.Text = Name;
+                                    txtCodePart2.Focus();
+                                    dbconnection.Close();                                
+                                }
+                                else
+                                {
+                                    MessageBox.Show("هذا الكود غير مسجل");
+                                    dbconnection.Close();
+                                    return;
+                                }
+                                break;
+                            case "txtCodePart2":
+                                query = "select Factory_Name from factory where Factory_ID='" + txtCodePart2.Text + "'";
+                                com = new MySqlCommand(query, dbconnection);
+                                if (com.ExecuteScalar() != null)
+                                {
+                                    Name = (string)com.ExecuteScalar();
+                                    comProduct.Text = Name;
+                                    txtCodePart3.Focus();
+                                    dbconnection.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("هذا الكود غير مسجل");
+                                    dbconnection.Close();
+                                    return;
+                                }
+                                break;
+                            case "txtCodePart3":
+                                query = "select Group_Name from Groupo where Group_ID='" + txtCodePart3.Text + "'";
+                                com = new MySqlCommand(query, dbconnection);
+                                if (com.ExecuteScalar() != null)
+                                {
+                                    Name = (string)com.ExecuteScalar();
+                                    comProduct.Text = Name;
+                                    txtCodePart4.Focus();
+                                    dbconnection.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("هذا الكود غير مسجل");
+                                    dbconnection.Close();
+                                    return;
+                                }
+                                break;
+                            case "txtCodePart4":
+                                query = "select Product_Name from Product where Product_ID='" + txtCodePart4.Text + "'";
+                                com = new MySqlCommand(query, dbconnection);
+                                if (com.ExecuteScalar() != null)
+                                {
+                                    Name = (string)com.ExecuteScalar();
+                                    comProduct.Text = Name;
+                                    txtCodePart5.Focus();
+                                    dbconnection.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("هذا الكود غير مسجل");
+                                    dbconnection.Close();
+                                    return;
+                                }
+                                break;
+                            case "txtCodePart5":
+                                txtTotalMeter.Focus();
+                                break;
+                            case "txtTotalMeter":
+                                add2Store();
+                                txtTotalMeter.Text = txtCodePart1.Text = txtCodePart2.Text = txtCodePart3.Text = txtCodePart4.Text = txtCodePart5.Text = "";
+                                txtCodePart1.Focus();
+
+                                break;
                         }
 
                     }
@@ -275,6 +352,8 @@ namespace StoresManagmentDX
                     txtCode.Text = row[1].ToString();
                     noMeter = Convert.ToDouble(row[11].ToString());
                     Data_ID = Convert.ToInt16(row[0].ToString());
+                    String code = txtCode.Text;
+                    displayCode(code);
                 }
             }
             catch (Exception ex)
@@ -288,57 +367,8 @@ namespace StoresManagmentDX
             {
                 dbconnection.Open();
 
-                if (txtNoCarton.Text != "" && txtNoPalatat.Text != "" && comStorePlace.Text != "" && txtCode.Text != "")
-                {
-                    if (validation((int)comStore.SelectedValue,(int)comStorePlace.SelectedValue))
-                    {
-                        string code = txtCode.Text;
-                        int StoreID = int.Parse(comStore.SelectedValue.ToString());
-                        string q = "select carton from data where Code='" + code + "'";
-                        MySqlCommand com = new MySqlCommand(q, dbconnection);
-                        double carton = double.Parse(com.ExecuteScalar().ToString());
-                        int NoBalatat;
-                        int.TryParse(txtNoPalatat.Text, out NoBalatat);
-                        int NoCartons;
-                        int.TryParse(txtNoCarton.Text, out NoCartons);
-                        double total = carton * NoBalatat * NoCartons;
-                        labTotalMeter.Text = (total).ToString();
 
-                        string query = "insert into Storage (Store_ID,Store_Name,Storage_Date,Balatat,Carton_Balata,Data_ID,Store_Place_ID,Total_Meters,Note) values (@Store_ID,@Store_Name,@Date,@NoBalatat,@NoCartonInBalata,@Data_ID,@PlaceOfStore,@TotalOfMeters,@Note)";
-                        com = new MySqlCommand(query, dbconnection);
-                        com.Parameters.Add("@Store_ID", MySqlDbType.Int16);
-                        com.Parameters["@Store_ID"].Value = StoreID;
-                        com.Parameters.Add("@Store_Name", MySqlDbType.VarChar);
-                        com.Parameters["@Store_Name"].Value = comStore.Text;
-                        com.Parameters.Add("@Date", MySqlDbType.Date, 0);
-                        com.Parameters["@Date"].Value = dateTimePicker1.Value;
-                        com.Parameters.Add("@NoBalatat", MySqlDbType.Int16);
-                        com.Parameters["@NoBalatat"].Value = NoBalatat;
-                        com.Parameters.Add("@NoCartonInBalata", MySqlDbType.Int16);
-                        com.Parameters["@NoCartonInBalata"].Value = NoCartons;
-                        com.Parameters.Add("@Data_ID", MySqlDbType.Int16);
-                        com.Parameters["@Data_ID"].Value =Data_ID;
-                        com.Parameters.Add("@PlaceOfStore", MySqlDbType.Int16);
-                        com.Parameters["@PlaceOfStore"].Value = comStorePlace.SelectedValue;
-                        com.Parameters.Add("@TotalOfMeters", MySqlDbType.Decimal);
-                        com.Parameters["@TotalOfMeters"].Value = total;
-                        com.Parameters.Add("@Note", MySqlDbType.VarChar);
-                        com.Parameters["@Note"].Value = txtNote.Text;
-                        com.ExecuteNonQuery();
-                        MessageBox.Show("Add success");
-                        storage.displayProducts();
-                    }
-                    else
-                    {
-                        MessageBox.Show("هذا البند مضاف فعلا");
-                    }
-                }
-                else
-                {
-                    MessageBox.Show("you must fill all fields please");
-                    dbconnection.Close();
-                    return;
-                }
+                add2Store();
               
                 
             }
@@ -364,7 +394,7 @@ namespace StoresManagmentDX
                 int NoCartons;
                 int.TryParse(txtNoCarton.Text, out NoCartons);
                 double total = carton * NoBalatat * NoCartons;
-                labTotalMeter.Text = (total).ToString();
+              //  labTotalMeter.Text = (total).ToString();
             }
             catch (Exception ex)
             {
@@ -407,7 +437,7 @@ namespace StoresManagmentDX
                         }
 
                         double result = noCarton * noPalatat * noMeter;
-                        labTotalMeter.Text = result + "";
+                       // labTotalMeter.Text = result + "";
                     }
                     
                 }
@@ -442,7 +472,7 @@ namespace StoresManagmentDX
         //functions
         public void clear()
         {
-            txtCode.Text = txtNoCarton.Text = txtNoPalatat.Text = txtNote.Text = comStorePlace.Text = labTotalMeter.Text = "";
+            txtCode.Text = txtNoCarton.Text = txtNoPalatat.Text = txtNote.Text = comStorePlace.Text = "";
             comStorePlace.Visible = false;
         }
         public XtraTabPage getTabPage(string text)
@@ -536,9 +566,74 @@ namespace StoresManagmentDX
             }
 
         }
+        public void displayCode(string code)
+        {
+            char[] arrCode = code.ToCharArray();
+            txtCodePart1.Text =Convert.ToInt16(arrCode[0].ToString() + arrCode[1].ToString() + arrCode[2].ToString() + arrCode[3].ToString()) + "";
+            txtCodePart2.Text = Convert.ToInt16(arrCode[4].ToString() + arrCode[5].ToString() + arrCode[6].ToString() + arrCode[7].ToString() )+ "";
+            txtCodePart3.Text = Convert.ToInt16(arrCode[8].ToString() + arrCode[9].ToString() + arrCode[10].ToString() + arrCode[11].ToString()) + "";
+            txtCodePart4.Text = Convert.ToInt16(arrCode[12].ToString() + arrCode[13].ToString() + arrCode[14].ToString() + arrCode[15].ToString() )+ "";
+            txtCodePart5.Text = "" + Convert.ToInt16(arrCode[16] + arrCode[17] + arrCode[18] + arrCode[19]);
+        }
 
-    
+     public void add2Store()
+    {
+        if (/*txtNoCarton.Text != "" && txtNoPalatat.Text != "" && */comStorePlace.Text != "" && txtCode.Text != "")
+        {
+            if (validation((int)comStore.SelectedValue, (int)comStorePlace.SelectedValue))
+            {
+                string code = txtCode.Text;
+                int StoreID = int.Parse(comStore.SelectedValue.ToString());
+                string q = "select carton from data where Code='" + code + "'";
+                MySqlCommand com = new MySqlCommand(q, dbconnection);
+                double carton = double.Parse(com.ExecuteScalar().ToString());
+                int NoBalatat;
+                int.TryParse(txtNoPalatat.Text, out NoBalatat);
+                int NoCartons;
+                int.TryParse(txtNoCarton.Text, out NoCartons);
+                double total = carton * NoBalatat * NoCartons;
+                //  labTotalMeter.Text = (total).ToString();
+
+                string query = "insert into Storage (Store_ID,Store_Name,Storage_Date,Balatat,Carton_Balata,Data_ID,Store_Place_ID,Total_Meters,Note) values (@Store_ID,@Store_Name,@Date,@NoBalatat,@NoCartonInBalata,@Data_ID,@PlaceOfStore,@TotalOfMeters,@Note)";
+                com = new MySqlCommand(query, dbconnection);
+                com.Parameters.Add("@Store_ID", MySqlDbType.Int16);
+                com.Parameters["@Store_ID"].Value = StoreID;
+                com.Parameters.Add("@Store_Name", MySqlDbType.VarChar);
+                com.Parameters["@Store_Name"].Value = comStore.Text;
+                com.Parameters.Add("@Date", MySqlDbType.Date, 0);
+                com.Parameters["@Date"].Value = dateTimePicker1.Value;
+                com.Parameters.Add("@NoBalatat", MySqlDbType.Int16);
+                com.Parameters["@NoBalatat"].Value = NoBalatat;
+                com.Parameters.Add("@NoCartonInBalata", MySqlDbType.Int16);
+                com.Parameters["@NoCartonInBalata"].Value = NoCartons;
+                com.Parameters.Add("@Data_ID", MySqlDbType.Int16);
+                com.Parameters["@Data_ID"].Value = Data_ID;
+                com.Parameters.Add("@PlaceOfStore", MySqlDbType.Int16);
+                com.Parameters["@PlaceOfStore"].Value = comStorePlace.SelectedValue;
+                com.Parameters.Add("@TotalOfMeters", MySqlDbType.Decimal);
+                com.Parameters["@TotalOfMeters"].Value = total;
+                com.Parameters.Add("@Note", MySqlDbType.VarChar);
+                com.Parameters["@Note"].Value = txtNote.Text;
+                com.ExecuteNonQuery();
+                MessageBox.Show("Add success");
+                storage.displayProducts();
+            }
+            else
+            {
+                MessageBox.Show("هذا البند مضاف فعلا");
+            }
+        }
+        else
+        {
+            MessageBox.Show("you must fill all fields please");
+            dbconnection.Close();
+            return;
+        }
+
+
     }
 
+
+}
 
 }
