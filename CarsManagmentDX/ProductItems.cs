@@ -116,6 +116,11 @@ namespace StoresManagmentDX
                 comType2.ValueMember = dt.Columns["Type_ID"].ToString();
                 comType2.Text = "";
 
+                comTypeProduct.DataSource = dt;
+                comTypeProduct.DisplayMember = dt.Columns["Type_Name"].ToString();
+                comTypeProduct.ValueMember = dt.Columns["Type_ID"].ToString();
+                comTypeProduct.Text = "";
+
                 query = "select distinct * from factory";
                 da = new MySqlDataAdapter(query, dbconnection);
                 dt = new DataTable();
@@ -136,10 +141,10 @@ namespace StoresManagmentDX
                 da = new MySqlDataAdapter(query, dbconnection);
                 dt = new DataTable();
                 da.Fill(dt);
-                comFactoryGroup.DataSource = dt;
-                comFactoryGroup.DisplayMember = dt.Columns["Factory_Name"].ToString();
-                comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
-                comFactoryGroup.Text = "";
+                //comFactoryGroup.DataSource = dt;
+                //comFactoryGroup.DisplayMember = dt.Columns["Factory_Name"].ToString();
+                //comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
+                //comFactoryGroup.Text = "";
                 query = "select distinct * from groupo";
                 da = new MySqlDataAdapter(query, dbconnection);
                 dt = new DataTable();
@@ -379,7 +384,7 @@ namespace StoresManagmentDX
                             com = new MySqlCommand(query, dbconnection);
                             UserControl.UserRecord("factory", "اضافة", factory_ID.ToString(), DateTime.Now, dbconnection);
 
-                          //  displayFactory(Convert.ToInt16(comType.SelectedValue));
+                            //displayFactory(Convert.ToInt16(comType.SelectedValue));
                             txtFactory.Text = "";
                         }
                         else
@@ -554,42 +559,58 @@ namespace StoresManagmentDX
         {
             try
             {
-                if (comFactory.Text != "")
-                {
+               
                     dbconnection.Open();
-                    string query = "select Group_ID from groupo where Group_Name = '" + txtGroup.Text + "' and Factory_ID=" + comFactory.SelectedValue;
+                    string query = "select Group_ID from groupo where Group_Name = '" + txtGroup.Text + "'";
                     MySqlCommand com = new MySqlCommand(query, dbconnection);
                     if (com.ExecuteScalar() == null)
                     {
                         if (txtGroup.Text != "")
                         {
-                            query = "insert into groupo (Group_Name,Factory_ID) values (@name,@Factory_ID)";
-                            com = new MySqlCommand(query, dbconnection);
-                            com.Parameters.AddWithValue("@name", txtGroup.Text);
-                            com.Parameters.AddWithValue("@Factory_ID", Convert.ToInt16(comFactory.SelectedValue));
-                            com.ExecuteNonQuery();
+                            if (comType.SelectedValue.ToString() != "1")
+                            {
+                                if (comFactory.Text != "")
+                                {
+                                    query = "insert into groupo (Group_Name,Factory_ID,Type_ID) values (@name,@Factory_ID,@Type_ID)";
+                                    com = new MySqlCommand(query, dbconnection);
+                                    com.Parameters.AddWithValue("@name", txtGroup.Text);
+                                    com.Parameters.AddWithValue("@Factory_ID", Convert.ToInt16(comFactory.SelectedValue));
+                                    com.Parameters.AddWithValue("@Type_ID", Convert.ToInt16(comType.SelectedValue));
+                                    com.ExecuteNonQuery();
+                                    displayGroup(Convert.ToInt16(comFactory.SelectedValue));
+                                }
+                                else
+                                {
+                                    MessageBox.Show("اختر المصنع");
+                                }
+                            }
+                            else
+                            {
+                                query = "insert into groupo (Group_Name,Factory_ID,Type_ID) values (@name,@Factory_ID,@Type_ID)";
+                                com = new MySqlCommand(query, dbconnection);
+                                com.Parameters.AddWithValue("@name", txtGroup.Text);
+                                com.Parameters.AddWithValue("@Factory_ID", 0);
+                                com.Parameters.AddWithValue("@Type_ID", Convert.ToInt16(comType.SelectedValue));
+                                com.ExecuteNonQuery();
+                                displayGroup(0);
+                            }
+
                             query = "select Group_ID from groupo order by Group_ID desc limit 1";
                             com = new MySqlCommand(query, dbconnection);
                             UserControl.UserRecord("groupo", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
-
-                            displayGroup(Convert.ToInt16(comFactory.SelectedValue));
+                           
                             txtGroup.Text = "";
                         }
                         else
                         {
-                            txtGroup.Focus();
-                           
+                            txtGroup.Focus();                         
                         }
                     }
                     else
                     {
                         MessageBox.Show("This group already exist");
                     }
-                }
-                else
-                {
-                    MessageBox.Show("select factory");
-                }
+              
             }
             catch (Exception ex)
             {
@@ -603,41 +624,55 @@ namespace StoresManagmentDX
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    if (comFactory.Text != "")
+                    dbconnection.Open();
+                    string query = "select Group_ID from groupo where Group_Name = '" + txtGroup.Text + "'";
+                    MySqlCommand com = new MySqlCommand(query, dbconnection);
+                    if (com.ExecuteScalar() == null)
                     {
-                        dbconnection.Open();
-                        string query = "select Group_ID from groupo where Group_Name = '" + txtGroup.Text + "' and Factory_ID=" + comFactory.SelectedValue;
-                        MySqlCommand com = new MySqlCommand(query, dbconnection);
-                        if (com.ExecuteScalar() == null)
+                        if (txtGroup.Text != "")
                         {
-                            if (txtGroup.Text != "")
+                            if (comType.SelectedValue.ToString() != "1")
                             {
-                                query = "insert into groupo (Group_Name,Factory_ID) values (@name,@Factory_ID)";
-                                com = new MySqlCommand(query, dbconnection);
-                                com.Parameters.AddWithValue("@name", txtGroup.Text);
-                                com.Parameters.AddWithValue("@Factory_ID", Convert.ToInt16(comFactory.SelectedValue));
-                                com.ExecuteNonQuery();
-                                query = "select Group_ID from groupo order by Group_ID desc limit 1";
-                                com = new MySqlCommand(query, dbconnection);
-                                UserControl.UserRecord("groupo", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
-
-                                displayGroup(Convert.ToInt16(comFactory.SelectedValue));
-                                txtGroup.Text = "";
+                                if (comFactory.Text != "")
+                                {
+                                    query = "insert into groupo (Group_Name,Factory_ID,Type_ID) values (@name,@Factory_ID,@Type_ID)";
+                                    com = new MySqlCommand(query, dbconnection);
+                                    com.Parameters.AddWithValue("@name", txtGroup.Text);
+                                    com.Parameters.AddWithValue("@Factory_ID", Convert.ToInt16(comFactory.SelectedValue));
+                                    com.Parameters.AddWithValue("@Type_ID", Convert.ToInt16(comType.SelectedValue));
+                                    com.ExecuteNonQuery();
+                                    displayGroup(Convert.ToInt16(comFactory.SelectedValue));
+                                }
+                                else
+                                {
+                                    MessageBox.Show("اختر المصنع");
+                                }
                             }
                             else
                             {
-                                txtGroup.Focus();
-                              
+                                query = "insert into groupo (Group_Name,Factory_ID,Type_ID) values (@name,@Factory_ID,@Type_ID)";
+                                com = new MySqlCommand(query, dbconnection);
+                                com.Parameters.AddWithValue("@name", txtGroup.Text);
+                                com.Parameters.AddWithValue("@Factory_ID", 0);
+                                com.Parameters.AddWithValue("@Type_ID", Convert.ToInt16(comType.SelectedValue));
+                                com.ExecuteNonQuery();
+                                displayGroup(0);
                             }
+
+                            query = "select Group_ID from groupo order by Group_ID desc limit 1";
+                            com = new MySqlCommand(query, dbconnection);
+                            UserControl.UserRecord("groupo", "اضافة", com.ExecuteScalar().ToString(), DateTime.Now, dbconnection);
+
+                            txtGroup.Text = "";
                         }
                         else
                         {
-                            MessageBox.Show("This group already exist");
+                            txtGroup.Focus();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("select factory");
+                        MessageBox.Show("This group already exist");
                     }
                 }
             }
@@ -1558,7 +1593,7 @@ namespace StoresManagmentDX
         }
         public void displayGroup(int id)
         {
-            string query = "select distinct Group_ID as 'كود',Group_Name as 'الأسم' from groupo where Factory_ID=" + id+ " order by Group_ID";
+            string query = "select distinct Group_ID as 'كود',Group_Name as 'المجموعة',Type_Name as 'النوع' from groupo inner join type on groupo.Type_ID=type.Type_ID  where Factory_ID=" + id+ " order by Group_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -1732,6 +1767,52 @@ namespace StoresManagmentDX
                         label6.Visible = false;
                         comFactory.Visible = false;
                     }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comTypeProduct_SelectedValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (load)
+                {
+                    if (comTypeProduct.SelectedValue.ToString() != "1")
+                    {
+                        string query = "select distinct factory.Factory_ID, Factory_Name from factory inner join type_factory on type_factory.Factory_ID=factory.Factory_ID where type_factory.Type_ID=" + comTypeProduct.SelectedValue.ToString();
+                        MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        comFactoryGroup.DataSource = dt;
+                        comFactoryGroup.DisplayMember = dt.Columns["Factory_Name"].ToString();
+                        comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
+                        comFactoryGroup.Text = "";
+
+                        query = "select distinct factory.Factory_ID, Factory_Name from factory inner join type_factory on type_factory.Factory_ID=factory.Factory_ID where type_factory.Type_ID=" + comTypeProduct.SelectedValue.ToString();
+                        da = new MySqlDataAdapter(query, dbconnection);
+                        dt = new DataTable();
+                        da.Fill(dt);
+                        comFactoryGroup.DataSource = dt;
+                        comFactoryGroup.DisplayMember = dt.Columns["Factory_Name"].ToString();
+                        comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
+                        comFactoryGroup.Text = "";
+                    }
+                    else
+                    {
+                        string query = "select distinct factory.Factory_ID, Factory_Name from factory inner join type_factory on type_factory.Factory_ID=factory.Factory_ID where type_factory.Type_ID=" + comTypeProduct.SelectedValue.ToString();
+                        MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+                        DataTable dt = new DataTable();
+                        da.Fill(dt);
+                        comFactoryGroup.DataSource = dt;
+                        comFactoryGroup.DisplayMember = dt.Columns["Factory_Name"].ToString();
+                        comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
+                        comFactoryGroup.Text = "";
+                    }
+
                 }
             }
             catch (Exception ex)
