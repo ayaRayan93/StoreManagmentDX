@@ -30,19 +30,19 @@ namespace StoresManagmentDX
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tLPanProductsContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnGroup = new System.Windows.Forms.Button();
@@ -65,6 +65,7 @@ namespace StoresManagmentDX
             this.mTPSize = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelSize = new System.Windows.Forms.TableLayoutPanel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.txtFactory3 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtSize = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -77,6 +78,7 @@ namespace StoresManagmentDX
             this.mTPColor = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelColor = new System.Windows.Forms.TableLayoutPanel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.txtType3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.comType2 = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -89,6 +91,9 @@ namespace StoresManagmentDX
             this.mTPProduct = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelProduct = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.txtGroup2 = new System.Windows.Forms.TextBox();
+            this.txtFactory2 = new System.Windows.Forms.TextBox();
+            this.txtType2 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.comTypeProduct = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -106,6 +111,8 @@ namespace StoresManagmentDX
             this.mTPGroup = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelGroup = new System.Windows.Forms.TableLayoutPanel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.txtFactory1 = new System.Windows.Forms.TextBox();
+            this.txtType1 = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.comType = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -121,8 +128,11 @@ namespace StoresManagmentDX
             this.tableLayoutPanel21 = new System.Windows.Forms.TableLayoutPanel();
             this.btnFactoryDelete = new Bunifu.Framework.UI.BunifuTileButton();
             this.btnAddFactory = new Bunifu.Framework.UI.BunifuTileButton();
+            this.btnUpdate = new Bunifu.Framework.UI.BunifuTileButton();
             this.dataGridViewFactory = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtFactory = new System.Windows.Forms.TextBox();
@@ -135,15 +145,8 @@ namespace StoresManagmentDX
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtType = new System.Windows.Forms.TextBox();
-            this.btnUpdate = new Bunifu.Framework.UI.BunifuTileButton();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.txtType1 = new System.Windows.Forms.TextBox();
-            this.txtFactory1 = new System.Windows.Forms.TextBox();
-            this.txtType2 = new System.Windows.Forms.TextBox();
-            this.txtFactory2 = new System.Windows.Forms.TextBox();
-            this.txtGroup2 = new System.Windows.Forms.TextBox();
-            this.txtType3 = new System.Windows.Forms.TextBox();
-            this.txtFactory3 = new System.Windows.Forms.TextBox();
+            this.btnGroupDisplayAll = new System.Windows.Forms.Button();
+            this.btnDisplayAllProduct = new System.Windows.Forms.Button();
             this.tLPanProductsContainer.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.mTC_Content.SuspendLayout();
@@ -366,7 +369,7 @@ namespace StoresManagmentDX
             this.mTC_Content.Location = new System.Drawing.Point(48, 139);
             this.mTC_Content.Name = "mTC_Content";
             this.mTC_Content.RightToLeftLayout = true;
-            this.mTC_Content.SelectedIndex = 4;
+            this.mTC_Content.SelectedIndex = 3;
             this.mTC_Content.Size = new System.Drawing.Size(808, 506);
             this.mTC_Content.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.mTC_Content.Style = MetroFramework.MetroColorStyle.Silver;
@@ -483,26 +486,26 @@ namespace StoresManagmentDX
             // 
             // dataGridViewSort
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSort.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSort.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridViewSort.ColumnHeadersHeight = 25;
             this.dataGridViewSort.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSort.Location = new System.Drawing.Point(83, 25);
             this.dataGridViewSort.Name = "dataGridViewSort";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSort.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSort.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.tableLayoutPanel5.SetRowSpan(this.dataGridViewSort, 2);
             this.dataGridViewSort.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewSort.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -599,6 +602,19 @@ namespace StoresManagmentDX
             this.tableLayoutPanelSize.SetRowSpan(this.panel6, 2);
             this.panel6.Size = new System.Drawing.Size(474, 358);
             this.panel6.TabIndex = 17;
+            // 
+            // txtFactory3
+            // 
+            this.txtFactory3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtFactory3.BackColor = System.Drawing.Color.White;
+            this.txtFactory3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFactory3.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtFactory3.Location = new System.Drawing.Point(143, 93);
+            this.txtFactory3.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFactory3.Name = "txtFactory3";
+            this.txtFactory3.Size = new System.Drawing.Size(61, 27);
+            this.txtFactory3.TabIndex = 22;
+            this.txtFactory3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
             // label13
             // 
@@ -740,14 +756,14 @@ namespace StoresManagmentDX
             // 
             // dataGridViewSize
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.dataGridViewSize.ColumnHeadersHeight = 25;
             this.dataGridViewSize.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewSize.Location = new System.Drawing.Point(30, 25);
@@ -809,6 +825,19 @@ namespace StoresManagmentDX
             this.tableLayoutPanelColor.SetRowSpan(this.panel5, 2);
             this.panel5.Size = new System.Drawing.Size(474, 358);
             this.panel5.TabIndex = 17;
+            // 
+            // txtType3
+            // 
+            this.txtType3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtType3.BackColor = System.Drawing.Color.White;
+            this.txtType3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtType3.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtType3.Location = new System.Drawing.Point(148, 92);
+            this.txtType3.Margin = new System.Windows.Forms.Padding(4);
+            this.txtType3.Name = "txtType3";
+            this.txtType3.Size = new System.Drawing.Size(61, 27);
+            this.txtType3.TabIndex = 21;
+            this.txtType3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
             // label4
             // 
@@ -950,26 +979,26 @@ namespace StoresManagmentDX
             // 
             // dataGridViewColor
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewColor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewColor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
             this.dataGridViewColor.ColumnHeadersHeight = 25;
             this.dataGridViewColor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewColor.Location = new System.Drawing.Point(25, 25);
             this.dataGridViewColor.Name = "dataGridViewColor";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewColor.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewColor.RowHeadersDefaultCellStyle = dataGridViewCellStyle45;
             this.tableLayoutPanelColor.SetRowSpan(this.dataGridViewColor, 2);
             this.dataGridViewColor.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewColor.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1016,6 +1045,7 @@ namespace StoresManagmentDX
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnDisplayAllProduct);
             this.panel4.Controls.Add(this.txtGroup2);
             this.panel4.Controls.Add(this.txtFactory2);
             this.panel4.Controls.Add(this.txtType2);
@@ -1034,13 +1064,52 @@ namespace StoresManagmentDX
             this.panel4.Size = new System.Drawing.Size(474, 358);
             this.panel4.TabIndex = 17;
             // 
+            // txtGroup2
+            // 
+            this.txtGroup2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtGroup2.BackColor = System.Drawing.Color.White;
+            this.txtGroup2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGroup2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtGroup2.Location = new System.Drawing.Point(132, 172);
+            this.txtGroup2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGroup2.Name = "txtGroup2";
+            this.txtGroup2.Size = new System.Drawing.Size(61, 27);
+            this.txtGroup2.TabIndex = 22;
+            this.txtGroup2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            // 
+            // txtFactory2
+            // 
+            this.txtFactory2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtFactory2.BackColor = System.Drawing.Color.White;
+            this.txtFactory2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFactory2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtFactory2.Location = new System.Drawing.Point(132, 133);
+            this.txtFactory2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFactory2.Name = "txtFactory2";
+            this.txtFactory2.Size = new System.Drawing.Size(61, 27);
+            this.txtFactory2.TabIndex = 21;
+            this.txtFactory2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            // 
+            // txtType2
+            // 
+            this.txtType2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtType2.BackColor = System.Drawing.Color.White;
+            this.txtType2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtType2.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtType2.Location = new System.Drawing.Point(132, 93);
+            this.txtType2.Margin = new System.Windows.Forms.Padding(4);
+            this.txtType2.Name = "txtType2";
+            this.txtType2.Size = new System.Drawing.Size(61, 27);
+            this.txtType2.TabIndex = 20;
+            this.txtType2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            // 
             // label14
             // 
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label14.ForeColor = System.Drawing.Color.Black;
-            this.label14.Location = new System.Drawing.Point(377, 52);
+            this.label14.Location = new System.Drawing.Point(382, 92);
             this.label14.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label14.Name = "label14";
             this.label14.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1056,11 +1125,12 @@ namespace StoresManagmentDX
             this.comTypeProduct.BackColor = System.Drawing.Color.White;
             this.comTypeProduct.Font = new System.Drawing.Font("Tahoma", 12F);
             this.comTypeProduct.FormattingEnabled = true;
-            this.comTypeProduct.Location = new System.Drawing.Point(195, 52);
+            this.comTypeProduct.Location = new System.Drawing.Point(200, 92);
             this.comTypeProduct.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.comTypeProduct.Name = "comTypeProduct";
             this.comTypeProduct.Size = new System.Drawing.Size(172, 27);
             this.comTypeProduct.TabIndex = 19;
+            this.comTypeProduct.SelectedIndexChanged += new System.EventHandler(this.comTypeProduct_SelectedIndexChanged);
             this.comTypeProduct.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
             // label5
@@ -1069,7 +1139,7 @@ namespace StoresManagmentDX
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(377, 92);
+            this.label5.Location = new System.Drawing.Point(382, 132);
             this.label5.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label5.Name = "label5";
             this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1085,11 +1155,12 @@ namespace StoresManagmentDX
             this.comFactoryGroup.BackColor = System.Drawing.Color.White;
             this.comFactoryGroup.Font = new System.Drawing.Font("Tahoma", 12F);
             this.comFactoryGroup.FormattingEnabled = true;
-            this.comFactoryGroup.Location = new System.Drawing.Point(195, 92);
+            this.comFactoryGroup.Location = new System.Drawing.Point(200, 132);
             this.comFactoryGroup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.comFactoryGroup.Name = "comFactoryGroup";
             this.comFactoryGroup.Size = new System.Drawing.Size(172, 27);
             this.comFactoryGroup.TabIndex = 12;
+            this.comFactoryGroup.SelectedIndexChanged += new System.EventHandler(this.comFactoryGroup_SelectedValueChanged);
             this.comFactoryGroup.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
             // label1
@@ -1098,7 +1169,7 @@ namespace StoresManagmentDX
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(377, 177);
+            this.label1.Location = new System.Drawing.Point(382, 217);
             this.label1.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label1.Name = "label1";
             this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1112,7 +1183,7 @@ namespace StoresManagmentDX
             this.txtProduct.BackColor = System.Drawing.Color.White;
             this.txtProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProduct.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtProduct.Location = new System.Drawing.Point(195, 175);
+            this.txtProduct.Location = new System.Drawing.Point(200, 215);
             this.txtProduct.Margin = new System.Windows.Forms.Padding(4);
             this.txtProduct.Name = "txtProduct";
             this.txtProduct.Size = new System.Drawing.Size(172, 27);
@@ -1127,7 +1198,7 @@ namespace StoresManagmentDX
             this.comGroup.BackColor = System.Drawing.Color.White;
             this.comGroup.Font = new System.Drawing.Font("Tahoma", 12F);
             this.comGroup.FormattingEnabled = true;
-            this.comGroup.Location = new System.Drawing.Point(195, 131);
+            this.comGroup.Location = new System.Drawing.Point(200, 171);
             this.comGroup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.comGroup.Name = "comGroup";
             this.comGroup.Size = new System.Drawing.Size(172, 27);
@@ -1142,7 +1213,7 @@ namespace StoresManagmentDX
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(377, 131);
+            this.label11.Location = new System.Drawing.Point(382, 171);
             this.label11.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label11.Name = "label11";
             this.label11.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1246,14 +1317,14 @@ namespace StoresManagmentDX
             // 
             // dataGridViewProduct
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridViewProduct.ColumnHeadersHeight = 25;
             this.dataGridViewProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewProduct.Location = new System.Drawing.Point(27, 25);
@@ -1303,6 +1374,7 @@ namespace StoresManagmentDX
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.btnGroupDisplayAll);
             this.panel3.Controls.Add(this.txtFactory1);
             this.panel3.Controls.Add(this.txtType1);
             this.panel3.Controls.Add(this.label7);
@@ -1318,13 +1390,39 @@ namespace StoresManagmentDX
             this.panel3.Size = new System.Drawing.Size(474, 358);
             this.panel3.TabIndex = 17;
             // 
+            // txtFactory1
+            // 
+            this.txtFactory1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtFactory1.BackColor = System.Drawing.Color.White;
+            this.txtFactory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtFactory1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtFactory1.Location = new System.Drawing.Point(136, 149);
+            this.txtFactory1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFactory1.Name = "txtFactory1";
+            this.txtFactory1.Size = new System.Drawing.Size(61, 27);
+            this.txtFactory1.TabIndex = 19;
+            this.txtFactory1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            // 
+            // txtType1
+            // 
+            this.txtType1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtType1.BackColor = System.Drawing.Color.White;
+            this.txtType1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtType1.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtType1.Location = new System.Drawing.Point(136, 108);
+            this.txtType1.Margin = new System.Windows.Forms.Padding(4);
+            this.txtType1.Name = "txtType1";
+            this.txtType1.Size = new System.Drawing.Size(61, 27);
+            this.txtType1.TabIndex = 18;
+            this.txtType1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(379, 52);
+            this.label7.Location = new System.Drawing.Point(379, 108);
             this.label7.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label7.Name = "label7";
             this.label7.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1340,7 +1438,7 @@ namespace StoresManagmentDX
             this.comType.BackColor = System.Drawing.Color.White;
             this.comType.Font = new System.Drawing.Font("Tahoma", 12F);
             this.comType.FormattingEnabled = true;
-            this.comType.Location = new System.Drawing.Point(204, 52);
+            this.comType.Location = new System.Drawing.Point(204, 108);
             this.comType.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.comType.Name = "comType";
             this.comType.Size = new System.Drawing.Size(172, 27);
@@ -1355,7 +1453,7 @@ namespace StoresManagmentDX
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(379, 92);
+            this.label6.Location = new System.Drawing.Point(379, 148);
             this.label6.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label6.Name = "label6";
             this.label6.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1371,7 +1469,7 @@ namespace StoresManagmentDX
             this.comFactory.BackColor = System.Drawing.Color.White;
             this.comFactory.Font = new System.Drawing.Font("Tahoma", 12F);
             this.comFactory.FormattingEnabled = true;
-            this.comFactory.Location = new System.Drawing.Point(204, 92);
+            this.comFactory.Location = new System.Drawing.Point(204, 148);
             this.comFactory.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.comFactory.Name = "comFactory";
             this.comFactory.Size = new System.Drawing.Size(172, 27);
@@ -1386,7 +1484,7 @@ namespace StoresManagmentDX
             this.txtGroup.BackColor = System.Drawing.Color.White;
             this.txtGroup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGroup.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtGroup.Location = new System.Drawing.Point(204, 131);
+            this.txtGroup.Location = new System.Drawing.Point(204, 187);
             this.txtGroup.Margin = new System.Windows.Forms.Padding(4);
             this.txtGroup.Name = "txtGroup";
             this.txtGroup.Size = new System.Drawing.Size(170, 27);
@@ -1400,7 +1498,7 @@ namespace StoresManagmentDX
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(377, 132);
+            this.label10.Location = new System.Drawing.Point(377, 188);
             this.label10.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label10.Name = "label10";
             this.label10.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1475,14 +1573,14 @@ namespace StoresManagmentDX
             // 
             // dataGridViewGroup
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroup.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroup.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
             this.dataGridViewGroup.ColumnHeadersHeight = 25;
             this.dataGridViewGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewGroup.Location = new System.Drawing.Point(27, 25);
@@ -1597,16 +1695,37 @@ namespace StoresManagmentDX
             this.btnAddFactory.TabIndex = 3;
             this.btnAddFactory.Click += new System.EventHandler(this.btnFactory_Click);
             // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnUpdate.color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnUpdate.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
+            this.btnUpdate.Image = global::StoresManagmentDX.Properties.Resources.Edit_321;
+            this.btnUpdate.ImagePosition = 1;
+            this.btnUpdate.ImageZoom = 25;
+            this.btnUpdate.LabelPosition = 15;
+            this.btnUpdate.LabelText = "تعديل";
+            this.btnUpdate.Location = new System.Drawing.Point(401, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnUpdate.Name = "btnUpdate";
+            this.btnUpdate.Size = new System.Drawing.Size(73, 48);
+            this.btnUpdate.TabIndex = 4;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
             // dataGridViewFactory
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFactory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFactory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
             this.dataGridViewFactory.ColumnHeadersHeight = 25;
             this.dataGridViewFactory.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewFactory.Location = new System.Drawing.Point(38, 25);
@@ -1619,6 +1738,7 @@ namespace StoresManagmentDX
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnSave);
             this.panel1.Controls.Add(this.checkedListBox1);
             this.panel1.Controls.Add(this.label9);
@@ -1629,6 +1749,37 @@ namespace StoresManagmentDX
             this.tableLayoutPanelFactory.SetRowSpan(this.panel1, 2);
             this.panel1.Size = new System.Drawing.Size(474, 358);
             this.panel1.TabIndex = 17;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button2.Location = new System.Drawing.Point(21, 18);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(83, 36);
+            this.button2.TabIndex = 16;
+            this.button2.Text = "عرض الكل";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.btnDisplayAllFactory_Click);
+            // 
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnSave.FlatAppearance.BorderSize = 0;
+            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSave.Location = new System.Drawing.Point(237, 256);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(103, 36);
+            this.btnSave.TabIndex = 14;
+            this.btnSave.Text = "حفظ";
+            this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Visible = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // checkedListBox1
             // 
@@ -1772,45 +1923,45 @@ namespace StoresManagmentDX
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle48.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle48;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle49.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle49.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle49.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
             this.dataGridView1.ColumnHeadersHeight = 25;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle50.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle50.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle50;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(83, 25);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle51.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle51.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle51.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle51.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle51.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle51;
             this.dataGridView1.RowHeadersWidth = 45;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle52.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle52.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle52;
             this.tableLayoutPanelType.SetRowSpan(this.dataGridView1, 2);
             this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1857,133 +2008,35 @@ namespace StoresManagmentDX
             this.txtType.TextChanged += new System.EventHandler(this.txt_TextChanged);
             this.txtType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtType_KeyDown);
             // 
-            // btnUpdate
+            // btnGroupDisplayAll
             // 
-            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnUpdate.color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnUpdate.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Image = global::StoresManagmentDX.Properties.Resources.Edit_321;
-            this.btnUpdate.ImagePosition = 1;
-            this.btnUpdate.ImageZoom = 25;
-            this.btnUpdate.LabelPosition = 15;
-            this.btnUpdate.LabelText = "تعديل";
-            this.btnUpdate.Location = new System.Drawing.Point(401, 4);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(73, 48);
-            this.btnUpdate.TabIndex = 4;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            this.btnGroupDisplayAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnGroupDisplayAll.FlatAppearance.BorderSize = 0;
+            this.btnGroupDisplayAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGroupDisplayAll.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnGroupDisplayAll.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnGroupDisplayAll.Location = new System.Drawing.Point(21, 15);
+            this.btnGroupDisplayAll.Name = "btnGroupDisplayAll";
+            this.btnGroupDisplayAll.Size = new System.Drawing.Size(83, 36);
+            this.btnGroupDisplayAll.TabIndex = 20;
+            this.btnGroupDisplayAll.Text = "عرض الكل";
+            this.btnGroupDisplayAll.UseVisualStyleBackColor = false;
+            this.btnGroupDisplayAll.Click += new System.EventHandler(this.btnGroupDisplayAll_Click);
             // 
-            // btnSave
+            // btnDisplayAllProduct
             // 
-            this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnSave.FlatAppearance.BorderSize = 0;
-            this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSave.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
-            this.btnSave.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSave.Location = new System.Drawing.Point(237, 256);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(103, 36);
-            this.btnSave.TabIndex = 14;
-            this.btnSave.Text = "حفظ";
-            this.btnSave.UseVisualStyleBackColor = false;
-            this.btnSave.Visible = false;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // txtType1
-            // 
-            this.txtType1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtType1.BackColor = System.Drawing.Color.White;
-            this.txtType1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtType1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtType1.Location = new System.Drawing.Point(136, 52);
-            this.txtType1.Margin = new System.Windows.Forms.Padding(4);
-            this.txtType1.Name = "txtType1";
-            this.txtType1.Size = new System.Drawing.Size(61, 27);
-            this.txtType1.TabIndex = 18;
-            this.txtType1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
-            // 
-            // txtFactory1
-            // 
-            this.txtFactory1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtFactory1.BackColor = System.Drawing.Color.White;
-            this.txtFactory1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFactory1.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtFactory1.Location = new System.Drawing.Point(136, 93);
-            this.txtFactory1.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFactory1.Name = "txtFactory1";
-            this.txtFactory1.Size = new System.Drawing.Size(61, 27);
-            this.txtFactory1.TabIndex = 19;
-            this.txtFactory1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
-            // 
-            // txtType2
-            // 
-            this.txtType2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtType2.BackColor = System.Drawing.Color.White;
-            this.txtType2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtType2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtType2.Location = new System.Drawing.Point(127, 53);
-            this.txtType2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtType2.Name = "txtType2";
-            this.txtType2.Size = new System.Drawing.Size(61, 27);
-            this.txtType2.TabIndex = 20;
-            this.txtType2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
-            // 
-            // txtFactory2
-            // 
-            this.txtFactory2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtFactory2.BackColor = System.Drawing.Color.White;
-            this.txtFactory2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFactory2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtFactory2.Location = new System.Drawing.Point(127, 93);
-            this.txtFactory2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFactory2.Name = "txtFactory2";
-            this.txtFactory2.Size = new System.Drawing.Size(61, 27);
-            this.txtFactory2.TabIndex = 21;
-            this.txtFactory2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
-            // 
-            // txtGroup2
-            // 
-            this.txtGroup2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtGroup2.BackColor = System.Drawing.Color.White;
-            this.txtGroup2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtGroup2.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtGroup2.Location = new System.Drawing.Point(127, 132);
-            this.txtGroup2.Margin = new System.Windows.Forms.Padding(4);
-            this.txtGroup2.Name = "txtGroup2";
-            this.txtGroup2.Size = new System.Drawing.Size(61, 27);
-            this.txtGroup2.TabIndex = 22;
-            this.txtGroup2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
-            // 
-            // txtType3
-            // 
-            this.txtType3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtType3.BackColor = System.Drawing.Color.White;
-            this.txtType3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtType3.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtType3.Location = new System.Drawing.Point(148, 92);
-            this.txtType3.Margin = new System.Windows.Forms.Padding(4);
-            this.txtType3.Name = "txtType3";
-            this.txtType3.Size = new System.Drawing.Size(61, 27);
-            this.txtType3.TabIndex = 21;
-            this.txtType3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
-            // 
-            // txtFactory3
-            // 
-            this.txtFactory3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtFactory3.BackColor = System.Drawing.Color.White;
-            this.txtFactory3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtFactory3.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtFactory3.Location = new System.Drawing.Point(143, 93);
-            this.txtFactory3.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFactory3.Name = "txtFactory3";
-            this.txtFactory3.Size = new System.Drawing.Size(61, 27);
-            this.txtFactory3.TabIndex = 22;
-            this.txtFactory3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            this.btnDisplayAllProduct.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnDisplayAllProduct.FlatAppearance.BorderSize = 0;
+            this.btnDisplayAllProduct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisplayAllProduct.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnDisplayAllProduct.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDisplayAllProduct.Location = new System.Drawing.Point(21, 19);
+            this.btnDisplayAllProduct.Name = "btnDisplayAllProduct";
+            this.btnDisplayAllProduct.Size = new System.Drawing.Size(83, 36);
+            this.btnDisplayAllProduct.TabIndex = 23;
+            this.btnDisplayAllProduct.Text = "عرض الكل";
+            this.btnDisplayAllProduct.UseVisualStyleBackColor = false;
+            this.btnDisplayAllProduct.Click += new System.EventHandler(this.btnDisplayAllProduct_Click);
             // 
             // ProductItems
             // 
@@ -2149,5 +2202,8 @@ namespace StoresManagmentDX
         private System.Windows.Forms.TextBox txtType2;
         private System.Windows.Forms.TextBox txtFactory1;
         private System.Windows.Forms.TextBox txtType1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnGroupDisplayAll;
+        private System.Windows.Forms.Button btnDisplayAllProduct;
     }
 }

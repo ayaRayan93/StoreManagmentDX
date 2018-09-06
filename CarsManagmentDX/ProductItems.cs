@@ -17,6 +17,7 @@ namespace StoresManagmentDX
     {
         MySqlConnection dbconnection;
         DataGridViewRow row1 = null;
+        int id = -1;
         bool load = false;
         public ProductItems()
         {
@@ -299,7 +300,8 @@ namespace StoresManagmentDX
                                 {
                                     Name = (string)com.ExecuteScalar();
                                     comType.Text = Name;
-                                   
+                                    if (txtType1.Text == "1")
+                                        txtGroup.Focus();
                                     txtFactory1.Focus();
                                 }
                                 else
@@ -318,6 +320,7 @@ namespace StoresManagmentDX
                                     comTypeProduct.Text = Name;
 
                                     txtFactory2.Focus();
+                                    displayProduct_Type(Convert.ToInt16(txtType2.Text));
                                 }
                                 else
                                 {
@@ -370,6 +373,7 @@ namespace StoresManagmentDX
                                     comFactoryGroup.Text = Name;
 
                                     txtGroup2.Focus();
+                                    displayProduct_Factory(Convert.ToInt16(txtFactory2.Text));
                                 }
                                 else
                                 {
@@ -405,6 +409,7 @@ namespace StoresManagmentDX
                                     comGroup.Text = Name;
 
                                     txtProduct.Focus();
+                                    displayProduct(Convert.ToInt16(txtGroup2.Text));
                                 }
                                 else
                                 {
@@ -561,12 +566,12 @@ namespace StoresManagmentDX
         {
             try
             {
-                if (checkedListBox1.SelectedItems.Count>0)
+                dbconnection.Open();
+                string query = "select Factory_ID from factory where Factory_Name = '" + txtFactory.Text + "'";
+                MySqlCommand com = new MySqlCommand(query, dbconnection);
+                if (com.ExecuteScalar() == null)
                 {
-                    dbconnection.Open();
-                    string query = "select Factory_ID from factory where Factory_Name = '" + txtFactory.Text +"'";
-                    MySqlCommand com = new MySqlCommand(query, dbconnection);
-                    if (com.ExecuteScalar() == null)
+                    if (checkedListBox1.CheckedItems.Count > 0)
                     {
                         if (txtFactory.Text != "")
                         {
@@ -574,14 +579,14 @@ namespace StoresManagmentDX
                             com = new MySqlCommand(query, dbconnection);
                             com.Parameters.AddWithValue("@name", txtFactory.Text);
                             com.ExecuteNonQuery();
-                          
+
                             query = "select Factory_ID from factory order by Factory_ID desc limit 1";
                             com = new MySqlCommand(query, dbconnection);
                             int factory_ID = Convert.ToInt16(com.ExecuteScalar().ToString());
 
                             for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
                             {
-                                int Type_ID = Convert.ToInt16(checkedListBox1.CheckedItems[i].ToString().Split('\t')[1]);
+                                int Type_ID = Convert.ToInt16(checkedListBox1.CheckedItems[0].ToString().Split('\t')[1]);
                                 query = "insert into type_factory (Type_ID,Factory_ID) values (@Type_ID,@Factory_ID)";
                                 com = new MySqlCommand(query, dbconnection);
                                 com.Parameters.Add("@Type_ID", MySqlDbType.Int16);
@@ -590,28 +595,32 @@ namespace StoresManagmentDX
                                 com.Parameters["@factory_ID"].Value = factory_ID;
                                 com.ExecuteNonQuery();
                             }
-                         
+
 
                             query = "select Factory_ID from factory order by Factory_ID desc limit 1";
                             com = new MySqlCommand(query, dbconnection);
                             UserControl.UserRecord("factory", "اضافة", factory_ID.ToString(), DateTime.Now, dbconnection);
 
-                            //displayFactory(Convert.ToInt16(comType.SelectedValue));
+                            //  displayFactory(Convert.ToInt16(comType.SelectedValue));
                             txtFactory.Text = "";
+                            for (int j = 0; j < checkedListBox1.Items.Count; j++)
+                            {
+                                checkedListBox1.SetItemChecked(j, false);
+                            }
                         }
                         else
                         {
-                            txtFactory.Focus();                          
+                            txtFactory.Focus();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("This factory already exist");
+                        MessageBox.Show("select type");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("select type");
+                    MessageBox.Show("This factory already exist");
                 }
             }
             catch (Exception ex)
@@ -626,13 +635,12 @@ namespace StoresManagmentDX
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-
-                    if (checkedListBox1.SelectedItems.Count > 0)
+                    dbconnection.Open();
+                    string query = "select Factory_ID from factory where Factory_Name = '" + txtFactory.Text + "'";
+                    MySqlCommand com = new MySqlCommand(query, dbconnection);
+                    if (com.ExecuteScalar() == null)
                     {
-                        dbconnection.Open();
-                        string query = "select Factory_ID from factory where Factory_Name = '" + txtFactory.Text + "'";
-                        MySqlCommand com = new MySqlCommand(query, dbconnection);
-                        if (com.ExecuteScalar() == null)
+                        if (checkedListBox1.CheckedItems.Count > 0)
                         {
                             if (txtFactory.Text != "")
                             {
@@ -647,8 +655,8 @@ namespace StoresManagmentDX
 
                                 for (int i = 0; i < checkedListBox1.CheckedItems.Count; i++)
                                 {
-                                    int Type_ID = Convert.ToInt16(checkedListBox1.CheckedItems[0].ToString().Split('\t')[1]);
-                                    query = "insert into type_factory (Type_ID,Factory_ID) values (Type_ID,Factory_ID)";
+                                    int Type_ID = Convert.ToInt16(checkedListBox1.CheckedItems[i].ToString().Split('\t')[1]);
+                                    query = "insert into type_factory (Type_ID,Factory_ID) values (@Type_ID,@Factory_ID)";
                                     com = new MySqlCommand(query, dbconnection);
                                     com.Parameters.Add("@Type_ID", MySqlDbType.Int16);
                                     com.Parameters["@Type_ID"].Value = Type_ID;
@@ -664,6 +672,12 @@ namespace StoresManagmentDX
 
                                 //  displayFactory(Convert.ToInt16(comType.SelectedValue));
                                 txtFactory.Text = "";
+                                for (int j = 0; j < checkedListBox1.Items.Count; j++)
+                                {
+                                    checkedListBox1.SetItemChecked(j, false);
+
+                                }
+
                             }
                             else
                             {
@@ -672,13 +686,14 @@ namespace StoresManagmentDX
                         }
                         else
                         {
-                            MessageBox.Show("This factory already exist");
+                            MessageBox.Show("select type");
                         }
                     }
                     else
                     {
-                        MessageBox.Show("select type");
+                        MessageBox.Show("This factory already exist");
                     }
+                 
                 }
             }
             catch (Exception ex)
@@ -687,48 +702,14 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
-     
-        private void comType_KeyDown(object sender, KeyEventArgs e)
-        {
-            try
-            {
-                if (e.KeyCode == Keys.Enter)
-                {
-                   // displayFactory((int)comType.SelectedValue);
-                    txtFactory.Focus();
-                    txtFactory.Select();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
-        private void comType_SelectedValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (load)
-                {
-                  //  displayFactory((int)comType.SelectedValue);
-                    txtFactory.Focus();
-                    txtFactory.SelectAll();
-                }   
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+  
         private void btnSave_Click(object sender, EventArgs e)
         {
             try
             {
                 dbconnection.Open();
-                DataGridViewRow row1 = dataGridViewFactory.Rows[dataGridViewFactory.SelectedCells[0].RowIndex];
-                if (row1 != null)
-                {
-                    int id = Convert.ToInt16(row1.Cells[0].Value.ToString());
+               if (id != -1)
+                {                  
                     if (checkedListBox1.CheckedItems.Count > 0)
                     {
                         string query = "select Factory_ID from factory where Factory_Name = '" + txtFactory.Text + "' and Factory_ID not in(" + id + ")";
@@ -803,10 +784,10 @@ namespace StoresManagmentDX
             {
                 dbconnection.Open();
                 btnSave.Visible = true;
-                DataGridViewRow row1 = dataGridViewFactory.Rows[dataGridViewFactory.SelectedCells[0].RowIndex];
+                row1 = dataGridViewFactory.Rows[dataGridViewFactory.SelectedCells[0].RowIndex];
                 if (row1 != null)
                 {
-                    int id = Convert.ToInt16(row1.Cells[0].Value.ToString());
+                    id = Convert.ToInt16(row1.Cells[0].Value.ToString());
                     string query = "select Type_ID from type_factory where Factory_ID="+id;
                     MySqlCommand com = new MySqlCommand(query, dbconnection);
                     MySqlDataReader dr = com.ExecuteReader();
@@ -816,6 +797,7 @@ namespace StoresManagmentDX
                         idList.Add(Convert.ToInt16(dr["Type_ID"].ToString()));
                     }
                     dr.Close();
+                    dbconnection.Close();
                     txtFactory.Text = row1.Cells[1].Value.ToString();
                     for (int i = 0; i < checkedListBox1.Items.Count; i++)
                     {
@@ -887,6 +869,18 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
+        private void btnDisplayAllFactory_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                displayFactory();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
         #endregion
         #region group panel
         private void btnGroup_Click(object sender, EventArgs e)
@@ -1032,6 +1026,7 @@ namespace StoresManagmentDX
                         comFactory.DisplayMember = dt.Columns["Factory_Name"].ToString();
                         comFactory.ValueMember = dt.Columns["Factory_ID"].ToString();
                         comFactory.Text = "";
+                        txtFactory1.Text = "";
 
                         label6.Visible = true;
                         comFactory.Visible = true;
@@ -1308,8 +1303,10 @@ namespace StoresManagmentDX
                         comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
                         comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
                         comGroup.Text = "";
+                        txtGroup2.Text="";
                         comGroup.Focus();
                         dataGridViewProduct.DataSource = null;
+                        displayProduct_Factory(Convert.ToInt16(comFactoryGroup.SelectedValue));
                     }
                 }
             }
@@ -1376,6 +1373,39 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
+        }
+        private void btnDisplayAllProduct_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                displayProduct();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void comTypeProduct_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                string query = "select distinct factory.Factory_ID, Factory_Name from factory inner join type_factory on type_factory.Factory_ID=factory.Factory_ID where type_factory.Type_ID=" + comType.SelectedValue.ToString();
+                MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+                comFactoryGroup.DataSource = dt;
+                comFactoryGroup.DisplayMember = dt.Columns["Factory_Name"].ToString();
+                comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
+                comFactoryGroup.Text = "";
+                txtFactory2.Text = "";
+
+                displayProduct_Type(Convert.ToInt16(comTypeProduct.SelectedValue));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         #endregion
         #region color panel
@@ -1878,14 +1908,11 @@ namespace StoresManagmentDX
                         dataGridView1.DataSource = dtaple;
                         break;
                     case "txtFactory":
-                        if (comType2.Text != "")
-                        {
-                            query = "select Factory_ID as 'كود',Factory_Name as 'الأسم' from Factory where Factory_Name like'" + txtFactory.Text + "%' and Type_ID=" + comType2.SelectedValue;
-                            adapter = new MySqlDataAdapter(query, dbconnection);
-                            dtaple = new DataTable();
-                            adapter.Fill(dtaple);
-                            dataGridViewFactory.DataSource = dtaple;
-                        }
+                        query = "select distinct factory.Factory_ID as 'كود',Factory_Name as 'المصنع',Type_Name as 'النوع' from factory inner join type_factory on factory.Factory_ID=type_factory.Factory_ID inner join type  on type.Type_ID=type_factory.Type_ID where Factory_Name like'" + txtFactory.Text + "%'";
+                        adapter = new MySqlDataAdapter(query, dbconnection);
+                        dtaple = new DataTable();
+                        adapter.Fill(dtaple);
+                        dataGridViewFactory.DataSource = dtaple;                     
                         break;
                     case "txtGroup":
                         if (comFactory2.Text != "")
@@ -2010,9 +2037,9 @@ namespace StoresManagmentDX
             comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
             comFactoryGroup.Text = "";
         }
-        public void displayGroup(int id)
+        public void displayGroup_Type(int type_id)
         {
-            string query = "select distinct Group_ID as 'كود',Group_Name as 'المجموعة',Type_Name as 'النوع' from groupo inner join type on groupo.Type_ID=type.Type_ID  where Factory_ID=" + id+ " order by Group_ID";
+            string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع',Group_Name as 'المجموعة' from groupo left join factory on factory.Factory_ID=groupo.Factory_ID  where groupo.Type_ID=" + type_id+" order by Group_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -2029,20 +2056,41 @@ namespace StoresManagmentDX
             comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
             comGroup.Text = "";
         }
-        public void displayGroup()
+        public void displayGroup(int type_id)
         {
-            string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع' ,Group_Name as 'المجموعة' from groupo inner join factory on factory.Factory_ID=groupo.Factory_ID order by Group_ID";
+            string query = "select distinct Group_ID as 'كود',Group_Name as 'المجموعة' from groupo   where groupo.Type_ID="+txtType2.Text+" and groupo.Factory_ID=" + type_id + " order by Group_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewGroup.DataSource = dt;
             dataGridViewGroup.Columns[0].Width = 50;
-            dataGridViewGroup.Columns[1].Width = 120;
-            dataGridViewGroup.Columns[2].Width = dataGridViewGroup.Width - 170;
+            dataGridViewGroup.Columns[1].Width = dataGridViewGroup.Width - 50;
+
+            query = "select distinct * from groupo";
+            da = new MySqlDataAdapter(query, dbconnection);
+            dt = new DataTable();
+            da.Fill(dt);
+            comGroup.DataSource = dt;
+            comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
+            comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
+            comGroup.Text = "";
+        }
+     
+        public void displayGroup()
+        {
+            string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع',Type_Name as 'النوع',Group_Name as 'المجموعة' from groupo left join factory on factory.Factory_ID=groupo.Factory_ID inner join type on type.Type_ID=groupo.Type_ID order by Group_ID";
+            MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridViewGroup.DataSource = dt;
+            dataGridViewGroup.Columns[0].Width = 50;
+            dataGridViewGroup.Columns[1].Width = 100;
+            dataGridViewGroup.Columns[2].Width = 100;
+            dataGridViewGroup.Columns[3].Width = dataGridViewGroup.Width - 250;
         }
         public void displayProduct(int id)
         {
-            string query = "select distinct Product_ID as 'كود',Product_Name as 'الأسم' from product where Group_ID=" + id+ " order by Product_ID";
+            string query = "select distinct Product_ID as 'كود',Product_Name as 'الصنف' from product where Group_ID=" + id+ " order by Product_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -2052,14 +2100,39 @@ namespace StoresManagmentDX
         }
         public void displayProduct()
         {
-            string query = "select distinct Product_ID as 'كود',Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID  order by Product_ID";
+            string query = "select distinct Product_ID as 'كود', Type_Name as 'النوع',Factory_Name as 'المصنع', Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID inner join  factory on product.Factory_ID=factory.Factory_ID inner join  type on product.Type_ID=type.Type_ID   order by Product_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewProduct.DataSource = dt;
             dataGridViewProduct.Columns[0].Width = 50;
-            dataGridViewProduct.Columns[1].Width = 120;
-            dataGridViewProduct.Columns[2].Width = dataGridViewProduct.Width - 170;
+        }
+        public void displayProduct_Type(int type_id)
+        {
+            string query = "select distinct Product_ID as 'كود' ,Factory_Name as 'المصنع', Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID inner join  factory on product.Factory_ID=factory.Factory_ID inner join  type on product.Type_ID=type.Type_ID where product.Type_ID="+type_id+" order by Product_ID";
+            MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridViewProduct.DataSource = dt;
+            dataGridViewProduct.Columns[0].Width = 50;
+        }
+        public void displayProduct_Factory(int factory_id)
+        {
+            string query = "select distinct Product_ID as 'كود' , Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID   where product.Type_ID="+txtType2.Text+" and product.Factory_ID=" + factory_id + " order by Product_ID";
+            MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridViewProduct.DataSource = dt;
+            dataGridViewProduct.Columns[0].Width = 50;
+        }
+        public void displayProduct_Group(int group_id)
+        {
+            string query = "select distinct Product_ID as 'كود' ,Product_Name as 'الصنف' from product  where product.Type_ID=" + txtType2.Text + " and product.Factory_ID=" + txtFactory2.Text + "  product.Group_ID=" + group_id + " order by Product_ID";
+            MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+            DataTable dt = new DataTable();
+            da.Fill(dt);
+            dataGridViewProduct.DataSource = dt;
+            dataGridViewProduct.Columns[0].Width = 50;
         }
         public void displayColor(int id)
         {
@@ -2160,8 +2233,18 @@ namespace StoresManagmentDX
                 item.RowHeadersDefaultCellStyle = style;
             }
         }
-   
+        private void btnGroupDisplayAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+               displayGroup();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
 
-    
+     
     }
 }
