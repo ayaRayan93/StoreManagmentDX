@@ -100,7 +100,7 @@ namespace StoresManagmentDX
                             if (loaded)
                             {
                                 txtType.Text = comType.SelectedValue.ToString();
-                                string query = "select * from factory where Type_ID=" + txtType.Text;
+                                string query = "select * from factory inner join type_factory on factory.Factory_ID=type_factory.Factory_ID inner join type on type_factory.Type_ID=type.Type_ID where type_factory.Type_ID=" + txtType.Text;
                                 MySqlDataAdapter da = new MySqlDataAdapter(query, conn);
                                 DataTable dt = new DataTable();
                                 da.Fill(dt);
@@ -109,7 +109,18 @@ namespace StoresManagmentDX
                                 comFactory.ValueMember = dt.Columns["Factory_ID"].ToString();
                                 comFactory.Text = "";
                                 txtFactory.Text = "";
-
+                                if (txtType.Text == "1")
+                                {
+                                    string query2 = "select * from groupo where Factory_ID=0 and Type_ID="+txtType.Text;
+                                    MySqlDataAdapter da2 = new MySqlDataAdapter(query2, conn);
+                                    DataTable dt2 = new DataTable();
+                                    da2.Fill(dt2);
+                                    comGroup.DataSource = dt2;
+                                    comGroup.DisplayMember = dt2.Columns["Group_Name"].ToString();
+                                    comGroup.ValueMember = dt2.Columns["Group_ID"].ToString();
+                                    comGroup.Text = "";
+                                    txtGroup.Text = "";
+                                }
                                 factoryFlage = true;
 
                                 query = "select * from color where Type_ID=" + txtType.Text;
@@ -128,22 +139,24 @@ namespace StoresManagmentDX
                             if (factoryFlage)
                             {
                                 txtFactory.Text = comFactory.SelectedValue.ToString();
-
-                                string query2 = "select * from groupo where Factory_ID=" + txtFactory.Text;
-                                MySqlDataAdapter da2 = new MySqlDataAdapter(query2, conn);
-                                DataTable dt2 = new DataTable();
-                                da2.Fill(dt2);
-                                comGroup.DataSource = dt2;
-                                comGroup.DisplayMember = dt2.Columns["Group_Name"].ToString();
-                                comGroup.ValueMember = dt2.Columns["Group_ID"].ToString();
-                                comGroup.Text = "";
-                                txtGroup.Text = "";
+                                if (txtType.Text != "1")
+                                {
+                                    string query2f = "select * from groupo where Factory_ID=" + txtFactory.Text;
+                                    MySqlDataAdapter da2f = new MySqlDataAdapter(query2f, conn);
+                                    DataTable dt2f = new DataTable();
+                                    da2f.Fill(dt2f);
+                                    comGroup.DataSource = dt2f;
+                                    comGroup.DisplayMember = dt2f.Columns["Group_Name"].ToString();
+                                    comGroup.ValueMember = dt2f.Columns["Group_ID"].ToString();
+                                    comGroup.Text = "";
+                                    txtGroup.Text = "";
+                                }
 
                                 groupFlage = true;
 
-                                query2 = "select * from size where Factory_ID=" + txtFactory.Text;
-                                da2 = new MySqlDataAdapter(query2, conn);
-                                dt2 = new DataTable();
+                                string query2 = "select * from size where Factory_ID=" + txtFactory.Text;
+                                MySqlDataAdapter  da2 = new MySqlDataAdapter(query2, conn);
+                                DataTable  dt2 = new DataTable();
                                 da2.Fill(dt2);
                                 comSize.DataSource = dt2;
                                 comSize.DisplayMember = dt2.Columns["Size_Value"].ToString();

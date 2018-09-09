@@ -56,6 +56,8 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDisplayWithImage = new DevExpress.XtraEditors.SimpleButton();
+            this.btnNewChooes = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.tLPanProductsContainer.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -151,6 +153,7 @@
             this.btnUpdate.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
             this.btnUpdate.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnUpdate.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.btnUpdate.Enabled = false;
             this.btnUpdate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Image = global::StoresManagmentDX.Properties.Resources.Edit_321;
@@ -250,6 +253,8 @@
             // panelControl1
             // 
             this.panelControl1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panelControl1.Controls.Add(this.btnNewChooes);
+            this.panelControl1.Controls.Add(this.btnSearch);
             this.panelControl1.Controls.Add(this.label7);
             this.panelControl1.Controls.Add(this.txtEditCode);
             this.panelControl1.Controls.Add(this.txtProduct);
@@ -277,7 +282,7 @@
             // 
             // label7
             // 
-            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -291,7 +296,7 @@
             // 
             // txtEditCode
             // 
-            this.txtEditCode.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtEditCode.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtEditCode.BackColor = System.Drawing.Color.White;
             this.txtEditCode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtEditCode.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -306,7 +311,7 @@
             // 
             // txtProduct
             // 
-            this.txtProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtProduct.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtProduct.BackColor = System.Drawing.Color.White;
             this.txtProduct.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtProduct.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -320,7 +325,7 @@
             // 
             // comProduct
             // 
-            this.comProduct.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comProduct.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comProduct.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comProduct.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comProduct.BackColor = System.Drawing.Color.White;
@@ -336,7 +341,7 @@
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -349,7 +354,7 @@
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -362,7 +367,7 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
@@ -375,7 +380,7 @@
             // 
             // comFactory
             // 
-            this.comFactory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comFactory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comFactory.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comFactory.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comFactory.BackColor = System.Drawing.Color.White;
@@ -391,7 +396,7 @@
             // 
             // txtFactory
             // 
-            this.txtFactory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtFactory.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtFactory.BackColor = System.Drawing.Color.White;
             this.txtFactory.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtFactory.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -405,7 +410,7 @@
             // 
             // com
             // 
-            this.com.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.com.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.com.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.com.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.com.BackColor = System.Drawing.Color.White;
@@ -420,7 +425,7 @@
             // 
             // tt
             // 
-            this.tt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.tt.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.tt.BackColor = System.Drawing.Color.White;
             this.tt.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tt.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -433,7 +438,7 @@
             // 
             // comGroup
             // 
-            this.comGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comGroup.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comGroup.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comGroup.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comGroup.BackColor = System.Drawing.Color.White;
@@ -449,7 +454,7 @@
             // 
             // label5
             // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -462,7 +467,7 @@
             // 
             // txtGroup
             // 
-            this.txtGroup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtGroup.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtGroup.BackColor = System.Drawing.Color.White;
             this.txtGroup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtGroup.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -476,7 +481,7 @@
             // 
             // comType
             // 
-            this.comType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.comType.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.comType.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.comType.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comType.BackColor = System.Drawing.Color.White;
@@ -492,7 +497,7 @@
             // 
             // txtType
             // 
-            this.txtType.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.txtType.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtType.BackColor = System.Drawing.Color.White;
             this.txtType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtType.Font = new System.Drawing.Font("Tahoma", 10F);
@@ -506,7 +511,7 @@
             // 
             // label3
             // 
-            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -519,13 +524,45 @@
             // 
             // btnDisplayWithImage
             // 
-            this.btnDisplayWithImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnDisplayWithImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnDisplayWithImage.Location = new System.Drawing.Point(559, 111);
             this.btnDisplayWithImage.Name = "btnDisplayWithImage";
             this.btnDisplayWithImage.Size = new System.Drawing.Size(113, 28);
             this.btnDisplayWithImage.TabIndex = 12;
             this.btnDisplayWithImage.Text = "عرض مع الصور";
             this.btnDisplayWithImage.Click += new System.EventHandler(this.btnDisplayWithImage_Click);
+            // 
+            // btnNewChooes
+            // 
+            this.btnNewChooes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNewChooes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnNewChooes.FlatAppearance.BorderSize = 0;
+            this.btnNewChooes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewChooes.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnNewChooes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNewChooes.Location = new System.Drawing.Point(10, 16);
+            this.btnNewChooes.Name = "btnNewChooes";
+            this.btnNewChooes.Size = new System.Drawing.Size(103, 36);
+            this.btnNewChooes.TabIndex = 136;
+            this.btnNewChooes.Text = "اختيار اخر";
+            this.btnNewChooes.UseVisualStyleBackColor = false;
+            this.btnNewChooes.Click += new System.EventHandler(this.btnNewChooes_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.Location = new System.Drawing.Point(10, 59);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(103, 36);
+            this.btnSearch.TabIndex = 135;
+            this.btnSearch.Text = "بحث";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // Products
             // 
@@ -580,5 +617,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtEditCode;
         private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+        private System.Windows.Forms.Button btnNewChooes;
+        private System.Windows.Forms.Button btnSearch;
     }
 }

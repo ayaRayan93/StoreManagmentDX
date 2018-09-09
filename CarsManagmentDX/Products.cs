@@ -324,17 +324,7 @@ namespace StoresManagmentDX
         }
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            try
-            {
-                dbconnection.Open();
-                displayProducts();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            dbconnection.Close();
-         
+
         }
         private void btnDelete_Click(object sender, EventArgs e)
         {
@@ -724,6 +714,19 @@ namespace StoresManagmentDX
             }
         }
 
-   
+        private void btnNewChooes_Click(object sender, EventArgs e)
+        {
+            foreach (Control item in panelControl1.Controls)
+            {
+                if (item is TextBox)
+                    item.Text = "";
+                else if (item is ComboBox)
+                {
+                    item.Text = "";
+                }
+
+            }
+            dataGridView1.DataSource = null;
+        }
     }
 }
