@@ -38,6 +38,8 @@
             this.dataGridView1 = new DevExpress.XtraGrid.GridControl();
             this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnNewChooes = new System.Windows.Forms.Button();
+            this.btnSearch = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.txtEditCode = new System.Windows.Forms.TextBox();
             this.txtProduct = new System.Windows.Forms.TextBox();
@@ -56,8 +58,6 @@
             this.txtType = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnDisplayWithImage = new DevExpress.XtraEditors.SimpleButton();
-            this.btnNewChooes = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
             this.tLPanProductsContainer.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -279,6 +279,38 @@
             this.tLPanProductsContainer.SetRowSpan(this.panelControl1, 2);
             this.panelControl1.Size = new System.Drawing.Size(769, 145);
             this.panelControl1.TabIndex = 13;
+            // 
+            // btnNewChooes
+            // 
+            this.btnNewChooes.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnNewChooes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnNewChooes.FlatAppearance.BorderSize = 0;
+            this.btnNewChooes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNewChooes.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnNewChooes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnNewChooes.Location = new System.Drawing.Point(10, 16);
+            this.btnNewChooes.Name = "btnNewChooes";
+            this.btnNewChooes.Size = new System.Drawing.Size(103, 36);
+            this.btnNewChooes.TabIndex = 136;
+            this.btnNewChooes.Text = "اختيار اخر";
+            this.btnNewChooes.UseVisualStyleBackColor = false;
+            this.btnNewChooes.Click += new System.EventHandler(this.btnNewChooes_Click);
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnSearch.FlatAppearance.BorderSize = 0;
+            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSearch.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSearch.Location = new System.Drawing.Point(10, 59);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(103, 36);
+            this.btnSearch.TabIndex = 135;
+            this.btnSearch.Text = "بحث";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // label7
             // 
@@ -531,38 +563,6 @@
             this.btnDisplayWithImage.TabIndex = 12;
             this.btnDisplayWithImage.Text = "عرض مع الصور";
             this.btnDisplayWithImage.Click += new System.EventHandler(this.btnDisplayWithImage_Click);
-            // 
-            // btnNewChooes
-            // 
-            this.btnNewChooes.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnNewChooes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnNewChooes.FlatAppearance.BorderSize = 0;
-            this.btnNewChooes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNewChooes.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
-            this.btnNewChooes.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnNewChooes.Location = new System.Drawing.Point(10, 16);
-            this.btnNewChooes.Name = "btnNewChooes";
-            this.btnNewChooes.Size = new System.Drawing.Size(103, 36);
-            this.btnNewChooes.TabIndex = 136;
-            this.btnNewChooes.Text = "اختيار اخر";
-            this.btnNewChooes.UseVisualStyleBackColor = false;
-            this.btnNewChooes.Click += new System.EventHandler(this.btnNewChooes_Click);
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
-            this.btnSearch.FlatAppearance.BorderSize = 0;
-            this.btnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSearch.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
-            this.btnSearch.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnSearch.Location = new System.Drawing.Point(10, 59);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(103, 36);
-            this.btnSearch.TabIndex = 135;
-            this.btnSearch.Text = "بحث";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // Products
             // 

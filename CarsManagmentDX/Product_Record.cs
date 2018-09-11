@@ -408,7 +408,7 @@ namespace StoresManagmentDX
 
                         code = code + code5;
                         
-                        command.CommandText = "INSERT INTO data (Color_ID,Size_ID,Sort_ID,Description,Carton,Code,Type_ID,Factory_ID,Group_ID,Product_ID,Classification) VALUES (?Color_ID,?Size_ID,?Sort_ID,?Description,?Carton,?Code,?Type_ID,?Factory_ID,?Group_ID,?Product_ID,?Classification)";
+                        command.CommandText = "INSERT INTO data (Color_ID,Size_ID,Sort_ID,Description,Carton,Code,Type_ID,Factory_ID,Group_ID,Product_ID,Classification,Data_Date) VALUES (?Color_ID,?Size_ID,?Sort_ID,?Description,?Carton,?Code,?Type_ID,?Factory_ID,?Group_ID,?Product_ID,?Classification,?Data_Date)";
                         
                         command.Parameters.AddWithValue("?Color_ID", color_id);
                         command.Parameters.AddWithValue("?Size_ID", size_id);
@@ -421,6 +421,7 @@ namespace StoresManagmentDX
                         command.Parameters.AddWithValue("?Group_ID", int.Parse(txtGroup.Text));
                         command.Parameters.AddWithValue("?Product_ID", int.Parse(txtProduct.Text));
                         command.Parameters.AddWithValue("?Classification", classification);
+                        command.Parameters.AddWithValue("?Data_Date", DateTime.Now.Date);
                         conn.Open();
                         command.ExecuteNonQuery();
                         conn.Close();

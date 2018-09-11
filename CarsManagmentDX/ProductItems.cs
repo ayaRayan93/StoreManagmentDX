@@ -20,6 +20,8 @@ namespace StoresManagmentDX
         int id = -1;
         bool load = false;
         bool flagFactory = false;//in group tap
+        bool flagFactoryP = false;//in product tap
+        bool flagGroup = false;//in product tap
         public ProductItems()
         {
             try
@@ -111,7 +113,6 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
-
         private void ProductItems_Load(object sender, EventArgs e)
         {
             try
@@ -186,7 +187,6 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
-
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -237,7 +237,6 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void comBox_SelectedValueChanged(object sender, EventArgs e)
         {
             try
@@ -290,7 +289,6 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void txtBox_KeyDown(object sender, KeyEventArgs e)
         {
          
@@ -312,6 +310,7 @@ namespace StoresManagmentDX
                                 com = new MySqlCommand(query, dbconnection);
                                 if (com.ExecuteScalar() != null)
                                 {
+                                    displayGroup_Type(Convert.ToInt16(txtType1.Text));
                                     Name = (string)com.ExecuteScalar();
                                     comType.Text = Name;
                                     if (txtType1.Text == "1")
@@ -334,7 +333,9 @@ namespace StoresManagmentDX
                                     comTypeProduct.Text = Name;
 
                                     txtFactory2.Focus();
-                                    displayProduct_Type(Convert.ToInt16(txtType2.Text));
+                                    dataGridViewProduct.DataSource = displayProduct_Type(Convert.ToInt16(txtType2.Text));
+                                    dataGridViewProduct.Columns[0].Width = 50;
+                                  
                                 }
                                 else
                                 {
@@ -366,6 +367,7 @@ namespace StoresManagmentDX
                                 com = new MySqlCommand(query, dbconnection);
                                 if (com.ExecuteScalar() != null)
                                 {
+                                    displayGroup_Factory(Convert.ToInt16(txtFactory1.Text));
                                     Name = (string)com.ExecuteScalar();
                                     comFactory.Text = Name;
                                   
@@ -387,7 +389,9 @@ namespace StoresManagmentDX
                                     comFactoryGroup.Text = Name;
 
                                     txtGroup2.Focus();
-                                    displayProduct_Factory(Convert.ToInt16(txtFactory2.Text));
+                                    dataGridViewProduct.DataSource = displayProduct_Factory(Convert.ToInt16(txtFactory2.Text));
+                                    dataGridViewProduct.Columns[0].Width = 50;
+                                 
                                 }
                                 else
                                 {
@@ -445,6 +449,86 @@ namespace StoresManagmentDX
                 dbconnection.Close();
             }
         }
+        private void txt_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                dbconnection.Open();
+                TextBox txtbox = (TextBox)sender;
+                MySqlDataAdapter adapter;
+                DataTable dtaple;
+                string query = "";
+                switch (txtbox.Name)
+                {
+                    case "txtType":
+                        query = "select Type_ID as 'كود',Type_Name as 'الأسم' from type where Type_Name like'" + txtType.Text + "%'";
+                        adapter = new MySqlDataAdapter(query, dbconnection);
+                        dtaple = new DataTable();
+                        adapter.Fill(dtaple);
+                        dataGridView1.DataSource = dtaple;
+                        break;
+                    case "txtFactory":
+                        query = "select distinct factory.Factory_ID as 'كود',Factory_Name as 'المصنع',Type_Name as 'النوع' from factory inner join type_factory on factory.Factory_ID=type_factory.Factory_ID inner join type  on type.Type_ID=type_factory.Type_ID where Factory_Name like'" + txtFactory.Text + "%'";
+                        adapter = new MySqlDataAdapter(query, dbconnection);
+                        dtaple = new DataTable();
+                        adapter.Fill(dtaple);
+                        dataGridViewFactory.DataSource = dtaple;
+                        break;
+                    case "txtGroup":
+                        if (comFactory2.Text != "")
+                        {
+                            query = "select Group_ID as 'كود',Group_Name as 'الأسم' from Groupo where Group_Name like'" + txtGroup.Text + "%' and Factory_ID=" + comFactory2.SelectedValue;
+                            adapter = new MySqlDataAdapter(query, dbconnection);
+                            dtaple = new DataTable();
+                            adapter.Fill(dtaple);
+                            dataGridViewGroup.DataSource = dtaple;
+                        }
+                        break;
+                    case "txtProduct":
+                        if (comFactoryGroup.Text != "")
+                        {
+                            query = "select Product_ID as 'كود',Product_Name as 'الأسم' from Product where Product_Name like'" + txtProduct.Text + "%' and Group_ID=" + comFactoryGroup.SelectedValue;
+                            adapter = new MySqlDataAdapter(query, dbconnection);
+                            dtaple = new DataTable();
+                            adapter.Fill(dtaple);
+                            dataGridViewProduct.DataSource = dtaple;
+                        }
+                        break;
+                    case "txtSort":
+                        query = "select Sort_ID as 'كود',Sort_Value as 'الأسم' from Sort where Sort_Value like'" + txtSort.Text + "%'";
+                        adapter = new MySqlDataAdapter(query, dbconnection);
+                        dtaple = new DataTable();
+                        adapter.Fill(dtaple);
+                        dataGridViewSort.DataSource = dtaple;
+                        break;
+                    case "txtColor":
+                        //if (comType.Text != "")
+                        //{
+                        //    query = "select Color_ID as 'كود',Color_Name as 'الأسم' from Color where Color_Name like'" + txtColor.Text + "%' and Type_ID=" + comType.SelectedValue;
+                        //    adapter = new MySqlDataAdapter(query, dbconnection);
+                        //    dtaple = new DataTable();
+                        //    adapter.Fill(dtaple);
+                        //    dataGridViewColor.DataSource = dtaple;
+                        //}
+                        break;
+                    case "txtSize":
+                        if (comFactory.Text != "")
+                        {
+                            query = "select Size_ID as 'كود',Size_Value as 'الأسم' from Size where Size_Value like'" + txtSize.Text + "%' and Factory_ID=" + comFactory.SelectedValue;
+                            adapter = new MySqlDataAdapter(query, dbconnection);
+                            dtaple = new DataTable();
+                            adapter.Fill(dtaple);
+                            dataGridViewSize.DataSource = dtaple;
+                        }
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            dbconnection.Close();
+        }
 
         #region type panel
         private void btnType_Click(object sender, EventArgs e)
@@ -487,8 +571,7 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
-        }
-   
+        }   
         private void txtType_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -575,6 +658,7 @@ namespace StoresManagmentDX
             dbconnection.Close();
         }
         #endregion
+
         #region factory panel
         private void btnFactory_Click(object sender, EventArgs e)
         {
@@ -887,8 +971,8 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-
         #endregion
+
         #region group panel
         private void btnGroup_Click(object sender, EventArgs e)
         {
@@ -1038,12 +1122,17 @@ namespace StoresManagmentDX
 
                         flagFactory = true;
 
+                        displayGroup_Type(Convert.ToInt16(comType.SelectedValue.ToString()));
+                        
+
                         label6.Visible = true;
                         comFactory.Visible = true;
                         txtFactory1.Visible = true;
                     }
                     else
                     {
+                        displayGroup_Type(Convert.ToInt16(comType.SelectedValue.ToString()));
+
                         label6.Visible = false;
                         comFactory.Visible = false;
                         txtFactory1.Visible = false;
@@ -1077,7 +1166,8 @@ namespace StoresManagmentDX
             {
                 if (flagFactory)
                 {
-                    //  displayGroup((int)comFactory.SelectedValue);
+                    displayGroup_Factory(Convert.ToInt16(comFactory.SelectedValue));
+                    
                     txtFactory1.Text = "";
                     txtGroup.Focus();
                     txtGroup.SelectAll();
@@ -1134,13 +1224,25 @@ namespace StoresManagmentDX
             }
             dbconnection.Close();
         }
+        private void btnGroupDisplayAll_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                displayGroup();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
         #endregion
+
         #region product panel
         private void btnProduct_Click(object sender, EventArgs e)
         {
             try
             {
-                if (comGroup.Text != "")
+                if (comGroup.Text != "" && comFactoryGroup.Text != "" && comTypeProduct.Text != "")
                 {
                     dbconnection.Open();
                     string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "'";
@@ -1176,7 +1278,7 @@ namespace StoresManagmentDX
                 }
                 else
                 {
-                    MessageBox.Show("select group");
+                    MessageBox.Show("Fill all fields");
                 }
             }
             catch (Exception ex)
@@ -1191,7 +1293,7 @@ namespace StoresManagmentDX
             {
                 if (e.KeyCode == Keys.Enter)
                 {
-                    if (comGroup.Text != "")
+                    if (comGroup.Text != ""&& comFactoryGroup.Text != ""&& comTypeProduct.Text != "")
                     {
                         dbconnection.Open();
                         string query = "select Product_ID from product where Product_Name = '" + txtProduct.Text + "' and Group_ID=" + comGroup.SelectedValue;
@@ -1204,7 +1306,7 @@ namespace StoresManagmentDX
                                 com = new MySqlCommand(query, dbconnection);
                                 com.Parameters.AddWithValue("@name", txtProduct.Text);
                                 com.Parameters.AddWithValue("@Type_ID", Convert.ToInt16(comTypeProduct.SelectedValue));
-                                com.Parameters.AddWithValue("@Factory_ID", Convert.ToInt16(comGroup.SelectedValue));
+                                com.Parameters.AddWithValue("@Factory_ID", Convert.ToInt16(comFactoryGroup.SelectedValue));
                                 com.Parameters.AddWithValue("@Group_ID", Convert.ToInt16(comGroup.SelectedValue));
                                 com.ExecuteNonQuery();
                                 query = "select Product_ID from product order by Product_ID desc limit 1";
@@ -1237,8 +1339,7 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
             dbconnection.Close();
-        }
-     
+        }   
         private void comGroup2_KeyDown(object sender, KeyEventArgs e)
         {
             try
@@ -1259,7 +1360,7 @@ namespace StoresManagmentDX
         {
             try
             {
-                if (load)
+                if (flagFactoryP)
                 {
                     if (comTypeProduct.SelectedValue.ToString() != "1")
                     {
@@ -1272,10 +1373,11 @@ namespace StoresManagmentDX
                         comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
                         comGroup.Text = "";
                         txtGroup2.Text = "";
-                        comGroup.Focus();
-                        dataGridViewProduct.DataSource = null;
-                        displayProduct_Factory(Convert.ToInt16(comFactoryGroup.SelectedValue));
-                    }                
+                        comGroup.Focus();           
+                    }
+                    dataGridViewProduct.DataSource = null;
+                    dataGridViewProduct.DataSource = displayProduct_Factory(Convert.ToInt16(comFactoryGroup.SelectedValue));
+                    dataGridViewProduct.Columns[0].Width = 50;
                 }
             }
             catch (Exception ex)
@@ -1287,7 +1389,7 @@ namespace StoresManagmentDX
         {
             try
             {
-                if (load)
+                if (flagGroup)
                 {
                     displayProduct_Group();
                     txtProduct.Focus();
@@ -1353,13 +1455,15 @@ namespace StoresManagmentDX
                 MessageBox.Show(ex.Message);
             }
         }
-
         private void comTypeProduct_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                if (load)
+                if (mTC_Content.SelectedIndex == 3)
                 {
+                    flagFactoryP = false;
+                    flagGroup = false;
+                    txtType2.Text = comTypeProduct.SelectedValue.ToString();
                     if (comTypeProduct.SelectedValue.ToString() == "1")
                     {
                         string query = "select distinct factory.Factory_ID, Factory_Name from factory inner join type_factory on type_factory.Factory_ID=factory.Factory_ID where type_factory.Type_ID=" + comTypeProduct.SelectedValue.ToString();
@@ -1381,6 +1485,7 @@ namespace StoresManagmentDX
                         comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
                         comGroup.Text = "";
                         txtGroup2.Text = "";
+                        flagGroup = true;
                     }
                     else
                     {                
@@ -1394,8 +1499,9 @@ namespace StoresManagmentDX
                         comFactoryGroup.Text = "";
                         txtFactory2.Text = "";
                     }
-                    displayProduct_Type(Convert.ToInt16(txtType2.Text));
-
+                    dataGridViewProduct.DataSource = displayProduct_Type(Convert.ToInt16(txtType2.Text));
+                    dataGridViewProduct.Columns[0].Width = 50;
+                    flagFactoryP = true;
                 }
             }
             catch (Exception ex)
@@ -1404,6 +1510,7 @@ namespace StoresManagmentDX
             }
         }
         #endregion
+
         #region color panel
         private void btnColor_Click(object sender, EventArgs e)
         {
@@ -1582,6 +1689,7 @@ namespace StoresManagmentDX
             dbconnection.Close();
         }
         #endregion
+
         #region size panel
         private void btnSize_Click(object sender, EventArgs e)
         {
@@ -1764,6 +1872,7 @@ namespace StoresManagmentDX
             dbconnection.Close();
         }
         #endregion
+
         #region sort panel
         private void btnSort_Click(object sender, EventArgs e)
         {
@@ -1885,88 +1994,9 @@ namespace StoresManagmentDX
         }
         #endregion
 
-        private void txt_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                dbconnection.Open();
-                TextBox txtbox = (TextBox)sender;
-                MySqlDataAdapter adapter;
-                DataTable dtaple;
-                string query = "";
-                switch (txtbox.Name)
-                {
-                    case "txtType":
-                        query = "select Type_ID as 'كود',Type_Name as 'الأسم' from type where Type_Name like'" + txtType.Text + "%'";
-                        adapter = new MySqlDataAdapter(query, dbconnection);
-                        dtaple = new DataTable();
-                        adapter.Fill(dtaple);
-                        dataGridView1.DataSource = dtaple;
-                        break;
-                    case "txtFactory":
-                        query = "select distinct factory.Factory_ID as 'كود',Factory_Name as 'المصنع',Type_Name as 'النوع' from factory inner join type_factory on factory.Factory_ID=type_factory.Factory_ID inner join type  on type.Type_ID=type_factory.Type_ID where Factory_Name like'" + txtFactory.Text + "%'";
-                        adapter = new MySqlDataAdapter(query, dbconnection);
-                        dtaple = new DataTable();
-                        adapter.Fill(dtaple);
-                        dataGridViewFactory.DataSource = dtaple;                     
-                        break;
-                    case "txtGroup":
-                        if (comFactory2.Text != "")
-                        {
-                            query = "select Group_ID as 'كود',Group_Name as 'الأسم' from Groupo where Group_Name like'" + txtGroup.Text + "%' and Factory_ID=" + comFactory2.SelectedValue;
-                            adapter = new MySqlDataAdapter(query, dbconnection);
-                            dtaple = new DataTable();
-                            adapter.Fill(dtaple);
-                            dataGridViewGroup.DataSource = dtaple;
-                        }
-                        break;
-                    case "txtProduct":
-                        if (comFactoryGroup.Text != "")
-                        {
-                            query = "select Product_ID as 'كود',Product_Name as 'الأسم' from Product where Product_Name like'" + txtProduct.Text + "%' and Group_ID=" + comFactoryGroup.SelectedValue;
-                            adapter = new MySqlDataAdapter(query, dbconnection);
-                            dtaple = new DataTable();
-                            adapter.Fill(dtaple);
-                            dataGridViewProduct.DataSource = dtaple;
-                        }
-                        break;
-                    case "txtSort":
-                        query = "select Sort_ID as 'كود',Sort_Value as 'الأسم' from Sort where Sort_Value like'" + txtSort.Text + "%'";
-                        adapter = new MySqlDataAdapter(query, dbconnection);
-                        dtaple = new DataTable();
-                        adapter.Fill(dtaple);
-                        dataGridViewSort.DataSource = dtaple;
-                        break;
-                    case "txtColor":
-                        //if (comType.Text != "")
-                        //{
-                        //    query = "select Color_ID as 'كود',Color_Name as 'الأسم' from Color where Color_Name like'" + txtColor.Text + "%' and Type_ID=" + comType.SelectedValue;
-                        //    adapter = new MySqlDataAdapter(query, dbconnection);
-                        //    dtaple = new DataTable();
-                        //    adapter.Fill(dtaple);
-                        //    dataGridViewColor.DataSource = dtaple;
-                        //}
-                        break;
-                    case "txtSize":
-                        if (comFactory.Text != "")
-                        {
-                            query = "select Size_ID as 'كود',Size_Value as 'الأسم' from Size where Size_Value like'" + txtSize.Text + "%' and Factory_ID=" + comFactory.SelectedValue;
-                            adapter = new MySqlDataAdapter(query, dbconnection);
-                            dtaple = new DataTable();
-                            adapter.Fill(dtaple);
-                            dataGridViewSize.DataSource = dtaple;
-                        }
-                        break;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            dbconnection.Close();
-        }
-      
+
         //function 
+        #region Type Tap
         public void displayType()
         {
             string query = "select distinct Type_ID as 'كود',Type_Name as 'النوع' from type";
@@ -1986,6 +2016,9 @@ namespace StoresManagmentDX
             comType2.ValueMember = dt.Columns["Type_ID"].ToString();
 
         }
+        #endregion
+
+        #region Factory Tap
         public void displayFactory()
         {
             string query = "select distinct factory.Factory_ID as 'كود',Factory_Name as 'المصنع',Type_Name as 'النوع' from factory inner join type_factory on factory.Factory_ID=type_factory.Factory_ID inner join type  on type.Type_ID=type_factory.Type_ID order by factory.Factory_ID";
@@ -2000,7 +2033,7 @@ namespace StoresManagmentDX
         }
         public void displayFactory(int id)
         {
-            string query = "select distinct Factory_ID as 'كود',Factory_Name as 'المصنع' from factory where Type_ID=" + id+ " order by Factory_ID ";
+            string query = "select distinct Factory_ID as 'كود',Factory_Name as 'المصنع' from factory where Type_ID=" + id + " order by Factory_ID ";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -2033,28 +2066,30 @@ namespace StoresManagmentDX
             comFactoryGroup.ValueMember = dt.Columns["Factory_ID"].ToString();
             comFactoryGroup.Text = "";
         }
+        #endregion
+
+        #region Group Tap
         public void displayGroup_Type(int type_id)
         {
-            string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع',Group_Name as 'المجموعة' from groupo left join factory on factory.Factory_ID=groupo.Factory_ID  where groupo.Type_ID=" + type_id+" order by Group_ID";
+            string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع',Group_Name as 'المجموعة' from groupo left join factory on factory.Factory_ID=groupo.Factory_ID  where groupo.Type_ID=" + type_id + " order by Group_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewGroup.DataSource = dt;
             dataGridViewGroup.Columns[0].Width = 50;
-            dataGridViewGroup.Columns[1].Width = dataGridViewGroup.Width - 50;
-
-            query = "select distinct * from groupo";
-            da = new MySqlDataAdapter(query, dbconnection);
-            dt = new DataTable();
+        }
+        public void displayGroup_Factory(int factory_id)
+        {
+            string query = "select distinct Group_ID as 'كود',Group_Name as 'المجموعة' from groupo left join factory on factory.Factory_ID=groupo.Factory_ID  where groupo.Type_ID=" + txtType1.Text + " and groupo.Factory_ID=" + factory_id + "  order by Group_ID";
+            MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
+            DataTable dt = new DataTable();
             da.Fill(dt);
-            comGroup.DataSource = dt;
-            comGroup.DisplayMember = dt.Columns["Group_Name"].ToString();
-            comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
-            comGroup.Text = "";
+            dataGridViewGroup.DataSource = dt;
+            dataGridViewGroup.Columns[0].Width = 50;
         }
         public void displayGroup(int type_id)
         {
-            string query = "select distinct Group_ID as 'كود',Group_Name as 'المجموعة' from groupo   where groupo.Type_ID="+txtType2.Text+" and groupo.Factory_ID=" + type_id + " order by Group_ID";
+            string query = "select distinct Group_ID as 'كود',Group_Name as 'المجموعة' from groupo   where groupo.Type_ID=" + txtType2.Text + " and groupo.Factory_ID=" + type_id + " order by Group_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
@@ -2071,7 +2106,6 @@ namespace StoresManagmentDX
             comGroup.ValueMember = dt.Columns["Group_ID"].ToString();
             comGroup.Text = "";
         }
-     
         public void displayGroup()
         {
             string query = "select distinct Group_ID as 'كود',Factory_Name as 'المصنع',Type_Name as 'النوع',Group_Name as 'المجموعة' from groupo left join factory on factory.Factory_ID=groupo.Factory_ID inner join type on type.Type_ID=groupo.Type_ID order by Group_ID";
@@ -2085,8 +2119,8 @@ namespace StoresManagmentDX
             dataGridViewGroup.Columns[3].Width = dataGridViewGroup.Width - 250;
         }
 
-        #region functions of product tap
-      
+        #endregion
+        #region functions of product tap    
         public void displayProductAll()
         {
             string query = "select distinct Product_ID as 'كود', Type_Name as 'النوع',Factory_Name as 'المصنع', Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID inner join  factory on product.Factory_ID=factory.Factory_ID inner join  type on product.Type_ID=type.Type_ID   order by Product_ID";
@@ -2096,23 +2130,21 @@ namespace StoresManagmentDX
             dataGridViewProduct.DataSource = dt;
             dataGridViewProduct.Columns[0].Width = 50;
         }
-        public void displayProduct_Type(int type_id)
+        public object displayProduct_Type(int type_id)
         {
             string query = "select distinct Product_ID as 'كود' ,Factory_Name as 'المصنع', Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID inner join  factory on product.Factory_ID=factory.Factory_ID inner join  type on product.Type_ID=type.Type_ID where product.Type_ID=" + type_id + " order by Product_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dataGridViewProduct.DataSource = dt;
-            dataGridViewProduct.Columns[0].Width = 50;
+            return dt;
         }
-        public void displayProduct_Factory(int factory_id)
+        public object displayProduct_Factory(int factory_id)
         {
-            string query = "select distinct Product_ID as 'كود' , Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID   where product.Type_ID=" + txtType2.Text + " order by Product_ID";
+            string query = "select distinct Product_ID as 'كود' , Group_Name as 'المجموعة',Product_Name as 'الصنف' from product inner join  groupo on product.Group_ID=groupo.Group_ID   where product.Type_ID=" + txtType2.Text + " and product.Factory_ID=" + factory_id+" order by Product_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
-            dataGridViewProduct.DataSource = dt;
-            dataGridViewProduct.Columns[0].Width = 50;
+            return dt;
         }
         public void displayProduct_Group()
         {
@@ -2134,19 +2166,18 @@ namespace StoresManagmentDX
             da.Fill(dt);
             dataGridViewProduct.DataSource = dt;
             dataGridViewProduct.Columns[0].Width = 50;
-        } 
+        }
         #endregion
 
-
+        #region The optional Taps
         public void displayColor(int id)
         {
-            string query = "select distinct Color_ID as 'كود',Color_Name as 'الأسم' from color where Type_ID=" + id+ " order by Color_ID";
+            string query = "select distinct Color_ID as 'كود',Color_Name as 'الأسم' from color where Type_ID=" + id + " order by Color_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewColor.DataSource = dt;
             dataGridViewColor.Columns[0].Width = 50;
-            dataGridViewColor.Columns[1].Width = dataGridViewColor.Width - 50;
         }
         public void displayColor()
         {
@@ -2156,18 +2187,15 @@ namespace StoresManagmentDX
             da.Fill(dt);
             dataGridViewColor.DataSource = dt;
             dataGridViewColor.Columns[0].Width = 50;
-            dataGridViewColor.Columns[1].Width = 120;
-            dataGridViewColor.Columns[2].Width = dataGridViewColor.Width - 170;
         }
         public void displaySize(int id)
         {
-            string query = "select distinct Size_ID as 'كود',Size_Value as 'المقاس' from size where Factory_ID=" + id+ " order by Size_ID";
+            string query = "select distinct Size_ID as 'كود',Size_Value as 'المقاس' from size where Factory_ID=" + id + " order by Size_ID";
             MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewSize.DataSource = dt;
             dataGridViewSize.Columns[0].Width = 50;
-            dataGridViewSize.Columns[1].Width = dataGridViewSize.Width - 50;
         }
         public void displaySize()
         {
@@ -2177,8 +2205,6 @@ namespace StoresManagmentDX
             da.Fill(dt);
             dataGridViewSize.DataSource = dt;
             dataGridViewSize.Columns[0].Width = 50;
-            dataGridViewSize.Columns[1].Width = 120;
-            dataGridViewSize.Columns[2].Width = dataGridViewSize.Width - 170;
         }
         public void displaySort()
         {
@@ -2187,14 +2213,15 @@ namespace StoresManagmentDX
             DataTable dt = new DataTable();
             da.Fill(dt);
             dataGridViewSort.DataSource = dt;
-            dataGridViewSort.Columns[0].Width = 50;
-            dataGridViewSort.Columns[1].Width = dataGridViewSort.Width - 50 ;
         }
+        #endregion
+
+        #region Hellper Functions
         public void RestControls()
         {
             displayType();
             comFactory.Text = "";
-           // comType.Text = "";
+            // comType.Text = "";
             comFactory2.Text = "";
             comType2.Text = "";
             comFactoryGroup.Text = "";
@@ -2213,18 +2240,18 @@ namespace StoresManagmentDX
             dataGridViewGroup.DataSource = null;
             dataGridViewProduct.DataSource = null;
         }
-        public void updateTablesDB(string tableName,string ColumnName,int id)
+        public void updateTablesDB(string tableName, string ColumnName, int id)
         {
-            string query = "ALTER TABLE "+tableName+" AUTO_INCREMENT = 1;";
+            string query = "ALTER TABLE " + tableName + " AUTO_INCREMENT = 1;";
             MySqlCommand com = new MySqlCommand(query, dbconnection);
-            com.ExecuteNonQuery();        
+            com.ExecuteNonQuery();
         }
         public void ClearButtonsColor()
         {
             foreach (Control control in this.tableLayoutPanel2.Controls)
             {
                 if (control is Button)
-                    control.BackColor = Color.FromArgb(229,229,229);
+                    control.BackColor = Color.FromArgb(229, 229, 229);
             }
         }
         public void dataGridViewStyle()
@@ -2237,18 +2264,8 @@ namespace StoresManagmentDX
                 item.RowHeadersDefaultCellStyle = style;
             }
         }
-        private void btnGroupDisplayAll_Click(object sender, EventArgs e)
-        {
-            try
-            {
-               displayGroup();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-        }
+        #endregion
 
-     
+
     }
 }

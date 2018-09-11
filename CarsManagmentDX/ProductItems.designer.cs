@@ -35,8 +35,8 @@ namespace StoresManagmentDX
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -369,7 +369,7 @@ namespace StoresManagmentDX
             this.mTC_Content.Location = new System.Drawing.Point(48, 139);
             this.mTC_Content.Name = "mTC_Content";
             this.mTC_Content.RightToLeftLayout = true;
-            this.mTC_Content.SelectedIndex = 4;
+            this.mTC_Content.SelectedIndex = 3;
             this.mTC_Content.Size = new System.Drawing.Size(808, 506);
             this.mTC_Content.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.mTC_Content.Style = MetroFramework.MetroColorStyle.Silver;
@@ -1146,7 +1146,6 @@ namespace StoresManagmentDX
             this.comTypeProduct.Size = new System.Drawing.Size(172, 27);
             this.comTypeProduct.TabIndex = 19;
             this.comTypeProduct.SelectedIndexChanged += new System.EventHandler(this.comTypeProduct_SelectedIndexChanged);
-            this.comTypeProduct.SelectedValueChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
             // label5
             // 
@@ -1332,14 +1331,14 @@ namespace StoresManagmentDX
             // 
             // dataGridViewProduct
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dataGridViewProduct.ColumnHeadersHeight = 25;
             this.dataGridViewProduct.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewProduct.Location = new System.Drawing.Point(27, 25);
@@ -1474,7 +1473,7 @@ namespace StoresManagmentDX
             this.comType.Size = new System.Drawing.Size(172, 27);
             this.comType.TabIndex = 17;
             this.comType.SelectedIndexChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
-            this.comType.TextChanged += new System.EventHandler(this.comType_SelectedValueChanged_1);
+            this.comType.SelectedValueChanged += new System.EventHandler(this.comType_SelectedValueChanged_1);
             // 
             // label6
             // 
@@ -1602,14 +1601,14 @@ namespace StoresManagmentDX
             // 
             // dataGridViewGroup
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroup.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroup.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
             this.dataGridViewGroup.ColumnHeadersHeight = 25;
             this.dataGridViewGroup.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewGroup.Location = new System.Drawing.Point(27, 25);
