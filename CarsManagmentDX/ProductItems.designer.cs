@@ -30,19 +30,19 @@ namespace StoresManagmentDX
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tLPanProductsContainer = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.btnGroup = new System.Windows.Forms.Button();
@@ -91,6 +91,7 @@ namespace StoresManagmentDX
             this.mTPProduct = new MetroFramework.Controls.MetroTabPage();
             this.tableLayoutPanelProduct = new System.Windows.Forms.TableLayoutPanel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.btnDisplayAllProduct = new System.Windows.Forms.Button();
             this.txtGroup2 = new System.Windows.Forms.TextBox();
             this.txtFactory2 = new System.Windows.Forms.TextBox();
@@ -147,6 +148,12 @@ namespace StoresManagmentDX
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.txtType = new System.Windows.Forms.TextBox();
+            this.txtGroup_Size = new System.Windows.Forms.TextBox();
+            this.comGroup_Size = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnDisplayAll = new System.Windows.Forms.Button();
+            this.bunifuTileButton3 = new Bunifu.Framework.UI.BunifuTileButton();
+            this.btnSave_productUpdate = new System.Windows.Forms.Button();
             this.tLPanProductsContainer.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.mTC_Content.SuspendLayout();
@@ -208,7 +215,7 @@ namespace StoresManagmentDX
             this.tLPanProductsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tLPanProductsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tLPanProductsContainer.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tLPanProductsContainer.Size = new System.Drawing.Size(905, 683);
+            this.tLPanProductsContainer.Size = new System.Drawing.Size(905, 716);
             this.tLPanProductsContainer.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -229,11 +236,11 @@ namespace StoresManagmentDX
             this.tableLayoutPanel2.Controls.Add(this.btnSize, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.btnColor, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(48, 71);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(48, 73);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(808, 62);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(808, 65);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // btnGroup
@@ -247,7 +254,7 @@ namespace StoresManagmentDX
             this.btnGroup.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnGroup.Location = new System.Drawing.Point(463, 3);
             this.btnGroup.Name = "btnGroup";
-            this.btnGroup.Size = new System.Drawing.Size(109, 56);
+            this.btnGroup.Size = new System.Drawing.Size(109, 59);
             this.btnGroup.TabIndex = 2;
             this.btnGroup.Text = "المجموعة";
             this.btnGroup.UseVisualStyleBackColor = false;
@@ -264,7 +271,7 @@ namespace StoresManagmentDX
             this.btnFactory.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnFactory.Location = new System.Drawing.Point(578, 3);
             this.btnFactory.Name = "btnFactory";
-            this.btnFactory.Size = new System.Drawing.Size(109, 56);
+            this.btnFactory.Size = new System.Drawing.Size(109, 59);
             this.btnFactory.TabIndex = 1;
             this.btnFactory.Text = "المصنع";
             this.btnFactory.UseVisualStyleBackColor = false;
@@ -281,7 +288,7 @@ namespace StoresManagmentDX
             this.btnType.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnType.Location = new System.Drawing.Point(693, 3);
             this.btnType.Name = "btnType";
-            this.btnType.Size = new System.Drawing.Size(112, 56);
+            this.btnType.Size = new System.Drawing.Size(112, 59);
             this.btnType.TabIndex = 0;
             this.btnType.Text = "النوع";
             this.btnType.UseVisualStyleBackColor = false;
@@ -298,7 +305,7 @@ namespace StoresManagmentDX
             this.btnProduct.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnProduct.Location = new System.Drawing.Point(348, 3);
             this.btnProduct.Name = "btnProduct";
-            this.btnProduct.Size = new System.Drawing.Size(109, 56);
+            this.btnProduct.Size = new System.Drawing.Size(109, 59);
             this.btnProduct.TabIndex = 3;
             this.btnProduct.Text = "الصنف";
             this.btnProduct.UseVisualStyleBackColor = false;
@@ -315,7 +322,7 @@ namespace StoresManagmentDX
             this.btnSort.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnSort.Location = new System.Drawing.Point(3, 3);
             this.btnSort.Name = "btnSort";
-            this.btnSort.Size = new System.Drawing.Size(109, 56);
+            this.btnSort.Size = new System.Drawing.Size(109, 59);
             this.btnSort.TabIndex = 6;
             this.btnSort.Text = "الفرز";
             this.btnSort.UseVisualStyleBackColor = false;
@@ -332,7 +339,7 @@ namespace StoresManagmentDX
             this.btnSize.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnSize.Location = new System.Drawing.Point(118, 3);
             this.btnSize.Name = "btnSize";
-            this.btnSize.Size = new System.Drawing.Size(109, 56);
+            this.btnSize.Size = new System.Drawing.Size(109, 59);
             this.btnSize.TabIndex = 5;
             this.btnSize.Text = "المقاسات";
             this.btnSize.UseVisualStyleBackColor = false;
@@ -349,7 +356,7 @@ namespace StoresManagmentDX
             this.btnColor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.btnColor.Location = new System.Drawing.Point(233, 3);
             this.btnColor.Name = "btnColor";
-            this.btnColor.Size = new System.Drawing.Size(109, 56);
+            this.btnColor.Size = new System.Drawing.Size(109, 59);
             this.btnColor.TabIndex = 4;
             this.btnColor.Text = "الالوان";
             this.btnColor.UseVisualStyleBackColor = false;
@@ -366,11 +373,11 @@ namespace StoresManagmentDX
             this.mTC_Content.Controls.Add(this.mTPType);
             this.mTC_Content.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mTC_Content.ItemSize = new System.Drawing.Size(50, 50);
-            this.mTC_Content.Location = new System.Drawing.Point(48, 139);
+            this.mTC_Content.Location = new System.Drawing.Point(48, 144);
             this.mTC_Content.Name = "mTC_Content";
             this.mTC_Content.RightToLeftLayout = true;
             this.mTC_Content.SelectedIndex = 3;
-            this.mTC_Content.Size = new System.Drawing.Size(808, 506);
+            this.mTC_Content.Size = new System.Drawing.Size(808, 531);
             this.mTC_Content.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.mTC_Content.Style = MetroFramework.MetroColorStyle.Silver;
             this.mTC_Content.TabIndex = 0;
@@ -387,9 +394,9 @@ namespace StoresManagmentDX
             this.mTPSort.HorizontalScrollbarBarColor = true;
             this.mTPSort.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPSort.HorizontalScrollbarSize = 0;
-            this.mTPSort.Location = new System.Drawing.Point(4, 54);
+            this.mTPSort.Location = new System.Drawing.Point(4, 5);
             this.mTPSort.Name = "mTPSort";
-            this.mTPSort.Size = new System.Drawing.Size(800, 448);
+            this.mTPSort.Size = new System.Drawing.Size(800, 522);
             this.mTPSort.TabIndex = 5;
             this.mTPSort.Text = "الفرز";
             this.mTPSort.VerticalScrollbarBarColor = true;
@@ -416,7 +423,7 @@ namespace StoresManagmentDX
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.47059F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(800, 448);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(800, 522);
             this.tableLayoutPanel5.TabIndex = 6;
             // 
             // tableLayoutPanel34
@@ -434,12 +441,12 @@ namespace StoresManagmentDX
             this.tableLayoutPanel34.Controls.Add(this.btnDelete, 3, 0);
             this.tableLayoutPanel34.Controls.Add(this.btnAddSort, 2, 0);
             this.tableLayoutPanel34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 389);
+            this.tableLayoutPanel34.Location = new System.Drawing.Point(3, 464);
             this.tableLayoutPanel34.Name = "tableLayoutPanel34";
             this.tableLayoutPanel34.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel34.RowCount = 1;
             this.tableLayoutPanel34.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel34.Size = new System.Drawing.Size(794, 56);
+            this.tableLayoutPanel34.Size = new System.Drawing.Size(794, 55);
             this.tableLayoutPanel34.TabIndex = 29;
             // 
             // btnDelete
@@ -459,7 +466,7 @@ namespace StoresManagmentDX
             this.btnDelete.Location = new System.Drawing.Point(322, 4);
             this.btnDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(73, 48);
+            this.btnDelete.Size = new System.Drawing.Size(73, 47);
             this.btnDelete.TabIndex = 2;
             this.btnDelete.Click += new System.EventHandler(this.btnDeleteSort_Click);
             // 
@@ -480,36 +487,36 @@ namespace StoresManagmentDX
             this.btnAddSort.Location = new System.Drawing.Point(401, 4);
             this.btnAddSort.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddSort.Name = "btnAddSort";
-            this.btnAddSort.Size = new System.Drawing.Size(73, 48);
+            this.btnAddSort.Size = new System.Drawing.Size(73, 47);
             this.btnAddSort.TabIndex = 3;
             this.btnAddSort.Click += new System.EventHandler(this.btnSort_Click);
             // 
             // dataGridViewSort
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSort.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSort.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewSort.ColumnHeadersHeight = 25;
             this.dataGridViewSort.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSort.Location = new System.Drawing.Point(83, 25);
+            this.dataGridViewSort.Location = new System.Drawing.Point(83, 30);
             this.dataGridViewSort.Name = "dataGridViewSort";
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSort.RowHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSort.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.tableLayoutPanel5.SetRowSpan(this.dataGridViewSort, 2);
             this.dataGridViewSort.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewSort.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewSort.Size = new System.Drawing.Size(234, 358);
+            this.dataGridViewSort.Size = new System.Drawing.Size(234, 428);
             this.dataGridViewSort.TabIndex = 30;
             // 
             // panel7
@@ -517,10 +524,10 @@ namespace StoresManagmentDX
             this.panel7.Controls.Add(this.label2);
             this.panel7.Controls.Add(this.txtSort);
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(323, 25);
+            this.panel7.Location = new System.Drawing.Point(323, 30);
             this.panel7.Name = "panel7";
             this.tableLayoutPanel5.SetRowSpan(this.panel7, 2);
-            this.panel7.Size = new System.Drawing.Size(474, 358);
+            this.panel7.Size = new System.Drawing.Size(474, 428);
             this.panel7.TabIndex = 31;
             // 
             // label2
@@ -559,7 +566,7 @@ namespace StoresManagmentDX
             this.mTPSize.HorizontalScrollbarSize = 0;
             this.mTPSize.Location = new System.Drawing.Point(4, 54);
             this.mTPSize.Name = "mTPSize";
-            this.mTPSize.Size = new System.Drawing.Size(800, 448);
+            this.mTPSize.Size = new System.Drawing.Size(800, 473);
             this.mTPSize.TabIndex = 4;
             this.mTPSize.Text = "المقاس";
             this.mTPSize.VerticalScrollbarBarColor = true;
@@ -586,21 +593,25 @@ namespace StoresManagmentDX
             this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.47059F));
             this.tableLayoutPanelSize.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelSize.Size = new System.Drawing.Size(800, 448);
+            this.tableLayoutPanelSize.Size = new System.Drawing.Size(800, 473);
             this.tableLayoutPanelSize.TabIndex = 6;
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.btnDisplayAll);
+            this.panel6.Controls.Add(this.txtGroup_Size);
+            this.panel6.Controls.Add(this.comGroup_Size);
+            this.panel6.Controls.Add(this.label15);
             this.panel6.Controls.Add(this.txtFactory3);
             this.panel6.Controls.Add(this.label13);
             this.panel6.Controls.Add(this.txtSize);
             this.panel6.Controls.Add(this.label3);
             this.panel6.Controls.Add(this.comFactory2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(323, 25);
+            this.panel6.Location = new System.Drawing.Point(323, 27);
             this.panel6.Name = "panel6";
             this.tableLayoutPanelSize.SetRowSpan(this.panel6, 2);
-            this.panel6.Size = new System.Drawing.Size(474, 358);
+            this.panel6.Size = new System.Drawing.Size(474, 381);
             this.panel6.TabIndex = 17;
             // 
             // txtFactory3
@@ -622,7 +633,7 @@ namespace StoresManagmentDX
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(377, 131);
+            this.label13.Location = new System.Drawing.Point(377, 162);
             this.label13.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
             this.label13.Name = "label13";
             this.label13.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -636,7 +647,7 @@ namespace StoresManagmentDX
             this.txtSize.BackColor = System.Drawing.Color.White;
             this.txtSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtSize.Font = new System.Drawing.Font("Tahoma", 12F);
-            this.txtSize.Location = new System.Drawing.Point(211, 131);
+            this.txtSize.Location = new System.Drawing.Point(211, 162);
             this.txtSize.Margin = new System.Windows.Forms.Padding(4);
             this.txtSize.Name = "txtSize";
             this.txtSize.Size = new System.Drawing.Size(163, 27);
@@ -690,7 +701,7 @@ namespace StoresManagmentDX
             this.tableLayoutPanel35.Controls.Add(this.btnDeleteSize, 3, 0);
             this.tableLayoutPanel35.Controls.Add(this.btnAddSize, 2, 0);
             this.tableLayoutPanel35.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel35.Location = new System.Drawing.Point(3, 389);
+            this.tableLayoutPanel35.Location = new System.Drawing.Point(3, 414);
             this.tableLayoutPanel35.Name = "tableLayoutPanel35";
             this.tableLayoutPanel35.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel35.RowCount = 1;
@@ -745,33 +756,33 @@ namespace StoresManagmentDX
             this.tableLayoutPanel32.ColumnCount = 1;
             this.tableLayoutPanel32.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel32.Location = new System.Drawing.Point(0, 90);
+            this.tableLayoutPanel32.Location = new System.Drawing.Point(0, 96);
             this.tableLayoutPanel32.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel32.Name = "tableLayoutPanel32";
             this.tableLayoutPanel32.RowCount = 2;
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel32.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel32.Size = new System.Drawing.Size(27, 296);
+            this.tableLayoutPanel32.Size = new System.Drawing.Size(27, 315);
             this.tableLayoutPanel32.TabIndex = 23;
             // 
             // dataGridViewSize
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewSize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewSize.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewSize.ColumnHeadersHeight = 25;
             this.dataGridViewSize.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewSize.Location = new System.Drawing.Point(30, 25);
+            this.dataGridViewSize.Location = new System.Drawing.Point(30, 27);
             this.dataGridViewSize.Name = "dataGridViewSize";
             this.tableLayoutPanelSize.SetRowSpan(this.dataGridViewSize, 2);
             this.dataGridViewSize.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewSize.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewSize.Size = new System.Drawing.Size(287, 358);
+            this.dataGridViewSize.Size = new System.Drawing.Size(287, 381);
             this.dataGridViewSize.TabIndex = 31;
             // 
             // mTPColor
@@ -780,9 +791,9 @@ namespace StoresManagmentDX
             this.mTPColor.HorizontalScrollbarBarColor = true;
             this.mTPColor.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPColor.HorizontalScrollbarSize = 0;
-            this.mTPColor.Location = new System.Drawing.Point(4, 54);
+            this.mTPColor.Location = new System.Drawing.Point(4, 5);
             this.mTPColor.Name = "mTPColor";
-            this.mTPColor.Size = new System.Drawing.Size(800, 448);
+            this.mTPColor.Size = new System.Drawing.Size(800, 522);
             this.mTPColor.TabIndex = 3;
             this.mTPColor.Text = "اللون";
             this.mTPColor.VerticalScrollbarBarColor = true;
@@ -809,7 +820,7 @@ namespace StoresManagmentDX
             this.tableLayoutPanelColor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanelColor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.47059F));
             this.tableLayoutPanelColor.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelColor.Size = new System.Drawing.Size(800, 448);
+            this.tableLayoutPanelColor.Size = new System.Drawing.Size(800, 522);
             this.tableLayoutPanelColor.TabIndex = 6;
             // 
             // panel5
@@ -820,10 +831,10 @@ namespace StoresManagmentDX
             this.panel5.Controls.Add(this.label12);
             this.panel5.Controls.Add(this.txtColor);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel5.Location = new System.Drawing.Point(323, 25);
+            this.panel5.Location = new System.Drawing.Point(323, 30);
             this.panel5.Name = "panel5";
             this.tableLayoutPanelColor.SetRowSpan(this.panel5, 2);
-            this.panel5.Size = new System.Drawing.Size(474, 358);
+            this.panel5.Size = new System.Drawing.Size(474, 428);
             this.panel5.TabIndex = 17;
             // 
             // txtType3
@@ -913,12 +924,12 @@ namespace StoresManagmentDX
             this.tableLayoutPanel36.Controls.Add(this.bunifuTileButton1, 3, 0);
             this.tableLayoutPanel36.Controls.Add(this.bunifuTileButton2, 2, 0);
             this.tableLayoutPanel36.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel36.Location = new System.Drawing.Point(3, 389);
+            this.tableLayoutPanel36.Location = new System.Drawing.Point(3, 464);
             this.tableLayoutPanel36.Name = "tableLayoutPanel36";
             this.tableLayoutPanel36.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel36.RowCount = 1;
             this.tableLayoutPanel36.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel36.Size = new System.Drawing.Size(794, 56);
+            this.tableLayoutPanel36.Size = new System.Drawing.Size(794, 55);
             this.tableLayoutPanel36.TabIndex = 31;
             // 
             // bunifuTileButton1
@@ -938,7 +949,7 @@ namespace StoresManagmentDX
             this.bunifuTileButton1.Location = new System.Drawing.Point(322, 4);
             this.bunifuTileButton1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bunifuTileButton1.Name = "bunifuTileButton1";
-            this.bunifuTileButton1.Size = new System.Drawing.Size(73, 48);
+            this.bunifuTileButton1.Size = new System.Drawing.Size(73, 47);
             this.bunifuTileButton1.TabIndex = 2;
             this.bunifuTileButton1.Click += new System.EventHandler(this.btnDeleteColor_Click);
             // 
@@ -959,7 +970,7 @@ namespace StoresManagmentDX
             this.bunifuTileButton2.Location = new System.Drawing.Point(401, 4);
             this.bunifuTileButton2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.bunifuTileButton2.Name = "bunifuTileButton2";
-            this.bunifuTileButton2.Size = new System.Drawing.Size(73, 48);
+            this.bunifuTileButton2.Size = new System.Drawing.Size(73, 47);
             this.bunifuTileButton2.TabIndex = 3;
             this.bunifuTileButton2.Click += new System.EventHandler(this.btnColor_Click);
             // 
@@ -968,41 +979,41 @@ namespace StoresManagmentDX
             this.tableLayoutPanel30.ColumnCount = 1;
             this.tableLayoutPanel30.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel30.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel30.Location = new System.Drawing.Point(0, 90);
+            this.tableLayoutPanel30.Location = new System.Drawing.Point(0, 108);
             this.tableLayoutPanel30.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel30.Name = "tableLayoutPanel30";
             this.tableLayoutPanel30.RowCount = 2;
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel30.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel30.Size = new System.Drawing.Size(22, 296);
+            this.tableLayoutPanel30.Size = new System.Drawing.Size(22, 353);
             this.tableLayoutPanel30.TabIndex = 22;
             // 
             // dataGridViewColor
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewColor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewColor.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewColor.ColumnHeadersHeight = 25;
             this.dataGridViewColor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewColor.Location = new System.Drawing.Point(25, 25);
+            this.dataGridViewColor.Location = new System.Drawing.Point(25, 30);
             this.dataGridViewColor.Name = "dataGridViewColor";
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewColor.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewColor.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.tableLayoutPanelColor.SetRowSpan(this.dataGridViewColor, 2);
             this.dataGridViewColor.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewColor.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewColor.Size = new System.Drawing.Size(292, 358);
+            this.dataGridViewColor.Size = new System.Drawing.Size(292, 428);
             this.dataGridViewColor.TabIndex = 32;
             // 
             // mTPProduct
@@ -1013,7 +1024,7 @@ namespace StoresManagmentDX
             this.mTPProduct.HorizontalScrollbarSize = 0;
             this.mTPProduct.Location = new System.Drawing.Point(4, 54);
             this.mTPProduct.Name = "mTPProduct";
-            this.mTPProduct.Size = new System.Drawing.Size(800, 448);
+            this.mTPProduct.Size = new System.Drawing.Size(800, 473);
             this.mTPProduct.TabIndex = 2;
             this.mTPProduct.Text = "الصنف";
             this.mTPProduct.VerticalScrollbarBarColor = true;
@@ -1040,11 +1051,13 @@ namespace StoresManagmentDX
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.47059F));
             this.tableLayoutPanelProduct.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelProduct.Size = new System.Drawing.Size(800, 448);
+            this.tableLayoutPanelProduct.Size = new System.Drawing.Size(800, 473);
             this.tableLayoutPanelProduct.TabIndex = 6;
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.btnSave_productUpdate);
+            this.panel4.Controls.Add(this.checkedListBox2);
             this.panel4.Controls.Add(this.btnDisplayAllProduct);
             this.panel4.Controls.Add(this.txtGroup2);
             this.panel4.Controls.Add(this.txtFactory2);
@@ -1058,11 +1071,22 @@ namespace StoresManagmentDX
             this.panel4.Controls.Add(this.comGroup);
             this.panel4.Controls.Add(this.label11);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(323, 25);
+            this.panel4.Location = new System.Drawing.Point(323, 27);
             this.panel4.Name = "panel4";
             this.tableLayoutPanelProduct.SetRowSpan(this.panel4, 2);
-            this.panel4.Size = new System.Drawing.Size(474, 358);
+            this.panel4.Size = new System.Drawing.Size(474, 381);
             this.panel4.TabIndex = 17;
+            // 
+            // checkedListBox2
+            // 
+            this.checkedListBox2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.checkedListBox2.CheckOnClick = true;
+            this.checkedListBox2.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkedListBox2.FormattingEnabled = true;
+            this.checkedListBox2.Location = new System.Drawing.Point(200, 262);
+            this.checkedListBox2.Name = "checkedListBox2";
+            this.checkedListBox2.Size = new System.Drawing.Size(171, 94);
+            this.checkedListBox2.TabIndex = 24;
             // 
             // btnDisplayAllProduct
             // 
@@ -1248,9 +1272,10 @@ namespace StoresManagmentDX
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
             this.tableLayoutPanel15.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel15.Controls.Add(this.btnDeleteProduct, 3, 0);
-            this.tableLayoutPanel15.Controls.Add(this.btnAddProduct, 2, 0);
+            this.tableLayoutPanel15.Controls.Add(this.btnAddProduct, 1, 0);
+            this.tableLayoutPanel15.Controls.Add(this.bunifuTileButton3, 2, 0);
             this.tableLayoutPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 389);
+            this.tableLayoutPanel15.Location = new System.Drawing.Point(3, 414);
             this.tableLayoutPanel15.Name = "tableLayoutPanel15";
             this.tableLayoutPanel15.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel15.RowCount = 1;
@@ -1293,7 +1318,7 @@ namespace StoresManagmentDX
             this.btnAddProduct.ImageZoom = 25;
             this.btnAddProduct.LabelPosition = 18;
             this.btnAddProduct.LabelText = "اضافة";
-            this.btnAddProduct.Location = new System.Drawing.Point(401, 4);
+            this.btnAddProduct.Location = new System.Drawing.Point(480, 4);
             this.btnAddProduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddProduct.Name = "btnAddProduct";
             this.btnAddProduct.Size = new System.Drawing.Size(73, 48);
@@ -1306,13 +1331,13 @@ namespace StoresManagmentDX
             this.tableLayoutPanel28.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel28.Controls.Add(this.tableLayoutPanel1, 0, 1);
             this.tableLayoutPanel28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel28.Location = new System.Drawing.Point(0, 90);
+            this.tableLayoutPanel28.Location = new System.Drawing.Point(0, 96);
             this.tableLayoutPanel28.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel28.Name = "tableLayoutPanel28";
             this.tableLayoutPanel28.RowCount = 2;
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel28.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel28.Size = new System.Drawing.Size(24, 296);
+            this.tableLayoutPanel28.Size = new System.Drawing.Size(24, 315);
             this.tableLayoutPanel28.TabIndex = 21;
             // 
             // tableLayoutPanel1
@@ -1320,33 +1345,33 @@ namespace StoresManagmentDX
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 59);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 63);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25.1497F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74.8503F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(24, 237);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(24, 252);
             this.tableLayoutPanel1.TabIndex = 22;
             // 
             // dataGridViewProduct
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewProduct.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewProduct.ColumnHeadersHeight = 25;
             this.dataGridViewProduct.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewProduct.Location = new System.Drawing.Point(27, 25);
+            this.dataGridViewProduct.Location = new System.Drawing.Point(27, 27);
             this.dataGridViewProduct.Name = "dataGridViewProduct";
             this.tableLayoutPanelProduct.SetRowSpan(this.dataGridViewProduct, 2);
             this.dataGridViewProduct.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewProduct.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewProduct.Size = new System.Drawing.Size(290, 358);
+            this.dataGridViewProduct.Size = new System.Drawing.Size(290, 381);
             this.dataGridViewProduct.TabIndex = 33;
             // 
             // mTPGroup
@@ -1357,7 +1382,7 @@ namespace StoresManagmentDX
             this.mTPGroup.HorizontalScrollbarSize = 0;
             this.mTPGroup.Location = new System.Drawing.Point(4, 54);
             this.mTPGroup.Name = "mTPGroup";
-            this.mTPGroup.Size = new System.Drawing.Size(800, 448);
+            this.mTPGroup.Size = new System.Drawing.Size(800, 473);
             this.mTPGroup.TabIndex = 1;
             this.mTPGroup.Text = "المجموعة";
             this.mTPGroup.VerticalScrollbarBarColor = true;
@@ -1383,7 +1408,7 @@ namespace StoresManagmentDX
             this.tableLayoutPanelGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanelGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.47059F));
             this.tableLayoutPanelGroup.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelGroup.Size = new System.Drawing.Size(800, 448);
+            this.tableLayoutPanelGroup.Size = new System.Drawing.Size(800, 473);
             this.tableLayoutPanelGroup.TabIndex = 5;
             // 
             // panel3
@@ -1398,10 +1423,10 @@ namespace StoresManagmentDX
             this.panel3.Controls.Add(this.txtGroup);
             this.panel3.Controls.Add(this.label10);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(323, 25);
+            this.panel3.Location = new System.Drawing.Point(323, 27);
             this.panel3.Name = "panel3";
             this.tableLayoutPanelGroup.SetRowSpan(this.panel3, 2);
-            this.panel3.Size = new System.Drawing.Size(474, 358);
+            this.panel3.Size = new System.Drawing.Size(474, 381);
             this.panel3.TabIndex = 17;
             // 
             // btnGroupDisplayAll
@@ -1549,7 +1574,7 @@ namespace StoresManagmentDX
             this.tableLayoutPanel37.Controls.Add(this.btnDeleteGroup, 3, 0);
             this.tableLayoutPanel37.Controls.Add(this.btnAddGroup, 2, 0);
             this.tableLayoutPanel37.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel37.Location = new System.Drawing.Point(3, 389);
+            this.tableLayoutPanel37.Location = new System.Drawing.Point(3, 414);
             this.tableLayoutPanel37.Name = "tableLayoutPanel37";
             this.tableLayoutPanel37.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel37.RowCount = 1;
@@ -1601,22 +1626,22 @@ namespace StoresManagmentDX
             // 
             // dataGridViewGroup
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewGroup.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewGroup.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewGroup.ColumnHeadersHeight = 25;
             this.dataGridViewGroup.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewGroup.Location = new System.Drawing.Point(27, 25);
+            this.dataGridViewGroup.Location = new System.Drawing.Point(27, 27);
             this.dataGridViewGroup.Name = "dataGridViewGroup";
             this.tableLayoutPanelGroup.SetRowSpan(this.dataGridViewGroup, 2);
             this.dataGridViewGroup.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewGroup.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewGroup.Size = new System.Drawing.Size(290, 358);
+            this.dataGridViewGroup.Size = new System.Drawing.Size(290, 381);
             this.dataGridViewGroup.TabIndex = 32;
             // 
             // mTPFactory
@@ -1627,7 +1652,7 @@ namespace StoresManagmentDX
             this.mTPFactory.HorizontalScrollbarSize = 0;
             this.mTPFactory.Location = new System.Drawing.Point(4, 54);
             this.mTPFactory.Name = "mTPFactory";
-            this.mTPFactory.Size = new System.Drawing.Size(800, 448);
+            this.mTPFactory.Size = new System.Drawing.Size(800, 473);
             this.mTPFactory.TabIndex = 0;
             this.mTPFactory.Text = "المصنع";
             this.mTPFactory.VerticalScrollbarBarColor = true;
@@ -1653,7 +1678,7 @@ namespace StoresManagmentDX
             this.tableLayoutPanelFactory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanelFactory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.47059F));
             this.tableLayoutPanelFactory.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelFactory.Size = new System.Drawing.Size(800, 448);
+            this.tableLayoutPanelFactory.Size = new System.Drawing.Size(800, 473);
             this.tableLayoutPanelFactory.TabIndex = 6;
             // 
             // tableLayoutPanel21
@@ -1672,7 +1697,7 @@ namespace StoresManagmentDX
             this.tableLayoutPanel21.Controls.Add(this.btnAddFactory, 1, 0);
             this.tableLayoutPanel21.Controls.Add(this.btnUpdate, 2, 0);
             this.tableLayoutPanel21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 389);
+            this.tableLayoutPanel21.Location = new System.Drawing.Point(3, 414);
             this.tableLayoutPanel21.Name = "tableLayoutPanel21";
             this.tableLayoutPanel21.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel21.RowCount = 1;
@@ -1746,22 +1771,22 @@ namespace StoresManagmentDX
             // 
             // dataGridViewFactory
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewFactory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewFactory.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.dataGridViewFactory.ColumnHeadersHeight = 25;
             this.dataGridViewFactory.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridViewFactory.Location = new System.Drawing.Point(38, 25);
+            this.dataGridViewFactory.Location = new System.Drawing.Point(38, 27);
             this.dataGridViewFactory.Name = "dataGridViewFactory";
             this.tableLayoutPanelFactory.SetRowSpan(this.dataGridViewFactory, 2);
             this.dataGridViewFactory.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridViewFactory.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewFactory.Size = new System.Drawing.Size(279, 358);
+            this.dataGridViewFactory.Size = new System.Drawing.Size(279, 381);
             this.dataGridViewFactory.TabIndex = 32;
             // 
             // panel1
@@ -1772,10 +1797,10 @@ namespace StoresManagmentDX
             this.panel1.Controls.Add(this.label9);
             this.panel1.Controls.Add(this.txtFactory);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(323, 25);
+            this.panel1.Location = new System.Drawing.Point(323, 27);
             this.panel1.Name = "panel1";
             this.tableLayoutPanelFactory.SetRowSpan(this.panel1, 2);
-            this.panel1.Size = new System.Drawing.Size(474, 358);
+            this.panel1.Size = new System.Drawing.Size(474, 381);
             this.panel1.TabIndex = 17;
             // 
             // button2
@@ -1855,9 +1880,9 @@ namespace StoresManagmentDX
             this.mTPType.HorizontalScrollbarBarColor = true;
             this.mTPType.HorizontalScrollbarHighlightOnWheel = false;
             this.mTPType.HorizontalScrollbarSize = 0;
-            this.mTPType.Location = new System.Drawing.Point(4, 54);
+            this.mTPType.Location = new System.Drawing.Point(4, 5);
             this.mTPType.Name = "mTPType";
-            this.mTPType.Size = new System.Drawing.Size(800, 448);
+            this.mTPType.Size = new System.Drawing.Size(800, 522);
             this.mTPType.TabIndex = 6;
             this.mTPType.Text = "النوع";
             this.mTPType.VerticalScrollbarBarColor = true;
@@ -1883,7 +1908,7 @@ namespace StoresManagmentDX
             this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17.64706F));
             this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 76.47059F));
             this.tableLayoutPanelType.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 60F));
-            this.tableLayoutPanelType.Size = new System.Drawing.Size(800, 448);
+            this.tableLayoutPanelType.Size = new System.Drawing.Size(800, 522);
             this.tableLayoutPanelType.TabIndex = 6;
             // 
             // tableLayoutPanel3
@@ -1901,12 +1926,12 @@ namespace StoresManagmentDX
             this.tableLayoutPanel3.Controls.Add(this.btnTypeDelete, 3, 0);
             this.tableLayoutPanel3.Controls.Add(this.btnAddType, 2, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 389);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 464);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(794, 56);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(794, 55);
             this.tableLayoutPanel3.TabIndex = 30;
             // 
             // btnTypeDelete
@@ -1926,7 +1951,7 @@ namespace StoresManagmentDX
             this.btnTypeDelete.Location = new System.Drawing.Point(322, 4);
             this.btnTypeDelete.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTypeDelete.Name = "btnTypeDelete";
-            this.btnTypeDelete.Size = new System.Drawing.Size(73, 48);
+            this.btnTypeDelete.Size = new System.Drawing.Size(73, 47);
             this.btnTypeDelete.TabIndex = 2;
             this.btnTypeDelete.Click += new System.EventHandler(this.btnDeleteType_Click);
             // 
@@ -1947,55 +1972,55 @@ namespace StoresManagmentDX
             this.btnAddType.Location = new System.Drawing.Point(401, 4);
             this.btnAddType.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnAddType.Name = "btnAddType";
-            this.btnAddType.Size = new System.Drawing.Size(73, 48);
+            this.btnAddType.Size = new System.Drawing.Size(73, 47);
             this.btnAddType.TabIndex = 3;
             this.btnAddType.Click += new System.EventHandler(this.btnType_Click);
             // 
             // dataGridView1
             // 
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView1.ColumnHeadersHeight = 25;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(83, 25);
+            this.dataGridView1.Location = new System.Drawing.Point(83, 30);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Tahoma", 8F);
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Tahoma", 8F);
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGridView1.RowHeadersWidth = 45;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle13;
             this.tableLayoutPanelType.SetRowSpan(this.dataGridView1, 2);
             this.dataGridView1.RowTemplate.DefaultCellStyle.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             this.dataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Neo Sans Arabic", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridView1.Size = new System.Drawing.Size(234, 358);
+            this.dataGridView1.Size = new System.Drawing.Size(234, 428);
             this.dataGridView1.TabIndex = 31;
             // 
             // panel2
@@ -2003,10 +2028,10 @@ namespace StoresManagmentDX
             this.panel2.Controls.Add(this.label8);
             this.panel2.Controls.Add(this.txtType);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(323, 25);
+            this.panel2.Location = new System.Drawing.Point(323, 30);
             this.panel2.Name = "panel2";
             this.tableLayoutPanelType.SetRowSpan(this.panel2, 2);
-            this.panel2.Size = new System.Drawing.Size(474, 358);
+            this.panel2.Size = new System.Drawing.Size(474, 428);
             this.panel2.TabIndex = 32;
             // 
             // label8
@@ -2038,11 +2063,105 @@ namespace StoresManagmentDX
             this.txtType.TextChanged += new System.EventHandler(this.txt_TextChanged);
             this.txtType.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtType_KeyDown);
             // 
+            // txtGroup_Size
+            // 
+            this.txtGroup_Size.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.txtGroup_Size.BackColor = System.Drawing.Color.White;
+            this.txtGroup_Size.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtGroup_Size.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.txtGroup_Size.Location = new System.Drawing.Point(143, 126);
+            this.txtGroup_Size.Margin = new System.Windows.Forms.Padding(4);
+            this.txtGroup_Size.Name = "txtGroup_Size";
+            this.txtGroup_Size.Size = new System.Drawing.Size(61, 27);
+            this.txtGroup_Size.TabIndex = 25;
+            this.txtGroup_Size.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            // 
+            // comGroup_Size
+            // 
+            this.comGroup_Size.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.comGroup_Size.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.comGroup_Size.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.comGroup_Size.BackColor = System.Drawing.Color.White;
+            this.comGroup_Size.Font = new System.Drawing.Font("Tahoma", 12F);
+            this.comGroup_Size.FormattingEnabled = true;
+            this.comGroup_Size.Location = new System.Drawing.Point(211, 125);
+            this.comGroup_Size.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.comGroup_Size.Name = "comGroup_Size";
+            this.comGroup_Size.Size = new System.Drawing.Size(163, 27);
+            this.comGroup_Size.TabIndex = 24;
+            this.comGroup_Size.SelectedValueChanged += new System.EventHandler(this.comGroup_Size_SelectedValueChanged);
+            // 
+            // label15
+            // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Neo Sans Arabic", 12F);
+            this.label15.ForeColor = System.Drawing.Color.Black;
+            this.label15.Location = new System.Drawing.Point(379, 125);
+            this.label15.Margin = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            this.label15.Name = "label15";
+            this.label15.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label15.Size = new System.Drawing.Size(69, 19);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "المجموعة";
+            // 
+            // btnDisplayAll
+            // 
+            this.btnDisplayAll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnDisplayAll.FlatAppearance.BorderSize = 0;
+            this.btnDisplayAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDisplayAll.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnDisplayAll.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnDisplayAll.Location = new System.Drawing.Point(21, 16);
+            this.btnDisplayAll.Name = "btnDisplayAll";
+            this.btnDisplayAll.Size = new System.Drawing.Size(83, 36);
+            this.btnDisplayAll.TabIndex = 26;
+            this.btnDisplayAll.Text = "عرض الكل";
+            this.btnDisplayAll.UseVisualStyleBackColor = false;
+            this.btnDisplayAll.Click += new System.EventHandler(this.btnDisplayAll_Click);
+            // 
+            // bunifuTileButton3
+            // 
+            this.bunifuTileButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.bunifuTileButton3.color = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.bunifuTileButton3.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.bunifuTileButton3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bunifuTileButton3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.bunifuTileButton3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.bunifuTileButton3.ForeColor = System.Drawing.Color.White;
+            this.bunifuTileButton3.Image = global::StoresManagmentDX.Properties.Resources.Edit_321;
+            this.bunifuTileButton3.ImagePosition = 1;
+            this.bunifuTileButton3.ImageZoom = 25;
+            this.bunifuTileButton3.LabelPosition = 15;
+            this.bunifuTileButton3.LabelText = "تعديل";
+            this.bunifuTileButton3.Location = new System.Drawing.Point(401, 4);
+            this.bunifuTileButton3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.bunifuTileButton3.Name = "bunifuTileButton3";
+            this.bunifuTileButton3.Size = new System.Drawing.Size(73, 48);
+            this.bunifuTileButton3.TabIndex = 5;
+            this.bunifuTileButton3.Click += new System.EventHandler(this.btnProductUpdate_Click);
+            // 
+            // btnSave_productUpdate
+            // 
+            this.btnSave_productUpdate.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btnSave_productUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(65)))), ((int)(((byte)(146)))));
+            this.btnSave_productUpdate.FlatAppearance.BorderSize = 0;
+            this.btnSave_productUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSave_productUpdate.Font = new System.Drawing.Font("Neo Sans Arabic", 11F);
+            this.btnSave_productUpdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnSave_productUpdate.Location = new System.Drawing.Point(71, 326);
+            this.btnSave_productUpdate.Name = "btnSave_productUpdate";
+            this.btnSave_productUpdate.Size = new System.Drawing.Size(83, 30);
+            this.btnSave_productUpdate.TabIndex = 25;
+            this.btnSave_productUpdate.Text = "حفظ";
+            this.btnSave_productUpdate.UseVisualStyleBackColor = false;
+            this.btnSave_productUpdate.Visible = false;
+            // 
             // ProductItems
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(905, 683);
+            this.ClientSize = new System.Drawing.Size(905, 716);
             this.Controls.Add(this.tLPanProductsContainer);
             this.Name = "ProductItems";
             this.Text = "ProductItems";
@@ -2205,5 +2324,12 @@ namespace StoresManagmentDX
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnGroupDisplayAll;
         private System.Windows.Forms.Button btnDisplayAllProduct;
+        private System.Windows.Forms.CheckedListBox checkedListBox2;
+        private System.Windows.Forms.TextBox txtGroup_Size;
+        private System.Windows.Forms.ComboBox comGroup_Size;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnDisplayAll;
+        private System.Windows.Forms.Button btnSave_productUpdate;
+        private Bunifu.Framework.UI.BunifuTileButton bunifuTileButton3;
     }
 }

@@ -60,6 +60,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.ImageProduct = new System.Windows.Forms.PictureBox();
+            this.txtColor = new System.Windows.Forms.TextBox();
+            this.txtSize = new System.Windows.Forms.TextBox();
+            this.txtSort = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -227,6 +230,9 @@
             // groupBox2
             // 
             resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Controls.Add(this.txtSort);
+            this.groupBox2.Controls.Add(this.txtSize);
+            this.groupBox2.Controls.Add(this.txtColor);
             this.groupBox2.Controls.Add(this.txtCarton);
             this.groupBox2.Controls.Add(this.txtDescription);
             this.groupBox2.Controls.Add(this.txtClassification);
@@ -254,12 +260,14 @@
             resources.ApplyResources(this.txtDescription, "txtDescription");
             this.txtDescription.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtDescription.Name = "txtDescription";
+            this.txtDescription.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
             // txtClassification
             // 
             resources.ApplyResources(this.txtClassification, "txtClassification");
             this.txtClassification.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtClassification.Name = "txtClassification";
+            this.txtClassification.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
             // comSort
             // 
@@ -268,6 +276,7 @@
             this.comSort.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comSort.FormattingEnabled = true;
             this.comSort.Name = "comSort";
+            this.comSort.SelectedIndexChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
             // comSize
             // 
@@ -276,6 +285,7 @@
             this.comSize.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comSize.FormattingEnabled = true;
             this.comSize.Name = "comSize";
+            this.comSize.SelectedIndexChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
             // comColour
             // 
@@ -284,6 +294,7 @@
             this.comColour.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.comColour.FormattingEnabled = true;
             this.comColour.Name = "comColour";
+            this.comColour.SelectedIndexChanged += new System.EventHandler(this.comBox_SelectedValueChanged);
             // 
             // label10
             // 
@@ -329,6 +340,30 @@
             this.ImageProduct.Name = "ImageProduct";
             this.ImageProduct.TabStop = false;
             this.ImageProduct.Click += new System.EventHandler(this.ImageProduct_Click);
+            // 
+            // txtColor
+            // 
+            resources.ApplyResources(this.txtColor, "txtColor");
+            this.txtColor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtColor.Name = "txtColor";
+            this.txtColor.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
+            this.txtColor.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            // 
+            // txtSize
+            // 
+            resources.ApplyResources(this.txtSize, "txtSize");
+            this.txtSize.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSize.Name = "txtSize";
+            this.txtSize.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
+            this.txtSize.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
+            // 
+            // txtSort
+            // 
+            resources.ApplyResources(this.txtSort, "txtSort");
+            this.txtSort.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtSort.Name = "txtSort";
+            this.txtSort.TextChanged += new System.EventHandler(this.txtBox_TextChanged);
+            this.txtSort.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBox_KeyDown);
             // 
             // Product_Record
             // 
@@ -386,6 +421,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtSort;
+        private System.Windows.Forms.TextBox txtSize;
+        private System.Windows.Forms.TextBox txtColor;
     }
 }
 

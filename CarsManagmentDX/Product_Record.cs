@@ -131,7 +131,7 @@ namespace StoresManagmentDX
                                 comColour.DisplayMember = dt.Columns["Color_Name"].ToString();
                                 comColour.ValueMember = dt.Columns["Color_ID"].ToString();
                                 comColour.Text = "";
-
+                                txtColor.Text = "";
                                 comFactory.Focus();
                             }
                             break;
@@ -162,6 +162,7 @@ namespace StoresManagmentDX
                                 comSize.DisplayMember = dt2.Columns["Size_Value"].ToString();
                                 comSize.ValueMember = dt2.Columns["Size_ID"].ToString();
                                 comSize.Text = "";
+                                txtSize.Text = "";
                                 comGroup.Focus();
                             }
                             break;
@@ -170,7 +171,7 @@ namespace StoresManagmentDX
                             {
                                 txtGroup.Text = comGroup.SelectedValue.ToString();
 
-                                string query3 = "select * from product where Group_ID=" + txtGroup.Text;
+                                string query3 = "select * from product inner join product_group on product.Product_ID=product_group.Product_ID where Group_ID=" + txtGroup.Text;
                                 MySqlDataAdapter da3 = new MySqlDataAdapter(query3, conn);
                                 DataTable dt3 = new DataTable();
                                 da3.Fill(dt3);
@@ -183,17 +184,24 @@ namespace StoresManagmentDX
                                 comProduct.Focus();
                             }
                             break;
+
                         case "comProduct":
                             txtProduct.Text = comProduct.SelectedValue.ToString();
                             comColour.Focus();
                             break;
+
                         case "comColour":
+                            txtColor.Text = comColour.SelectedValue.ToString();
                             comSize.Focus();
                             break;
+
                         case "comSize":
+                            txtSize.Text = comSize.SelectedValue.ToString();
                             txtClassification.Focus();
                             break;
+
                         case "comSort":
+                            txtSort.Text = comSort.SelectedValue.ToString();
                             txtCarton.Focus();
                             break;
                     }
@@ -275,11 +283,72 @@ namespace StoresManagmentDX
                                 {
                                     Name = (string)com.ExecuteScalar();
                                     comProduct.Text = Name;
-                                    comColour.Focus();
+                                    txtColor.Focus();
                                 }
                                 else
                                 {
                                     MessageBox.Show("there is no item with this id");
+                                    conn.Close();
+                                    return;
+                                }
+                                break;
+                            case "txtColor":
+                                query = "select Color_Name from color where Color_ID='" + txtColor.Text + "' and Type_ID='"+txtType.Text+"'";
+                                com = new MySqlCommand(query, conn);
+                                if (com.ExecuteScalar() != null)
+                                {
+                                    Name = (string)com.ExecuteScalar();
+                                    comColour.Text = Name;
+                                    txtSize.Focus();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("there is no item with this id");
+                                    txtColor.Text = "";
+                                    conn.Close();
+                                    return;
+                                }
+                                break;
+                            case "txtSize":
+                                query = "select Size_Value from size where Size_ID='" + txtSize.Text + "' and Factory_ID='"+txtFactory.Text+"'";
+                                com = new MySqlCommand(query, conn);
+                                if (com.ExecuteScalar() != null)
+                                {
+                                    Name = (string)com.ExecuteScalar();
+                                    comSize.Text = Name;
+                                    txtClassification.Focus();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("there is no item with this id");
+                                    txtSize.Text = "";
+                                    txtClassification.Focus();
+                                    conn.Close();
+                                    return;
+                                }
+                                break;
+                            case "txtClassification":
+                                txtDescription.Focus();
+
+                                break;
+                            case "txtDescription":
+                                txtDescription.Focus();
+                                txtSort.Focus();
+                                break;
+                            case "txtSort":
+                                query = "select Sort_Value from sort where Sort_ID='" + txtSort.Text + "'";
+                                com = new MySqlCommand(query, conn);
+                                if (com.ExecuteScalar() != null)
+                                {
+                                    Name = (string)com.ExecuteScalar();
+                                    comSort.Text = Name;
+                                    txtCarton.Focus();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("there is no item with this id");
+                                    txtSort.Text = "";
+                                    txtCarton.Focus();
                                     conn.Close();
                                     return;
                                 }
@@ -309,15 +378,15 @@ namespace StoresManagmentDX
                     string classification, description = "";
                     if (comColour.Text != "")
                     {
-                        color_id = Convert.ToInt16(comColour.SelectedValue.ToString());
+                        color_id = Convert.ToInt16(txtColor.Text);
                     }
                     if (comSize.Text != "")
                     {
-                        size_id = Convert.ToInt16(comSize.SelectedValue.ToString());
+                        size_id = Convert.ToInt16(txtSize.Text);
                     }
                     if (comSort.Text != "")
                     {
-                        sort_id = Convert.ToInt16(comSort.SelectedValue.ToString());
+                        sort_id = Convert.ToInt16(txtSort.Text);
                     }
                     if (txtCarton.Text != "")
                     {
@@ -546,7 +615,6 @@ namespace StoresManagmentDX
                 ImageProduct.Image = null;
             }
         }
-         
         public XtraTabPage getTabPage(string text)
         {
             for (int i = 0; i < xtraTabControlStoresContent.TabPages.Count; i++)
@@ -556,7 +624,6 @@ namespace StoresManagmentDX
                 }
             return null;
         }
-
         public bool IsClear()
         {
             bool flag = false;

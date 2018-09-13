@@ -757,7 +757,7 @@ namespace StoresManagmentDX
             {
                 if (txtType.Text != "1")
                 {
-                    string query = "select * from product where Group_ID=" + comGroup.SelectedValue + " and Factory_ID=" + comFactory.SelectedValue + " and Type_ID=" + comType.SelectedValue;
+                    string query = "select * from product inner join product_group on product.Product_ID=product_group.Product_ID where product_group.Group_ID=" + comGroup.SelectedValue + " and Factory_ID=" + comFactory.SelectedValue + " and Type_ID=" + comType.SelectedValue;
                     MySqlDataAdapter da = new MySqlDataAdapter(query, dbconnection);
                     DataTable dt = new DataTable();
                     da.Fill(dt);
